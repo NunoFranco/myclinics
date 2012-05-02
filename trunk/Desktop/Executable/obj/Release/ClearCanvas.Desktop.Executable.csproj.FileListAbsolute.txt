@@ -1,0 +1,12 @@
+D:\Running_Sourcecode\RIS_2SP1\Desktop\Executable\bin\Release\ClearCanvas.Desktop.Executable.exe.config
+D:\Running_Sourcecode\RIS_2SP1\Desktop\Executable\bin\Release\ClearCanvas.Desktop.Executable.exe
+D:\Running_Sourcecode\RIS_2SP1\Desktop\Executable\obj\Release\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\RIS_2SP1\Desktop\Executable\obj\Release\ClearCanvas.Desktop.Executable.SR.resources
+D:\Running_Sourcecode\RIS_2SP1\Desktop\Executable\obj\Release\ClearCanvas.Desktop.Executable.csproj.GenerateResource.Cache
+D:\Running_Sourcecode\RIS_2SP1\Desktop\Executable\obj\Release\ClearCanvas.Desktop.Executable.exe
+d:\My_Projects\RIS_2SP1\Desktop\Executable\bin\Release\ClearCanvas.Desktop.Executable.exe.config
+d:\My_Projects\RIS_2SP1\Desktop\Executable\bin\Release\ClearCanvas.Desktop.Executable.exe
+d:\My_Projects\RIS_2SP1\Desktop\Executable\obj\Release\ResolveAssemblyReference.cache
+d:\My_Projects\RIS_2SP1\Desktop\Executable\obj\Release\ClearCanvas.Desktop.Executable.SR.resources
+d:\My_Projects\RIS_2SP1\Desktop\Executable\obj\Release\ClearCanvas.Desktop.Executable.csproj.GenerateResource.Cache
+d:\My_Projects\RIS_2SP1\Desktop\Executable\obj\Release\ClearCanvas.Desktop.Executable.exe
