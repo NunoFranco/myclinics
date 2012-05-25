@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Healthcare" namespace="ClearCanvas.Healthcare">
+  <class name="MeasureUnit" proxy="MeasureUnit" table="MeasureUnit_">
+    <cache usage="nonstrict-read-write"/>
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+    <many-to-one name="CompareUnit" class="MeasureUnit" column="CompareUnitOID_" not-null="false"/>
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+    <property name="DeviationValue" column="DeviationValue_" type="Decimal" not-null="false"/>
+    <many-to-one name="Clinic" class="Facility" column="ClinicOID_"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Healthcare" namespace="ClearCanvas.Healthcare">
+  <class name="ProcedureType" proxy="ProcedureType" table="ProcedureType_">
+    <cache usage="nonstrict-read-write"/>
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+
+    <property name="Id" column="Id_" type="String" length="30" not-null="true" unique="true"/>
+    <property name="Name" column="Name_" type="String" length="100" not-null="true" unique="true"/>
+    <many-to-one name="BaseType" class="ProcedureType" column="BaseTypeOID_" not-null="false"/>
+    <property name="PlanXml" column="PlanXml_" type="StringClob" length="65000" access="field.camelcase-underscore"/>
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+    <property name="BasePrice" column="BasePrice_" type="Decimal" not-null="true"/>
+    <property name="Tax" column="Tax_" type="Decimal" not-null="true"/>
+    <property name="IsRequired" column="IsRequred_" type="Boolean" not-null="true"/>
+    <many-to-one name="Clinic" class="Facility" column="ClinicOID_"/>
+    <many-to-one name="Category" column="CategoryOID_" class="ProcedureTypeCategoryEnum" not-null="true"/>
+    <!--<map name="ExtendedProperties" lazy="true" table="ProcedureTypeExtendedProperty_">
+      <key column="ProcedureTypeOID_"/>
+      <index column="Name_" type="String"/>
+      <element column="Value_" type="StringClob" length="65000"/>
+    </map>-->
+    <!--<many-to-one name="Unit" column="UnitOID_" class="MeasureUnit" not-null="false"/>-->
+    <many-to-one name="UOM" column="UOM_" class="UOMEnum" not-null="true"/>
+  </class>
+</hibernate-mapping>

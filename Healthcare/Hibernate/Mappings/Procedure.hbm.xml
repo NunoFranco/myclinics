@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Healthcare" namespace="ClearCanvas.Healthcare">
+  <class name="Procedure" proxy="Procedure" table="Procedure_">
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+
+    <many-to-one name="Order" class="Order" column="OrderOID_" not-null="true"/>
+    <many-to-one name="Type" class="ProcedureType" column="ProcedureTypeOID_" not-null="true" fetch="join"/>
+    <property name="Index" column="Index_" type="String" length="10" not-null="true"/>
+    <set name="ProcedureSteps" lazy="true" inverse="true" cascade="all-delete-orphan" access="nosetter.camelcase-underscore">
+      <key column="ProcedureOID_"/>
+      <one-to-many class="ProcedureStep"/>
+    </set>
+
+    <property name="ScheduledStartTime" column="ScheduledStartTime_" type="DateTime" not-null="false" access="nosetter.camelcase-underscore"/>
+    <property name="StartTime" column="StartTime_" type="DateTime" not-null="false" access="nosetter.camelcase-underscore"/>
+    <property name="EndTime" column="EndTime_" type="DateTime" not-null="false" access="nosetter.camelcase-underscore"/>
+    <many-to-one name="Status" column="Status_" class="ProcedureStatusEnum" not-null="true" access="nosetter.camelcase-underscore"/>
+    <many-to-one name="PerformingFacility" class="Facility" column="PerformingFacilityOID_"/>
+    <many-to-one name="Laterality" column="Laterality_" class="LateralityEnum" not-null="true"/>
+    <property name="Portable" type="Boolean" column="Portable_"/>
+    <many-to-one name="ProcedureCheckIn" column="ProcedureCheckInOID_" class="ProcedureCheckIn" cascade="all" fetch="join"/>
+    <many-to-one name="ImageAvailability" column="ImageAvailability_" class="ImageAvailabilityEnum"/>
+    <many-to-one name="PackageProcedure" column="PackageProcedureOID_" class="DiagnosticService" not-null="false"/>
+    <!-- Specifies whether the procedure is currently in downtime recovery mode -->
+    <property name="DowntimeRecoveryMode" column="DowntimeRecoveryMode_" type="Boolean" not-null="true"/>
+
+    <!-- Radiology Reports : a Procedure should only ever have one Report in a status other than X.
+          The collection may contain multiple entries, because a report may have been cancelled by the author
+          for whatever reason.
+    -->
+    <set name="Reports" table="ProcedureReport_" inverse="true" lazy="true">
+      <key column="ProcedureOID_"/>
+      <many-to-many column="ReportOID_" class="Report" fetch="join"/>
+    </set>
+
+    <set name="Protocols" table="ProcedureProtocol_" inverse="true" lazy="true">
+      <key column="ProcedureOID_"/>
+      <many-to-many column="ProtocolOID_" class="Protocol" fetch="join"/>
+    </set>
+
+    <property name="WaitingInsuranceAmount" column="WaitingInsuranceAmount_" type="Decimal" not-null="true"/>
+    <property name="CollectedAmount" column="CollectedAmount_" type="Decimal" not-null="false"/>
+    <property name="IsPendingInsurance" column="IsPendingInsurance_" type="Boolean" not-null="true"/>
+    <property name="IsPackageProcedure" column="IsPackageProcedure_" type="Boolean" not-null="false"/>
+    <property name="PendingProcedureStatus" column="PendingProcedureStatus_" type="String" not-null="true"/>
+    <many-to-one name="Clinic" class="Facility" column="ClinicOID_" not-null="false" fetch="join"/>
+  </class>
+</hibernate-mapping>

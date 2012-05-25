@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Healthcare" namespace="ClearCanvas.Healthcare">
+  <class name="WorkingShift" proxy="WorkingShift" table="WorkingShift_">
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+    <idbag name="Doctors" table="DoctorWorkingPlan_" lazy="true">
+      <collection-id column="OID_" type="Guid">
+        <generator class="guid.comb"/>
+      </collection-id>
+      <key column="WorkingShiftOID_"/>
+      <composite-element class="DoctorWorkingPlan">
+        <many-to-one name="Doctor" column="StaffOID_" class="Staff"/>
+        <property name="PlanDate" column="PlanDate_" type="DateTime" not-null="true" />
+        <many-to-one name="Clinic" class="Facility" column="ClinicOID_" not-null="false" fetch="join"/>
+      </composite-element>
+    </idbag>
+    <property name="Name" column="Name_" type="String" unique="true" not-null="true"/>
+    <property name="Description" column="Description_" type="String" length="1024"/>
+    <property name="ValidFromDate" column="ValidFromDate_" type="DateTime" not-null="false" />
+    <property name="StartTime" column="StartTime_" type="DateTime" not-null="false" />
+    <property name="ValidToDate" column="ValidToDate_" type="DateTime" not-null="false"/>
+    <property name="EndTime" column="EndTime_" type="DateTime" not-null="false"/>
+    <many-to-one name="Clinic" class="Facility" column="ClinicOID_" not-null="false" fetch="join"/>
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+  </class>
+</hibernate-mapping>
