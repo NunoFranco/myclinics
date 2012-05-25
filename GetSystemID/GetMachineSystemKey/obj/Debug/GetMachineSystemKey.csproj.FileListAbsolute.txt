@@ -1,0 +1,9 @@
+D:\My_Projects\RIS_2SP1\GetSystemID\GetMachineSystemKey\bin\Debug\GetMachineSystemKey.exe
+D:\My_Projects\RIS_2SP1\GetSystemID\GetMachineSystemKey\bin\Debug\GetMachineSystemKey.pdb
+D:\My_Projects\RIS_2SP1\GetSystemID\GetMachineSystemKey\bin\Debug\GetSystemID.dll
+D:\My_Projects\RIS_2SP1\GetSystemID\GetMachineSystemKey\bin\Debug\GetSystemID.pdb
+D:\My_Projects\RIS_2SP1\GetSystemID\GetMachineSystemKey\obj\Debug\ResolveAssemblyReference.cache
+D:\My_Projects\RIS_2SP1\GetSystemID\GetMachineSystemKey\obj\Debug\GetMachineSystemKey.Properties.Resources.resources
+D:\My_Projects\RIS_2SP1\GetSystemID\GetMachineSystemKey\obj\Debug\GetMachineSystemKey.csproj.GenerateResource.Cache
+D:\My_Projects\RIS_2SP1\GetSystemID\GetMachineSystemKey\obj\Debug\GetMachineSystemKey.exe
+D:\My_Projects\RIS_2SP1\GetSystemID\GetMachineSystemKey\obj\Debug\GetMachineSystemKey.pdb
