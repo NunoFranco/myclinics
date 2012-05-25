@@ -1,0 +1,15 @@
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\bin\Debug\ClearCanvas.Dicom.XmlGenerator.exe
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\bin\Debug\ClearCanvas.Dicom.XmlGenerator.pdb
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\bin\Debug\ClearCanvas.Dicom.dll
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\bin\Debug\log4net.dll
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\bin\Debug\nunit.framework.dll
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\bin\Debug\ClearCanvas.Common.dll
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\bin\Debug\ClearCanvas.Common.pdb
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\bin\Debug\ClearCanvas.Common.xml
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\bin\Debug\ClearCanvas.Dicom.pdb
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\obj\Debug\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\obj\Debug\ClearCanvas.Dicom.XmlGenerator.MainDialog.resources
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\obj\Debug\ClearCanvas.Dicom.XmlGenerator.Properties.Resources.resources
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\obj\Debug\ClearCanvas.Dicom.XmlGenerator.csproj.GenerateResource.Cache
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\obj\Debug\ClearCanvas.Dicom.XmlGenerator.exe
+D:\Running_Sourcecode\RIS_2SP1\Dicom\XmlGenerator\obj\Debug\ClearCanvas.Dicom.XmlGenerator.pdb
