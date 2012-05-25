@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Enterprise.Authentication" namespace="ClearCanvas.Enterprise.Authentication">
+  <class name="Employee" table="Staff_">
+    <cache usage="nonstrict-read-write"/>
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+    <property name="Id" column="Id_" type="String" length="30" not-null="true" unique="true"/>
+    
+    <property name="Title" column="Title_" type="String" length="100"/>
+    <property name="LicenseNumber" column="LicenseNumber_" type="String" length="100"/>
+    <property name="BillingNumber" column="BillingNumber_" type="String" length="100"/>
+   
+    <!-- This property associates the staff with a User identity - may be null if the Staff is not associated with a user. -->
+    <property name="UserName" column="UserName_" type="String" not-null="false"/>
+
+    <set name="Clinics" table="StaffFacility_" lazy="true" cascade="all">
+      <key column="StaffOID_"/>
+      <many-to-many column="ClinicOID_" class="Clinic" fetch="join"/>
+    </set>
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+  </class>
+</hibernate-mapping>
