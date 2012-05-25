@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="ClearCanvas.Healthcare" assembly="ClearCanvas.Healthcare">
+	<class name="DiscountRule" proxy="DiscountRule" table="BillingDiscountRules_" lazy="true">
+    <cache usage="nonstrict-read-write"/>
+		<id name="OID" column="DiscountRuleID" type="Guid">
+		 	<generator class="guid.comb" />
+		</id>
+
+		<many-to-one name="ClassID" class="DiscountTypeEnum" column="ClassID" not-null="false"/>
+
+
+		<many-to-one name="ProcedureType" column="ProcedureTypeID_" class="ProcedureType" not-null="false"/>
+		
+		<property name="RuleCode" column="RuleCode" type="string" length="50" not-null="false"/>
+		<property name="RuleName" column="RuleName" type="string" length="50" not-null="false"/>
+    <property name="AmountType" column="AmountType" type="ClearCanvas.Enterprise.Common.DisCountInsuranceAmountType,ClearCanvas.Enterprise.Common" not-null="false"/>
+		<property name="Amount" column="Amount" type="Decimal" not-null="false"/>
+		<property name="StartDate" column="StartDate" type="DateTime" not-null="false"/>
+		<property name="ExpireDate" column="ExpireDate" type="DateTime" not-null="false"/>
+		<property name="CreatedUser" column="CreatedUser" type="string" length="50" not-null="false"/>
+		<property name="CreatedDate" column="CreatedDate" type="DateTime" not-null="false"/>
+		<property name="LastUpdated" column="LastUpdated" type="DateTime" not-null="false"/>
+    <property name="Deactivated" column="Deactivated" type="Boolean" not-null="false"/>
+	</class>
+</hibernate-mapping>

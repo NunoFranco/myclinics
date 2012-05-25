@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Healthcare" namespace="ClearCanvas.Healthcare">
+  <class name="AmbulatoryStatusEnum" proxy="AmbulatoryStatusEnum" table="AmbulatoryStatusEnum_">
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <property name="Code" column="Code_" type="String" length="255"/>
+    <property name="Value" column="Value_" type="String" length="50"/>
+    <property name="Description" column="Description_" type="String" length="200"/>
+    <property name="DisplayOrder" column="DisplayOrder_" type="Single"/>
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+    <many-to-one name="Clinic" class="ClearCanvas.Enterprise.Core.EnterpriseClinic, ClearCanvas.Enterprise.Core" column="ClinicOID_" not-null="false" fetch="join"/>
+  </class>
+</hibernate-mapping>

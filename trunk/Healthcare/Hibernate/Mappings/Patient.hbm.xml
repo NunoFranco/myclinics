@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Healthcare" namespace="ClearCanvas.Healthcare">
+  <class name="Patient" proxy="Patient" table="Patient_">
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+
+    <set name="Profiles" lazy="true" inverse="true" cascade="all-delete-orphan" access="nosetter.camelcase-underscore">
+      <key column="PatientOID_"/>
+      <one-to-many class="PatientProfile"/>
+    </set>
+
+    <idbag name="Attachments" table="PatientAttachment_" lazy="true" access="nosetter.camelcase-underscore">
+      <collection-id column="OID_" type="Guid">
+        <generator class="guid.comb"/>
+      </collection-id>
+      <key column="PatientOID_"/>
+      <composite-element class="PatientAttachment">
+        <many-to-one name="Category" column="Category_" class="PatientAttachmentCategoryEnum"/>
+        <many-to-one name="AttachedBy" column="AttachedByStaffOID_" class="Staff" not-null="true" fetch="join"/>
+        <property name="AttachedTime" column="AttachedTime_" type="DateTime" not-null="true"/>
+        <many-to-one name="Document" column="AttachedDocumentOID_" class="AttachedDocument" not-null="true" cascade="all" fetch="join"/>
+        <many-to-one name="Clinic" class="Facility" column="ClinicOID_" not-null="false" fetch="join"/>
+      </composite-element>
+    </idbag>
+
+    <set name="Notes" lazy="true" inverse="true" cascade="all-delete-orphan">
+      <key column="PatientOID_"/>
+      <one-to-many class="PatientNote"/>
+    </set>
+    
+  </class>
+</hibernate-mapping>

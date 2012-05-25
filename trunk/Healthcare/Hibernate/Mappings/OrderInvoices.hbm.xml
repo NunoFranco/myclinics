@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Healthcare" namespace="ClearCanvas.Healthcare">
+  <class name="OrderInvoices" proxy="OrderInvoices" table="BillingOrderInvoices_">
+    <id name="OID" column="InvoiceID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+
+    <many-to-one name="InvoiceOrder" class="Order" column="OrderID_" not-null="true"/>
+
+    <property name="InvoiceNumber" column="InvoiceNumber_" type="String" length="50"/>
+
+    <property name="TotalCollect" column="TotalCollect_" type="Decimal" not-null="true"/>
+
+    <property name="TotalInsurance" column="TotalInsurance_" type="Decimal" not-null="true"/>
+
+    <property name="TotalDiscount" column="TotalDiscount_" type="Decimal" not-null="true"/>
+
+    <property name="TotalWaitingAmount" column="TotalWaitingAmount_" type="Decimal" not-null="true"/>
+
+    <property name="IsCollectedInsurance" column="IsCollectedInsurance_" type="Boolean" not-null="true"/>
+
+    <property name="CreatedUser" column="CreatedUser_" type="String" not-null="false"/>
+
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="false"/>
+
+    <property name="TotalReceived" column="TotalReceived_" type="Decimal" not-null="true"/>
+
+    <property name="TotalChanges" column="TotalChanges_" type="Decimal" not-null="true"/>
+    <property name="ListProcedures" column="ListProcedures_" type="StringClob" length="65000" not-null="true"/>
+    <property name="CreatedDate" column="CreatedDate_" type="DateTime" not-null="true"/>
+  </class>
+</hibernate-mapping>
