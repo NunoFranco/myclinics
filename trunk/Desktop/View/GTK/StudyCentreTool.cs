@@ -1,0 +1,91 @@
+﻿#region License
+
+// Copyright (c) 2010, ClearCanvas Inc.
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without modification, 
+// are permitted provided that the following conditions are met:
+//
+//    * Redistributions of source code must retain the above copyright notice, 
+//      this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above copyright notice, 
+//      this list of conditions and the following disclaimer in the documentation 
+//      and/or other materials provided with the distribution.
+//    * Neither the name of ClearCanvas Inc. nor the names of its contributors 
+//      may be used to endorse or promote products derived from this software without 
+//      specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
+// PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
+// OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE 
+// GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+// HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, 
+// STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN 
+// ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+// OF SUCH DAMAGE.
+
+#endregion
+
+using System;
+using System.Drawing;
+using ClearCanvas.Common;
+//using ClearCanvas.Workstation.Model;
+//using ClearCanvas.ImageViewer.Tools;
+//using ClearCanvas.ImageViewer.Actions;
+using ClearCanvas.Desktop.Tools;
+using ClearCanvas.Desktop.Actions;
+using ClearCanvas.ImageViewer;
+using ClearCanvas.ImageViewer.StudyManagement;
+
+using Gtk;
+
+//namespace ClearCanvas.ImageViewer.View.GTK
+namespace ClearCanvas.Desktop.View.GTK
+{
+	[MenuAction("activate", "MenuFile/MenuFileSearch")]
+	[ButtonAction("activate", "ToolbarStandard/ToolbarToolsStandardStudyCentre")]
+	[ClickHandler("activate", "Activate")]
+//	[ClearCanvas.Workstation.Model.Actions.IconSet("activate", IconScheme.Colour, "", "Icons.DashboardMedium.png", "Icons.DashboardLarge.png")]
+	[ClearCanvas.Desktop.Actions.IconSet("activate", IconScheme.Colour, "", "Icons.DashboardMedium.png", "Icons.DashboardLarge.png")]
+	
+//	[ExtensionOf(typeof(ClearCanvas.Workstation.Model.WorkstationToolExtensionPoint))]
+	[ExtensionOf(typeof(ClearCanvas.Desktop.DesktopToolExtensionPoint))]
+	public class StudyCentreTool : StockTool
+	{
+		
+		public StudyCentreTool()
+		{
+		}
+
+		public void Activate()
+		{
+			object[] buttonResponses = new object[] {"Accept", ResponseType.Accept, "Cancel", ResponseType.Cancel};
+			FileChooserDialog fileDialog = new FileChooserDialog("Local Studies", (Window)_mainView.GuiElement, FileChooserAction.SelectFolder, buttonResponses);
+			
+			int result = fileDialog.Run();
+			string folder = fileDialog.Filename;
+			fileDialog.Destroy();	// must manually destroy the dialog
+			
+			if(result == (int)ResponseType.Accept)
+			{
+				LocalImageLoader loader = new LocalImageLoader();
+				string studyUID = loader.Load(folder);
+				//if(studyUID == "" || WorkstationModel.StudyManager.StudyTree.GetStudy(studyUID) == null)
+				if(studyUID == "" || ImageWorkspace.StudyManager.StudyTree.GetStudy(studyUID) == null)
+				{
+					//Platform.ShowMessageBox(ClearCanvas.Workstation.Model.SR.ErrorUnableToLoadStudy);
+					Platform.ShowMessageBox(ClearCanvas.ImageViewer.SR.ErrorUnableToLoadStudy);
+				}
+				else
+				{
+					ImageWorkspace ws = new ImageWorkspace(studyUID);
+					//WorkstationModel.WorkspaceManager.Workspaces.Add(ws);
+					DesktopApplication.WorkspaceManager.Workspaces.Add(ws);
+				}
+			}
+		}
+	}
+}
