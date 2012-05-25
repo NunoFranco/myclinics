@@ -1,0 +1,44 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <DistributionBuild>false</DistributionBuild>
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+
+  <Choose>
+    <When Condition="'$(Configuration)' == 'Release' And '$(KeyFile)' != ''">
+      <PropertyGroup>
+        <CommonProperties>Configuration=$(Configuration);SignAssembly=true;DelaySign=false;AssemblyOriginatorKeyFile=$(KeyFile)</CommonProperties>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <CommonProperties>Configuration=$(Configuration)</CommonProperties>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
+  <Choose>
+		<When Condition=" '$(Configuration)' == 'Debug' ">
+			<PropertyGroup>
+				<EmitDebugInformation>/debug+</EmitDebugInformation>
+			</PropertyGroup>
+		</When>
+		<When Condition=" '$(Configuration)' == 'Release' ">
+			<PropertyGroup>
+				<EmitDebugInformation>/debug-</EmitDebugInformation>
+			</PropertyGroup>
+		</When>
+	</Choose>
+
+    <Target Name="Build" Inputs="ClearCanvas.Jscript.js; ..\Common\bin\$(Configuration)\ClearCanvas.Common.dll" Outputs="bin\$(Configuration)\ClearCanvas.Jscript.dll">
+
+      <GetFrameworkPath>
+        <Output TaskParameter="Path" PropertyName="FrameworkPath" />
+      </GetFrameworkPath>
+      <!--<Message Text="FrameworkPath = $(FrameworkPath)"/>-->
+
+      <MakeDir Directories="bin\$(Configuration)" Condition="!Exists('bin\$(Configuration)')" />
+    <MSBuild Projects="..\Common\ClearCanvas.Common.csproj" Properties="$(CommonProperties)" />
+    <Exec Command="$(FrameworkPath)\jsc $(EmitDebugInformation) /t:library /lib:..\Common\bin\$(Configuration) /out:bin\$(Configuration)\ClearCanvas.Jscript.dll ClearCanvas.Jscript.js"/>
+	</Target>
+</Project>
