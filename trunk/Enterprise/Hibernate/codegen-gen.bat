@@ -1,0 +1,1 @@
+cd ..\codegenruby codegen.rb ../Hibernate/Mappings ../Core
