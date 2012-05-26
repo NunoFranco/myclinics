@@ -1,0 +1,17 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ClearCanvas.Ris.Shreds.MwlServer.CCRisQueryConnector.Uhn" GeneratedClassName="MwlFilterSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BreastImagingUltrasoundProcedureIDs" Description="Stores the procedure type ID of a list of Breast Imaging procedures that are considered to be US modality in the DICOM sense." Type="System.String" Scope="Application">
+      <Value Profile="(Default)">0114007,0114008,0114009,0114012</Value>
+    </Setting>
+    <Setting Name="TagReplacementRules" Description="Stores a list of comma separated values that describes the rules for replacing DICOM tag values in the return MWL result messages." Type="System.String" Scope="Application">
+      <Value Profile="(Default)">-- This setting contains a list of tag replacement rules in the following format.  Tabs and spaces will be trimmed.
+-- AETitle, (group, element), "New Value"
+-- The new value must match the value representation (VR) of the particular Dicom tag being written
+-- Otherwise the new value will not be written.
+
+ModalitySCU, (0040,0001), "ModalitySCU"	-- Scheduled Station AE Title</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

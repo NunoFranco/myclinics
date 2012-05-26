@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!--
+
+NOTE: 
+Add a .XML extension to this file and open in a browser for easy viewing and validating.
+
+All settings are case sensitive and sequentially ordered. Therefore, do not change the order of the settings in the
+configuration file and pay special attention to syntax.
+
+
+This is a sample (basic) routing table (.fsr) used in conjunction with Fax Service Router (FSR)
+
+-->
+
+<!--
+
+AccountID: One AccountID may contain one or unlimited UserIDs.
+
+-->
+  <AccountID>1234482</AccountID>
+
+<!--
+
+UserID: One UserID may have one or unlimited fax numbers associated to it. 
+
+-->
+  <UserID>1234482</UserID>
+
+<!--
+
+UserPassword: One per UserID.
+Password needs to be encrypted by the PasswordEncrypter.exe, otherwise FSR will not run.
+
+-->
+  <UserPassword>uwoA8jT58+LCe7yNoGuGzw==</UserPassword>
+
+  <InboundFaxRouters>
+
+<!--
+
+FaxNumber: A single MyFax fax number (tollfree or local) associated with the MyFax UserID.
+
+-->
+    <InboundFaxRouter FaxNumber="8665053352">
+
+<!--
+
+ArchivingOptions: Specifies whether or not to leave a copy of the fax image on the MyFax Hosted Fax service.
+
+-->           
+      <ArchivingOptions LeaveCopyOnServer="True">
+      
+<!--
+
+DeleteAfter: Specifies a unit (Minutes | Hours | Days | Months) and its value for how long you would like faxes to be stored on MyFax Hosted Fax Service once downloaded to the local system. 
+
+-->
+        <DeleteAfter Unit="Days">5</DeleteAfter>        
+      </ArchivingOptions>
+
+      <Drops>
+<!--
+
+FaxDrops: used to save fax image files (PDF or TIFF) to folders (either local or network shared). 
+One or multiple FaxDrops can be specified. 
+DropLocations can be routed based upon information about the fax (FaxDetails) and should always contain a default route. 
+
+FaxDetails available for use when naming a fax image file that has been downloaded from MyFax.
+
+* .AccountID: the MyFax master AccountID that the fax was received on.
+* .UserID: the MyFax UserID that the fax was received on.
+* .FaxID: a unique ID assigned to each fax by MyFax
+* .FaxFileExtension: PDF or TIF. FSR will use whatever setting is configured on MyFaxCentral at the time of download.
+* .FaxFileSizeInBytes: file size of the received fax in bytes.
+* .UserFaxNumber: user fax number that the fax was received on.
+* .CSID: the Caller Subscriber Identification of the sending fax machine. This is programmed into the sending fax machine.
+* .FaxReceivedTimeStamp: the date and time that the fax was received (in GMT) at the beginning of the fax transmission.
+* .CallerID: the CallerID of the sender.
+* .NumOfPages: the number of pages in the faxed document.
+* .DurationInSecs: how long the received fax took to transmit (in seconds).
+
+-->
+<!--
+RouteOn: For specifying an item of FaxDetails for routing.
+RouteValue: For specifying the value of the FaxDetails item in RouteOn.
+
+This FaxDrop will check the CallerID of the received fax with default route.
+
+            <DropLocation RouteOn="FaxDetails.CallerID" RouteValue="8882484976">
+	      <FilePath>C:\Documents and Settings\CC Dev\Desktop\FaxSample\Incoming\${FaxDetails.FaxID}.${FaxDetails.FaxFileExtension}</FilePath>
+            </DropLocation>
+	    <DropLocation RouteOn="FaxDetails.CallerID" RouteValue="8885554444">
+	      <FilePath>C:\Documents and Settings\CC Dev\Desktop\FaxSample\Incoming\${FaxDetails.FaxID}.${FaxDetails.FaxFileExtension}</FilePath>
+            </DropLocation>
+			-->
+<!--
+
+The following drop is for default route for all faxes which are not captured by filters above.
+
+-->
+		<FaxDrop>
+			<DropLocations>
+				<DropLocation>
+					<FilePath>C:\Documents and Settings\CC Dev\Desktop\FaxSample\Incoming\${FaxDetails.FaxID}.${FaxDetails.FaxFileExtension}</FilePath>
+				</DropLocation>
+			</DropLocations>
+        </FaxDrop>        
+		<MetaDataDrop Name=”All Fax Meta Data drop“>
+			<DropLocations>
+				<DropLocation>
+					<MetaDataTemplate>string</MetaDataTemplate>
+					<FilePath>C:\Documents and Settings\CC Dev\Desktop\FaxSample\Incoming\${FaxDetails.FaxID}.fmd</FilePath>
+					<MetaDataTemplate>
+						<![CDATA[
+							ACCOUNTID:${FaxDetails.AccountID}
+							USERID:${FaxDetails.UserID}
+							USERFAXNUMBER:${FaxDetails.UserFaxNumber}
+							FAXID:${FaxDetails.FaxID}							
+							FROM:${FaxDetails.CallerID,No CallerID found.}
+							FROMCSID:${FaxDetails.CSID,No CSID found.}
+							FILESIZE:${FaxDetails.FaxFileSizeInBytes}
+							PAGES:${FaxDetails.NumOfPages}
+							DURATION:${FaxDetails.DurationInSecs}
+							DATE:${FaxDetails.FaxReceivedTimeStamp}
+						]]>
+					</MetaDataTemplate>
+				</DropLocation>
+			</DropLocations>
+		</MetaDataDrop>
+      </Drops>
+
+    </InboundFaxRouter>
+
+<!--
+   <InboundFaxRouter FaxNumber="2123334567">
+          
+      <ArchivingOptions LeaveCopyOnServer="True">
+        <DeleteAfter Unit="Days">5</DeleteAfter>        
+      </ArchivingOptions>
+
+      <Drops>
+        <FaxDrop Name="Drop Based on CSID Filter">
+          <DropLocations>
+-->
+<!--
+
+This FaxDrop will check the CSID of the received fax with default route. 
+
+-->
+<!--
+            <DropLocation RouteOn="FaxDetails.CSID" RouteValue="8882484976">
+	      <FilePath>c:\CompanyA\${FaxDetails.FaxID}.${FaxDetails.FaxFileExtension}</FilePath>
+            </DropLocation>
+	    <DropLocation RouteOn="FaxDetails.CSID" RouteValue="DrSmith">
+	      <FilePath>c:\CompanyB\${FaxDetails.FaxID}.${FaxDetails.FaxFileExtension}</FilePath>
+            </DropLocation>
+	    <DropLocation>
+-->
+<!--
+
+Comma notation:
+File name will be FaxID-CSID.extension, or if CSID is not available it will be FaxID-CallerID.extension, or if CallerID is not available it will be FaxID-NA.extension.
+
+-->
+<!--
+	      <FilePath>c:\AllCompanies\${FaxDetails.FaxID}-${FaxDetails.CSID, FaxDetails.CallerID, NA}.${FaxDetails.FaxFileExtension}</FilePath>
+            </DropLocation>
+          </DropLocations>
+        </FaxDrop>       
+
+      </Drops>
+
+    </InboundFaxRouter>
+-->
+  </InboundFaxRouters>
+</UserSettings>
