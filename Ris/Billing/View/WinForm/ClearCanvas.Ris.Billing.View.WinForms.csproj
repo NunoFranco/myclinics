@@ -1,0 +1,506 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0903545-A6B7-44DA-8485-DE605C175E57}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClearCanvas.Ris.Billing.View.WinForms</RootNamespace>
+    <AssemblyName>ClearCanvas.Ris.Billing.View.WinForms</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClearCanvas.Desktop, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\build\$(ConfigurationName)\plugins\ClearCanvas.Desktop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v10.1.Core, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetMagic2005, Version=5.2.2.0, Culture=neutral, PublicKeyToken=6cf6edec59e036ec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ReferencedAssemblies\DotNetMagic2005.DLL</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BillingCollectCashComponentControl.cs">
+    </Compile>
+    <Compile Include="BillingCollectCashComponentControl.Designer.cs">
+      <DependentUpon>BillingCollectCashComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingCollectCashComponentView.cs" />
+    <Compile Include="BillingComponentControl.cs">
+    </Compile>
+    <Compile Include="BillingComponentControl.Designer.cs">
+      <DependentUpon>BillingComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingComponentView.cs" />
+    <Compile Include="BillingCurrencyEditComponentControl.cs">
+    </Compile>
+    <Compile Include="BillingCurrencyEditComponentControl.Designer.cs">
+      <DependentUpon>BillingCurrencyEditComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingCurrencyEditComponentView.cs" />
+    <Compile Include="BillingCurrencyManagerComponentControl.cs">
+    </Compile>
+    <Compile Include="BillingCurrencyManagerComponentControl.Designer.cs">
+      <DependentUpon>BillingCurrencyManagerComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingCurrencyManagerComponentView.cs" />
+    <Compile Include="BillingDiscountEditComponentControl.cs">
+    </Compile>
+    <Compile Include="BillingDiscountEditComponentControl.Designer.cs">
+      <DependentUpon>BillingDiscountEditComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingDiscountEditComponentView.cs" />
+    <Compile Include="BillingDiscountPriceComponentControl.cs">
+    </Compile>
+    <Compile Include="BillingDiscountPriceComponentControl.Designer.cs">
+      <DependentUpon>BillingDiscountPriceComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingDiscountPriceComponentView.cs" />
+    <Compile Include="BillingInfoControl.cs">
+    </Compile>
+    <Compile Include="BillingInfoControl.Designer.cs">
+      <DependentUpon>BillingInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingInfoUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BillingInfoUserControl.Designer.cs">
+      <DependentUpon>BillingInfoUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingInfoView.cs" />
+    <Compile Include="BillingInsuramceComponentControl.cs">
+    </Compile>
+    <Compile Include="BillingInsuramceComponentControl.Designer.cs">
+      <DependentUpon>BillingInsuramceComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingInsuramceComponentView.cs" />
+    <Compile Include="BillingInsuranceEditComponentControl.cs">
+    </Compile>
+    <Compile Include="BillingInsuranceEditComponentControl.Designer.cs">
+      <DependentUpon>BillingInsuranceEditComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingInsuranceEditComponentView.cs" />
+    <Compile Include="BillingItemPriceComponentControl.cs">
+    </Compile>
+    <Compile Include="BillingItemPriceComponentControl.Designer.cs">
+      <DependentUpon>BillingItemPriceComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingItemPriceComponentView.cs" />
+    <Compile Include="BillingOptionComponentControl.cs">
+    </Compile>
+    <Compile Include="BillingOptionComponentControl.Designer.cs">
+      <DependentUpon>BillingOptionComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BillingOptionComponentView.cs" />
+    <Compile Include="EditProcedureAdjestment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditProcedureAdjestment.Designer.cs">
+      <DependentUpon>EditProcedureAdjestment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditProcedureAdjestmentPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProcedureAdjestmentPrice.Designer.cs">
+      <DependentUpon>EditProcedureAdjestmentPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacilityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacilityForm.designer.cs">
+      <DependentUpon>FacilityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetPrimaryCurrency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetPrimaryCurrency.Designer.cs">
+      <DependentUpon>frmSetPrimaryCurrency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListPatientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListPatientControl.Designer.cs">
+      <DependentUpon>ListPatientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModalitiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModalitiesForm.designer.cs">
+      <DependentUpon>ModalitiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintDoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintDoctorForm.designer.cs">
+      <DependentUpon>PrintDoctorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintInvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintInvoiceForm.Designer.cs">
+      <DependentUpon>PrintInvoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="reports\Doctor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Doctor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\Facility.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Facility.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\Hospital.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hospital.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="reports\HospitalInfoHeader.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalInfoHeader.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\LoadHospitalInfo.cs" />
+    <Compile Include="reports\Modalities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Modalities.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\PrintInvoice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\Revenue.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Revenue.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\ServiceTypes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceTypes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RevenueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevenueForm.designer.cs">
+      <DependentUpon>RevenueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RisDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RisDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServiceTypeForm.designer.cs">
+      <DependentUpon>ServiceTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common\ClearCanvas.Common.csproj">
+      <Project>{F6EAD428-E6CF-4DF6-B2F3-D33D532C5343}</Project>
+      <Name>ClearCanvas.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Desktop\Configuration\ClearCanvas.Desktop.Configuration.csproj">
+      <Project>{223DFDC9-B1F5-441D-B659-33F9E55E74A5}</Project>
+      <Name>ClearCanvas.Desktop.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Desktop\View\WinForms\ClearCanvas.Desktop.View.WinForms.csproj">
+      <Project>{BB434EC3-A580-4744-A635-A2B4029C66DE}</Project>
+      <Name>ClearCanvas.Desktop.View.WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Enterprise\Common\ClearCanvas.Enterprise.Common.csproj">
+      <Project>{B5EBFFD7-6641-4932-91C9-4C4322B41868}</Project>
+      <Name>ClearCanvas.Enterprise.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Enterprise\Desktop\ClearCanvas.Enterprise.Desktop.csproj">
+      <Project>{CBD5EBD0-7AE9-4824-AE8C-4888983E1B5B}</Project>
+      <Name>ClearCanvas.Enterprise.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Application\Common\ClearCanvas.Ris.Application.Common.csproj">
+      <Project>{09F49217-CD98-4773-8CFB-594F189EEE3B}</Project>
+      <Name>ClearCanvas.Ris.Application.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BillingCollectCashComponentControl.resx">
+      <DependentUpon>BillingCollectCashComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingComponentControl.resx">
+      <DependentUpon>BillingComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingCurrencyEditComponentControl.resx">
+      <DependentUpon>BillingCurrencyEditComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingCurrencyManagerComponentControl.resx">
+      <DependentUpon>BillingCurrencyManagerComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingDiscountEditComponentControl.resx">
+      <DependentUpon>BillingDiscountEditComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingDiscountPriceComponentControl.resx">
+      <DependentUpon>BillingDiscountPriceComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingInfoControl.resx">
+      <DependentUpon>BillingInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingInfoUserControl.resx">
+      <DependentUpon>BillingInfoUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingInsuramceComponentControl.resx">
+      <DependentUpon>BillingInsuramceComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingInsuranceEditComponentControl.resx">
+      <DependentUpon>BillingInsuranceEditComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingItemPriceComponentControl.resx">
+      <DependentUpon>BillingItemPriceComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BillingOptionComponentControl.resx">
+      <DependentUpon>BillingOptionComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProcedureAdjestmentPrice.resx">
+      <DependentUpon>EditProcedureAdjestmentPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacilityForm.resx">
+      <DependentUpon>FacilityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetPrimaryCurrency.resx">
+      <DependentUpon>frmSetPrimaryCurrency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListPatientControl.resx">
+      <DependentUpon>ListPatientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModalitiesForm.resx">
+      <DependentUpon>ModalitiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintDoctorForm.resx">
+      <DependentUpon>PrintDoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintInvoiceForm.resx">
+      <DependentUpon>PrintInvoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Doctor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Doctor.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Facility.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Facility.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\HospitalInfoHeader.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>HospitalInfoHeader.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Modalities.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Modalities.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\PrintInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrintInvoice.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Revenue.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Revenue.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\ServiceTypes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ServiceTypes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RevenueForm.resx">
+      <DependentUpon>RevenueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceTypeForm.resx">
+      <DependentUpon>ServiceTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="RisDataSet.xsc">
+      <DependentUpon>RisDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RisDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RisDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RisDataSet.xss">
+      <DependentUpon>RisDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearFilterMini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClearFilterSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\ClearCanvas.Ris.Billing.Common.DiscountInsuranceSummary.datasource" />
+    <None Include="reports\Hospital.xsc">
+      <DependentUpon>Hospital.xsd</DependentUpon>
+    </None>
+    <None Include="reports\Hospital.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Hospital.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="reports\Hospital.xss">
+      <DependentUpon>Hospital.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\SearchToolSmall.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
