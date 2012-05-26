@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Hospital" targetNamespace="http://tempuri.org/Hospital.xsd" xmlns:mstns="http://tempuri.org/Hospital.xsd" xmlns="http://tempuri.org/Hospital.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Hospital" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="Hospital" msprop:Generator_UserDSName="Hospital" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Hospital" msprop:Generator_UserTableName="Hospital" msprop:Generator_RowDeletedName="HospitalRowDeleted" msprop:Generator_TableClassName="HospitalDataTable" msprop:Generator_RowChangedName="HospitalRowChanged" msprop:Generator_RowClassName="HospitalRow" msprop:Generator_RowChangingName="HospitalRowChanging" msprop:Generator_RowEvArgName="HospitalRowChangeEvent" msprop:Generator_RowEvHandlerName="HospitalRowChangeEventHandler" msprop:Generator_TablePropName="_Hospital" msprop:Generator_TableVarName="tableHospital" msprop:Generator_RowDeletingName="HospitalRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Address" msprop:Generator_UserColumnName="Address" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInTable="AddressColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="logo" msprop:Generator_UserColumnName="logo" msprop:Generator_ColumnPropNameInRow="logo" msprop:Generator_ColumnVarNameInTable="columnlogo" msprop:Generator_ColumnPropNameInTable="logoColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Phone" msprop:Generator_UserColumnName="Phone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Website" msprop:Generator_UserColumnName="Website" msprop:Generator_ColumnPropNameInRow="Website" msprop:Generator_ColumnVarNameInTable="columnWebsite" msprop:Generator_ColumnPropNameInTable="WebsiteColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="HospitalName" msprop:Generator_UserColumnName="HospitalName" msprop:Generator_ColumnPropNameInRow="HospitalName" msprop:Generator_ColumnVarNameInTable="columnHospitalName" msprop:Generator_ColumnPropNameInTable="HospitalNameColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

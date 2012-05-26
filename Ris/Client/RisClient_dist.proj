@@ -1,0 +1,79 @@
+<Project DefaultTargets="CopyClientFiles" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask TaskName="ClearCanvas.Utilities.BuildTasks.FileReplaceText" AssemblyFile="$(TrunkDirectory)\ReferencedAssemblies\MSBuild\ClearCanvas.Utilities.BuildTasks.dll"/>
+  <UsingTask TaskName="ClearCanvas.Utilities.BuildTasks.CombineAppConfigs" AssemblyFile="$(TrunkDirectory)\ReferencedAssemblies\MSBuild\ClearCanvas.Utilities.BuildTasks.dll"/>
+  <UsingTask TaskName="ClearCanvas.Utilities.BuildTasks.RegexIsMatch" AssemblyFile="$(TrunkDirectory)\ReferencedAssemblies\MSBuild\ClearCanvas.Utilities.BuildTasks.dll"/>
+
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DistributionDirectory>$(ProjectDir)\$(OutDir)</DistributionDirectory>
+    <TrunkDirectory>$(SolutionDir)..\..</TrunkDirectory>
+    <PluginsDirectory>$(DistributionDirectory)\plugins</PluginsDirectory>
+    <CommonDirectory>$(DistributionDirectory)\common</CommonDirectory>
+    <JscriptDirectory>$(ProjectDir)\..\..\Jscript\bin\$(Configuration)</JscriptDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ConfigFiles Include="$(SolutionDir)\Workflow\actionmodels.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SharedLibraryFiles Include="$(TrunkDirectory)\ReferencedAssemblies\NHibernate2.0\Castle.Core.dll "/>
+    <SharedLibraryFiles Include="$(TrunkDirectory)\ReferencedAssemblies\NHibernate2.0\Castle.DynamicProxy2.dll" />
+    <SharedLibraryFiles Include="$(TrunkDirectory)\Enterprise\Common\bin\$(Configuration)\ClearCanvas.Enterprise.Common.dll" />
+    <SharedLibraryFiles Include="$(TrunkDirectory)\Ris\Application\Common\bin\$(Configuration)\ClearCanvas.Ris.Application.Common.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ClientModuleFiles Include="$(TrunkDirectory)\Enterprise\Desktop\bin\$(Configuration)\ClearCanvas.Enterprise.Desktop.dll" />
+    <ClientModuleFiles Include="$(TrunkDirectory)\Enterprise\Desktop\View\WinForms\bin\$(Configuration)\ClearCanvas.Enterprise.Desktop.View.WinForms.dll" />
+    <ClientModuleFiles Include="$(SolutionDir)\bin\$(Configuration)\ClearCanvas.Ris.Client.dll" />
+    <ClientModuleFiles Include="$(SolutionDir)\View\WinForms\bin\$(Configuration)\ClearCanvas.Ris.Client.View.WinForms.dll" />
+    <ClientModuleFiles Include="$(SolutionDir)\Admin\bin\$(Configuration)\ClearCanvas.Ris.Client.Admin.dll" />
+    <ClientModuleFiles Include="$(SolutionDir)\Admin\View\WinForms\bin\$(Configuration)\ClearCanvas.Ris.Client.Admin.View.WinForms.dll" />
+    <ClientModuleFiles Include="$(SolutionDir)\Workflow\bin\$(Configuration)\ClearCanvas.Ris.Client.Workflow.dll" />
+    <ClientModuleFiles Include="$(SolutionDir)\Workflow\View\WinForms\bin\$(Configuration)\ClearCanvas.Ris.Client.Workflow.View.WinForms.dll" />
+  </ItemGroup>
+  <!-- Begin: Long Added Biling Feature Libraries-->
+ <!-- <ItemGroup>
+    <BillingFiles Include="$(TrunkDirectory)\Ris\Billing\bin\$(Configuration)\ClearCanvas.Ris.Billing.dll" />
+    <BillingFiles Include="$(TrunkDirectory)\Ris\Billing\View\WinForm\bin\$(Configuration)\ClearCanvas.Ris.Billing.View.WinForms.dll" />
+    <BillingFiles Include="$(TrunkDirectory)\Ris\Billing\Tools\bin\$(Configuration)\ClearCanvas.Ris.Billing.Tools.dll" />
+    <BillingFiles Include="$(TrunkDirectory)\Ris\Billing\Common\bin\$(Configuration)\ClearCanvas.Ris.Billing.Common.dll" />
+    <BillingFiles Include="$(TrunkDirectory)\Ris\Server\ExtendServices\Common\bin\$(Configuration)\ClearCanvas.Ris.Extend.Common.dll" />
+    <BillingFiles Include="$(TrunkDirectory)\Ris\Billing\Libs\*.dll" />
+    
+  </ItemGroup>-->
+  <!-- End: Long Added Biling Feature Libraries-->
+  <ItemGroup>
+    <JscriptFiles Include="$(JscriptDirectory)\ClearCanvas.Jscript.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AppConfigSourceFiles Include="$(SolutionDir)\LocalFileSettings.config" />
+    <AppConfigSourceFiles Include="$(TrunkDirectory)\Desktop\Executable\app.config" />
+  </ItemGroup>
+
+  <Target Name="AppConfigs">
+    <CombineAppConfigs SourceFiles="@(AppConfigSourceFiles)" OutputFile="$(DistributionDirectory)\ClearCanvas.Desktop.Executable.exe.config" />
+  </Target>
+
+  <Target Name="CopyClientFiles" DependsOnTargets="AppConfigs">
+    <!-- Copy Client files -->
+    <Copy SourceFiles="@(ConfigFiles)" DestinationFolder="$(DistributionDirectory)" ContinueOnError="true" />
+
+    <MakeDir Condition="!Exists('$(PluginsDirectory)')" Directories="$(PluginsDirectory)" ContinueOnError="true" />
+    <Copy SourceFiles="@(CommonFiles)" DestinationFolder="$(CommonDirectory)" ContinueOnError="true" />
+    <Copy SourceFiles="@(SharedLibraryFiles)" DestinationFolder="$(PluginsDirectory)" ContinueOnError="true" />
+    <Copy SourceFiles="@(ClientModuleFiles)" DestinationFolder="$(PluginsDirectory)" ContinueOnError="true" />
+	
+    <!--<Copy SourceFiles="@(BillingFiles)" DestinationFolder="$(PluginsDirectory)" ContinueOnError="false" />-->
+	
+    <Copy SourceFiles="@(JscriptFiles)" DestinationFolder="$(PluginsDirectory)" ContinueOnError="true" />
+    <Copy SourceFiles="@(Templates)" DestinationFolder="$(TemplateDirectory)" ContinueOnError="true" />
+  </Target>
+
+</Project>
