@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.StaffGroup, WorklistServer.hibernate" table="dbo.StaffGroup_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="Name" column="Name_" />
+		<property name="Description" column="Description_" />
+		<property name="Elective" column="Elective_" />
+		<property name="Deactivated" column="Deactivated_" />
+		<bag name="Notes" lazy="true" cascade="all" inverse="true" >
+			<key column="OnBehalfOfGroupOID_"></key>
+			<one-to-many class="Note"></one-to-many>
+		</bag>
+		<bag name="Worklists" lazy="true" cascade="all" inverse="true" >
+			<key column="OwnerGroupOID_"></key>
+			<one-to-many class="Worklist"></one-to-many>
+		</bag>
+		<bag name="NotePostings" lazy="true" cascade="all" inverse="true" >
+			<key column="RecipientGroupOID_"></key>
+			<one-to-many class="NotePosting"></one-to-many>
+		</bag>
+		<bag name="CannedTexts" lazy="true" cascade="all" inverse="true" >
+			<key column="StaffGroupOID_"></key>
+			<one-to-many class="CannedText"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

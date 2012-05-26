@@ -1,0 +1,57 @@
+<Project DefaultTargets="BuildSolution" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="ClearCanvas.Utilities.BuildTasks.FileReplaceText" AssemblyFile="ClearCanvas.Utilities.BuildTasks.dll"/>
+  <UsingTask TaskName="ClearCanvas.Utilities.BuildTasks.CombineAppConfigs" AssemblyFile="ClearCanvas.Utilities.BuildTasks.dll"/>
+  <UsingTask TaskName="ClearCanvas.Utilities.BuildTasks.RegexIsMatch" AssemblyFile="ClearCanvas.Utilities.BuildTasks.dll"/>
+
+  <PropertyGroup>
+    <TargetPlatform>x86</TargetPlatform>
+    <SolutionDir>D:\Running_Sourcecode\WorklistServer_Copy</SolutionDir>
+  </PropertyGroup>
+  <!-- set out some defaults -->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <DistributionBuild>true</DistributionBuild>
+  </PropertyGroup>
+
+  <Choose>
+    <When Condition="$(DistributionBuild)">
+      <PropertyGroup>
+        <DistributionDir>$(SolutionDir)\Build\$(Configuration)</DistributionDir>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <DistributionDir></DistributionDir>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
+  <Choose>
+    <When Condition="$(DistributionBuild) And '$(Configuration)' == 'Release' And '$(KeyFile)' != ''">
+      <PropertyGroup>
+        <WorklistServerProperties>Configuration=$(Configuration);TargetPlatform=$(TargetPlatform);DistributionDir=$(DistributionDir);SignAssembly=true;DelaySign=false;AssemblyOriginatorKeyFile=$(KeyFile);Options=$(BuildOptions)</WorklistServerProperties>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <WorklistServerProperties>Configuration=$(Configuration);TargetPlatform=$(TargetPlatform);DistributionDir=$(DistributionDir)</WorklistServerProperties>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+  
+  
+  <Target Name="BuildSolution" >
+    <MakeDir Condition="!Exists('$(DistributionDir)')" Directories="$(DistributionDir)" ContinueOnError="true" />
+    <MSBuild Projects="WorklistServer.sln" Properties="$(WorklistServerProperties)" />
+  </Target>
+ 
+  <ItemGroup>
+    <AppConfigSourceFiles Include="$(SolutionDir)\WorklistServer\app.config" />
+    <AppConfigSourceFiles Include="$(SolutionDir)\WorklistServer.Configuration\app.config" />
+  </ItemGroup>
+  <Target Name="AppConfigs">
+    <MakeDir Condition="!Exists('$(DistributionDir)')" Directories="$(DistributionDir)" ContinueOnError="true" />
+    <CombineAppConfigs SourceFiles="@(AppConfigSourceFiles)" OutputFile="$(DistributionDir)\WorklistServer.exe.config" />
+  </Target>
+
+</Project>

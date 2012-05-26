@@ -1,0 +1,20 @@
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.DAO\bin\Release\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.DAO\bin\Release\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.DAO\obj\Release\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.DAO\obj\Release\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.DAO\obj\Release\WorklistServer.DAO.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.DAO\bin\Release\WorklistServer.DAO.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.DAO\bin\Release\WorklistServer.DAO.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.DAO\obj\Release\ResolveAssemblyReference.cache
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.DAO\obj\Release\WorklistServer.DAO.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.DAO\obj\Release\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer\WorklistServer.DAO\bin\Release\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.DAO\bin\Release\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer\WorklistServer.DAO\obj\Release\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer\WorklistServer.DAO\obj\Release\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.DAO\obj\Release\WorklistServer.DAO.pdb
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.DAO\bin\Release\WorklistServer.DAO.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.DAO\bin\Release\WorklistServer.DAO.pdb
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.DAO\obj\Release\ResolveAssemblyReference.cache
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.DAO\obj\Release\WorklistServer.DAO.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.DAO\obj\Release\WorklistServer.DAO.pdb

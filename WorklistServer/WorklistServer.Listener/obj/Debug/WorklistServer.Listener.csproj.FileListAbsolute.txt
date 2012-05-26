@@ -1,0 +1,20 @@
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Debug\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Debug\WorklistServer.Listener.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Debug\ClearCanvas.Common.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Debug\ClearCanvas.Dicom.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Debug\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Debug\log4net.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Debug\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\obj\Debug\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\obj\Debug\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\obj\Debug\WorklistServer.Listener.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Debug\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Debug\WorklistServer.Listener.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Debug\ClearCanvas.Common.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Debug\ClearCanvas.Dicom.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Debug\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Debug\log4net.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Debug\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\obj\Debug\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\obj\Debug\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\obj\Debug\WorklistServer.Listener.pdb

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Patient, WorklistServer.hibernate" table="dbo.Patient_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<bag name="Orders" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PatientOID_"></key>
+			<one-to-many class="Order"></one-to-many>
+		</bag>
+		<bag name="PatientProfiles" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PatientOID_"></key>
+			<one-to-many class="PatientProfile"></one-to-many>
+		</bag>
+		<bag name="PatientNotes" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PatientOID_"></key>
+			<one-to-many class="PatientNote"></one-to-many>
+		</bag>
+		<bag name="PatientAttachments" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PatientOID_"></key>
+			<one-to-many class="PatientAttachment"></one-to-many>
+		</bag>
+		<bag name="Visits" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PatientOID_"></key>
+			<one-to-many class="Visit"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

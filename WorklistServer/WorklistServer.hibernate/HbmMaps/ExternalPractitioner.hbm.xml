@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.ExternalPractitioner, WorklistServer.hibernate" table="dbo.ExternalPractitioner_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="FamilyName" column="FamilyName_" />
+		<property name="GivenName" column="GivenName_" />
+		<property name="MiddleName" column="MiddleName_" />
+		<property name="Prefix" column="Prefix_" />
+		<property name="Suffix" column="Suffix_" />
+		<property name="Degree" column="Degree_" />
+		<property name="LicenseNumber" column="LicenseNumber_" />
+		<property name="BillingNumber" column="BillingNumber_" />
+		<property name="Deactivated" column="Deactivated_" />
+		<bag name="Orders" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="OrderingPractitionerOID_"></key>
+			<one-to-many class="Order"></one-to-many>
+		</bag>
+		<bag name="VisitPractitioners" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PractitionerOID_"></key>
+			<one-to-many class="VisitPractitioner"></one-to-many>
+		</bag>
+		<bag name="ExternalPractitionerContactPoints" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PractitionerOID_"></key>
+			<one-to-many class="ExternalPractitionerContactPoint"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

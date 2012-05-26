@@ -1,0 +1,13 @@
+﻿Installing assembly 'D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Executable\bin\Release\WorklistServer.Services.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Executable\bin\Release\WorklistServer.Services.exe
+   logfile = D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Executable\bin\Release\WorklistServer.Services.InstallLog
+Installing service MWL...
+Service MWL has been successfully installed.
+Creating EventLog source MWL in log Application...
+Committing assembly 'D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Executable\bin\Release\WorklistServer.Services.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Executable\bin\Release\WorklistServer.Services.exe
+   logfile = D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Executable\bin\Release\WorklistServer.Services.InstallLog

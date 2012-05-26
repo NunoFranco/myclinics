@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9534693B-EA3B-4EA6-BFE8-D56712D665C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorklistServer.hibernate</RootNamespace>
+    <AssemblyName>WorklistServer.hibernate</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\longchang\Documents\CodeSmith\Samples\v5.1\Templates\Frameworks\NHibernate\Common\NHibernate\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\TicketMGR\TicketMGR.Hibernate\bin\Debug\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\longchang\Documents\CodeSmith\Samples\v5.1\Templates\Frameworks\NHibernate\Common\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BusinessBase.cs" />
+    <Compile Include="Base\ManagerBase.cs" />
+    <Compile Include="Base\NHibernateSession.cs" />
+    <Compile Include="Base\NHibernateSessionManager.cs" />
+    <Compile Include="BusinessObjects\AccessionSequence.cs" />
+    <Compile Include="BusinessObjects\AccessionSequence.generated.cs" />
+    <Compile Include="BusinessObjects\ActivityStatusEnum.cs" />
+    <Compile Include="BusinessObjects\ActivityStatusEnum.generated.cs" />
+    <Compile Include="BusinessObjects\AddressTypeEnum.cs" />
+    <Compile Include="BusinessObjects\AddressTypeEnum.generated.cs" />
+    <Compile Include="BusinessObjects\AdmissionTypeEnum.cs" />
+    <Compile Include="BusinessObjects\AdmissionTypeEnum.generated.cs" />
+    <Compile Include="BusinessObjects\AmbulatoryStatusEnum.cs" />
+    <Compile Include="BusinessObjects\AmbulatoryStatusEnum.generated.cs" />
+    <Compile Include="BusinessObjects\AttachedDocument.cs" />
+    <Compile Include="BusinessObjects\AttachedDocument.generated.cs" />
+    <Compile Include="BusinessObjects\AuditLog.cs" />
+    <Compile Include="BusinessObjects\AuditLog.generated.cs" />
+    <Compile Include="BusinessObjects\AuthorityGroup.cs" />
+    <Compile Include="BusinessObjects\AuthorityGroup.generated.cs" />
+    <Compile Include="BusinessObjects\AuthorityToken.cs" />
+    <Compile Include="BusinessObjects\AuthorityToken.generated.cs" />
+    <Compile Include="BusinessObjects\CannedText.cs" />
+    <Compile Include="BusinessObjects\CannedText.generated.cs" />
+    <Compile Include="BusinessObjects\ConfigurationDocument.cs" />
+    <Compile Include="BusinessObjects\ConfigurationDocument.generated.cs" />
+    <Compile Include="BusinessObjects\ConfigurationDocumentBody.cs" />
+    <Compile Include="BusinessObjects\ConfigurationDocumentBody.generated.cs" />
+    <Compile Include="BusinessObjects\ConfigurationSettingsGroup.cs" />
+    <Compile Include="BusinessObjects\ConfigurationSettingsGroup.generated.cs" />
+    <Compile Include="BusinessObjects\ConfigurationSettingsProperty.cs" />
+    <Compile Include="BusinessObjects\ConfigurationSettingsProperty.generated.cs" />
+    <Compile Include="BusinessObjects\ContactPersonRelationshipEnum.cs" />
+    <Compile Include="BusinessObjects\ContactPersonRelationshipEnum.generated.cs" />
+    <Compile Include="BusinessObjects\ContactPersonTypeEnum.cs" />
+    <Compile Include="BusinessObjects\ContactPersonTypeEnum.generated.cs" />
+    <Compile Include="BusinessObjects\DiagnosticService.cs" />
+    <Compile Include="BusinessObjects\DiagnosticService.generated.cs" />
+    <Compile Include="BusinessObjects\DicomSeries.cs" />
+    <Compile Include="BusinessObjects\DicomSeries.generated.cs" />
+    <Compile Include="BusinessObjects\ExceptionLog.cs" />
+    <Compile Include="BusinessObjects\ExceptionLog.generated.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitioner.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitioner.generated.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitionerContactPoint.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitionerContactPoint.generated.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitionerContactPointAddress.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitionerContactPointAddress.generated.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitionerContactPointEmailAddress.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitionerContactPointEmailAddress.generated.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitionerContactPointTelephoneNumber.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitionerContactPointTelephoneNumber.generated.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitionerExtendedProperty.cs" />
+    <Compile Include="BusinessObjects\ExternalPractitionerExtendedProperty.generated.cs" />
+    <Compile Include="BusinessObjects\Facility.cs" />
+    <Compile Include="BusinessObjects\Facility.generated.cs" />
+    <Compile Include="BusinessObjects\ImageAvailabilityEnum.cs" />
+    <Compile Include="BusinessObjects\ImageAvailabilityEnum.generated.cs" />
+    <Compile Include="BusinessObjects\InformationAuthorityEnum.cs" />
+    <Compile Include="BusinessObjects\InformationAuthorityEnum.generated.cs" />
+    <Compile Include="BusinessObjects\InsuranceAuthorityEnum.cs" />
+    <Compile Include="BusinessObjects\InsuranceAuthorityEnum.generated.cs" />
+    <Compile Include="BusinessObjects\LateralityEnum.cs" />
+    <Compile Include="BusinessObjects\LateralityEnum.generated.cs" />
+    <Compile Include="BusinessObjects\Location.cs" />
+    <Compile Include="BusinessObjects\Location.generated.cs" />
+    <Compile Include="BusinessObjects\Modality.cs" />
+    <Compile Include="BusinessObjects\Modality.generated.cs" />
+    <Compile Include="BusinessObjects\Note.cs" />
+    <Compile Include="BusinessObjects\Note.generated.cs" />
+    <Compile Include="BusinessObjects\NotePosting.cs" />
+    <Compile Include="BusinessObjects\NotePosting.generated.cs" />
+    <Compile Include="BusinessObjects\NoteSeverityEnum.cs" />
+    <Compile Include="BusinessObjects\NoteSeverityEnum.generated.cs" />
+    <Compile Include="BusinessObjects\Order.cs" />
+    <Compile Include="BusinessObjects\Order.generated.cs" />
+    <Compile Include="BusinessObjects\OrderAttachment.cs" />
+    <Compile Include="BusinessObjects\OrderAttachment.generated.cs" />
+    <Compile Include="BusinessObjects\OrderAttachmentCategoryEnum.cs" />
+    <Compile Include="BusinessObjects\OrderAttachmentCategoryEnum.generated.cs" />
+    <Compile Include="BusinessObjects\OrderCancelReasonEnum.cs" />
+    <Compile Include="BusinessObjects\OrderCancelReasonEnum.generated.cs" />
+    <Compile Include="BusinessObjects\OrderExtendedProperty.cs" />
+    <Compile Include="BusinessObjects\OrderExtendedProperty.generated.cs" />
+    <Compile Include="BusinessObjects\OrderPriorityEnum.cs" />
+    <Compile Include="BusinessObjects\OrderPriorityEnum.generated.cs" />
+    <Compile Include="BusinessObjects\OrderResultRecipient.cs" />
+    <Compile Include="BusinessObjects\OrderResultRecipient.generated.cs" />
+    <Compile Include="BusinessObjects\OrderStatusEnum.cs" />
+    <Compile Include="BusinessObjects\OrderStatusEnum.generated.cs" />
+    <Compile Include="BusinessObjects\Patient.cs" />
+    <Compile Include="BusinessObjects\Patient.generated.cs" />
+    <Compile Include="BusinessObjects\PatientAttachment.cs" />
+    <Compile Include="BusinessObjects\PatientAttachment.generated.cs" />
+    <Compile Include="BusinessObjects\PatientAttachmentCategoryEnum.cs" />
+    <Compile Include="BusinessObjects\PatientAttachmentCategoryEnum.generated.cs" />
+    <Compile Include="BusinessObjects\PatientClassEnum.cs" />
+    <Compile Include="BusinessObjects\PatientClassEnum.generated.cs" />
+    <Compile Include="BusinessObjects\PatientNote.cs" />
+    <Compile Include="BusinessObjects\PatientNote.generated.cs" />
+    <Compile Include="BusinessObjects\PatientNoteCategory.cs" />
+    <Compile Include="BusinessObjects\PatientNoteCategory.generated.cs" />
+    <Compile Include="BusinessObjects\PatientProfile.cs" />
+    <Compile Include="BusinessObjects\PatientProfile.generated.cs" />
+    <Compile Include="BusinessObjects\PatientProfileAddress.cs" />
+    <Compile Include="BusinessObjects\PatientProfileAddress.generated.cs" />
+    <Compile Include="BusinessObjects\PatientProfileContactPerson.cs" />
+    <Compile Include="BusinessObjects\PatientProfileContactPerson.generated.cs" />
+    <Compile Include="BusinessObjects\PatientProfileEmailAddress.cs" />
+    <Compile Include="BusinessObjects\PatientProfileEmailAddress.generated.cs" />
+    <Compile Include="BusinessObjects\PatientProfileExpiredMrn.cs" />
+    <Compile Include="BusinessObjects\PatientProfileExpiredMrn.generated.cs" />
+    <Compile Include="BusinessObjects\PatientProfileTelephoneNumber.cs" />
+    <Compile Include="BusinessObjects\PatientProfileTelephoneNumber.generated.cs" />
+    <Compile Include="BusinessObjects\PatientTypeEnum.cs" />
+    <Compile Include="BusinessObjects\PatientTypeEnum.generated.cs" />
+    <Compile Include="BusinessObjects\PerformedProcedureStep.cs" />
+    <Compile Include="BusinessObjects\PerformedProcedureStep.generated.cs" />
+    <Compile Include="BusinessObjects\PerformedProcedureStepExtendedProperty.cs" />
+    <Compile Include="BusinessObjects\PerformedProcedureStepExtendedProperty.generated.cs" />
+    <Compile Include="BusinessObjects\PerformedStepStatusEnum.cs" />
+    <Compile Include="BusinessObjects\PerformedStepStatusEnum.generated.cs" />
+    <Compile Include="BusinessObjects\Procedure.cs" />
+    <Compile Include="BusinessObjects\Procedure.generated.cs" />
+    <Compile Include="BusinessObjects\ProcedureCheckIn.cs" />
+    <Compile Include="BusinessObjects\ProcedureCheckIn.generated.cs" />
+    <Compile Include="BusinessObjects\ProcedureStatusEnum.cs" />
+    <Compile Include="BusinessObjects\ProcedureStatusEnum.generated.cs" />
+    <Compile Include="BusinessObjects\ProcedureStep.cs" />
+    <Compile Include="BusinessObjects\ProcedureStep.generated.cs" />
+    <Compile Include="BusinessObjects\ProcedureType.cs" />
+    <Compile Include="BusinessObjects\ProcedureType.generated.cs" />
+    <Compile Include="BusinessObjects\ProcedureTypeGroup.cs" />
+    <Compile Include="BusinessObjects\ProcedureTypeGroup.generated.cs" />
+    <Compile Include="BusinessObjects\Protocol.cs" />
+    <Compile Include="BusinessObjects\Protocol.generated.cs" />
+    <Compile Include="BusinessObjects\ProtocolCode.cs" />
+    <Compile Include="BusinessObjects\ProtocolCode.generated.cs" />
+    <Compile Include="BusinessObjects\ProtocolGroup.cs" />
+    <Compile Include="BusinessObjects\ProtocolGroup.generated.cs" />
+    <Compile Include="BusinessObjects\ProtocolRejectReasonEnum.cs" />
+    <Compile Include="BusinessObjects\ProtocolRejectReasonEnum.generated.cs" />
+    <Compile Include="BusinessObjects\ProtocolStatusEnum.cs" />
+    <Compile Include="BusinessObjects\ProtocolStatusEnum.generated.cs" />
+    <Compile Include="BusinessObjects\ProtocolUrgencyEnum.cs" />
+    <Compile Include="BusinessObjects\ProtocolUrgencyEnum.generated.cs" />
+    <Compile Include="BusinessObjects\ReligionEnum.cs" />
+    <Compile Include="BusinessObjects\ReligionEnum.generated.cs" />
+    <Compile Include="BusinessObjects\Report.cs" />
+    <Compile Include="BusinessObjects\Report.generated.cs" />
+    <Compile Include="BusinessObjects\ReportPart.cs" />
+    <Compile Include="BusinessObjects\ReportPart.generated.cs" />
+    <Compile Include="BusinessObjects\ReportPartExtendedProperty.cs" />
+    <Compile Include="BusinessObjects\ReportPartExtendedProperty.generated.cs" />
+    <Compile Include="BusinessObjects\ReportPartStatusEnum.cs" />
+    <Compile Include="BusinessObjects\ReportPartStatusEnum.generated.cs" />
+    <Compile Include="BusinessObjects\ReportStatusEnum.cs" />
+    <Compile Include="BusinessObjects\ReportStatusEnum.generated.cs" />
+    <Compile Include="BusinessObjects\ResultCommunicationModeEnum.cs" />
+    <Compile Include="BusinessObjects\ResultCommunicationModeEnum.generated.cs" />
+    <Compile Include="BusinessObjects\SexEnum.cs" />
+    <Compile Include="BusinessObjects\SexEnum.generated.cs" />
+    <Compile Include="BusinessObjects\SpokenLanguageEnum.cs" />
+    <Compile Include="BusinessObjects\SpokenLanguageEnum.generated.cs" />
+    <Compile Include="BusinessObjects\Staff.cs" />
+    <Compile Include="BusinessObjects\Staff.generated.cs" />
+    <Compile Include="BusinessObjects\StaffAddress.cs" />
+    <Compile Include="BusinessObjects\StaffAddress.generated.cs" />
+    <Compile Include="BusinessObjects\StaffEmailAddress.cs" />
+    <Compile Include="BusinessObjects\StaffEmailAddress.generated.cs" />
+    <Compile Include="BusinessObjects\StaffExtendedProperty.cs" />
+    <Compile Include="BusinessObjects\StaffExtendedProperty.generated.cs" />
+    <Compile Include="BusinessObjects\StaffGroup.cs" />
+    <Compile Include="BusinessObjects\StaffGroup.generated.cs" />
+    <Compile Include="BusinessObjects\StaffTelephoneNumber.cs" />
+    <Compile Include="BusinessObjects\StaffTelephoneNumber.generated.cs" />
+    <Compile Include="BusinessObjects\StaffTypeEnum.cs" />
+    <Compile Include="BusinessObjects\StaffTypeEnum.generated.cs" />
+    <Compile Include="BusinessObjects\TelephoneEquipmentEnum.cs" />
+    <Compile Include="BusinessObjects\TelephoneEquipmentEnum.generated.cs" />
+    <Compile Include="BusinessObjects\TelephoneUseEnum.cs" />
+    <Compile Include="BusinessObjects\TelephoneUseEnum.generated.cs" />
+    <Compile Include="BusinessObjects\Test.cs" />
+    <Compile Include="BusinessObjects\Test.generated.cs" />
+    <Compile Include="BusinessObjects\TranscriptionRejectReasonEnum.cs" />
+    <Compile Include="BusinessObjects\TranscriptionRejectReasonEnum.generated.cs" />
+    <Compile Include="BusinessObjects\User.cs" />
+    <Compile Include="BusinessObjects\User.generated.cs" />
+    <Compile Include="BusinessObjects\UserSession.cs" />
+    <Compile Include="BusinessObjects\UserSession.generated.cs" />
+    <Compile Include="BusinessObjects\Visit.cs" />
+    <Compile Include="BusinessObjects\Visit.generated.cs" />
+    <Compile Include="BusinessObjects\VisitExtendedProperty.cs" />
+    <Compile Include="BusinessObjects\VisitExtendedProperty.generated.cs" />
+    <Compile Include="BusinessObjects\VisitLocation.cs" />
+    <Compile Include="BusinessObjects\VisitLocation.generated.cs" />
+    <Compile Include="BusinessObjects\VisitLocationRoleEnum.cs" />
+    <Compile Include="BusinessObjects\VisitLocationRoleEnum.generated.cs" />
+    <Compile Include="BusinessObjects\VisitPractitioner.cs" />
+    <Compile Include="BusinessObjects\VisitPractitioner.generated.cs" />
+    <Compile Include="BusinessObjects\VisitPractitionerRoleEnum.cs" />
+    <Compile Include="BusinessObjects\VisitPractitionerRoleEnum.generated.cs" />
+    <Compile Include="BusinessObjects\VisitStatusEnum.cs" />
+    <Compile Include="BusinessObjects\VisitStatusEnum.generated.cs" />
+    <Compile Include="BusinessObjects\Worklist.cs" />
+    <Compile Include="BusinessObjects\Worklist.generated.cs" />
+    <Compile Include="BusinessObjects\WorkQueueExtendedProperty.cs" />
+    <Compile Include="BusinessObjects\WorkQueueExtendedProperty.generated.cs" />
+    <Compile Include="BusinessObjects\WorkQueueItem.cs" />
+    <Compile Include="BusinessObjects\WorkQueueItem.generated.cs" />
+    <Compile Include="BusinessObjects\WorkQueueStatusEnum.cs" />
+    <Compile Include="BusinessObjects\WorkQueueStatusEnum.generated.cs" />
+    <Compile Include="ManagerObjects\AccessionSequenceManager.cs" />
+    <Compile Include="ManagerObjects\AccessionSequenceManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ActivityStatusEnumManager.cs" />
+    <Compile Include="ManagerObjects\ActivityStatusEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\AddressTypeEnumManager.cs" />
+    <Compile Include="ManagerObjects\AddressTypeEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\AdmissionTypeEnumManager.cs" />
+    <Compile Include="ManagerObjects\AdmissionTypeEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\AmbulatoryStatusEnumManager.cs" />
+    <Compile Include="ManagerObjects\AmbulatoryStatusEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\AttachedDocumentManager.cs" />
+    <Compile Include="ManagerObjects\AttachedDocumentManager.Generated.cs" />
+    <Compile Include="ManagerObjects\AuditLogManager.cs" />
+    <Compile Include="ManagerObjects\AuditLogManager.Generated.cs" />
+    <Compile Include="ManagerObjects\AuthorityGroupManager.cs" />
+    <Compile Include="ManagerObjects\AuthorityGroupManager.Generated.cs" />
+    <Compile Include="ManagerObjects\AuthorityTokenManager.cs" />
+    <Compile Include="ManagerObjects\AuthorityTokenManager.Generated.cs" />
+    <Compile Include="ManagerObjects\CannedTextManager.cs" />
+    <Compile Include="ManagerObjects\CannedTextManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ConfigurationDocumentBodyManager.cs" />
+    <Compile Include="ManagerObjects\ConfigurationDocumentBodyManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ConfigurationDocumentManager.cs" />
+    <Compile Include="ManagerObjects\ConfigurationDocumentManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ConfigurationSettingsGroupManager.cs" />
+    <Compile Include="ManagerObjects\ConfigurationSettingsGroupManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ConfigurationSettingsPropertyManager.cs" />
+    <Compile Include="ManagerObjects\ConfigurationSettingsPropertyManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ContactPersonRelationshipEnumManager.cs" />
+    <Compile Include="ManagerObjects\ContactPersonRelationshipEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ContactPersonTypeEnumManager.cs" />
+    <Compile Include="ManagerObjects\ContactPersonTypeEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\DiagnosticServiceManager.cs" />
+    <Compile Include="ManagerObjects\DiagnosticServiceManager.Generated.cs" />
+    <Compile Include="ManagerObjects\DicomSeriesManager.cs" />
+    <Compile Include="ManagerObjects\DicomSeriesManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ExceptionLogManager.cs" />
+    <Compile Include="ManagerObjects\ExceptionLogManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerContactPointAddressManager.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerContactPointAddressManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerContactPointEmailAddressManager.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerContactPointEmailAddressManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerContactPointManager.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerContactPointManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerContactPointTelephoneNumberManager.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerContactPointTelephoneNumberManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerExtendedPropertyManager.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerExtendedPropertyManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerManager.cs" />
+    <Compile Include="ManagerObjects\ExternalPractitionerManager.Generated.cs" />
+    <Compile Include="ManagerObjects\FacilityManager.cs" />
+    <Compile Include="ManagerObjects\FacilityManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ImageAvailabilityEnumManager.cs" />
+    <Compile Include="ManagerObjects\ImageAvailabilityEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\InformationAuthorityEnumManager.cs" />
+    <Compile Include="ManagerObjects\InformationAuthorityEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\InsuranceAuthorityEnumManager.cs" />
+    <Compile Include="ManagerObjects\InsuranceAuthorityEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\LateralityEnumManager.cs" />
+    <Compile Include="ManagerObjects\LateralityEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\LocationManager.cs" />
+    <Compile Include="ManagerObjects\LocationManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ManagerFactory.cs" />
+    <Compile Include="ManagerObjects\ModalityManager.cs" />
+    <Compile Include="ManagerObjects\ModalityManager.Generated.cs" />
+    <Compile Include="ManagerObjects\NoteManager.cs" />
+    <Compile Include="ManagerObjects\NoteManager.Generated.cs" />
+    <Compile Include="ManagerObjects\NotePostingManager.cs" />
+    <Compile Include="ManagerObjects\NotePostingManager.Generated.cs" />
+    <Compile Include="ManagerObjects\NoteSeverityEnumManager.cs" />
+    <Compile Include="ManagerObjects\NoteSeverityEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\OrderAttachmentCategoryEnumManager.cs" />
+    <Compile Include="ManagerObjects\OrderAttachmentCategoryEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\OrderAttachmentManager.cs" />
+    <Compile Include="ManagerObjects\OrderAttachmentManager.Generated.cs" />
+    <Compile Include="ManagerObjects\OrderCancelReasonEnumManager.cs" />
+    <Compile Include="ManagerObjects\OrderCancelReasonEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\OrderExtendedPropertyManager.cs" />
+    <Compile Include="ManagerObjects\OrderExtendedPropertyManager.Generated.cs" />
+    <Compile Include="ManagerObjects\OrderManager.cs" />
+    <Compile Include="ManagerObjects\OrderManager.Generated.cs" />
+    <Compile Include="ManagerObjects\OrderPriorityEnumManager.cs" />
+    <Compile Include="ManagerObjects\OrderPriorityEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\OrderResultRecipientManager.cs" />
+    <Compile Include="ManagerObjects\OrderResultRecipientManager.Generated.cs" />
+    <Compile Include="ManagerObjects\OrderStatusEnumManager.cs" />
+    <Compile Include="ManagerObjects\OrderStatusEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientAttachmentCategoryEnumManager.cs" />
+    <Compile Include="ManagerObjects\PatientAttachmentCategoryEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientAttachmentManager.cs" />
+    <Compile Include="ManagerObjects\PatientAttachmentManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientClassEnumManager.cs" />
+    <Compile Include="ManagerObjects\PatientClassEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientManager.cs" />
+    <Compile Include="ManagerObjects\PatientManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientNoteCategoryManager.cs" />
+    <Compile Include="ManagerObjects\PatientNoteCategoryManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientNoteManager.cs" />
+    <Compile Include="ManagerObjects\PatientNoteManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientProfileAddressManager.cs" />
+    <Compile Include="ManagerObjects\PatientProfileAddressManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientProfileContactPersonManager.cs" />
+    <Compile Include="ManagerObjects\PatientProfileContactPersonManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientProfileEmailAddressManager.cs" />
+    <Compile Include="ManagerObjects\PatientProfileEmailAddressManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientProfileExpiredMrnManager.cs" />
+    <Compile Include="ManagerObjects\PatientProfileExpiredMrnManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientProfileManager.cs" />
+    <Compile Include="ManagerObjects\PatientProfileManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientProfileTelephoneNumberManager.cs" />
+    <Compile Include="ManagerObjects\PatientProfileTelephoneNumberManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PatientTypeEnumManager.cs" />
+    <Compile Include="ManagerObjects\PatientTypeEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PerformedProcedureStepExtendedPropertyManager.cs" />
+    <Compile Include="ManagerObjects\PerformedProcedureStepExtendedPropertyManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PerformedProcedureStepManager.cs" />
+    <Compile Include="ManagerObjects\PerformedProcedureStepManager.Generated.cs" />
+    <Compile Include="ManagerObjects\PerformedStepStatusEnumManager.cs" />
+    <Compile Include="ManagerObjects\PerformedStepStatusEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProcedureCheckInManager.cs" />
+    <Compile Include="ManagerObjects\ProcedureCheckInManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProcedureManager.cs" />
+    <Compile Include="ManagerObjects\ProcedureManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProcedureStatusEnumManager.cs" />
+    <Compile Include="ManagerObjects\ProcedureStatusEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProcedureStepManager.cs" />
+    <Compile Include="ManagerObjects\ProcedureStepManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProcedureTypeGroupManager.cs" />
+    <Compile Include="ManagerObjects\ProcedureTypeGroupManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProcedureTypeManager.cs" />
+    <Compile Include="ManagerObjects\ProcedureTypeManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProtocolCodeManager.cs" />
+    <Compile Include="ManagerObjects\ProtocolCodeManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProtocolGroupManager.cs" />
+    <Compile Include="ManagerObjects\ProtocolGroupManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProtocolManager.cs" />
+    <Compile Include="ManagerObjects\ProtocolManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProtocolRejectReasonEnumManager.cs" />
+    <Compile Include="ManagerObjects\ProtocolRejectReasonEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProtocolStatusEnumManager.cs" />
+    <Compile Include="ManagerObjects\ProtocolStatusEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ProtocolUrgencyEnumManager.cs" />
+    <Compile Include="ManagerObjects\ProtocolUrgencyEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ReligionEnumManager.cs" />
+    <Compile Include="ManagerObjects\ReligionEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ReportManager.cs" />
+    <Compile Include="ManagerObjects\ReportManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ReportPartExtendedPropertyManager.cs" />
+    <Compile Include="ManagerObjects\ReportPartExtendedPropertyManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ReportPartManager.cs" />
+    <Compile Include="ManagerObjects\ReportPartManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ReportPartStatusEnumManager.cs" />
+    <Compile Include="ManagerObjects\ReportPartStatusEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ReportStatusEnumManager.cs" />
+    <Compile Include="ManagerObjects\ReportStatusEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\ResultCommunicationModeEnumManager.cs" />
+    <Compile Include="ManagerObjects\ResultCommunicationModeEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\SexEnumManager.cs" />
+    <Compile Include="ManagerObjects\SexEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\SpokenLanguageEnumManager.cs" />
+    <Compile Include="ManagerObjects\SpokenLanguageEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\StaffAddressManager.cs" />
+    <Compile Include="ManagerObjects\StaffAddressManager.Generated.cs" />
+    <Compile Include="ManagerObjects\StaffEmailAddressManager.cs" />
+    <Compile Include="ManagerObjects\StaffEmailAddressManager.Generated.cs" />
+    <Compile Include="ManagerObjects\StaffExtendedPropertyManager.cs" />
+    <Compile Include="ManagerObjects\StaffExtendedPropertyManager.Generated.cs" />
+    <Compile Include="ManagerObjects\StaffGroupManager.cs" />
+    <Compile Include="ManagerObjects\StaffGroupManager.Generated.cs" />
+    <Compile Include="ManagerObjects\StaffManager.cs" />
+    <Compile Include="ManagerObjects\StaffManager.Generated.cs" />
+    <Compile Include="ManagerObjects\StaffTelephoneNumberManager.cs" />
+    <Compile Include="ManagerObjects\StaffTelephoneNumberManager.Generated.cs" />
+    <Compile Include="ManagerObjects\StaffTypeEnumManager.cs" />
+    <Compile Include="ManagerObjects\StaffTypeEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\TelephoneEquipmentEnumManager.cs" />
+    <Compile Include="ManagerObjects\TelephoneEquipmentEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\TelephoneUseEnumManager.cs" />
+    <Compile Include="ManagerObjects\TelephoneUseEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\TestManager.cs" />
+    <Compile Include="ManagerObjects\TestManager.Generated.cs" />
+    <Compile Include="ManagerObjects\TranscriptionRejectReasonEnumManager.cs" />
+    <Compile Include="ManagerObjects\TranscriptionRejectReasonEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\UserManager.cs" />
+    <Compile Include="ManagerObjects\UserManager.Generated.cs" />
+    <Compile Include="ManagerObjects\UserSessionManager.cs" />
+    <Compile Include="ManagerObjects\UserSessionManager.Generated.cs" />
+    <Compile Include="ManagerObjects\VisitExtendedPropertyManager.cs" />
+    <Compile Include="ManagerObjects\VisitExtendedPropertyManager.Generated.cs" />
+    <Compile Include="ManagerObjects\VisitLocationManager.cs" />
+    <Compile Include="ManagerObjects\VisitLocationManager.Generated.cs" />
+    <Compile Include="ManagerObjects\VisitLocationRoleEnumManager.cs" />
+    <Compile Include="ManagerObjects\VisitLocationRoleEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\VisitManager.cs" />
+    <Compile Include="ManagerObjects\VisitManager.Generated.cs" />
+    <Compile Include="ManagerObjects\VisitPractitionerManager.cs" />
+    <Compile Include="ManagerObjects\VisitPractitionerManager.Generated.cs" />
+    <Compile Include="ManagerObjects\VisitPractitionerRoleEnumManager.cs" />
+    <Compile Include="ManagerObjects\VisitPractitionerRoleEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\VisitStatusEnumManager.cs" />
+    <Compile Include="ManagerObjects\VisitStatusEnumManager.Generated.cs" />
+    <Compile Include="ManagerObjects\WorklistManager.cs" />
+    <Compile Include="ManagerObjects\WorklistManager.Generated.cs" />
+    <Compile Include="ManagerObjects\WorkQueueExtendedPropertyManager.cs" />
+    <Compile Include="ManagerObjects\WorkQueueExtendedPropertyManager.Generated.cs" />
+    <Compile Include="ManagerObjects\WorkQueueItemManager.cs" />
+    <Compile Include="ManagerObjects\WorkQueueItemManager.Generated.cs" />
+    <Compile Include="ManagerObjects\WorkQueueStatusEnumManager.cs" />
+    <Compile Include="ManagerObjects\WorkQueueStatusEnumManager.Generated.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HbmMaps\AccessionSequence.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ActivityStatusEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\AddressTypeEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\AdmissionTypeEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\AmbulatoryStatusEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\AttachedDocument.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\AuditLog.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\AuthorityGroup.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\AuthorityToken.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\CannedText.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ConfigurationDocument.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ConfigurationDocumentBody.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ConfigurationSettingsGroup.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ConfigurationSettingsProperty.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ContactPersonRelationshipEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ContactPersonTypeEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\DiagnosticService.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\DicomSeries.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ExceptionLog.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ExternalPractitioner.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ExternalPractitionerContactPoint.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ExternalPractitionerContactPointAddress.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ExternalPractitionerContactPointEmailAddress.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ExternalPractitionerContactPointTelephoneNumber.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ExternalPractitionerExtendedProperty.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Facility.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ImageAvailabilityEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\InformationAuthorityEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\InsuranceAuthorityEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\LateralityEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Location.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Modality.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Note.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\NotePosting.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\NoteSeverityEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Order.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\OrderAttachment.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\OrderAttachmentCategoryEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\OrderCancelReasonEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\OrderExtendedProperty.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\OrderPriorityEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\OrderResultRecipient.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\OrderStatusEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Patient.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientAttachment.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientAttachmentCategoryEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientClassEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientNote.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientNoteCategory.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientProfile.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientProfileAddress.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientProfileContactPerson.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientProfileEmailAddress.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientProfileExpiredMrn.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientProfileTelephoneNumber.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PatientTypeEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PerformedProcedureStep.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PerformedProcedureStepExtendedProperty.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\PerformedStepStatusEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Procedure.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ProcedureCheckIn.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ProcedureStatusEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ProcedureStep.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ProcedureType.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ProcedureTypeGroup.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Protocol.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ProtocolCode.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ProtocolGroup.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ProtocolRejectReasonEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ProtocolStatusEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ProtocolUrgencyEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ReligionEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Report.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ReportPart.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ReportPartExtendedProperty.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ReportPartStatusEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ReportStatusEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\ResultCommunicationModeEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\SexEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\SpokenLanguageEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Staff.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\StaffAddress.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\StaffEmailAddress.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\StaffExtendedProperty.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\StaffGroup.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\StaffTelephoneNumber.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\StaffTypeEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\TelephoneEquipmentEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\TelephoneUseEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Test.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\TranscriptionRejectReasonEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\User.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\UserSession.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Visit.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\VisitExtendedProperty.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\VisitLocation.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\VisitLocationRoleEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\VisitPractitioner.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\VisitPractitionerRoleEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\VisitStatusEnum.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\Worklist.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\WorkQueueExtendedProperty.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\WorkQueueItem.hbm.xml" />
+    <EmbeddedResource Include="HbmMaps\WorkQueueStatusEnum.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WorklistServer\WorklistServer.csproj">
+      <Project>{4C30D0CB-5DBA-4792-8192-FB79230F2A00}</Project>
+      <Name>WorklistServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExtendClass\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

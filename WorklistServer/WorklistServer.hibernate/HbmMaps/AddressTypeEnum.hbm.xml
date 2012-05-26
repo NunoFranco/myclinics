@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.AddressTypeEnum, WorklistServer.hibernate" table="dbo.AddressTypeEnum_" lazy="true">
+		<id name="Id" column="Code_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Value" column="Value_" />
+		<property name="Description" column="Description_" />
+		<property name="DisplayOrder" column="DisplayOrder_" />
+		<property name="Deactivated" column="Deactivated_" />
+		<bag name="PatientProfileAddresses" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="Type_"></key>
+			<one-to-many class="PatientProfileAddress"></one-to-many>
+		</bag>
+		<bag name="StaffAddresses" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="Type_"></key>
+			<one-to-many class="StaffAddress"></one-to-many>
+		</bag>
+		<bag name="ExternalPractitionerContactPointAddresses" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="Type_"></key>
+			<one-to-many class="ExternalPractitionerContactPointAddress"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

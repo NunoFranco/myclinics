@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Report, WorklistServer.hibernate" table="dbo.Report_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<many-to-one name="ReportStatusEnum" column="Status_" class="ReportStatusEnum" />
+		<bag name="ReportParts" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="ReportOID_"></key>
+			<one-to-many class="ReportPart"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

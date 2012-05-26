@@ -1,0 +1,33 @@
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\WorklistServer.hibernate.dll.config
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\WorklistServer.hibernate.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\WorklistServer.hibernate.pdb
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\Castle.Core.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\Iesi.Collections.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\NHibernate.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\log4net.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\Castle.DynamicProxy.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\NHibernate.xml
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\Iesi.Collections.xml
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\log4net.xml
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\bin\Debug\Castle.DynamicProxy.xml
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\obj\Debug\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\obj\Debug\WorklistServer.hibernate.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.hibernate\obj\Debug\WorklistServer.hibernate.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\obj\Debug\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\obj\Debug\WorklistServer.hibernate.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\obj\Debug\WorklistServer.hibernate.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\WorklistServer.hibernate.dll.config
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\WorklistServer.hibernate.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\WorklistServer.hibernate.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\Castle.Core.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\Iesi.Collections.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\NHibernate.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\log4net.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\Castle.DynamicProxy2.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\NHibernate.xml
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\Iesi.Collections.xml
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\log4net.xml
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\Castle.DynamicProxy2.xml
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\Castle.Core.xml
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\WorklistServer.exe
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.hibernate\bin\Debug\WorklistServer.pdb

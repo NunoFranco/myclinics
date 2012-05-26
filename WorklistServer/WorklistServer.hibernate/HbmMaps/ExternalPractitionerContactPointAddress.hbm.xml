@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.ExternalPractitionerContactPointAddress, WorklistServer.hibernate" table="dbo.ExternalPractitionerContactPointAddress_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Street" column="Street_" />
+		<property name="Unit" column="Unit_" />
+		<property name="City" column="City_" />
+		<property name="Province" column="Province_" />
+		<property name="PostalCode" column="PostalCode_" />
+		<property name="Country" column="Country_" />
+		<property name="ValidFrom" column="ValidFrom_" />
+		<property name="ValidUntil" column="ValidUntil_" />
+		<many-to-one name="ExternalPractitionerContactPoint" column="ExternalPractitionerContactPointOID_" class="ExternalPractitionerContactPoint" />
+		<many-to-one name="AddressTypeEnum" column="Type_" class="AddressTypeEnum" />
+	</class>
+</hibernate-mapping>

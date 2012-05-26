@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.ExceptionLog, WorklistServer.hibernate" table="dbo.ExceptionLog_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="TimeStamp" column="TimeStamp_" />
+		<property name="HostName" column="HostName_" />
+		<property name="Application" column="Application_" />
+		<property name="User" column="User_" />
+		<property name="Operation" column="Operation_" />
+		<property name="ExceptionClass" column="ExceptionClass_" />
+		<property name="Message" column="Message_" />
+		<property name="Details" column="Details_" />
+		<property name="AssemblyName" column="AssemblyName_" />
+		<property name="AssemblyLocation" column="AssemblyLocation_" />
+	</class>
+</hibernate-mapping>

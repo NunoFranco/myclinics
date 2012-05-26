@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Visit, WorklistServer.hibernate" table="dbo.Visit_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="VisitNumberId" column="VisitNumberId_" />
+		<property name="AdmitTime" column="AdmitTime_" />
+		<property name="DischargeTime" column="DischargeTime_" />
+		<property name="DischargeDisposition" column="DischargeDisposition_" />
+		<property name="VipIndicator" column="VipIndicator_" />
+		<property name="PreadmitNumber" column="PreadmitNumber_" />
+		<many-to-one name="AdmissionTypeEnum" column="AdmissionType_" class="AdmissionTypeEnum" />
+		<many-to-one name="Location" column="CurrentLocationOID_" class="Location" />
+		<many-to-one name="Facility" column="FacilityOID_" class="Facility" />
+		<many-to-one name="PatientClassEnum" column="PatientClass_" class="PatientClassEnum" />
+		<many-to-one name="Patient" column="PatientOID_" class="Patient" />
+		<many-to-one name="PatientTypeEnum" column="PatientType_" class="PatientTypeEnum" />
+		<many-to-one name="VisitStatusEnum" column="Status_" class="VisitStatusEnum" />
+		<many-to-one name="InformationAuthorityEnum" column="VisitNumberAssigningAuthority_" class="InformationAuthorityEnum" />
+		<bag name="Orders" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="VisitOID_"></key>
+			<one-to-many class="Order"></one-to-many>
+		</bag>
+		<bag name="VisitLocations" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="VisitOID_"></key>
+			<one-to-many class="VisitLocation"></one-to-many>
+		</bag>
+		<bag name="VisitPractitioners" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="VisitOID_"></key>
+			<one-to-many class="VisitPractitioner"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

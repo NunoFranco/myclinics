@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.PatientProfile, WorklistServer.hibernate" table="dbo.PatientProfile_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="MrnId" column="MrnId_" />
+		<property name="HealthcardId" column="HealthcardId_" />
+		<property name="HealthcardVersionCode" column="HealthcardVersionCode_" />
+		<property name="HealthcardExpiryDate" column="HealthcardExpiryDate_" />
+		<property name="FamilyName" column="FamilyName_" />
+		<property name="GivenName" column="GivenName_" />
+		<property name="MiddleName" column="MiddleName_" />
+		<property name="Prefix" column="Prefix_" />
+		<property name="Suffix" column="Suffix_" />
+		<property name="Degree" column="Degree_" />
+		<property name="DateOfBirth" column="DateOfBirth_" />
+		<property name="DeathIndicator" column="DeathIndicator_" />
+		<property name="TimeOfDeath" column="TimeOfDeath_" />
+		<many-to-one name="InsuranceAuthorityEnum" column="HealthcardAssigningAuthority_" class="InsuranceAuthorityEnum" />
+		<many-to-one name="InformationAuthorityEnum" column="MrnAssigningAuthority_" class="InformationAuthorityEnum" />
+		<many-to-one name="Patient" column="PatientOID_" class="Patient" />
+		<many-to-one name="SpokenLanguageEnum" column="PrimaryLanguage_" class="SpokenLanguageEnum" />
+		<many-to-one name="ReligionEnum" column="Religion_" class="ReligionEnum" />
+		<many-to-one name="SexEnum" column="Sex_" class="SexEnum" />
+		<bag name="PatientProfileContactPeople" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PatientProfileOID_"></key>
+			<one-to-many class="PatientProfileContactPerson"></one-to-many>
+		</bag>
+		<bag name="PatientProfileAddresses" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PatientProfileOID_"></key>
+			<one-to-many class="PatientProfileAddress"></one-to-many>
+		</bag>
+		<bag name="PatientProfileEmailAddresses" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PatientProfileOID_"></key>
+			<one-to-many class="PatientProfileEmailAddress"></one-to-many>
+		</bag>
+		<bag name="PatientProfileExpiredMrns" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PatientProfileOID_"></key>
+			<one-to-many class="PatientProfileExpiredMrn"></one-to-many>
+		</bag>
+		<bag name="PatientProfileTelephoneNumbers" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PatientProfileOID_"></key>
+			<one-to-many class="PatientProfileTelephoneNumber"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

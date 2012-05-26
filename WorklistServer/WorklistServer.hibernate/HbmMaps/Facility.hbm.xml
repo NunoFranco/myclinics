@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Facility, WorklistServer.hibernate" table="dbo.Facility_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="Code" column="Code_" />
+		<property name="Name" column="Name_" />
+		<property name="Deactivated" column="Deactivated_" />
+		<many-to-one name="InformationAuthorityEnum" column="InformationAuthority_" class="InformationAuthorityEnum" />
+		<bag name="Visits" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="FacilityOID_"></key>
+			<one-to-many class="Visit"></one-to-many>
+		</bag>
+		<bag name="Locations" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="FacilityOID_"></key>
+			<one-to-many class="Location"></one-to-many>
+		</bag>
+		<bag name="Orders" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="OrderingFacilityOID_"></key>
+			<one-to-many class="Order"></one-to-many>
+		</bag>
+		<bag name="Procedures" lazy="true" cascade="all" inverse="true" >
+			<key column="PerformingFacilityOID_"></key>
+			<one-to-many class="Procedure"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

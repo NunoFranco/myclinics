@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.VisitLocation, WorklistServer.hibernate" table="dbo.VisitLocation_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="StartTime" column="StartTime_" />
+		<property name="EndTime" column="EndTime_" />
+		<many-to-one name="Location" column="LocationOID_" class="Location" />
+		<many-to-one name="VisitLocationRoleEnum" column="Role_" class="VisitLocationRoleEnum" />
+		<many-to-one name="Visit" column="VisitOID_" class="Visit" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Note, WorklistServer.hibernate" table="dbo.Note_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Discriminator" column="Discriminator_" />
+		<property name="Version" column="Version_" />
+		<property name="Category" column="Category_" />
+		<property name="Body" column="Body_" />
+		<property name="Urgent" column="Urgent_" />
+		<property name="CreationTime" column="CreationTime_" />
+		<property name="PostTime" column="PostTime_" />
+		<property name="IsFullyAcknowledged" column="IsFullyAcknowledged_" />
+		<many-to-one name="Staff" column="AuthorOID_" class="Staff" />
+		<many-to-one name="StaffGroup" column="OnBehalfOfGroupOID_" class="StaffGroup" />
+		<many-to-one name="Order" column="OrderOID_" class="Order" />
+		<bag name="NotePostings" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="NoteOID_"></key>
+			<one-to-many class="NotePosting"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Location, WorklistServer.hibernate" table="dbo.Location_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="Id" column="Id_" />
+		<property name="Name" column="Name_" />
+		<property name="Description" column="Description_" />
+		<property name="Building" column="Building_" />
+		<property name="Floor" column="Floor_" />
+		<property name="PointOfCare" column="PointOfCare_" />
+		<property name="Room" column="Room_" />
+		<property name="Bed" column="Bed_" />
+		<property name="Deactivated" column="Deactivated_" />
+		<many-to-one name="Facility" column="FacilityOID_" class="Facility" />
+		<bag name="Visits" lazy="true" cascade="all" inverse="true" >
+			<key column="CurrentLocationOID_"></key>
+			<one-to-many class="Visit"></one-to-many>
+		</bag>
+		<bag name="VisitLocations" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="LocationOID_"></key>
+			<one-to-many class="VisitLocation"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

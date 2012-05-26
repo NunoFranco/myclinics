@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.PatientProfileTelephoneNumber, WorklistServer.hibernate" table="dbo.PatientProfileTelephoneNumber_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="CountryCode" column="CountryCode_" />
+		<property name="AreaCode" column="AreaCode_" />
+		<property name="Number" column="Number_" />
+		<property name="Extension" column="Extension_" />
+		<property name="ValidFrom" column="ValidFrom_" />
+		<property name="ValidUntil" column="ValidUntil_" />
+		<many-to-one name="TelephoneEquipmentEnum" column="Equipment_" class="TelephoneEquipmentEnum" />
+		<many-to-one name="PatientProfile" column="PatientProfileOID_" class="PatientProfile" />
+		<many-to-one name="TelephoneUseEnum" column="Use_" class="TelephoneUseEnum" />
+	</class>
+</hibernate-mapping>

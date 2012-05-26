@@ -1,0 +1,276 @@
+2010-09-24 14:26:28,173 [10] WARN  - Time provider not found - defaulting to local machine time.
+2010-09-24 14:26:31,317 [10] INFO  - Starting to listen with AE WORKLIST_SV on port 192.168.1.177:105
+2010-09-24 14:26:31,317 [10] INFO  - Data Source=192.168.1.30;Initial Catalog=Ris;User Id=sa;Password=biti1234;
+2010-09-24 14:26:32,428 [10] INFO  - Worklist server started successfully
+2010-09-24 14:26:32,428 [10] INFO  - Connected Database :Data Source=192.168.1.30;Initial Catalog=Ris;User Id=sa;Password=biti1234;
+2010-09-24 14:27:21,346 [DicomServer: 192.168.1.177 [15]] DEBUG - Send MetaInfo:
+(0000,0002) UI =Verification SOP Class                  #   18 Affected SOP Class UID 1
+(0000,0100) US 32816                                    #    2 Command Field 1
+(0000,0120) US 1                                        #    2 Message ID Being Responded To 1
+(0000,0800) US 257                                      #    2 Data Set Type 1
+(0000,0900) US 0                                        #    2 Status 1
+
+2010-09-24 14:27:21,346 [DicomServer: 192.168.1.177 [15]] DEBUG - Send DataSet:
+
+2010-09-24 14:27:21,353 [DicomServer: 192.168.1.177 [15]] DEBUG - Receive MetaInfo:
+(0000,0002) UI =Verification SOP Class                  #   18 Affected SOP Class UID 1
+(0000,0100) US 48                                       #    2 Command Field 1
+(0000,0110) US 1                                        #    2 Message ID 1
+(0000,0800) US 257                                      #    2 Data Set Type 1
+
+2010-09-24 14:27:21,353 [DicomServer: 192.168.1.177 [15]] DEBUG - Receive DataSet:
+
+2010-09-24 14:28:12,933 [DicomServer: 192.168.1.177 [16]] DEBUG - Receive MetaInfo:
+(0000,0002) UI =Modality Worklist Information Model – FIND #   22 Affected SOP Class UID 1
+(0000,0100) US 32                                       #    2 Command Field 1
+(0000,0110) US 2                                        #    2 Message ID 1
+(0000,0700) US 0                                        #    2 Priority 1
+(0000,0800) US 0                                        #    2 Data Set Type 1
+
+2010-09-24 14:28:12,936 [DicomServer: 192.168.1.177 [16]] DEBUG - Receive DataSet:
+(0008,0005) CS [ISO_IR 100]                             #   10 Specific Character Set 1-N
+(0008,0050) SH []                                       #    0 Accession Number 1
+(0008,0090) PN [Dokter dummy]                           #   12 Referring Physician's Name 1
+(0008,1110) SQ Referenced Study Sequence
+ Item:
+  > (0008,1150) UI =Detached Study Management SOP Class (Retired) #   24 Referenced SOP Class UID 1
+  > (0008,1155) UI [1.2.826.113532.20050617.84529.4.5]  #   34 Referenced SOP Instance UID 1
+  > (0008,1156) UN (0008,1156) Private Tag              #    8 Private Tag 1-N
+  > (0008,1157) UN (0008,1157) Private Tag              #    8 Private Tag 1-N
+(0010,0010) PN []                                       #    0 Patient's Name 1
+(0010,0020) LO []                                       #    0 Patient ID 1
+(0010,0021) LO [555]                                    #    4 Issuer of Patient ID 1
+(0010,0030) DA [19230728]                               #    8 Patient's Birth Date 1
+(0010,0040) CS [F]                                      #    2 Patient's Sex 1
+(0010,1000) LO [3451]                                   #    4 Other Patient IDs 1-N
+(0010,1020) DS [165.0]                                  #    6 Patient's Size 1
+(0010,1030) DS [60.0]                                   #    4 Patient's Weight 1
+(0010,2000) LO []                                       #    0 Medical Alerts 1-N
+(0010,2110) LO []                                       #    0 Allergies 1-N
+(0010,2160) SH [Ras]                                    #    4 Ethnic Group 1
+(0010,21c0) US 4                                        #    2 Pregnancy Status 1
+(0010,4000) LT [pat comment]                            #   12 Patient Comments 1
+(0020,000d) UI [1.2.826.113532.20050617.84529.4.5]      #   34 Study Instance UID 1
+(0032,1032) PN [Requesting Doctor]                      #   18 Requesting Physician 1
+(0032,1033) LO [CHEST]                                  #    6 Requesting Service 1
+(0032,1060) LO [BILATERAL LOWER EXTREMITIES]            #   28 Requested Procedure Description 1
+(0038,0300) LO [ROOM2]                                  #    6 Current Patient Location 1
+(0040,0100) SQ Scheduled Procedure Step Sequence
+ Item:
+  > (0008,0060) CS [CT]                                 #    2 Modality 1
+  > (0032,1070) LO [QUORMI]                             #    6 Requested Contrast Agent 1
+  > (0040,0001) AE [AE_PASTA]                           #    8 Scheduled Station AE Title 1-N
+  > (0040,0002) DA []                                   #    0 Scheduled Procedure Step Start Date 1
+  > (0040,0003) TM [084200]                             #    6 Scheduled Procedure Step Start Time 1
+  > (0040,0004) DA []                                   #    0 Scheduled Procedure Step End Date 1
+  > (0040,0005) TM []                                   #    0 Scheduled Procedure Step End Time 1
+  > (0040,0006) PN []                                   #    0 Scheduled Performing Physician's Name 1
+  > (0040,0007) LO [BILATERAL]                          #   10 Scheduled Procedure Step Description 1
+  > (0040,0008) SQ Scheduled Protocol Code Sequence
+  >  Item:
+  >   > (4843,2032) UN (4843,2032) Private Tag          # 1048640 Private Tag 1-N
+
+2010-09-24 14:28:27,193 [DicomServer: 192.168.1.177 [16]] DEBUG - Send MetaInfo:
+(0000,0002) UI =Modality Worklist Information Model – FIND #   22 Affected SOP Class UID 1
+(0000,0100) US 32800                                    #    2 Command Field 1
+(0000,0120) US 2                                        #    2 Message ID Being Responded To 1
+(0000,0800) US 514                                      #    2 Data Set Type 1
+(0000,0900) US 65280                                    #    2 Status 1
+
+2010-09-24 14:28:27,193 [DicomServer: 192.168.1.177 [16]] DEBUG - Send DataSet:
+(0008,0005) CS [ISO_IR 100]                             #   10 Specific Character Set 1-N
+(0008,0050) SH [100000014]                              #   10 Accession Number 1
+(0008,0060) CS [CT]                                     #    2 Modality 1
+(0008,0090) PN [Dokter dummy]                           #   12 Referring Physician's Name 1
+(0008,1110) SQ Referenced Study Sequence
+ Item:
+  > (0008,1150) UI =Detached Study Management SOP Class (Retired) #   24 Referenced SOP Class UID 1
+  > (0008,1155) UI [1.2.826.113532.20050617.84529.4.5]  #   34 Referenced SOP Instance UID 1
+  > (0008,1156) UN (0008,1156) Private Tag              #    8 Private Tag 1-N
+  > (0008,1157) UN (0008,1157) Private Tag              #    8 Private Tag 1-N
+(0010,0010) PN [Michael^^jackson]                       #   16 Patient's Name 1
+(0010,0020) LO [1001038]                                #    8 Patient ID 1
+(0010,0021) LO [555]                                    #    4 Issuer of Patient ID 1
+(0010,0030) DA [19751122]                               #    8 Patient's Birth Date 1
+(0010,0040) CS [M]                                      #    2 Patient's Sex 1
+(0010,1000) LO [3451]                                   #    4 Other Patient IDs 1-N
+(0010,1020) DS [165.0]                                  #    6 Patient's Size 1
+(0010,1030) DS [60.0]                                   #    4 Patient's Weight 1
+(0010,2160) SH [Ras]                                    #    4 Ethnic Group 1
+(0010,21c0) US 4                                        #    2 Pregnancy Status 1
+(0010,4000) LT [pat comment]                            #   12 Patient Comments 1
+(0020,000d) UI [1.2.826.113532.20050617.84529.4.5]      #   34 Study Instance UID 1
+(0032,1032) PN [Requesting Doctor]                      #   18 Requesting Physician 1
+(0032,1033) LO [CHEST]                                  #    6 Requesting Service 1
+(0032,1060) LO [BILATERAL LOWER EXTREMITIES]            #   28 Requested Procedure Description 1
+(0038,0300) LO [ROOM2]                                  #    6 Current Patient Location 1
+(0040,0002) DA [20100923]                               #    8 Scheduled Procedure Step Start Date 1
+(0040,0100) SQ Scheduled Procedure Step Sequence
+ Item:
+  > (0008,0060) CS [CT]                                 #    2 Modality 1
+  > (0032,1070) LO [QUORMI]                             #    6 Requested Contrast Agent 1
+  > (0040,0001) AE [AE_PASTA]                           #    8 Scheduled Station AE Title 1-N
+  > (0040,0002) DA [20100923]                           #    8 Scheduled Procedure Step Start Date 1
+  > (0040,0003) TM [084200]                             #    6 Scheduled Procedure Step Start Time 1
+  > (0040,0004) DA []                                   #    0 Scheduled Procedure Step End Date 1
+  > (0040,0005) TM []                                   #    0 Scheduled Procedure Step End Time 1
+  > (0040,0006) PN []                                   #    0 Scheduled Performing Physician's Name 1
+  > (0040,0007) LO [BILATERAL]                          #   10 Scheduled Procedure Step Description 1
+  > (0040,0008) SQ Scheduled Protocol Code Sequence
+  >  Item:
+  >   > (4843,2032) UN (4843,2032) Private Tag          # 1048640 Private Tag 1-N
+(0040,1001) SH [MSCT-01]                                #    8 Requested Procedure ID 1
+
+2010-09-24 14:28:30,080 [DicomServer: 192.168.1.177 [16]] DEBUG - Send MetaInfo:
+(0000,0002) UI =Modality Worklist Information Model – FIND #   22 Affected SOP Class UID 1
+(0000,0100) US 32800                                    #    2 Command Field 1
+(0000,0120) US 2                                        #    2 Message ID Being Responded To 1
+(0000,0800) US 514                                      #    2 Data Set Type 1
+(0000,0900) US 65280                                    #    2 Status 1
+
+2010-09-24 14:28:30,081 [DicomServer: 192.168.1.177 [16]] DEBUG - Send DataSet:
+(0008,0005) CS [ISO_IR 100]                             #   10 Specific Character Set 1-N
+(0008,0050) SH [100000014]                              #   10 Accession Number 1
+(0008,0060) CS [CT]                                     #    2 Modality 1
+(0008,0090) PN [Dokter dummy]                           #   12 Referring Physician's Name 1
+(0008,1110) SQ Referenced Study Sequence
+ Item:
+  > (0008,1150) UI =Detached Study Management SOP Class (Retired) #   24 Referenced SOP Class UID 1
+  > (0008,1155) UI [1.2.826.113532.20050617.84529.4.5]  #   34 Referenced SOP Instance UID 1
+  > (0008,1156) UN (0008,1156) Private Tag              #    8 Private Tag 1-N
+  > (0008,1157) UN (0008,1157) Private Tag              #    8 Private Tag 1-N
+(0010,0010) PN [Michael^^jackson]                       #   16 Patient's Name 1
+(0010,0020) LO [1001038]                                #    8 Patient ID 1
+(0010,0021) LO [555]                                    #    4 Issuer of Patient ID 1
+(0010,0030) DA [19751122]                               #    8 Patient's Birth Date 1
+(0010,0040) CS [M]                                      #    2 Patient's Sex 1
+(0010,1000) LO [3451]                                   #    4 Other Patient IDs 1-N
+(0010,1020) DS [165.0]                                  #    6 Patient's Size 1
+(0010,1030) DS [60.0]                                   #    4 Patient's Weight 1
+(0010,2160) SH [Ras]                                    #    4 Ethnic Group 1
+(0010,21c0) US 4                                        #    2 Pregnancy Status 1
+(0010,4000) LT [pat comment]                            #   12 Patient Comments 1
+(0020,000d) UI [1.2.826.113532.20050617.84529.4.5]      #   34 Study Instance UID 1
+(0032,1032) PN [Requesting Doctor]                      #   18 Requesting Physician 1
+(0032,1033) LO [CHEST]                                  #    6 Requesting Service 1
+(0032,1060) LO [BILATERAL LOWER EXTREMITIES]            #   28 Requested Procedure Description 1
+(0038,0300) LO [ROOM2]                                  #    6 Current Patient Location 1
+(0040,0002) DA [20100923]                               #    8 Scheduled Procedure Step Start Date 1
+(0040,0100) SQ Scheduled Procedure Step Sequence
+ Item:
+  > (0008,0060) CS [CT]                                 #    2 Modality 1
+  > (0032,1070) LO [QUORMI]                             #    6 Requested Contrast Agent 1
+  > (0040,0001) AE [AE_PASTA]                           #    8 Scheduled Station AE Title 1-N
+  > (0040,0002) DA [20100923]                           #    8 Scheduled Procedure Step Start Date 1
+  > (0040,0003) TM [084200]                             #    6 Scheduled Procedure Step Start Time 1
+  > (0040,0004) DA []                                   #    0 Scheduled Procedure Step End Date 1
+  > (0040,0005) TM []                                   #    0 Scheduled Procedure Step End Time 1
+  > (0040,0006) PN []                                   #    0 Scheduled Performing Physician's Name 1
+  > (0040,0007) LO [BILATERAL]                          #   10 Scheduled Procedure Step Description 1
+  > (0040,0008) SQ Scheduled Protocol Code Sequence
+  >  Item:
+  >   > (4843,2032) UN (4843,2032) Private Tag          # 1048640 Private Tag 1-N
+(0040,1001) SH [MSCT-02]                                #    8 Requested Procedure ID 1
+
+2010-09-24 14:28:30,513 [DicomServer: 192.168.1.177 [16]] DEBUG - Send MetaInfo:
+(0000,0002) UI =Modality Worklist Information Model – FIND #   22 Affected SOP Class UID 1
+(0000,0100) US 32800                                    #    2 Command Field 1
+(0000,0120) US 2                                        #    2 Message ID Being Responded To 1
+(0000,0800) US 514                                      #    2 Data Set Type 1
+(0000,0900) US 65280                                    #    2 Status 1
+
+2010-09-24 14:28:30,702 [DicomServer: 192.168.1.177 [16]] DEBUG - Send DataSet:
+(0008,0005) CS [ISO_IR 100]                             #   10 Specific Character Set 1-N
+(0008,0050) SH [100000007]                              #   10 Accession Number 1
+(0008,0060) CS [CT]                                     #    2 Modality 1
+(0008,0090) PN [Dokter dummy]                           #   12 Referring Physician's Name 1
+(0008,1110) SQ Referenced Study Sequence
+ Item:
+  > (0008,1150) UI =Detached Study Management SOP Class (Retired) #   24 Referenced SOP Class UID 1
+  > (0008,1155) UI [1.2.826.113532.20050617.84529.4.5]  #   34 Referenced SOP Instance UID 1
+  > (0008,1156) UN (0008,1156) Private Tag              #    8 Private Tag 1-N
+  > (0008,1157) UN (0008,1157) Private Tag              #    8 Private Tag 1-N
+(0010,0010) PN [Nguyen^van^Quynh]                       #   16 Patient's Name 1
+(0010,0020) LO [1234]                                   #    4 Patient ID 1
+(0010,0021) LO [555]                                    #    4 Issuer of Patient ID 1
+(0010,0030) DA [19840910]                               #    8 Patient's Birth Date 1
+(0010,0040) CS [M]                                      #    2 Patient's Sex 1
+(0010,1000) LO [3451]                                   #    4 Other Patient IDs 1-N
+(0010,1020) DS [165.0]                                  #    6 Patient's Size 1
+(0010,1030) DS [60.0]                                   #    4 Patient's Weight 1
+(0010,2160) SH [Ras]                                    #    4 Ethnic Group 1
+(0010,21c0) US 4                                        #    2 Pregnancy Status 1
+(0010,4000) LT [pat comment]                            #   12 Patient Comments 1
+(0020,000d) UI [1.2.826.113532.20050617.84529.4.5]      #   34 Study Instance UID 1
+(0032,1032) PN [Requesting Doctor]                      #   18 Requesting Physician 1
+(0032,1033) LO [CHEST]                                  #    6 Requesting Service 1
+(0032,1060) LO [BILATERAL LOWER EXTREMITIES]            #   28 Requested Procedure Description 1
+(0038,0300) LO [ROOM2]                                  #    6 Current Patient Location 1
+(0040,0002) DA [20100910]                               #    8 Scheduled Procedure Step Start Date 1
+(0040,0100) SQ Scheduled Procedure Step Sequence
+ Item:
+  > (0008,0060) CS [CT]                                 #    2 Modality 1
+  > (0032,1070) LO [QUORMI]                             #    6 Requested Contrast Agent 1
+  > (0040,0001) AE [AE_PASTA]                           #    8 Scheduled Station AE Title 1-N
+  > (0040,0002) DA [20100910]                           #    8 Scheduled Procedure Step Start Date 1
+  > (0040,0003) TM [084200]                             #    6 Scheduled Procedure Step Start Time 1
+  > (0040,0004) DA []                                   #    0 Scheduled Procedure Step End Date 1
+  > (0040,0005) TM []                                   #    0 Scheduled Procedure Step End Time 1
+  > (0040,0006) PN []                                   #    0 Scheduled Performing Physician's Name 1
+  > (0040,0007) LO [BILATERAL]                          #   10 Scheduled Procedure Step Description 1
+  > (0040,0008) SQ Scheduled Protocol Code Sequence
+  >  Item:
+  >   > (4843,2032) UN (4843,2032) Private Tag          # 1048640 Private Tag 1-N
+(0040,1001) SH [MSCT-01]                                #    8 Requested Procedure ID 1
+
+2010-09-24 14:28:31,319 [DicomServer: 192.168.1.177 [16]] DEBUG - Send MetaInfo:
+(0000,0002) UI =Modality Worklist Information Model – FIND #   22 Affected SOP Class UID 1
+(0000,0100) US 32800                                    #    2 Command Field 1
+(0000,0120) US 2                                        #    2 Message ID Being Responded To 1
+(0000,0800) US 514                                      #    2 Data Set Type 1
+(0000,0900) US 65280                                    #    2 Status 1
+
+2010-09-24 14:28:31,502 [DicomServer: 192.168.1.177 [16]] DEBUG - Send DataSet:
+(0008,0005) CS [ISO_IR 100]                             #   10 Specific Character Set 1-N
+(0008,0050) SH [100000007]                              #   10 Accession Number 1
+(0008,0060) CS [CT]                                     #    2 Modality 1
+(0008,0090) PN [Dokter dummy]                           #   12 Referring Physician's Name 1
+(0008,1110) SQ Referenced Study Sequence
+ Item:
+  > (0008,1150) UI =Detached Study Management SOP Class (Retired) #   24 Referenced SOP Class UID 1
+  > (0008,1155) UI [1.2.826.113532.20050617.84529.4.5]  #   34 Referenced SOP Instance UID 1
+  > (0008,1156) UN (0008,1156) Private Tag              #    8 Private Tag 1-N
+  > (0008,1157) UN (0008,1157) Private Tag              #    8 Private Tag 1-N
+(0010,0010) PN [Nguyen^van^Quynh]                       #   16 Patient's Name 1
+(0010,0020) LO [1234]                                   #    4 Patient ID 1
+(0010,0021) LO [555]                                    #    4 Issuer of Patient ID 1
+(0010,0030) DA [19840910]                               #    8 Patient's Birth Date 1
+(0010,0040) CS [M]                                      #    2 Patient's Sex 1
+(0010,1000) LO [3451]                                   #    4 Other Patient IDs 1-N
+(0010,1020) DS [165.0]                                  #    6 Patient's Size 1
+(0010,1030) DS [60.0]                                   #    4 Patient's Weight 1
+(0010,2160) SH [Ras]                                    #    4 Ethnic Group 1
+(0010,21c0) US 4                                        #    2 Pregnancy Status 1
+(0010,4000) LT [pat comment]                            #   12 Patient Comments 1
+(0020,000d) UI [1.2.826.113532.20050617.84529.4.5]      #   34 Study Instance UID 1
+(0032,1032) PN [Requesting Doctor]                      #   18 Requesting Physician 1
+(0032,1033) LO [CHEST]                                  #    6 Requesting Service 1
+(0032,1060) LO [BILATERAL LOWER EXTREMITIES]            #   28 Requested Procedure Description 1
+(0038,0300) LO [ROOM2]                                  #    6 Current Patient Location 1
+(0040,0002) DA [20100910]                               #    8 Scheduled Procedure Step Start Date 1
+(0040,0100) SQ Scheduled Procedure Step Sequence
+ Item:
+  > (0008,0060) CS [CT]                                 #    2 Modality 1
+  > (0032,1070) LO [QUORMI]                             #    6 Requested Contrast Agent 1
+  > (0040,0001) AE [AE_PASTA]                           #    8 Scheduled Station AE Title 1-N
+  > (0040,0002) DA [20100910]                           #    8 Scheduled Procedure Step Start Date 1
+  > (0040,0003) TM [084200]                             #    6 Scheduled Procedure Step Start Time 1
+  > (0040,0004) DA []                                   #    0 Scheduled Procedure Step End Date 1
+  > (0040,0005) TM []                                   #    0 Scheduled Procedure Step End Time 1
+  > (0040,0006) PN []                                   #    0 Scheduled Performing Physician's Name 1
+  > (0040,0007) LO [BILATERAL]                          #   10 Scheduled Procedure Step Description 1
+  > (0040,0008) SQ Scheduled Protocol Code Sequence
+  >  Item:
+  >   > (4843,2032) UN (4843,2032) Private Tag          # 1048640 Private Tag 1-N
+(0040,1001) SH [MSCT-02]                                #    8 Requested Procedure ID 1
+

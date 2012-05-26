@@ -1,0 +1,10 @@
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.DAO\bin\Debug\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.DAO\bin\Debug\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.DAO\obj\Debug\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.DAO\obj\Debug\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.DAO\obj\Debug\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.DAO\bin\Debug\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.DAO\bin\Debug\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.DAO\obj\Debug\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.DAO\obj\Debug\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.DAO\obj\Debug\WorklistServer.DAO.pdb

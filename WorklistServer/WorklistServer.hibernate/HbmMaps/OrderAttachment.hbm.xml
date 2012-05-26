@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.OrderAttachment, WorklistServer.hibernate" table="dbo.OrderAttachment_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="AttachedTime" column="AttachedTime_" />
+		<many-to-one name="Staff" column="AttachedByStaffOID_" class="Staff" />
+		<many-to-one name="AttachedDocument" column="AttachedDocumentOID_" class="AttachedDocument" />
+		<many-to-one name="OrderAttachmentCategoryEnum" column="Category_" class="OrderAttachmentCategoryEnum" />
+		<many-to-one name="Order" column="OrderOID_" class="Order" />
+	</class>
+</hibernate-mapping>

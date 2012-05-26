@@ -1,0 +1,12 @@
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Configuration\bin\Release\WorklistServer.Configuration.dll.config
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Configuration\bin\Release\WorklistServer.Configuration.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Configuration\bin\Release\WorklistServer.Configuration.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Configuration\obj\Release\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Configuration\obj\Release\WorklistServer.Configuration.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Configuration\obj\Release\WorklistServer.Configuration.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Configuration\bin\Release\WorklistServer.Configuration.dll.config
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Configuration\bin\Release\WorklistServer.Configuration.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Configuration\bin\Release\WorklistServer.Configuration.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Configuration\obj\Release\ResolveAssemblyReference.cache
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Configuration\obj\Release\WorklistServer.Configuration.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Configuration\obj\Release\WorklistServer.Configuration.pdb

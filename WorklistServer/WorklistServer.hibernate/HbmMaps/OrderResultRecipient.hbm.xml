@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.OrderResultRecipient, WorklistServer.hibernate" table="dbo.OrderResultRecipient_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<many-to-one name="Order" column="OrderOID_" class="Order" />
+		<many-to-one name="ExternalPractitionerContactPoint" column="PractitionerContactPointOID_" class="ExternalPractitionerContactPoint" />
+		<many-to-one name="ResultCommunicationModeEnum" column="PreferredCommunicationMode_" class="ResultCommunicationModeEnum" />
+	</class>
+</hibernate-mapping>

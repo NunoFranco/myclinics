@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Worklist, WorklistServer.hibernate" table="dbo.Worklist_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Discriminator" column="Discriminator_" />
+		<property name="Version" column="Version_" />
+		<property name="FullClassName" column="FullClassName_" />
+		<property name="Name" column="Name_" />
+		<property name="Description" column="Description_" />
+		<property name="ProcedureTypeGroupFilterIsEnabled" column="ProcedureTypeGroupFilterIsEnabled_" />
+		<property name="FacilityFilterIsEnabled" column="FacilityFilterIsEnabled_" />
+		<property name="FacilityFilterIncludeWorkingFacility" column="FacilityFilterIncludeWorkingFacility_" />
+		<property name="PatientClassFilterIsEnabled" column="PatientClassFilterIsEnabled_" />
+		<property name="PatientLocationFilterIsEnabled" column="PatientLocationFilterIsEnabled_" />
+		<property name="OrderPriorityFilterIsEnabled" column="OrderPriorityFilterIsEnabled_" />
+		<property name="OrderingPractitionerFilterIsEnabled" column="OrderingPractitionerFilterIsEnabled_" />
+		<property name="PortableFilterIsEnabled" column="PortableFilterIsEnabled_" />
+		<property name="PortableFilterValue" column="PortableFilterValue_" />
+		<property name="TimeFilterIsEnabled" column="TimeFilterIsEnabled_" />
+		<property name="StartTimeFilterFixedValue" column="StartTimeFilterFixedValue_" />
+		<property name="StartTimeFilterRelativeValue" column="StartTimeFilterRelativeValue_" />
+		<property name="StartTimeFilterResolution" column="StartTimeFilterResolution_" />
+		<property name="EndTimeFilterFixedValue" column="EndTimeFilterFixedValue_" />
+		<property name="EndTimeFilterRelativeValue" column="EndTimeFilterRelativeValue_" />
+		<property name="EndTimeFilterResolution" column="EndTimeFilterResolution_" />
+		<property name="InterpretedByStaffFilterIsEnabled" column="InterpretedByStaffFilterIsEnabled_" />
+		<property name="InterpretedByStaffFilterIncludeCurrentUser" column="InterpretedByStaffFilterIncludeCurrentUser_" />
+		<property name="TranscribedByStaffFilterIsEnabled" column="TranscribedByStaffFilterIsEnabled_" />
+		<property name="TranscribedByStaffFilterIncludeCurrentUser" column="TranscribedByStaffFilterIncludeCurrentUser_" />
+		<property name="VerifiedByStaffFilterIsEnabled" column="VerifiedByStaffFilterIsEnabled_" />
+		<property name="VerifiedByStaffFilterIncludeCurrentUser" column="VerifiedByStaffFilterIncludeCurrentUser_" />
+		<property name="SupervisedByStaffFilterIsEnabled" column="SupervisedByStaffFilterIsEnabled_" />
+		<property name="SupervisedByStaffFilterIncludeCurrentUser" column="SupervisedByStaffFilterIncludeCurrentUser_" />
+		<many-to-one name="StaffGroup" column="OwnerGroupOID_" class="StaffGroup" />
+		<many-to-one name="Staff" column="OwnerStaffOID_" class="Staff" />
+	</class>
+</hibernate-mapping>
