@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.User, WorklistServer.hibernate" table="dbo.User_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="UserName" column="UserName_" />
+		<property name="PasswordSalt" column="PasswordSalt_" />
+		<property name="PasswordSaltedHash" column="PasswordSaltedHash_" />
+		<property name="PasswordExpiryDate" column="PasswordExpiryDate_" />
+		<property name="DisplayName" column="DisplayName_" />
+		<property name="ValidFrom" column="ValidFrom_" />
+		<property name="ValidUntil" column="ValidUntil_" />
+		<property name="Enabled" column="Enabled_" />
+		<property name="CreationTime" column="CreationTime_" />
+		<property name="LastLoginTime" column="LastLoginTime_" />
+		<bag name="UserSessions" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="UserOID_"></key>
+			<one-to-many class="UserSession"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.NotePosting, WorklistServer.hibernate" table="dbo.NotePosting_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Discriminator" column="Discriminator_" />
+		<property name="Version" column="Version_" />
+		<property name="IsAcknowledged" column="IsAcknowledged_" />
+		<property name="AcknowledgedByTime" column="AcknowledgedByTime_" />
+		<many-to-one name="Staff1" column="AcknowledgedByStaffOID_" class="Staff" />
+		<many-to-one name="Note" column="NoteOID_" class="Note" />
+		<many-to-one name="StaffGroup" column="RecipientGroupOID_" class="StaffGroup" />
+		<many-to-one name="Staff2" column="RecipientStaffOID_" class="Staff" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorklistServer", "WorklistServer\WorklistServer.csproj", "{4C30D0CB-5DBA-4792-8192-FB79230F2A00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorklistServer.DAO", "WorklistServer.DAO\WorklistServer.DAO.csproj", "{9D4E7C6A-C927-4D26-A4BC-7713DA683285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorklistServer.Services", "WorklistServer.Services\WorklistServer.Services.csproj", "{1DEC823F-C554-4D0E-A579-5DF29DC7FB18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorklistServer.Listener", "WorklistServer.Listener\WorklistServer.Listener.csproj", "{A0DDBE48-869E-43B2-9008-3215CBE2846C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorklistServer.Executable", "WorklistServer.Executable\WorklistServer.Executable.csproj", "{F34E3340-B0FA-4EFB-B3C4-C60661746080}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{044346B3-BAE5-46E8-AA5C-E1A5F9F86589}"
+	ProjectSection(SolutionItems) = preProject
+		WorklistServer.proj = WorklistServer.proj
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C30D0CB-5DBA-4792-8192-FB79230F2A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C30D0CB-5DBA-4792-8192-FB79230F2A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C30D0CB-5DBA-4792-8192-FB79230F2A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C30D0CB-5DBA-4792-8192-FB79230F2A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4E7C6A-C927-4D26-A4BC-7713DA683285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4E7C6A-C927-4D26-A4BC-7713DA683285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4E7C6A-C927-4D26-A4BC-7713DA683285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4E7C6A-C927-4D26-A4BC-7713DA683285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DEC823F-C554-4D0E-A579-5DF29DC7FB18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DEC823F-C554-4D0E-A579-5DF29DC7FB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DEC823F-C554-4D0E-A579-5DF29DC7FB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DEC823F-C554-4D0E-A579-5DF29DC7FB18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0DDBE48-869E-43B2-9008-3215CBE2846C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0DDBE48-869E-43B2-9008-3215CBE2846C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0DDBE48-869E-43B2-9008-3215CBE2846C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0DDBE48-869E-43B2-9008-3215CBE2846C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34E3340-B0FA-4EFB-B3C4-C60661746080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34E3340-B0FA-4EFB-B3C4-C60661746080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34E3340-B0FA-4EFB-B3C4-C60661746080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34E3340-B0FA-4EFB-B3C4-C60661746080}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

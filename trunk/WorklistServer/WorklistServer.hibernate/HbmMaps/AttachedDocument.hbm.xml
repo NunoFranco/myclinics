@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.AttachedDocument, WorklistServer.hibernate" table="dbo.AttachedDocument_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="MimeType" column="MimeType_" />
+		<property name="FileExtension" column="FileExtension_" />
+		<property name="CreationTime" column="CreationTime_" />
+		<property name="ReceivedTime" column="ReceivedTime_" />
+		<property name="ContentUrl" column="ContentUrl_" />
+		<bag name="PatientAttachments" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="AttachedDocumentOID_"></key>
+			<one-to-many class="PatientAttachment"></one-to-many>
+		</bag>
+		<bag name="OrderAttachments" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="AttachedDocumentOID_"></key>
+			<one-to-many class="OrderAttachment"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

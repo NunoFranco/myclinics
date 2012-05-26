@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.PatientProfileContactPerson, WorklistServer.hibernate" table="dbo.PatientProfileContactPerson_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Name" column="Name_" />
+		<property name="Address" column="Address_" />
+		<property name="HomePhone" column="HomePhone_" />
+		<property name="BusinessPhone" column="BusinessPhone_" />
+		<many-to-one name="PatientProfile" column="PatientProfileOID_" class="PatientProfile" />
+		<many-to-one name="ContactPersonRelationshipEnum" column="Relationship_" class="ContactPersonRelationshipEnum" />
+		<many-to-one name="ContactPersonTypeEnum" column="Type_" class="ContactPersonTypeEnum" />
+	</class>
+</hibernate-mapping>

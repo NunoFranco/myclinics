@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Protocol, WorklistServer.hibernate" table="dbo.Protocol_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<many-to-one name="Staff1" column="AuthorOID_" class="Staff" />
+		<many-to-one name="ProtocolRejectReasonEnum" column="RejectReason_" class="ProtocolRejectReasonEnum" />
+		<many-to-one name="ProtocolStatusEnum" column="Status_" class="ProtocolStatusEnum" />
+		<many-to-one name="Staff2" column="SupervisorOID_" class="Staff" />
+		<many-to-one name="ProtocolUrgencyEnum" column="Urgency_" class="ProtocolUrgencyEnum" />
+		<bag name="ProcedureSteps" lazy="true" cascade="all" inverse="true" >
+			<key column="ProtocolOID_"></key>
+			<one-to-many class="ProcedureStep"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

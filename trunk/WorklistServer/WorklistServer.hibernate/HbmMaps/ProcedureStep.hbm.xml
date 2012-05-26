@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.ProcedureStep, WorklistServer.hibernate" table="dbo.ProcedureStep_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Discriminator" column="Discriminator_" />
+		<property name="Version" column="Version_" />
+		<property name="CreationTime" column="CreationTime_" />
+		<property name="LastStateChangeTime" column="LastStateChangeTime_" />
+		<property name="ScheduledStartTime" column="ScheduledStartTime_" />
+		<property name="ScheduledEndTime" column="ScheduledEndTime_" />
+		<property name="StartTime" column="StartTime_" />
+		<property name="EndTime" column="EndTime_" />
+		<property name="Description" column="Description_" />
+		<property name="HasErrors" column="HasErrors_" />
+		<property name="FailureCount" column="FailureCount_" />
+		<property name="LastFailureTime" column="LastFailureTime_" />
+		<many-to-one name="ProcedureStepMember" column="LinkStepOID_" class="ProcedureStep" />
+		<many-to-one name="Modality" column="ModalityOID_" class="Modality" />
+		<many-to-one name="Staff1" column="PerformerStaffOID_" class="Staff" />
+		<many-to-one name="Procedure" column="ProcedureOID_" class="Procedure" />
+		<many-to-one name="Protocol" column="ProtocolOID_" class="Protocol" />
+		<many-to-one name="ReportPart" column="ReportPartOID_" class="ReportPart" />
+		<many-to-one name="Staff2" column="ScheduledPerformerStaffOID_" class="Staff" />
+		<many-to-one name="ActivityStatusEnum" column="State_" class="ActivityStatusEnum" />
+		<bag name="PerformedProcedureSteps" table="dbo.ProcedureStepPerformedProcedureStep_" lazy="true" cascade="all" inverse="false" >
+			<key column="ProcedureStepOID_"></key>
+			<many-to-many column="PerformedProcedureStepOID_" class="PerformedProcedureStep" />
+    	</bag>
+	</class>
+</hibernate-mapping>

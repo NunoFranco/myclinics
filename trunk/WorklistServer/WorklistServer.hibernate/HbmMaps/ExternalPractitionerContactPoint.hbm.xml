@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.ExternalPractitionerContactPoint, WorklistServer.hibernate" table="dbo.ExternalPractitionerContactPoint_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="Name" column="Name_" />
+		<property name="Description" column="Description_" />
+		<property name="IsDefaultContactPoint" column="IsDefaultContactPoint_" />
+		<property name="Deactivated" column="Deactivated_" />
+		<many-to-one name="ExternalPractitioner" column="PractitionerOID_" class="ExternalPractitioner" />
+		<many-to-one name="ResultCommunicationModeEnum" column="PreferredResultCommunicationMode_" class="ResultCommunicationModeEnum" />
+		<bag name="ExternalPractitionerContactPointEmailAddresses" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="ExternalPractitionerContactPointOID_"></key>
+			<one-to-many class="ExternalPractitionerContactPointEmailAddress"></one-to-many>
+		</bag>
+		<bag name="ExternalPractitionerContactPointTelephoneNumbers" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="ExternalPractitionerContactPointOID_"></key>
+			<one-to-many class="ExternalPractitionerContactPointTelephoneNumber"></one-to-many>
+		</bag>
+		<bag name="ExternalPractitionerContactPointAddresses" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="ExternalPractitionerContactPointOID_"></key>
+			<one-to-many class="ExternalPractitionerContactPointAddress"></one-to-many>
+		</bag>
+		<bag name="OrderResultRecipients" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="PractitionerContactPointOID_"></key>
+			<one-to-many class="OrderResultRecipient"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

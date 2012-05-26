@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.PatientNote, WorklistServer.hibernate" table="dbo.PatientNote_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="CreationTime" column="CreationTime_" />
+		<property name="Comment" column="Comment_" />
+		<property name="ValidFrom" column="ValidFrom_" />
+		<property name="ValidUntil" column="ValidUntil_" />
+		<many-to-one name="Staff" column="AuthorOID_" class="Staff" />
+		<many-to-one name="PatientNoteCategory" column="CategoryOID_" class="PatientNoteCategory" />
+		<many-to-one name="Patient" column="PatientOID_" class="Patient" />
+	</class>
+</hibernate-mapping>

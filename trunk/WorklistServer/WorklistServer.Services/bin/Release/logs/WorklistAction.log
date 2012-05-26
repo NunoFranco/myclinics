@@ -1,0 +1,98 @@
+2010-06-23 15:50:26,186 [11] INFO  - Stopping listening with AE WORKLIST_SV on 192.168.1.177:36500
+2010-06-23 16:40:11,762 [4] WARN  - Time provider not found - defaulting to local machine time.
+2010-06-23 16:40:11,902 [4] INFO  - Starting to listen with AE WORKLIST_SV on port 192.168.1.177:105
+2010-06-23 16:40:11,902 [4] INFO  - Data Source=localhost;Initial Catalog=Ris;User Id=sa;Password=changalong;
+2010-06-23 16:40:35,105 [DicomServer: 192.168.1.177 [9]] DEBUG - Receive MetaInfo:
+(0000,0002) UI =Modality Worklist Information Model – FIND #   22 Affected SOP Class UID 1
+(0000,0100) US 32                                       #    2 Command Field 1
+(0000,0110) US 1                                        #    2 Message ID 1
+(0000,0700) US 0                                        #    2 Priority 1
+(0000,0800) US 0                                        #    2 Data Set Type 1
+
+2010-06-23 16:40:35,151 [DicomServer: 192.168.1.177 [9]] DEBUG - Receive DataSet:
+(0008,0050) SH []                                       #    0 Accession Number 1
+(0008,0090) PN []                                       #    0 Referring Physician's Name 1
+(0008,1110) SQ Referenced Study Sequence
+(0008,1120) SQ Referenced Patient Sequence
+(0010,0010) PN []                                       #    0 Patient's Name 1
+(0010,0020) LO []                                       #    0 Patient ID 1
+(0010,0030) DA []                                       #    0 Patient's Birth Date 1
+(0010,0040) CS []                                       #    0 Patient's Sex 1
+(0010,1030) DS []                                       #    0 Patient's Weight 1
+(0010,2000) LO []                                       #    0 Medical Alerts 1-N
+(0010,2110) LO []                                       #    0 Allergies 1-N
+(0010,21c0) US (no value available)                     #    0 Pregnancy Status 1
+(0020,000d) UI [1.2.826.0.1.3680043.2.1545.6.887.7]     #   34 Study Instance UID 1
+(0032,1032) PN []                                       #    0 Requesting Physician 1
+(0032,1033) LO []                                       #    0 Requesting Service 1
+(0032,1060) LO []                                       #    0 Requested Procedure Description 1
+(0032,1064) SQ Requested Procedure Code Sequence
+ Item:
+(0038,0010) LO []                                       #    0 Admission ID 1
+(0038,0050) LO []                                       #    0 Special Needs 1
+(0038,0300) LO []                                       #    0 Current Patient Location 1
+(0038,0500) LO []                                       #    0 Patient State 1
+(0040,0100) SQ Scheduled Procedure Step Sequence
+ Item:
+  > (0008,0060) CS [CT]                                 #    2 Modality 1
+  > (0040,0001) AE [DVT]                                #    4 Scheduled Station AE Title 1-N
+  > (0040,0002) DA [20100623]                           #    8 Scheduled Procedure Step Start Date 1
+  > (0040,0006) PN []                                   #    0 Scheduled Performing Physician's Name 1
+  > (0040,0010) SH []                                   #    0 Scheduled Station Name 1-N
+  > (0040,0011) SH []                                   #    0 Scheduled Procedure Step Location 1
+(0040,1001) SH [RPQ1]                                   #    4 Requested Procedure ID 1
+(0040,1003) SH []                                       #    0 Requested Procedure Priority  1
+(0040,1004) LO []                                       #    0 Patient Transport Arrangements 1
+(0040,2016) LO []                                       #    0 Placer Order Number / Imaging Service Request 1
+(0040,2017) LO []                                       #    0 Filler Order Number / Imaging Service Request 1
+(0040,3001) LO []                                       #    0 Confidentiality Constraint on Patient Data Description 1
+
+2010-06-23 16:40:35,545 [DicomServer: 192.168.1.177 [9]] DEBUG - Send MetaInfo:
+(0000,0002) UI =Modality Worklist Information Model – FIND #   22 Affected SOP Class UID 1
+(0000,0100) US 32800                                    #    2 Command Field 1
+(0000,0120) US 1                                        #    2 Message ID Being Responded To 1
+(0000,0800) US 514                                      #    2 Data Set Type 1
+(0000,0900) US 65280                                    #    2 Status 1
+
+2010-06-23 16:40:35,545 [DicomServer: 192.168.1.177 [9]] DEBUG - Send DataSet:
+(0008,0050) SH [100000006]                              #   10 Accession Number 1
+(0010,0010) PN [NguyenVanTroi]                          #   14 Patient's Name 1
+(0010,0020) LO [2223311]                                #    8 Patient ID 1
+(0020,000d) UI [1.2.826.0.1.3680043.2.1545.6.887.7]     #   34 Study Instance UID 1
+(0040,0100) SQ Scheduled Procedure Step Sequence
+ Item:
+  > (0008,0060) CS [CT]                                 #    2 Modality 1
+  > (0040,0002) DA [20100616]                           #    8 Scheduled Procedure Step Start Date 1
+(0040,1001) SH [IHE-DS03]                               #    8 Requested Procedure ID 1
+
+2010-06-23 16:40:35,558 [DicomServer: 192.168.1.177 [9]] DEBUG - Send MetaInfo:
+(0000,0002) UI =Modality Worklist Information Model – FIND #   22 Affected SOP Class UID 1
+(0000,0100) US 32800                                    #    2 Command Field 1
+(0000,0120) US 1                                        #    2 Message ID Being Responded To 1
+(0000,0800) US 514                                      #    2 Data Set Type 1
+(0000,0900) US 65280                                    #    2 Status 1
+
+2010-06-23 16:40:35,558 [DicomServer: 192.168.1.177 [9]] DEBUG - Send DataSet:
+(0008,0050) SH [100000005]                              #   10 Accession Number 1
+(0010,0010) PN [Tran ThanhTong]                         #   14 Patient's Name 1
+(0010,0020) LO [12345785]                               #    8 Patient ID 1
+(0020,000d) UI [1.2.826.0.1.3680043.2.1545.6.887.7]     #   34 Study Instance UID 1
+(0040,0100) SQ Scheduled Procedure Step Sequence
+ Item:
+  > (0008,0060) CS [CT]                                 #    2 Modality 1
+  > (0040,0002) DA [20100616]                           #    8 Scheduled Procedure Step Start Date 1
+ Item:
+  > (0008,0060) CS [CT]                                 #    2 Modality 1
+  > (0040,0002) DA [20100616]                           #    8 Scheduled Procedure Step Start Date 1
+(0040,1001) SH [IHE-DS03]                               #    8 Requested Procedure ID 1
+
+2010-06-23 16:40:35,558 [DicomServer: 192.168.1.177 [9]] DEBUG - Send MetaInfo:
+(0000,0002) UI =Modality Worklist Information Model – FIND #   22 Affected SOP Class UID 1
+(0000,0100) US 32800                                    #    2 Command Field 1
+(0000,0120) US 1                                        #    2 Message ID Being Responded To 1
+(0000,0800) US 257                                      #    2 Data Set Type 1
+(0000,0900) US 0                                        #    2 Status 1
+
+2010-06-23 16:40:35,558 [DicomServer: 192.168.1.177 [9]] DEBUG - Send DataSet:
+
+2010-06-23 17:41:41,114 [10] INFO  - Stopping listening with AE WORKLIST_SV on 192.168.1.177:105

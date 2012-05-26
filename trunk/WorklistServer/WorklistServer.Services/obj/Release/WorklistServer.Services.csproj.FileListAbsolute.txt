@@ -1,0 +1,59 @@
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\WorklistServer.Services.exe
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\WorklistServer.Services.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\ClearCanvas.Common.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\ClearCanvas.Dicom.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\WorklistServer.Configuration.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\log4net.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\WorklistServer.Configuration.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Release\WorklistServer.Listener.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\obj\Release\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\obj\Release\WorklistServer.Services.exe
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\obj\Release\WorklistServer.Services.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Release\WorklistServer.Services.exe
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Release\WorklistServer.Services.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Release\ClearCanvas.Common.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Release\ClearCanvas.Dicom.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Release\WorklistServer.Listener.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Release\log4net.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Release\WorklistServer.DAO.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Release\WorklistServer.DAO.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Release\WorklistServer.Listener.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\obj\Release\ResolveAssemblyReference.cache
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\obj\Release\WorklistServer.Services.ProjectIntaller.resources
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\obj\Release\WorklistServer.Services.csproj.GenerateResource.Cache
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\obj\Release\WorklistServer.Services.exe
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\obj\Release\WorklistServer.Services.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Release\WorklistServer.Services.exe.config
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.Services.exe.config
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.Services.exe
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.Services.pdb
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\bin\Release\ClearCanvas.Common.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\bin\Release\ClearCanvas.Dicom.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\bin\Release\log4net.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.Listener.pdb
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\obj\Release\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\obj\Release\WorklistServer.Services.ProjectIntaller.resources
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\obj\Release\WorklistServer.Services.csproj.GenerateResource.Cache
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\obj\Release\WorklistServer.Services.exe
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Services\obj\Release\WorklistServer.Services.pdb
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.Services.exe.config
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.Services.exe
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.Services.pdb
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\bin\Release\ClearCanvas.Common.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\bin\Release\ClearCanvas.Dicom.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.Listener.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\bin\Release\log4net.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.DAO.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.DAO.pdb
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\bin\Release\WorklistServer.Listener.pdb
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\obj\Release\ResolveAssemblyReference.cache
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\obj\Release\WorklistServer.Services.ProjectIntaller.resources
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\obj\Release\WorklistServer.Services.csproj.GenerateResource.Cache
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\obj\Release\WorklistServer.Services.exe
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Services\obj\Release\WorklistServer.Services.pdb

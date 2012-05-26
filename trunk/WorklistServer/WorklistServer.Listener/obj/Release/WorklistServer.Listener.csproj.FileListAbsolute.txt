@@ -1,0 +1,40 @@
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Release\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Release\WorklistServer.Listener.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Release\ClearCanvas.Common.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Release\ClearCanvas.Dicom.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Release\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Release\log4net.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\bin\Release\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\obj\Release\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\obj\Release\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Listener\obj\Release\WorklistServer.Listener.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Release\WorklistServer.Listener.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Release\WorklistServer.Listener.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Release\ClearCanvas.Common.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Release\ClearCanvas.Dicom.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Release\WorklistServer.DAO.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Release\log4net.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\bin\Release\WorklistServer.DAO.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\obj\Release\ResolveAssemblyReference.cache
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\obj\Release\WorklistServer.Listener.dll
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Listener\obj\Release\WorklistServer.Listener.pdb
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Listener\bin\Release\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Listener\bin\Release\WorklistServer.Listener.pdb
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Listener\bin\Release\ClearCanvas.Common.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Listener\bin\Release\ClearCanvas.Dicom.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Listener\bin\Release\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Listener\bin\Release\log4net.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Listener\bin\Release\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Listener\obj\Release\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Listener\obj\Release\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer\WorklistServer.Listener\obj\Release\WorklistServer.Listener.pdb
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Listener\bin\Release\WorklistServer.Listener.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Listener\bin\Release\WorklistServer.Listener.pdb
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Listener\bin\Release\ClearCanvas.Common.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Listener\bin\Release\ClearCanvas.Dicom.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Listener\bin\Release\WorklistServer.DAO.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Listener\bin\Release\log4net.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Listener\bin\Release\WorklistServer.DAO.pdb
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Listener\obj\Release\ResolveAssemblyReference.cache
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Listener\obj\Release\WorklistServer.Listener.dll
+E:\Running_Sourcecode\RIS_2SP1\WorklistServer\WorklistServer.Listener\obj\Release\WorklistServer.Listener.pdb

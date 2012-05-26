@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Order, WorklistServer.hibernate" table="dbo.Order_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="PlacerNumber" column="PlacerNumber_" />
+		<property name="AccessionNumber" column="AccessionNumber_" />
+		<property name="EnteredTime" column="EnteredTime_" />
+		<property name="EnteredComment" column="EnteredComment_" />
+		<property name="SchedulingRequestTime" column="SchedulingRequestTime_" />
+		<property name="ScheduledStartTime" column="ScheduledStartTime_" />
+		<property name="StartTime" column="StartTime_" />
+		<property name="EndTime" column="EndTime_" />
+		<property name="ReasonForStudy" column="ReasonForStudy_" />
+		<property name="CancelComment" column="CancelComment_" />
+		<many-to-one name="Staff1" column="CancelledByOID_" class="Staff" />
+		<many-to-one name="OrderCancelReasonEnum" column="CancelReason_" class="OrderCancelReasonEnum" />
+		<many-to-one name="DiagnosticService" column="DiagnosticServiceOID_" class="DiagnosticService" />
+		<many-to-one name="Staff2" column="EnteredByOID_" class="Staff" />
+		<many-to-one name="Facility" column="OrderingFacilityOID_" class="Facility" />
+		<many-to-one name="ExternalPractitioner" column="OrderingPractitionerOID_" class="ExternalPractitioner" />
+		<many-to-one name="Patient" column="PatientOID_" class="Patient" />
+		<many-to-one name="OrderPriorityEnum" column="Priority_" class="OrderPriorityEnum" />
+		<many-to-one name="OrderMember" column="ReplacementOrderOID_" class="Order" />
+		<many-to-one name="OrderStatusEnum" column="Status_" class="OrderStatusEnum" />
+		<many-to-one name="Visit" column="VisitOID_" class="Visit" />
+		<bag name="OrderResultRecipients" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="OrderOID_"></key>
+			<one-to-many class="OrderResultRecipient"></one-to-many>
+		</bag>
+		<bag name="OrderAttachments" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="OrderOID_"></key>
+			<one-to-many class="OrderAttachment"></one-to-many>
+		</bag>
+		<bag name="Notes" lazy="true" cascade="all" inverse="true" >
+			<key column="OrderOID_"></key>
+			<one-to-many class="Note"></one-to-many>
+		</bag>
+		<bag name="Procedures" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="OrderOID_"></key>
+			<one-to-many class="Procedure"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

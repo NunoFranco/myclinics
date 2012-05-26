@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.ConfigurationSettingsGroup, WorklistServer.hibernate" table="dbo.ConfigurationSettingsGroup_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="Name" column="Name_" />
+		<property name="VersionString" column="VersionString_" />
+		<property name="Description" column="Description_" />
+		<property name="AssemblyQualifiedTypeName" column="AssemblyQualifiedTypeName_" />
+		<property name="HasUserScopedSettings" column="HasUserScopedSettings_" />
+		<bag name="ConfigurationSettingsProperties" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="ConfigurationSettingsGroupOID_"></key>
+			<one-to-many class="ConfigurationSettingsProperty"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

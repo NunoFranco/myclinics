@@ -1,0 +1,30 @@
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\WorklistServer.Services.exe
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\WorklistServer.Services.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\obj\Debug\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\obj\Debug\WorklistServer.Services.exe
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\obj\Debug\WorklistServer.Services.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\WorklistServer.Configuration.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\log4net.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\ClearCanvas.Common.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\ClearCanvas.Dicom.dll
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\WorklistServer.Configuration.pdb
+D:\Running_Sourcecode\WorklistServer - Copy\WorklistServer.Services\bin\Debug\WorklistServer.Listener.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\WorklistServer.Services.exe
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\WorklistServer.Services.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\ClearCanvas.Common.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\ClearCanvas.Dicom.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\WorklistServer.Configuration.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\WorklistServer.Listener.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\WorklistServer.DAO.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\log4net.dll
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\WorklistServer.DAO.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\WorklistServer.Configuration.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\bin\Debug\WorklistServer.Listener.pdb
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\obj\Debug\ResolveAssemblyReference.cache
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\obj\Debug\WorklistServer.Services.exe
+D:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\obj\Debug\WorklistServer.Services.pdb
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\obj\Debug\WorklistServer.Services.ProjectIntaller.resources
+d:\Running_Sourcecode\WorklistServer_Copy\WorklistServer.Services\obj\Debug\WorklistServer.Services.csproj.GenerateResource.Cache

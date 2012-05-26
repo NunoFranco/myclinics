@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Modality, WorklistServer.hibernate" table="dbo.Modality_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="Id" column="Id_" />
+		<property name="Name" column="Name_" />
+		<property name="Deactivated" column="Deactivated_" />
+		<bag name="ProcedureSteps" lazy="true" cascade="all" inverse="true" >
+			<key column="ModalityOID_"></key>
+			<one-to-many class="ProcedureStep"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

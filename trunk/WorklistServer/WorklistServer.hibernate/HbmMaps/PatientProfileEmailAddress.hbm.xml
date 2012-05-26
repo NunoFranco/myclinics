@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.PatientProfileEmailAddress, WorklistServer.hibernate" table="dbo.PatientProfileEmailAddress_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Address" column="Address_" />
+		<property name="ValidFrom" column="ValidFrom_" />
+		<property name="ValidUntil" column="ValidUntil_" />
+		<many-to-one name="PatientProfile" column="PatientProfileOID_" class="PatientProfile" />
+	</class>
+</hibernate-mapping>

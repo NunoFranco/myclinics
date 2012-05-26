@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.PatientProfileExpiredMrn, WorklistServer.hibernate" table="dbo.PatientProfileExpiredMrn_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="MrnId" column="MrnId_" />
+		<many-to-one name="InformationAuthorityEnum" column="MrnAssigningAuthority_" class="InformationAuthorityEnum" />
+		<many-to-one name="PatientProfile" column="PatientProfileOID_" class="PatientProfile" />
+	</class>
+</hibernate-mapping>

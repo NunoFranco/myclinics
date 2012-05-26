@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.WorkQueueExtendedProperty, WorklistServer.hibernate" table="dbo.WorkQueueExtendedProperty_" lazy="true">
+		<composite-id>
+			<key-property name="WorkQueueOID" column="WorkQueueOID_" /> 
+			<key-property name="Name" column="Name_" /> 
+		</composite-id>
+		<property name="Value" column="Value_" />
+	</class>
+</hibernate-mapping>

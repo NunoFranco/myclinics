@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.WorkQueueItem, WorklistServer.hibernate" table="dbo.WorkQueueItem_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="CreationTime" column="CreationTime_" />
+		<property name="ScheduledTime" column="ScheduledTime_" />
+		<property name="ExpirationTime" column="ExpirationTime_" />
+		<property name="User" column="User_" />
+		<property name="Type" column="Type_" />
+		<property name="ProcessedTime" column="ProcessedTime_" />
+		<property name="FailureCount" column="FailureCount_" />
+		<property name="FailureDescription" column="FailureDescription_" />
+		<many-to-one name="WorkQueueStatusEnum" column="Status_" class="WorkQueueStatusEnum" />
+	</class>
+</hibernate-mapping>

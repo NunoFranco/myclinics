@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.PerformedProcedureStep, WorklistServer.hibernate" table="dbo.PerformedProcedureStep_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Discriminator" column="Discriminator_" />
+		<property name="Version" column="Version_" />
+		<property name="CreationTime" column="CreationTime_" />
+		<property name="LastStateChangeTime" column="LastStateChangeTime_" />
+		<property name="StartTime" column="StartTime_" />
+		<property name="EndTime" column="EndTime_" />
+		<many-to-one name="Staff" column="PerformingStaffOID_" class="Staff" />
+		<many-to-one name="PerformedStepStatusEnum" column="State_" class="PerformedStepStatusEnum" />
+		<bag name="DicomSeriesMember" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="ModalityPerformedProcedureStepOID_"></key>
+			<one-to-many class="DicomSeries"></one-to-many>
+		</bag>
+		<bag name="ProcedureSteps" table="dbo.ProcedureStepPerformedProcedureStep_" lazy="true" cascade="all" inverse="false" >
+			<key column="PerformedProcedureStepOID_"></key>
+			<many-to-many column="ProcedureStepOID_" class="ProcedureStep" />
+    	</bag>
+	</class>
+</hibernate-mapping>

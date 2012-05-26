@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="WorklistServer.hibernate.BusinessObjects" assembly="WorklistServer.hibernate">
+	<class name="WorklistServer.hibernate.BusinessObjects.Staff, WorklistServer.hibernate" table="dbo.Staff_" lazy="true">
+		<id name="Id" column="OID_">
+		 	<generator class="assigned" />
+		</id>
+		<property name="Version" column="Version_" />
+		<property name="Id" column="Id_" />
+		<property name="FamilyName" column="FamilyName_" />
+		<property name="GivenName" column="GivenName_" />
+		<property name="MiddleName" column="MiddleName_" />
+		<property name="Prefix" column="Prefix_" />
+		<property name="Suffix" column="Suffix_" />
+		<property name="Degree" column="Degree_" />
+		<property name="Title" column="Title_" />
+		<property name="LicenseNumber" column="LicenseNumber_" />
+		<property name="BillingNumber" column="BillingNumber_" />
+		<property name="UserName" column="UserName_" />
+		<property name="Deactivated" column="Deactivated_" />
+		<many-to-one name="SexEnum" column="Sex_" class="SexEnum" />
+		<many-to-one name="StaffTypeEnum" column="Type_" class="StaffTypeEnum" />
+		<bag name="NotePostings1" lazy="true" cascade="all" inverse="true" >
+			<key column="AcknowledgedByStaffOID_"></key>
+			<one-to-many class="NotePosting"></one-to-many>
+		</bag>
+		<bag name="OrderAttachments" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="AttachedByStaffOID_"></key>
+			<one-to-many class="OrderAttachment"></one-to-many>
+		</bag>
+		<bag name="PatientAttachments" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="AttachedByStaffOID_"></key>
+			<one-to-many class="PatientAttachment"></one-to-many>
+		</bag>
+		<bag name="Notes" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="AuthorOID_"></key>
+			<one-to-many class="Note"></one-to-many>
+		</bag>
+		<bag name="PatientNotes" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="AuthorOID_"></key>
+			<one-to-many class="PatientNote"></one-to-many>
+		</bag>
+		<bag name="Protocols1" lazy="true" cascade="all" inverse="true" >
+			<key column="AuthorOID_"></key>
+			<one-to-many class="Protocol"></one-to-many>
+		</bag>
+		<bag name="Orders1" lazy="true" cascade="all" inverse="true" >
+			<key column="CancelledByOID_"></key>
+			<one-to-many class="Order"></one-to-many>
+		</bag>
+		<bag name="Orders2" lazy="true" cascade="all" inverse="true" >
+			<key column="EnteredByOID_"></key>
+			<one-to-many class="Order"></one-to-many>
+		</bag>
+		<bag name="ReportParts1" lazy="true" cascade="all" inverse="true" >
+			<key column="InterpreterOID_"></key>
+			<one-to-many class="ReportPart"></one-to-many>
+		</bag>
+		<bag name="Worklists" lazy="true" cascade="all" inverse="true" >
+			<key column="OwnerStaffOID_"></key>
+			<one-to-many class="Worklist"></one-to-many>
+		</bag>
+		<bag name="ProcedureSteps1" lazy="true" cascade="all" inverse="true" >
+			<key column="PerformerStaffOID_"></key>
+			<one-to-many class="ProcedureStep"></one-to-many>
+		</bag>
+		<bag name="PerformedProcedureSteps" lazy="true" cascade="all" inverse="true" >
+			<key column="PerformingStaffOID_"></key>
+			<one-to-many class="PerformedProcedureStep"></one-to-many>
+		</bag>
+		<bag name="NotePostings2" lazy="true" cascade="all" inverse="true" >
+			<key column="RecipientStaffOID_"></key>
+			<one-to-many class="NotePosting"></one-to-many>
+		</bag>
+		<bag name="ProcedureSteps2" lazy="true" cascade="all" inverse="true" >
+			<key column="ScheduledPerformerStaffOID_"></key>
+			<one-to-many class="ProcedureStep"></one-to-many>
+		</bag>
+		<bag name="CannedTexts" lazy="true" cascade="all" inverse="true" >
+			<key column="StaffOID_"></key>
+			<one-to-many class="CannedText"></one-to-many>
+		</bag>
+		<bag name="StaffTelephoneNumbers" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="StaffOID_"></key>
+			<one-to-many class="StaffTelephoneNumber"></one-to-many>
+		</bag>
+		<bag name="StaffEmailAddresses" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="StaffOID_"></key>
+			<one-to-many class="StaffEmailAddress"></one-to-many>
+		</bag>
+		<bag name="StaffAddresses" lazy="true" cascade="all-delete-orphan" inverse="true" >
+			<key column="StaffOID_"></key>
+			<one-to-many class="StaffAddress"></one-to-many>
+		</bag>
+		<bag name="Protocols2" lazy="true" cascade="all" inverse="true" >
+			<key column="SupervisorOID_"></key>
+			<one-to-many class="Protocol"></one-to-many>
+		</bag>
+		<bag name="ReportParts2" lazy="true" cascade="all" inverse="true" >
+			<key column="SupervisorOID_"></key>
+			<one-to-many class="ReportPart"></one-to-many>
+		</bag>
+		<bag name="ReportParts3" lazy="true" cascade="all" inverse="true" >
+			<key column="TranscriberOID_"></key>
+			<one-to-many class="ReportPart"></one-to-many>
+		</bag>
+		<bag name="ReportParts4" lazy="true" cascade="all" inverse="true" >
+			<key column="TranscriptionSupervisorOID_"></key>
+			<one-to-many class="ReportPart"></one-to-many>
+		</bag>
+		<bag name="ReportParts5" lazy="true" cascade="all" inverse="true" >
+			<key column="VerifierOID_"></key>
+			<one-to-many class="ReportPart"></one-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>

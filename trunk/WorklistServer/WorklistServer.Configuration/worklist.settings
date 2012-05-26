@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WorklistServer.Configuration" GeneratedClassName="worklist">
+  <Profiles />
+  <Settings>
+    <Setting Name="AE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">WORKLIST_SV</Value>
+    </Setting>
+    <Setting Name="Port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">105</Value>
+    </Setting>
+    <Setting Name="StrConn" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=192.168.1.30;Initial Catalog=Ris;User Id=sa;Password=biti1234</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
