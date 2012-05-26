@@ -1,0 +1,5 @@
+E:\Running_Sourcecode\RIS_2SP1\Ris\Client\Billing\bin\Release\ClearCanvas.Ris.Client.Billing.dll
+E:\Running_Sourcecode\RIS_2SP1\Ris\Client\Billing\bin\Release\ClearCanvas.Ris.Client.Billing.pdb
+E:\Running_Sourcecode\RIS_2SP1\Ris\Client\Billing\obj\Release\ResolveAssemblyReference.cache
+E:\Running_Sourcecode\RIS_2SP1\Ris\Client\Billing\obj\Release\ClearCanvas.Ris.Client.Billing.dll
+E:\Running_Sourcecode\RIS_2SP1\Ris\Client\Billing\obj\Release\ClearCanvas.Ris.Client.Billing.pdb
