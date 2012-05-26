@@ -1,0 +1,16 @@
+d:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\bin\Release\ClearCanvas.Ris.Server.Executable.exe.config
+d:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\bin\Release\ClearCanvas.Ris.Server.Executable.exe
+d:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\bin\Release\ClearCanvas.Ris.Server.Executable.pdb
+d:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\obj\Release\ResolveAssemblyReference.cache
+d:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\obj\Release\ClearCanvas.Ris.Server.Executable.SR.resources
+d:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\obj\Release\ClearCanvas.Ris.Server.Executable.csproj.GenerateResource.Cache
+d:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\obj\Release\ClearCanvas.Ris.Server.Executable.exe
+d:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\obj\Release\ClearCanvas.Ris.Server.Executable.pdb
+E:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\bin\Release\ClearCanvas.Ris.Server.Executable.exe.config
+E:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\bin\Release\ClearCanvas.Ris.Server.Executable.exe
+E:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\bin\Release\ClearCanvas.Ris.Server.Executable.pdb
+E:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\obj\Release\ResolveAssemblyReference.cache
+E:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\obj\Release\ClearCanvas.Ris.Server.Executable.SR.resources
+E:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\obj\Release\ClearCanvas.Ris.Server.Executable.csproj.GenerateResource.Cache
+E:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\obj\Release\ClearCanvas.Ris.Server.Executable.exe
+E:\Running_Sourcecode\RIS_2SP1\Ris\Server\Executable\obj\Release\ClearCanvas.Ris.Server.Executable.pdb
