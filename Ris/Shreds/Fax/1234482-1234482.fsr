@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<AccountID>1234482</AccountID>
+	<UserID>1234482</UserID>
+	<UserPassword>uwoA8jT58+LCe7yNoGuGzw==</UserPassword>
+	<InboundFaxRouters>
+		<InboundFaxRouter FaxNumber="8665053352">     
+			<ArchivingOptions LeaveCopyOnServer="True">
+				<DeleteAfter Unit="Days">5</DeleteAfter>        
+			</ArchivingOptions>
+			<Drops>
+				<FaxDrop Name="Generic image data file drop">
+					<DropLocations>
+						<DropLocation>
+							<FilePath>C:\Documents and Settings\CC Dev\Desktop\FaxSample\Incoming\${FaxDetails.FaxID}.${FaxDetails.FaxFileExtension}</FilePath>
+						</DropLocation>
+					</DropLocations>
+				</FaxDrop>        
+				<MetaDataDrop Name="Generic metadata file drop">
+					<DropLocations>
+						<DropLocation>
+							<FilePath>C:\Documents and Settings\CC Dev\Desktop\FaxSample\Incoming\${FaxDetails.FaxID}.fmd</FilePath>
+							<!-- DO NOT CHANGE THE FOLLOWING METADATATEMPLATE LAYOUT, DOING SO WILL BREAK FUNCTIONALITY OF INCOMING FAX WORKFLOW -->
+							<MetaDataTemplate>
+								<![CDATA[ACCOUNTID=${FaxDetails.AccountID}
+								USERID=${FaxDetails.UserID}
+								USERFAXNUMBER=${FaxDetails.UserFaxNumber}
+								FAXID=${FaxDetails.FaxID}
+								FROM=${FaxDetails.CallerID}
+								FROMCSID=${FaxDetails.CSID}
+								FILESIZE=${FaxDetails.FaxFileSizeInBytes}
+								PAGES=${FaxDetails.NumOfPages}
+								DURATION=${FaxDetails.DurationInSecs}
+								DATE=${FaxDetails.FaxReceivedTimeStamp}]]>
+							</MetaDataTemplate>
+						</DropLocation>
+					</DropLocations>
+				</MetaDataDrop>
+			</Drops>
+		</InboundFaxRouter>
+	</InboundFaxRouters>
+</UserSettings>

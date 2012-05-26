@@ -1,0 +1,120 @@
+<Project DefaultTargets="Copy All Files;ShredHostAppConfigs" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <UsingTask TaskName="ClearCanvas.Utilities.BuildTasks.CombineAppConfigs" AssemblyFile="$(TrunkDirectory)\ReferencedAssemblies\MSBuild\ClearCanvas.Utilities.BuildTasks.dll"/>
+
+  <PropertyGroup>
+		<!-- The 'ProjectOutDir' property is the default output folder of the project and should not be overridden -->
+		<ProjectOutDir>$(ProjectDir)\$(OutDir)</ProjectOutDir>
+		<DeletePlugins>true</DeletePlugins>
+	</PropertyGroup>
+
+	<!-- If DistributionDirectory were set directly on the command line, we would be unable to override it.-->
+	<!-- Therefore, DistributionDir is the command line variable, and we set DistributionDirectory based on its value. -->
+	<Choose>
+		<When Condition=" '$(DistributionDir)' == ''">
+			<PropertyGroup>
+				<DistributionDirectory>$(ProjectOutDir)</DistributionDirectory>
+				<DeletePlugins>true</DeletePlugins>
+			</PropertyGroup>
+		</When>
+		<When Condition=" '$(DistributionDir)' != '$(ProjectOutDir)' ">
+			<PropertyGroup>
+				<DistributionDirectory>$(DistributionDir)</DistributionDirectory>
+				<DeletePlugins>false</DeletePlugins>
+			</PropertyGroup>
+		</When>
+	</Choose>
+
+	<PropertyGroup>
+		<CommonDirectory>$(DistributionDirectory)\common</CommonDirectory>
+		<PluginsDirectory>$(DistributionDirectory)\plugins</PluginsDirectory>
+		<LogDirectory>$(DistributionDirectory)\logs</LogDirectory>
+
+    <TrunkDirectory>$(SolutionDir)..\..\..</TrunkDirectory>
+    <ShredHostServiceDirectory>$(TrunkDirectory)\Server\ShredHostService</ShredHostServiceDirectory>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!--
+		<EnterpriseFiles Include="$(TrunkDirectory)\Enterprise\Hibernate\DdlWriter\bin\$(Configuration)\ClearCanvas.Enterprise.Hibernate.DdlWriter.dll" />
+		-->
+    <EnterpriseFiles Include="$(TrunkDirectory)\Enterprise\Core\bin\$(Configuration)\ClearCanvas.Enterprise.Core.dll" />
+    <EnterpriseFiles Include="$(TrunkDirectory)\Enterprise\Hibernate\bin\$(Configuration)\ClearCanvas.Enterprise.Hibernate.dll" />
+    <EnterpriseFiles Include="$(TrunkDirectory)\Enterprise\Common\bin\$(Configuration)\ClearCanvas.Enterprise.Common.dll" />
+    <EnterpriseFiles Include="$(TrunkDirectory)\Enterprise\Configuration\bin\$(Configuration)\ClearCanvas.Enterprise.Configuration.dll" />
+    <EnterpriseFiles Include="$(TrunkDirectory)\Enterprise\Configuration\Hibernate\bin\$(Configuration)\ClearCanvas.Enterprise.Configuration.Hibernate.dll" />
+    <EnterpriseFiles Include="$(TrunkDirectory)\Enterprise\Authentication\bin\$(Configuration)\ClearCanvas.Enterprise.Authentication.dll" />
+    <EnterpriseFiles Include="$(TrunkDirectory)\Enterprise\Authentication\Hibernate\bin\$(Configuration)\ClearCanvas.Enterprise.Authentication.Hibernate.dll" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ReferencedAssemblies Include="$(TrunkDirectory)\ReferencedAssemblies\NHibernate2.0\Iesi.Collections.dll" />
+		<ReferencedAssemblies Include="$(TrunkDirectory)\ReferencedAssemblies\NHibernate2.0\Castle.Core.dll" />
+    <ReferencedAssemblies Include="$(TrunkDirectory)\ReferencedAssemblies\NHibernate2.0\Castle.DynamicProxy2.dll" />
+    <ReferencedAssemblies Include="$(TrunkDirectory)\ReferencedAssemblies\NHibernate2.0\NHibernate.Caches.SysCache.dll" />
+		<ReferencedAssemblies Include="$(TrunkDirectory)\ReferencedAssemblies\NHibernate2.0\NHibernate.dll" />
+		<ReferencedAssemblies Include="$(TrunkDirectory)\ReferencedAssemblies\NHapi.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<HealthcareFiles Include="$(TrunkDirectory)\Healthcare\bin\$(Configuration)\ClearCanvas.Healthcare.dll" />
+		<HealthcareFiles Include="$(TrunkDirectory)\Healthcare\Hibernate\bin\$(Configuration)\ClearCanvas.Healthcare.Hibernate.dll" />
+    <HealthcareFiles Include="$(TrunkDirectory)\Healthcare\Uhn\bin\$(Configuration)\ClearCanvas.Healthcare.Uhn.dll" />
+    <HealthcareFiles Include="$(TrunkDirectory)\Healthcare\Uhn\Hibernate\bin\$(Configuration)\ClearCanvas.Healthcare.Uhn.Hibernate.dll" />
+    <HealthcareFiles Include="$(TrunkDirectory)\Healthcare\Mwl\bin\$(Configuration)\ClearCanvas.Healthcare.Mwl.dll" />
+    <HealthcareFiles Include="$(TrunkDirectory)\Healthcare\Mwl\Hibernate\bin\$(Configuration)\ClearCanvas.Healthcare.Mwl.Hibernate.dll" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<!--
+		<RisFiles Include="$(TrunkDirectory)\Ris\Application\Services\bin\$(Configuration)\ClearCanvas.Ris.Application.Services.dll" />
+		<RisFiles Include="$(TrunkDirectory)\Ris\Application\Common\bin\$(Configuration)\ClearCanvas.Ris.Application.Common.dll" />
+		-->
+    <RisFiles Include="$(TrunkDirectory)\Jscript\bin\$(Configuration)\ClearCanvas.Jscript.dll" />
+		<RisFiles Include="$(TrunkDirectory)\Workflow\bin\$(Configuration)\ClearCanvas.Workflow.dll" />
+		<RisFiles Include="$(TrunkDirectory)\Workflow\Hibernate\bin\$(Configuration)\ClearCanvas.Workflow.Hibernate.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<OtherReferencedFiles Include="$(TrunkDirectory)\Dicom\bin\$(Configuration)\ClearCanvas.Dicom.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<MwlFiles Include="$(SolutionDir)\bin\$(Configuration)\ClearCanvas.Ris.Shreds.MwlServer.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<MwlExtensions Include="$(SolutionDir)\CCRisQueryConnector\bin\$(Configuration)\ClearCanvas.Ris.Shreds.MwlServer.CCRisQueryConnector.dll" />
+    <MwlExtensions Include="$(SolutionDir)\CCRisQueryConnector\Uhn\bin\$(Configuration)\ClearCanvas.Ris.Shreds.MwlServer.CCRisQueryConnector.Uhn.dll" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ExecutionFiles Include="$(TrunkDirectory)\Ris\Server\Executable\bin\$(Configuration)\ClearCanvas.Ris.Server.Executable.exe" />
+    <ExecutionFiles Include="$(TrunkDirectory)\Ris\Server\Executable\bin\$(Configuration)\ClearCanvas.Ris.Server.Executable.exe.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--<ShredHostAppConfigSourceFiles Include="$(SolutionDir)\app.config" />-->
+    <!-- include the ConfigurationStore.config so the MWL server can be configured to connect to enterprise server -->
+    <ShredHostAppConfigSourceFiles Include="$(SolutionDir)\ConfigurationStore.config" />
+    <ShredHostAppConfigSourceFiles Include="$(ShredHostServiceDirectory)\app.config" />
+    <ShredHostAppConfigSourceFiles Include="$(TrunkDirectory)\Healthcare\Hibernate\bin\$(Configuration)\ClearCanvas.Healthcare.Hibernate.dll.config" />
+  </ItemGroup>
+
+  <Target Name="ShredHostAppConfigs">
+    <CombineAppConfigs SourceFiles="@(ShredHostAppConfigSourceFiles)" OutputFile="$(DistributionDirectory)\ClearCanvas.Server.ShredHostService.exe.config" />
+  </Target>
+
+  <Target Name="Copy All Files">
+		<Copy SourceFiles="@(EnterpriseFiles)" DestinationFolder="$(PluginsDirectory)" />
+		<Copy SourceFiles="@(ReferencedAssemblies)" DestinationFolder="$(PluginsDirectory)" />
+		<Copy SourceFiles="@(OtherReferencedFiles)" DestinationFolder="$(CommonDirectory)" />
+		<Copy SourceFiles="@(HealthcareFiles)" DestinationFolder="$(PluginsDirectory)" />
+		<Copy SourceFiles="@(RisFiles)" DestinationFolder="$(PluginsDirectory)" />
+		<Copy SourceFiles="@(ExecutionFiles)" DestinationFolder="$(DistributionDirectory)"/>
+		<Copy SourceFiles="@(MwlFiles)" DestinationFolder="$(PluginsDirectory)" />
+		<Copy SourceFiles="@(MwlExtensions)" DestinationFolder="$(PluginsDirectory)" />
+		<!-- <Copy SourceFiles="@(ConfigurationFiles)" Condition="!Exists('$(DistributionDirectory)\%(FileName).%(Extension)')" DestinationFolder="$(DistributionDirectory)" />
+		-->
+	</Target>
+</Project>

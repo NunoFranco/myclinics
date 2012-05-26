@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ClearCanvas.Ris.Shreds.Fax" GeneratedClassName="ReceivedFaxQueueProcessorSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BatchSize" Description="Batch size for processor to retrieve." Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="SleepTime" Description="Processor thread sleep time in seconds." Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="IgnoreSpam" Description="Dictates processor action regarding spam fax items." Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="IncomingFaxDirectory" Description="The directory where the incoming faxes are stored." Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Documents and Settings\All Users\Application Data\ClearCanvas_Inc\IncomingFax</Value>
+    </Setting>
+    <Setting Name="MetaDataFileExtension" Description="Customizable fax metadata file extension." Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fmd</Value>
+    </Setting>
+    <Setting Name="ImageDataFileExtension" Description="Image data file extension (e.g. pdf, tif, jpg)" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">pdf</Value>
+    </Setting>
+    <Setting Name="ErrorFaxDirectory" Description="The directory where the faxes with errors are stored." Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Documents and Settings\All Users\Application Data\ClearCanvas_Inc\ErrorFax</Value>
+    </Setting>
+    <Setting Name="MetaDataDelimiters" Description="The delimiters used to separate field name and value in the meta data file." Type="System.String" Scope="Application">
+      <Value Profile="(Default)">=</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

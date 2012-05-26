@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ClearCanvas.Ris.Shreds.Fax" GeneratedClassName="ReceivedFaxShredSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BatchSize" Description="Number of items to pull from queue per read" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="EmptyQueueSleepTime" Description="Number of seconds to sleep when queue is empty" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="FailedItemRetryDelay" Description="Number of seconds that must elapse before a failed item is retried" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="FailedItemRetryCount" Description="Maximum number of retries before a failed item is marked as failed." Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="MetaDataFileExtension" Description="Customizable fax metadata file extension." Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fmd</Value>
+    </Setting>
+    <Setting Name="ImageDataFileExtension" Description="Image data file extension (e.g. pdf, tif, jpg)" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">pdf</Value>
+    </Setting>
+    <Setting Name="MetaDataDelimiters" Description="The delimiters used to separate field name and value in the meta data file." Type="System.String" Scope="Application">
+      <Value Profile="(Default)">=</Value>
+    </Setting>
+    <Setting Name="IncomingFaxDirectory" Description="The directory where the incoming faxes are stored." Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Documents and Settings\All Users\Application Data\ClearCanvas_Inc\IncomingFax</Value>
+    </Setting>
+    <Setting Name="ReceivedFaxWorkQueueItemDirectory" Description="The directory where the incoming faxes are stored after the fax storage work queue items are created" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Documents and Settings\All Users\Application Data\ClearCanvas_Inc\ReceivedFaxWorkQueueItem</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
