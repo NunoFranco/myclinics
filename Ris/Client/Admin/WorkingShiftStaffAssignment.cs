@@ -31,46 +31,57 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Text;
-using System.Windows.Forms;
 
-using ClearCanvas.Desktop.View.WinForms;
+using ClearCanvas.Common;
+using ClearCanvas.Desktop;
+using ClearCanvas.Ris.Application.Common;
 
-namespace ClearCanvas.Ris.Client.Admin.View.WinForms
+namespace ClearCanvas.Ris.Client.Admin
 {
     /// <summary>
-    /// Provides a Windows Forms user-interface for <see cref="WorkingShiftSummaryComponent"/>.
+    /// Extension point for views onto <see cref="WorkingShiftStaffAssignment"/>.
     /// </summary>
-    public partial class WorkingShiftSummaryComponentControl : ApplicationComponentUserControl
+    [ExtensionPoint]
+    public sealed class WorkingShiftStaffAssignmentViewExtensionPoint : ExtensionPoint<IApplicationComponentView>
     {
-        private WorkingShiftSummaryComponent _component;
+    }
 
+    /// <summary>
+    /// WorkingShiftStaffAssignment class.
+    /// </summary>
+    [AssociateView(typeof(WorkingShiftStaffAssignmentViewExtensionPoint))]
+    public class WorkingShiftStaffAssignment : ApplicationComponent
+    {
+        private List<StaffSummary> _staffChoices;
         /// <summary>
         /// Constructor.
         /// </summary>
-        public WorkingShiftSummaryComponentControl(WorkingShiftSummaryComponent component)
-            :base(component)
+        public WorkingShiftStaffAssignment()
         {
-            InitializeComponent();
-            _component = component;
+        }
 
-            _workingShiftTable.ToolbarModel = _component.SummaryTableActionModel;
-            _workingShiftTable.MenuModel = _component.SummaryTableActionModel;
-            
-            _workingShiftTable.Table = _component.SummaryTable;
-            _workingShiftTable.DataBindings.Add("Selection", _component, "SummarySelection", true, DataSourceUpdateMode.OnPropertyChanged);
+        public WorkingShiftStaffAssignment(List<StaffSummary> staffchoices)
+        {
+            _staffChoices = staffchoices;
+        }
+        /// <summary>
+        /// Called by the host to initialize the application component.
+        /// </summary>
+        public override void Start()
+        {
+            // TODO prepare the component for its live phase
+            base.Start();
+        }
 
-            //_id.DataBindings.Add("Value", _component, "Id", true, DataSourceUpdateMode.OnPropertyChanged);
-            //_name.DataBindings.Add("Value", _component, "Name", true, DataSourceUpdateMode.OnPropertyChanged);
-
-            //_okButton.DataBindings.Add("Visible", _component, "ShowAcceptCancelButtons");
-            //_okButton.DataBindings.Add("Enabled", _component, "AcceptEnabled");
-            //_cancelButton.DataBindings.Add("Visible", _component, "ShowAcceptCancelButtons");
-
-            // TODO add .NET databindings to bindingSource
+        /// <summary>
+        /// Called by the host when the application component is being terminated.
+        /// </summary>
+        public override void Stop()
+        {
+            // TODO prepare the component to exit the live phase
+            // This is a good place to do any clean up
+            base.Stop();
         }
     }
 }

@@ -141,6 +141,8 @@
     <Compile Include="Admin\StaffGroupAdmin\StaffGroupTextQueryRequest.cs" />
     <Compile Include="Admin\WorkingShiftAdmin\AddWorkingShiftRequest.cs" />
     <Compile Include="Admin\WorkingShiftAdmin\AddWorkingShiftResponse.cs" />
+    <Compile Include="Admin\WorkingShiftAdmin\LoadWorkingShiftEditorFormDataRequest.cs" />
+    <Compile Include="Admin\WorkingShiftAdmin\LoadWorkingShiftEditorFormDataResponse.cs" />
     <Compile Include="Admin\WorkingShiftAdmin\DeleteWorkingShiftRequest.cs" />
     <Compile Include="Admin\WorkingShiftAdmin\DeleteWorkingShiftResponse.cs" />
     <Compile Include="Admin\WorkingShiftAdmin\IWorkingShiftAdminService.cs" />

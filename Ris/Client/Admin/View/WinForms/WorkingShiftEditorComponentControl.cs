@@ -54,13 +54,28 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
         public WorkingShiftEditorComponentControl(WorkingShiftEditorComponent component)
             :base(component)
         {
-			_component = component;
             InitializeComponent();
 
-            BindingSource bindingSource = new BindingSource();
-			bindingSource.DataSource = _component;
+            _component = component;
 
+            _txtName.DataBindings.Add("Value", _component, "Name", true, DataSourceUpdateMode.OnPropertyChanged);
+            _txtDescription.DataBindings.Add("Value", _component, "Description", true, DataSourceUpdateMode.OnPropertyChanged);
+
+            _dtpstartTime.DataBindings.Add("Enabled", _component, "StartTime", true, DataSourceUpdateMode.OnPropertyChanged);
+            _dtpEndTime.DataBindings.Add("Enabled", _component, "EndTime", true, DataSourceUpdateMode.OnPropertyChanged);
+
+            btnOk.DataBindings.Add("Enabled", _component, "AcceptEnabled", true, DataSourceUpdateMode.OnPropertyChanged);
             // TODO add .NET databindings to bindingSource
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            _component.Accept();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            _component.Cancel();
         }
     }
 }

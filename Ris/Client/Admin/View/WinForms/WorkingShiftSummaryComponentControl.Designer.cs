@@ -59,10 +59,31 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this._workingShiftTable = new ClearCanvas.Desktop.View.WinForms.TableView();
+            this.SuspendLayout();
+            // 
+            // _workingShiftTable
+            // 
+            this._workingShiftTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._workingShiftTable.Location = new System.Drawing.Point(0, 0);
+            this._workingShiftTable.Name = "_workingShiftTable";
+            this._workingShiftTable.ReadOnly = false;
+            this._workingShiftTable.Size = new System.Drawing.Size(512, 255);
+            this._workingShiftTable.TabIndex = 0;
+            // 
+            // WorkingShiftSummaryComponentControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this._workingShiftTable);
+            this.Name = "WorkingShiftSummaryComponentControl";
+            this.Size = new System.Drawing.Size(512, 255);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private ClearCanvas.Desktop.View.WinForms.TableView _workingShiftTable;
     }
 }

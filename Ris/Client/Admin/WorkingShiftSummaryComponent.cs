@@ -248,10 +248,10 @@ namespace ClearCanvas.Ris.Client.Admin
                     delegate(IWorkingShiftAdminService service)
                     {
                         WorkingShiftDetail detail = service.LoadWorkingShiftForEdit(
-                            new LoadWorkingShiftForEditRequest(item.WorkingShiftRef)).WorkingShift;
+                            new LoadWorkingShiftForEditRequest(item.WorkingShiftRef)).WorkingShiftdetail ;
                         detail.Deactivated = !detail.Deactivated;
                         WorkingShiftSummary summary = service.UpdateWorkingShift(
-                            new UpdateWorkingShiftRequest(detail)).WorkingShift;
+                            new UpdateWorkingShiftRequest(detail)).WorkingShift ;
 
                         results.Add(summary);
                     });

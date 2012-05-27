@@ -529,6 +529,15 @@ namespace ClearCanvas.Ris.Client.Admin {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to save Working Shift contact admin for detail.
+        /// </summary>
+        internal static string ExceptionSaveWorkingShift {
+            get {
+                return ResourceManager.GetString("ExceptionSaveWorkingShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         internal static string LabelEdit {
@@ -1056,6 +1065,24 @@ namespace ClearCanvas.Ris.Client.Admin {
         internal static string WorkingShiftNameColumn {
             get {
                 return ResourceManager.GetString("WorkingShiftNameColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Working Shift.
+        /// </summary>
+        internal static string WorkingShiftPageName {
+            get {
+                return ResourceManager.GetString("WorkingShiftPageName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Staff Assignment.
+        /// </summary>
+        internal static string WorkingShiftStaffAssignmentPageName {
+            get {
+                return ResourceManager.GetString("WorkingShiftStaffAssignmentPageName", resourceCulture);
             }
         }
         

@@ -37,6 +37,8 @@ namespace ClearCanvas.Healthcare
 	  	
 	  	private ClearCanvas.Healthcare.StaffTypeEnum _type;
 	  	
+	  	private ClearCanvas.Healthcare.Facility _mainClinic;
+	  	
 	  	private string _userName;
 	  	
 	  	private IList<ClearCanvas.Healthcare.EmailAddress> _emailAddresses;
@@ -86,7 +88,7 @@ namespace ClearCanvas.Healthcare
 	  	/// <summary>
 	  	/// All fields constructor
 	  	/// </summary>
-	  	public Staff(string id1, ClearCanvas.Healthcare.PersonName name1, ClearCanvas.Healthcare.SexEnum sex1, string title1, string licensenumber1, string billingnumber1, ClearCanvas.Healthcare.StaffTypeEnum type1, string username1, IList<ClearCanvas.Healthcare.EmailAddress> emailaddresses1, IList<ClearCanvas.Healthcare.Address> addresses1, IList<ClearCanvas.Healthcare.TelephoneNumber> telephonenumbers1, IDictionary<string, string> extendedproperties1, ISet<ClearCanvas.Healthcare.StaffGroup> groups1, ISet<ClearCanvas.Healthcare.Facility> clinics1)
+	  	public Staff(string id1, ClearCanvas.Healthcare.PersonName name1, ClearCanvas.Healthcare.SexEnum sex1, string title1, string licensenumber1, string billingnumber1, ClearCanvas.Healthcare.StaffTypeEnum type1, ClearCanvas.Healthcare.Facility mainclinic1, string username1, IList<ClearCanvas.Healthcare.EmailAddress> emailaddresses1, IList<ClearCanvas.Healthcare.Address> addresses1, IList<ClearCanvas.Healthcare.TelephoneNumber> telephonenumbers1, IDictionary<string, string> extendedproperties1, ISet<ClearCanvas.Healthcare.StaffGroup> groups1, ISet<ClearCanvas.Healthcare.Facility> clinics1)
 			:base()
 	  	{
 		  	CustomInitialize();
@@ -105,6 +107,8 @@ namespace ClearCanvas.Healthcare
 		  	_billingNumber = billingnumber1;
 		  	
 		  	_type = type1;
+		  	
+		  	_mainClinic = mainclinic1;
 		  	
 		  	_userName = username1;
 		  	
@@ -231,6 +235,20 @@ namespace ClearCanvas.Healthcare
 			
 			
 			 set { _type = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual ClearCanvas.Healthcare.Facility MainClinic
+	  	{
+			
+			get { return _mainClinic; }
+			
+			
+			 set { _mainClinic = value; }
 			
 	  	}
 		
