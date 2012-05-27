@@ -128,6 +128,18 @@ namespace ClearCanvas.Healthcare
 	  		}
 	  	}
 	  	
+	  	public ClearCanvas.Healthcare.FacilitySearchCriteria MainClinic
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("MainClinic"))
+	  			{
+	  				this.SubCriteria["MainClinic"] = new ClearCanvas.Healthcare.FacilitySearchCriteria("MainClinic");
+	  			}
+	  			return (ClearCanvas.Healthcare.FacilitySearchCriteria)this.SubCriteria["MainClinic"];
+	  		}
+	  	}
+	  	
 	  	public ISearchCondition<string> UserName
 	  	{
 	  		get
