@@ -175,6 +175,13 @@
       <DependentUpon>WorkingShiftEditorComponentControl.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkingShiftEditorComponentView.cs" />
+    <Compile Include="WorkingShiftStaffAssignmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkingShiftStaffAssignmentControl.Designer.cs">
+      <DependentUpon>WorkingShiftStaffAssignmentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkingShiftStaffAssignmentView.cs" />
     <Compile Include="WorkingShiftSummaryComponentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -311,6 +318,15 @@
     <EmbeddedResource Include="ValidationManagementComponentControl.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ValidationManagementComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkingShiftEditorComponentControl.resx">
+      <DependentUpon>WorkingShiftEditorComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkingShiftEditorComponentControl.vi.resx">
+      <DependentUpon>WorkingShiftEditorComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkingShiftSummaryComponentControl.resx">
+      <DependentUpon>WorkingShiftSummaryComponentControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorklistSummaryComponentControl.resx">
       <SubType>Designer</SubType>

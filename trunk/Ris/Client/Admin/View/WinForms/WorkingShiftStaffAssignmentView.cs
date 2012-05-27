@@ -31,46 +31,48 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Text;
-using System.Windows.Forms;
 
+using ClearCanvas.Common;
+using ClearCanvas.Desktop;
 using ClearCanvas.Desktop.View.WinForms;
 
 namespace ClearCanvas.Ris.Client.Admin.View.WinForms
 {
     /// <summary>
-    /// Provides a Windows Forms user-interface for <see cref="WorkingShiftSummaryComponent"/>.
+    /// Provides a Windows Forms view onto <see cref="WorkingShiftStaffAssignment"/>.
     /// </summary>
-    public partial class WorkingShiftSummaryComponentControl : ApplicationComponentUserControl
+    [ExtensionOf(typeof(WorkingShiftStaffAssignmentViewExtensionPoint))]
+    public class WorkingShiftStaffAssignmentView : WinFormsView, IApplicationComponentView
     {
-        private WorkingShiftSummaryComponent _component;
+        private WorkingShiftStaffAssignment _component;
+        private WorkingShiftStaffAssignmentControl _control;
+
+        #region IApplicationComponentView Members
 
         /// <summary>
-        /// Constructor.
+        /// Called by the host to assign this view to a component.
         /// </summary>
-        public WorkingShiftSummaryComponentControl(WorkingShiftSummaryComponent component)
-            :base(component)
+        public void SetComponent(IApplicationComponent component)
         {
-            InitializeComponent();
-            _component = component;
+            _component = (WorkingShiftStaffAssignment)component;
+        }
 
-            _workingShiftTable.ToolbarModel = _component.SummaryTableActionModel;
-            _workingShiftTable.MenuModel = _component.SummaryTableActionModel;
-            
-            _workingShiftTable.Table = _component.SummaryTable;
-            _workingShiftTable.DataBindings.Add("Selection", _component, "SummarySelection", true, DataSourceUpdateMode.OnPropertyChanged);
+        #endregion
 
-            //_id.DataBindings.Add("Value", _component, "Id", true, DataSourceUpdateMode.OnPropertyChanged);
-            //_name.DataBindings.Add("Value", _component, "Name", true, DataSourceUpdateMode.OnPropertyChanged);
-
-            //_okButton.DataBindings.Add("Visible", _component, "ShowAcceptCancelButtons");
-            //_okButton.DataBindings.Add("Enabled", _component, "AcceptEnabled");
-            //_cancelButton.DataBindings.Add("Visible", _component, "ShowAcceptCancelButtons");
-
-            // TODO add .NET databindings to bindingSource
+        /// <summary>
+        /// Gets the underlying GUI component for this view.
+        /// </summary>
+        public override object GuiElement
+        {
+            get
+            {
+                if (_control == null)
+                {
+                    _control = new WorkingShiftStaffAssignmentControl(_component);
+                }
+                return _control;
+            }
         }
     }
 }

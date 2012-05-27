@@ -42,33 +42,23 @@ using ClearCanvas.Desktop.View.WinForms;
 namespace ClearCanvas.Ris.Client.Admin.View.WinForms
 {
     /// <summary>
-    /// Provides a Windows Forms user-interface for <see cref="WorkingShiftSummaryComponent"/>.
+    /// Provides a Windows Forms user-interface for <see cref="WorkingShiftStaffAssignment"/>.
     /// </summary>
-    public partial class WorkingShiftSummaryComponentControl : ApplicationComponentUserControl
+    public partial class WorkingShiftStaffAssignmentControl : ApplicationComponentUserControl
     {
-        private WorkingShiftSummaryComponent _component;
+        private WorkingShiftStaffAssignment _component;
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public WorkingShiftSummaryComponentControl(WorkingShiftSummaryComponent component)
+        public WorkingShiftStaffAssignmentControl(WorkingShiftStaffAssignment component)
             :base(component)
         {
+			_component = component;
             InitializeComponent();
-            _component = component;
 
-            _workingShiftTable.ToolbarModel = _component.SummaryTableActionModel;
-            _workingShiftTable.MenuModel = _component.SummaryTableActionModel;
-            
-            _workingShiftTable.Table = _component.SummaryTable;
-            _workingShiftTable.DataBindings.Add("Selection", _component, "SummarySelection", true, DataSourceUpdateMode.OnPropertyChanged);
-
-            //_id.DataBindings.Add("Value", _component, "Id", true, DataSourceUpdateMode.OnPropertyChanged);
-            //_name.DataBindings.Add("Value", _component, "Name", true, DataSourceUpdateMode.OnPropertyChanged);
-
-            //_okButton.DataBindings.Add("Visible", _component, "ShowAcceptCancelButtons");
-            //_okButton.DataBindings.Add("Enabled", _component, "AcceptEnabled");
-            //_cancelButton.DataBindings.Add("Visible", _component, "ShowAcceptCancelButtons");
+            BindingSource bindingSource = new BindingSource();
+			bindingSource.DataSource = _component;
 
             // TODO add .NET databindings to bindingSource
         }

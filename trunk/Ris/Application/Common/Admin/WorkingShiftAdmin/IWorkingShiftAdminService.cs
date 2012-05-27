@@ -57,6 +57,9 @@ namespace ClearCanvas.Ris.Application.Common.Admin.WorkingShiftAdmin
 		[OperationContract]
 		LoadWorkingShiftForEditResponse LoadWorkingShiftForEdit(LoadWorkingShiftForEditRequest request);
 
+        [OperationContract]
+        LoadWorkingShiftEditorFormDataResponse LoadWorkingShiftEditorFormData(LoadWorkingShiftEditorFormDataRequest request);
+
 		/// <summary>
         /// Adds a new protocol code with specified name and description (optional)
         /// </summary>

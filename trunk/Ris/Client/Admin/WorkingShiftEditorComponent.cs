@@ -61,6 +61,7 @@ namespace ClearCanvas.Ris.Client.Admin
         private WorkingShiftDetail _detail;
         private WorkingShiftSummary _WorkingShiftSummary;
         public WorkingShiftSummary WSSummary { get { return _WorkingShiftSummary; } }
+        public WorkingShiftDetail Detail { get { return _detail; } set { _detail = value; } }
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -91,7 +92,7 @@ namespace ClearCanvas.Ris.Client.Admin
                     {
                         LoadWorkingShiftForEditResponse response = service.LoadWorkingShiftForEdit(
                             new LoadWorkingShiftForEditRequest(_WorkingShiftRef));
-                        _detail = response.WorkingShift;
+                        _detail = response.WorkingShiftdetail ;
                     });
             }
 
@@ -120,60 +121,96 @@ namespace ClearCanvas.Ris.Client.Admin
         }
         public string Description
         {
-            get { return _detail.Name; }
+            get { return _detail.Description ; }
             set
             {
-                _detail.Name = value;
+                _detail.Description  = value;
                 this.Modified = true;
             }
         }
         public DateTime ValidFromDate
         {
-            get { return _detail.ValidFromDate ; }
+            get { return _detail.ValidFromDate; }
             set
             {
-                _detail.ValidFromDate  = value;
+                _detail.ValidFromDate = value;
                 this.Modified = true;
             }
         }
         public DateTime ValidToDate
         {
-            get { return _detail.ValidToDate ; }
+            get { return _detail.ValidToDate; }
             set
             {
-                _detail.ValidToDate  = value;
+                _detail.ValidToDate = value;
                 this.Modified = true;
             }
         }
         public DateTime StartTime
         {
-            get { return _detail.StartTime ; }
+            get { return _detail.StartTime; }
             set
             {
-                _detail.StartTime  = value;
+                _detail.StartTime = value;
                 this.Modified = true;
             }
         }
         public DateTime EndTime
         {
-            get { return _detail.EndTime ; }
+            get { return _detail.EndTime; }
             set
             {
-                _detail.EndTime  = value;
+                _detail.EndTime = value;
                 this.Modified = true;
             }
         }
+
+        public bool AcceptEnabled
+        {
+            get { return this.Modified; }
+        }
+
         public List<DoctorWorkingPlanSummary> Doctors
         {
-            get { return _detail.Doctors ; }
+            get { return _detail.Doctors; }
             set
             {
-                _detail.Doctors  = value;
+                _detail.Doctors = value;
                 this.Modified = true;
             }
         }
         #endregion
 
+        public void Cancel()
+        {
+            this.ExitCode = ApplicationComponentExitCode.None;
+            Host.Exit();
+        }
+
+        public void Accept()
+        {
+            if (this.HasValidationErrors)
+            {
+                this.ShowValidation(true);
+            }
+            else
+            {
+                try
+                {
+                    SaveChanges();
+                    this.Exit(ApplicationComponentExitCode.Accepted);
+                }
+                catch (Exception e)
+                {
+                    ExceptionHandler.Report(e, SR.ExceptionSaveWorkingShift, this.Host.DesktopWindow,
+                        delegate()
+                        {
+                            this.ExitCode = ApplicationComponentExitCode.Error;
+                            this.Host.Exit();
+                        });
+                }
+            }
+        }
         private void SaveChanges()
         {
             Platform.GetService<IWorkingShiftAdminService>(

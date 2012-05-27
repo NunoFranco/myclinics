@@ -456,4 +456,13 @@
   <data name="WorkingShiftSummaryComponetTitle" xml:space="preserve">
     <value>Working Shift</value>
   </data>
+  <data name="ExceptionSaveWorkingShift" xml:space="preserve">
+    <value>Unable to save Working Shift contact admin for detail</value>
+  </data>
+  <data name="WorkingShiftPageName" xml:space="preserve">
+    <value>Working Shift</value>
+  </data>
+  <data name="WorkingShiftStaffAssignmentPageName" xml:space="preserve">
+    <value>Staff Assignment</value>
+  </data>
 </root>

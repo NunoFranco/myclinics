@@ -29,23 +29,21 @@
 
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using ClearCanvas.Enterprise.Common;
 using System.Runtime.Serialization;
+using ClearCanvas.Enterprise.Common;
+using System.Collections.Generic;
 
 namespace ClearCanvas.Ris.Application.Common.Admin.WorkingShiftAdmin
 {
-	[DataContract]
-	public class LoadWorkingShiftForEditResponse : DataContractBase
-	{
-		public LoadWorkingShiftForEditResponse(WorkingShiftDetail workingShift)
-		{
-            WorkingShiftdetail = workingShift;
-		}
+    [DataContract]
+    public class LoadWorkingShiftEditorFormDataResponse : DataContractBase
+    {
+        public LoadWorkingShiftEditorFormDataResponse(List<StaffSummary> staffsummary)
+        {
+            staffs = staffsummary;
+        }
 
-		[DataMember]
-		public WorkingShiftDetail WorkingShiftdetail;
-	}
+        [DataMember]
+        public List<StaffSummary> staffs;
+    }
 }
