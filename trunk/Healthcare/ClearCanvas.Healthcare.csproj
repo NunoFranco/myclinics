@@ -172,9 +172,6 @@
     <Compile Include="ContactPersonRelationshipEnum.gen.cs" />
     <Compile Include="ContactPersonSearchCriteria.gen.cs" />
     <Compile Include="ContactPersonTypeEnum.gen.cs" />
-    <Compile Include="DoctorWorkingPlan.cs" />
-    <Compile Include="DoctorWorkingPlan.gen.cs" />
-    <Compile Include="DoctorWorkingPlanSearchCriteria.gen.cs" />
     <Compile Include="MeasureUnit.cs" />
     <Compile Include="MeasureUnit.gen.cs" />
     <Compile Include="MeasureUnitSearchCriteria.gen.cs" />

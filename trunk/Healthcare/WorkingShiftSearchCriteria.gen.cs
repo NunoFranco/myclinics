@@ -116,6 +116,102 @@ namespace ClearCanvas.Healthcare
 	  		}
 	  	}
 	  	
+	  	public ISearchCondition<bool> WorkOnSunday
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("WorkOnSunday"))
+	  			{
+	  				this.SubCriteria["WorkOnSunday"] = new SearchCondition<bool>("WorkOnSunday");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["WorkOnSunday"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> WorkOnMonday
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("WorkOnMonday"))
+	  			{
+	  				this.SubCriteria["WorkOnMonday"] = new SearchCondition<bool>("WorkOnMonday");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["WorkOnMonday"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> WorkOnTuesday
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("WorkOnTuesday"))
+	  			{
+	  				this.SubCriteria["WorkOnTuesday"] = new SearchCondition<bool>("WorkOnTuesday");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["WorkOnTuesday"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> WorkOnWednessday
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("WorkOnWednessday"))
+	  			{
+	  				this.SubCriteria["WorkOnWednessday"] = new SearchCondition<bool>("WorkOnWednessday");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["WorkOnWednessday"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> WorkOnThursday
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("WorkOnThursday"))
+	  			{
+	  				this.SubCriteria["WorkOnThursday"] = new SearchCondition<bool>("WorkOnThursday");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["WorkOnThursday"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> WorkOnFriday
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("WorkOnFriday"))
+	  			{
+	  				this.SubCriteria["WorkOnFriday"] = new SearchCondition<bool>("WorkOnFriday");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["WorkOnFriday"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> WorkOnSaturday
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("WorkOnSaturday"))
+	  			{
+	  				this.SubCriteria["WorkOnSaturday"] = new SearchCondition<bool>("WorkOnSaturday");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["WorkOnSaturday"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<DateTime?> ExactDate
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("ExactDate"))
+	  			{
+	  				this.SubCriteria["ExactDate"] = new SearchCondition<DateTime?>("ExactDate");
+	  			}
+	  			return (ISearchCondition<DateTime?>)this.SubCriteria["ExactDate"];
+	  		}
+	  	}
+	  	
 	  	public ClearCanvas.Healthcare.FacilitySearchCriteria Clinic
 	  	{
 	  		get

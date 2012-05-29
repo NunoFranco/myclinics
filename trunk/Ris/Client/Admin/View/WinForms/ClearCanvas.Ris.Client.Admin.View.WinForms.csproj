@@ -325,6 +325,9 @@
     <EmbeddedResource Include="WorkingShiftEditorComponentControl.vi.resx">
       <DependentUpon>WorkingShiftEditorComponentControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WorkingShiftStaffAssignmentControl.resx">
+      <DependentUpon>WorkingShiftStaffAssignmentControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkingShiftSummaryComponentControl.resx">
       <DependentUpon>WorkingShiftSummaryComponentControl.cs</DependentUpon>
     </EmbeddedResource>

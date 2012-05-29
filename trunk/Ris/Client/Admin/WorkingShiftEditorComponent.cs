@@ -38,6 +38,7 @@ using ClearCanvas.Desktop;
 using ClearCanvas.Ris.Application.Common;
 using ClearCanvas.Ris.Application.Common.Admin.WorkingShiftAdmin;
 using ClearCanvas.Enterprise.Common;
+using ClearCanvas.Desktop.Tables;
 
 namespace ClearCanvas.Ris.Client.Admin
 {
@@ -62,18 +63,41 @@ namespace ClearCanvas.Ris.Client.Admin
         private WorkingShiftSummary _WorkingShiftSummary;
         public WorkingShiftSummary WSSummary { get { return _WorkingShiftSummary; } }
         public WorkingShiftDetail Detail { get { return _detail; } set { _detail = value; } }
+
+
+        class StaffTable : Table<StaffSummary >
+        {
+            public StaffTable()
+            {
+                this.Columns.Add(new TableColumn<StaffSummary, string>(SR.StaffIDColumnName,
+               delegate(StaffSummary item) { return item.StaffId ; }));
+                this.Columns.Add(new TableColumn<StaffSummary, string>(SR.StaffNameColumnName,
+                    delegate(StaffSummary item) { return item.Name.ToString() ; }));
+           
+                this.Columns.Add(new TableColumn<StaffSummary, string>(SR.StaffTypeColumnName,
+                    delegate(StaffSummary item) { return item.StaffType.Value ; }));
+            }
+        }
+
+        private readonly bool _readOnly;
+        private readonly StaffTable _availablestaffs;
+        private readonly StaffTable _selectedstaffs;
         /// <summary>
         /// Constructor.
         /// </summary>
         public WorkingShiftEditorComponent()
         {
             _isNew = true;
+            _availablestaffs = new StaffTable();
+            _selectedstaffs = new StaffTable();
         }
 
         public WorkingShiftEditorComponent(EntityRef workinfShiftRef)
         {
             _WorkingShiftRef = workinfShiftRef;
-            _isNew = true;
+            _isNew = false ;
+            _availablestaffs = new StaffTable();
+            _selectedstaffs = new StaffTable();
         }
 
         /// <summary>
@@ -81,6 +105,16 @@ namespace ClearCanvas.Ris.Client.Admin
         /// </summary>
         public override void Start()
         {
+            
+            Platform.GetService<IWorkingShiftAdminService>(
+                delegate(IWorkingShiftAdminService service)
+            {
+                LoadWorkingShiftEditorFormDataResponse  response = service.LoadWorkingShiftEditorFormData (
+                    new LoadWorkingShiftEditorFormDataRequest(LoginSession.Current.WorkingFacility.FacilityRef)
+                    );
+              
+                _availablestaffs.Items.AddRange( response.staffs);
+            });
             if (_isNew)
             {
                 _detail = new WorkingShiftDetail();
@@ -93,6 +127,7 @@ namespace ClearCanvas.Ris.Client.Admin
                         LoadWorkingShiftForEditResponse response = service.LoadWorkingShiftForEdit(
                             new LoadWorkingShiftForEditRequest(_WorkingShiftRef));
                         _detail = response.WorkingShiftdetail ;
+                        _selectedstaffs.Items.AddRange(_detail.Doctors);
                     });
             }
 
@@ -108,6 +143,19 @@ namespace ClearCanvas.Ris.Client.Admin
             // TODO prepare the component to exit the live phase
             // This is a good place to do any clean up
             base.Stop();
+        }
+        public ITable AvailableStaffTable
+        {
+            get { return _availablestaffs; }
+        }
+
+        public ITable SelectedStaffTable
+        {
+            get { return _selectedstaffs; }
+        }
+        public void ItemsAddedOrRemoved()
+        {
+            this.Modified = true;
         }
         #region Presentation Model
         public string Name
@@ -165,12 +213,85 @@ namespace ClearCanvas.Ris.Client.Admin
             }
         }
 
+        public bool  WorkingOnSunday
+        {
+            get { return _detail.WorkingOnSunday; }
+            set
+            {
+                _detail.WorkingOnSunday = value;
+                this.Modified = true;
+            }
+        }
+        public bool  WorkingOnMonday
+        {
+            get { return _detail.WorkingOnMonday; }
+            set
+            {
+                _detail.WorkingOnMonday = value;
+                this.Modified = true;
+            }
+        }
+        public bool  WorkingOnTuesday
+        {
+            get { return _detail.WorkingOnTuesday ; }
+            set
+            {
+                _detail.WorkingOnTuesday = value;
+                this.Modified = true;
+            }
+        }
+        public bool WorkingOnWednesday
+        {
+            get { return _detail.WorkingOnWednesday ; }
+            set
+            {
+                _detail.WorkingOnWednesday = value;
+                this.Modified = true;
+            }
+        }
+        public bool  WorkingOnThursday
+        {
+            get { return _detail.WorkingOnThursday ; }
+            set
+            {
+                _detail.WorkingOnThursday = value;
+                this.Modified = true;
+            }
+        }
+        public bool WorkingOnFriday
+        {
+            get { return _detail.WorkingOnFriday ; }
+            set
+            {
+                _detail.WorkingOnFriday = value;
+                this.Modified = true;
+            }
+        }
+        public bool WorkingOnSaturday
+        {
+            get { return _detail.WorkingOnSaturday; }
+            set
+            {
+                _detail.WorkingOnSaturday = value;
+                this.Modified = true;
+            }
+        }
+        public DateTime ExactDate
+        {
+            get { return _detail.PlanDate; }
+            set
+            {
+                _detail.PlanDate = value;
+                this.Modified = true;
+            }
+        }
+
         public bool AcceptEnabled
         {
             get { return this.Modified; }
         }
 
-        public List<DoctorWorkingPlanSummary> Doctors
+        public List<StaffSummary> Doctors
         {
             get { return _detail.Doctors; }
             set

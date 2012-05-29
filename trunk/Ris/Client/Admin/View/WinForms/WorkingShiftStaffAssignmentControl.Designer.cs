@@ -59,8 +59,16 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // WorkingShiftStaffAssignmentControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "WorkingShiftStaffAssignmentControl";
+            this.Size = new System.Drawing.Size(541, 235);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

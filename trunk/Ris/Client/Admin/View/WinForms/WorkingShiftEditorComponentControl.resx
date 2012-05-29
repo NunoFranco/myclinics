@@ -129,7 +129,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="_txtName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>348, 41</value>
+    <value>306, 41</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="_txtName.TabIndex" type="System.Int32, mscorlib">
@@ -145,22 +145,25 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_txtName.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>10</value>
   </data>
   <data name="_txtDescription.LabelText" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="_txtDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 88</value>
+    <value>279, 578</value>
   </data>
   <data name="_txtDescription.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="_txtDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>348, 123</value>
+    <value>29, 29</value>
   </data>
   <data name="_txtDescription.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="_txtDescription.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;_txtDescription.Name" xml:space="preserve">
     <value>_txtDescription</value>
@@ -172,19 +175,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_txtDescription.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>9</value>
   </data>
   <data name="_dtpstartTime.LabelText" xml:space="preserve">
     <value>Start Time</value>
   </data>
   <data name="_dtpstartTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 47</value>
+    <value>339, 2</value>
   </data>
   <data name="_dtpstartTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="_dtpstartTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 41</value>
+    <value>112, 41</value>
   </data>
   <data name="_dtpstartTime.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -199,19 +202,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_dtpstartTime.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>8</value>
   </data>
   <data name="_dtpEndTime.LabelText" xml:space="preserve">
     <value>End Time</value>
   </data>
   <data name="_dtpEndTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 47</value>
+    <value>490, 2</value>
   </data>
   <data name="_dtpEndTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="_dtpEndTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 41</value>
+    <value>123, 41</value>
   </data>
   <data name="_dtpEndTime.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -226,10 +229,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;_dtpEndTime.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>7</value>
   </data>
   <data name="btnOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 216</value>
+    <value>457, 597</value>
   </data>
   <data name="btnOk.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -250,10 +253,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnOk.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>6</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 216</value>
+    <value>538, 597</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -274,8 +277,419 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_staffSelector.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 176</value>
+  </data>
+  <data name="_staffSelector.Size" type="System.Drawing.Size, System.Drawing">
+    <value>613, 420</value>
+  </data>
+  <data name="_staffSelector.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_staffSelector.Name" xml:space="preserve">
+    <value>_staffSelector</value>
+  </data>
+  <data name="&gt;&gt;_staffSelector.Type" xml:space="preserve">
+    <value>ClearCanvas.Desktop.View.WinForms.ListItemSelector, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_staffSelector.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_staffSelector.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_dtpExactDate.LabelText" xml:space="preserve">
+    <value>Start Time</value>
+  </data>
+  <data name="_dtpExactDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 584</value>
+  </data>
+  <data name="_dtpExactDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="_dtpExactDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 17</value>
+  </data>
+  <data name="_dtpExactDate.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="_dtpExactDate.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;_dtpExactDate.Name" xml:space="preserve">
+    <value>_dtpExactDate</value>
+  </data>
+  <data name="&gt;&gt;_dtpExactDate.Type" xml:space="preserve">
+    <value>ClearCanvas.Desktop.View.WinForms.DateTimeField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_dtpExactDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_dtpExactDate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_dtpValidFrom.LabelText" xml:space="preserve">
+    <value>Valid From</value>
+  </data>
+  <data name="_dtpValidFrom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 59</value>
+  </data>
+  <data name="_dtpValidFrom.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="_dtpValidFrom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>306, 41</value>
+  </data>
+  <data name="_dtpValidFrom.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_dtpValidFrom.Name" xml:space="preserve">
+    <value>_dtpValidFrom</value>
+  </data>
+  <data name="&gt;&gt;_dtpValidFrom.Type" xml:space="preserve">
+    <value>ClearCanvas.Desktop.View.WinForms.DateTimeField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_dtpValidFrom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_dtpValidFrom.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_dtpValidTo.LabelText" xml:space="preserve">
+    <value>Valid To</value>
+  </data>
+  <data name="_dtpValidTo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>339, 59</value>
+  </data>
+  <data name="_dtpValidTo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="_dtpValidTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>274, 41</value>
+  </data>
+  <data name="_dtpValidTo.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;_dtpValidTo.Name" xml:space="preserve">
+    <value>_dtpValidTo</value>
+  </data>
+  <data name="&gt;&gt;_dtpValidTo.Type" xml:space="preserve">
+    <value>ClearCanvas.Desktop.View.WinForms.DateTimeField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_dtpValidTo.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_dtpValidTo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_chkSaturday.Name" xml:space="preserve">
+    <value>_chkSaturday</value>
+  </data>
+  <data name="&gt;&gt;_chkSaturday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkSaturday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkSaturday.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;_chkFriday.Name" xml:space="preserve">
+    <value>_chkFriday</value>
+  </data>
+  <data name="&gt;&gt;_chkFriday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkFriday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkFriday.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_chkThursday.Name" xml:space="preserve">
+    <value>_chkThursday</value>
+  </data>
+  <data name="&gt;&gt;_chkThursday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkThursday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkThursday.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_chkWednesday.Name" xml:space="preserve">
+    <value>_chkWednesday</value>
+  </data>
+  <data name="&gt;&gt;_chkWednesday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkWednesday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkWednesday.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_chkTuesday.Name" xml:space="preserve">
+    <value>_chkTuesday</value>
+  </data>
+  <data name="&gt;&gt;_chkTuesday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkTuesday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkTuesday.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;_chkMonday.Name" xml:space="preserve">
+    <value>_chkMonday</value>
+  </data>
+  <data name="&gt;&gt;_chkMonday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkMonday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkMonday.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;_chkSunday.Name" xml:space="preserve">
+    <value>_chkSunday</value>
+  </data>
+  <data name="&gt;&gt;_chkSunday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkSunday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkSunday.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 105</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>610, 65</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Working Plan</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_chkSaturday.Location" type="System.Drawing.Point, System.Drawing">
+    <value>511, 29</value>
+  </data>
+  <data name="_chkSaturday.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 24</value>
+  </data>
+  <data name="_chkSaturday.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_chkSaturday.Text" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="&gt;&gt;_chkSaturday.Name" xml:space="preserve">
+    <value>_chkSaturday</value>
+  </data>
+  <data name="&gt;&gt;_chkSaturday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkSaturday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkSaturday.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_chkFriday.Location" type="System.Drawing.Point, System.Drawing">
+    <value>441, 29</value>
+  </data>
+  <data name="_chkFriday.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 24</value>
+  </data>
+  <data name="_chkFriday.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_chkFriday.Text" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="&gt;&gt;_chkFriday.Name" xml:space="preserve">
+    <value>_chkFriday</value>
+  </data>
+  <data name="&gt;&gt;_chkFriday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkFriday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkFriday.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_chkThursday.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_chkThursday.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_chkThursday.Location" type="System.Drawing.Point, System.Drawing">
+    <value>355, 29</value>
+  </data>
+  <data name="_chkThursday.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 17</value>
+  </data>
+  <data name="_chkThursday.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_chkThursday.Text" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="&gt;&gt;_chkThursday.Name" xml:space="preserve">
+    <value>_chkThursday</value>
+  </data>
+  <data name="&gt;&gt;_chkThursday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkThursday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkThursday.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_chkWednesday.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_chkWednesday.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_chkWednesday.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 29</value>
+  </data>
+  <data name="_chkWednesday.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 17</value>
+  </data>
+  <data name="_chkWednesday.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_chkWednesday.Text" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="&gt;&gt;_chkWednesday.Name" xml:space="preserve">
+    <value>_chkWednesday</value>
+  </data>
+  <data name="&gt;&gt;_chkWednesday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkWednesday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkWednesday.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_chkTuesday.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_chkTuesday.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_chkTuesday.Location" type="System.Drawing.Point, System.Drawing">
+    <value>173, 29</value>
+  </data>
+  <data name="_chkTuesday.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 17</value>
+  </data>
+  <data name="_chkTuesday.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_chkTuesday.Text" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="&gt;&gt;_chkTuesday.Name" xml:space="preserve">
+    <value>_chkTuesday</value>
+  </data>
+  <data name="&gt;&gt;_chkTuesday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkTuesday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkTuesday.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_chkMonday.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_chkMonday.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="_chkMonday.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 29</value>
+  </data>
+  <data name="_chkMonday.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="_chkMonday.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_chkMonday.Text" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="&gt;&gt;_chkMonday.Name" xml:space="preserve">
+    <value>_chkMonday</value>
+  </data>
+  <data name="&gt;&gt;_chkMonday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkMonday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkMonday.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_chkSunday.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_chkSunday.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 29</value>
+  </data>
+  <data name="_chkSunday.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 17</value>
+  </data>
+  <data name="_chkSunday.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_chkSunday.Text" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="&gt;&gt;_chkSunday.Name" xml:space="preserve">
+    <value>_chkSunday</value>
+  </data>
+  <data name="&gt;&gt;_chkSunday.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_chkSunday.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;_chkSunday.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>Vietnamese</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -283,7 +697,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>356, 243</value>
+    <value>641, 628</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>WorkingShiftEditorComponentControl</value>

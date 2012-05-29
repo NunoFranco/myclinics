@@ -63,11 +63,29 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
 
             _dtpstartTime.DataBindings.Add("Enabled", _component, "StartTime", true, DataSourceUpdateMode.OnPropertyChanged);
             _dtpEndTime.DataBindings.Add("Enabled", _component, "EndTime", true, DataSourceUpdateMode.OnPropertyChanged);
+            
+            _chkMonday.DataBindings.Add("Checked", _component, "WorkingOnMonday", true, DataSourceUpdateMode.OnPropertyChanged);
+            _chkTuesday.DataBindings.Add("Checked", _component, "WorkingOnTuesday", true, DataSourceUpdateMode.OnPropertyChanged);
+            _chkWednesday.DataBindings.Add("Checked", _component, "WorkingOnWednesday", true, DataSourceUpdateMode.OnPropertyChanged);
+            _chkThursday.DataBindings.Add("Checked", _component, "WorkingOnThursday", true, DataSourceUpdateMode.OnPropertyChanged);
+            _chkFriday.DataBindings.Add("Checked", _component, "WorkingOnFriday", true, DataSourceUpdateMode.OnPropertyChanged);
+            _chkSaturday.DataBindings.Add("Checked", _component, "WorkingOnSaturday", true, DataSourceUpdateMode.OnPropertyChanged);
+            _chkSunday.DataBindings.Add("Checked", _component, "WorkingOnSunday", true, DataSourceUpdateMode.OnPropertyChanged);
+
+            //_chkSunday.DataBindings.Add("Value", _component, "ExactDate", true, DataSourceUpdateMode.OnPropertyChanged);
+
+            _staffSelector.AvailableItemsTable = _component.AvailableStaffTable;
+            _staffSelector.SelectedItemsTable = _component.SelectedStaffTable;
+            _staffSelector.ItemAdded += OnItemsAddedOrRemoved;
+            _staffSelector.ItemRemoved += OnItemsAddedOrRemoved;
 
             btnOk.DataBindings.Add("Enabled", _component, "AcceptEnabled", true, DataSourceUpdateMode.OnPropertyChanged);
             // TODO add .NET databindings to bindingSource
         }
-
+        private void OnItemsAddedOrRemoved(object sender, EventArgs args)
+        {
+            _component.ItemsAddedOrRemoved();
+        }
         private void btnOk_Click(object sender, EventArgs e)
         {
             _component.Accept();
