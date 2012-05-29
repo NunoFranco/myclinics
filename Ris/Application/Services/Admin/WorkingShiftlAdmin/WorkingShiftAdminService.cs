@@ -40,87 +40,107 @@ using ClearCanvas.Healthcare.Brokers;
 using ClearCanvas.Ris.Application.Common;
 using ClearCanvas.Ris.Application.Common.Admin.WorkingShiftAdmin;
 using AuthorityTokens = ClearCanvas.Ris.Application.Common.AuthorityTokens;
+using System.Collections.Generic;
 
 namespace ClearCanvas.Ris.Application.Services.Admin.WorkingShiftlAdmin
 {
-	[ExtensionOf(typeof(ApplicationServiceExtensionPoint))]
+    [ExtensionOf(typeof(ApplicationServiceExtensionPoint))]
     [ServiceImplementsContract(typeof(IWorkingShiftAdminService))]
-    public class ProtocolAdminService : ApplicationServiceBase, IWorkingShiftAdminService
+    public class WorkingShiftAdminService : ApplicationServiceBase, IWorkingShiftAdminService
     {
         #region IWorkingShiftAdminService Members
 
         [ReadOperation]
-		public ListWorkingShiftsResponse ListWorkingShifts(ListWorkingShiftsRequest request)
-		{
-			var where = new WorkingShiftSearchCriteria();
-			where.Name.SortAsc(0);
-			if (!request.IncludeDeactivated)
-				where.Deactivated.EqualTo(false);
+        public ListWorkingShiftsResponse ListWorkingShifts(ListWorkingShiftsRequest request)
+        {
+            var where = new WorkingShiftSearchCriteria();
+            where.Name.SortAsc(0);
+            if (!request.IncludeDeactivated)
+                where.Deactivated.EqualTo(false);
+            where.Clinic.EqualTo(PersistenceContext.Load<Facility>(request.ClinicRef));
 
-			var wss = this.PersistenceContext.GetBroker<IWorkingShiftBroker>().Find(where, request.Page);
+            var wss = this.PersistenceContext.GetBroker<IWorkingShiftBroker>().Find(where, request.Page);
 
             var assembler = new WorkingShiftAssembler();
-			return new ListWorkingShiftsResponse(
-				CollectionUtils.Map<WorkingShift, WorkingShiftSummary>(
-					wss,
-					ws => assembler.CreateWorkingShiftSummary (ws)));
-		}
+            return new ListWorkingShiftsResponse(
+                CollectionUtils.Map<WorkingShift, WorkingShiftSummary>(
+                    wss,
+                    ws => assembler.CreateWorkingShiftSummary(ws)));
+        }
 
-		[ReadOperation]
-		public LoadWorkingShiftForEditResponse LoadWorkingShiftForEdit(LoadWorkingShiftForEditRequest request)
-		{
-			var ws = this.PersistenceContext.Load<WorkingShift>(request.WorkingShiftRef);
+        [ReadOperation]
+        public LoadWorkingShiftForEditResponse LoadWorkingShiftForEdit(LoadWorkingShiftForEditRequest request)
+        {
+            var ws = this.PersistenceContext.Load<WorkingShift>(request.WorkingShiftRef);
 
-			var assembler = new WorkingShiftAssembler();
-			return new LoadWorkingShiftForEditResponse(assembler.CreateWorkingShiftDetail (ws));
-		}
+            var assembler = new WorkingShiftAssembler();
+            return new LoadWorkingShiftForEditResponse(assembler.CreateWorkingShiftDetail(ws));
+        }
 
-		[UpdateOperation]
-		public AddWorkingShiftResponse AddWorkingShift(AddWorkingShiftRequest request)
-		{
-			var assembler = new WorkingShiftAssembler();
-			var ws = new WorkingShift();
-			assembler.UpdateWorkingShift(ws, request.WorkingShift,PersistenceContext );
-			this.PersistenceContext.Lock(ws, DirtyState.New);
+        [UpdateOperation]
+        public AddWorkingShiftResponse AddWorkingShift(AddWorkingShiftRequest request)
+        {
+            var assembler = new WorkingShiftAssembler();
+            var ws = new WorkingShift();
+            assembler.UpdateWorkingShift(ws, request.WorkingShift, PersistenceContext);
+            this.PersistenceContext.Lock(ws, DirtyState.New);
 
-			this.PersistenceContext.SynchState();
+            this.PersistenceContext.SynchState();
 
-			return new AddWorkingShiftResponse(assembler.CreateWorkingShiftSummary (ws));
-		}
+            return new AddWorkingShiftResponse(assembler.CreateWorkingShiftSummary(ws));
+        }
 
-		[UpdateOperation]
-		public UpdateWorkingShiftResponse UpdateWorkingShift(UpdateWorkingShiftRequest request)
-		{
-			var ws = this.PersistenceContext.Load<WorkingShift>(request.WorkingShift.WorkingShiftRef);
-			var assembler = new WorkingShiftAssembler();
-			assembler.UpdateWorkingShift (ws, request.WorkingShift,PersistenceContext );
+        [UpdateOperation]
+        public UpdateWorkingShiftResponse UpdateWorkingShift(UpdateWorkingShiftRequest request)
+        {
+            var ws = this.PersistenceContext.Load<WorkingShift>(request.WorkingShift.WorkingShiftRef);
+            var assembler = new WorkingShiftAssembler();
+            assembler.UpdateWorkingShift(ws, request.WorkingShift, PersistenceContext);
 
-			this.PersistenceContext.SynchState();
+            this.PersistenceContext.SynchState();
 
-			return new UpdateWorkingShiftResponse(assembler.CreateWorkingShiftSummary(ws));
-		}
+            return new UpdateWorkingShiftResponse(assembler.CreateWorkingShiftSummary(ws));
+        }
 
-		[UpdateOperation]
-		public DeleteWorkingShiftResponse DeleteWorkingShift(DeleteWorkingShiftRequest request)
-		{
-			try
-			{
-				var broker = this.PersistenceContext.GetBroker<IWorkingShiftBroker>();
-				var item = broker.Load(request.WorkingShiftRef, EntityLoadFlags.Proxy);
-				broker.Delete(item);
+        [ReadOperation]
+        public LoadWorkingShiftEditorFormDataResponse LoadWorkingShiftEditorFormData(LoadWorkingShiftEditorFormDataRequest request)
+        {
+            var staffAssember = new StaffAssembler();
+            var fAssember = new FacilityAssembler();
+            //StaffSearchCriteria criteria = new StaffSearchCriteria();
+            //string currentcliniccode = Enterprise.Common.Common.GetClinicCode(System.Threading.Thread.CurrentPrincipal.Identity.Name);
+            //FacilitySearchCriteria fCriteria = new FacilitySearchCriteria();
+            //fCriteria.Code.EqualTo(currentcliniccode);
+            //criteria.MainClinic.EqualTo(PersistenceContext.GetBroker<IFacilityBroker>().FindOne(fCriteria));
+            //criteria.Deactivated.EqualTo(false);
+            //List<Staff> staffs = PersistenceContext.GetBroker<IStaffBroker>().FindAll(false);
+            return new LoadWorkingShiftEditorFormDataResponse(
+                CollectionUtils.Map(new StaffAdmin.StaffAdminService().ListActiveStaffs(),
+                                    (Staff group) => staffAssember.CreateStaffSummary(group))
+                );
+        }
 
-				this.PersistenceContext.SynchState();
+        [UpdateOperation]
+        public DeleteWorkingShiftResponse DeleteWorkingShift(DeleteWorkingShiftRequest request)
+        {
+            try
+            {
+                var broker = this.PersistenceContext.GetBroker<IWorkingShiftBroker>();
+                var item = broker.Load(request.WorkingShiftRef, EntityLoadFlags.Proxy);
+                broker.Delete(item);
 
-				return new DeleteWorkingShiftResponse();
-			}
-			catch (PersistenceException)
-			{
-				throw new RequestValidationException(string.Format(SR.ExceptionFailedToDelete,
-					TerminologyTranslator.Translate(typeof(WorkingShift))));
-			}
-		}
+                this.PersistenceContext.SynchState();
 
-		
-		#endregion
-	}
+                return new DeleteWorkingShiftResponse();
+            }
+            catch (PersistenceException)
+            {
+                throw new RequestValidationException(string.Format(SR.ExceptionFailedToDelete,
+                    TerminologyTranslator.Translate(typeof(WorkingShift))));
+            }
+        }
+
+
+        #endregion
+    }
 }

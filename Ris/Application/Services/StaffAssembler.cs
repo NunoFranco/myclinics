@@ -103,7 +103,7 @@ namespace ClearCanvas.Ris.Application.Services
                     delegate(Facility f) { return facilityAssembler.CreateFacilitySummary (f); }),
 				new Dictionary<string, string>(staff.ExtendedProperties),
 				staff.Deactivated,
-				staff.UserName);
+                staff.UserName, facilityAssembler.CreateFacilitySummary(CurrentClinic));
 		}
 
 		public void UpdateStaff(StaffDetail detail, Staff staff, bool updateElectiveGroups, bool updateNonElectiveGroups, IPersistenceContext context)
@@ -122,7 +122,7 @@ namespace ClearCanvas.Ris.Application.Services
 			staff.BillingNumber = detail.BillingNumber;
 			staff.Deactivated = detail.Deactivated;
 			staff.UserName = detail.UserName;
-
+            staff.MainClinic = context.Load<Facility>(detail.MainClinic.FacilityRef);
 			staff.TelephoneNumbers.Clear();
 			if (detail.TelephoneNumbers != null)
 			{

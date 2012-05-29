@@ -20,7 +20,7 @@
     <property name="LicenseNumber" column="LicenseNumber_" type="String" length="100"/>
     <property name="BillingNumber" column="BillingNumber_" type="String" length="100"/>
     <many-to-one name="Type" class="StaffTypeEnum" column="Type_"/>
-
+    <many-to-one name="MainClinic" class="Facility" column="MainClinicOID_"/>
     <!-- This property associates the staff with a User identity - may be null if the Staff is not associated with a user. -->
     <property name="UserName" column="UserName_" type="String" not-null="false"/>
 
