@@ -51,15 +51,23 @@ namespace ClearCanvas.Ris.Application.Services
             detail.Description = Shift.Description;
             detail.Deactivated = Shift.Deactivated;
             detail.Clinic = fassemble.CreateFacilitySummary(Shift.Clinic);
-            detail.Doctors = CollectionUtils.Map<DoctorWorkingPlan, DoctorWorkingPlanSummary>(
+            detail.WorkingOnMonday  = Shift.WorkOnMonday ;
+            detail.WorkingOnTuesday = Shift.WorkOnTuesday;
+            detail.WorkingOnWednesday = Shift.WorkOnWednesday;
+            detail.WorkingOnThursday = Shift.WorkOnThursday;
+            detail.WorkingOnFriday = Shift.WorkOnFriday;
+            detail.WorkingOnSaturday = Shift.WorkOnSaturday;
+            detail.WorkingOnSunday = Shift.WorkOnSunday;
+            detail.Doctors = CollectionUtils.Map<Staff, StaffSummary>(
                     Shift.Doctors,
-                    d => new DoctorWorkingPlanSummary(staffAssembler.CreateStaffSummary(d.Doctor), CreateWorkingShiftSummary(Shift), d.PlanDate));
+                    d => staffAssembler.CreateStaffSummary(d));
 
             return detail;
         }
         public WorkingShiftSummary CreateWorkingShiftSummary(WorkingShift ws)
         {
             FacilityAssembler assembler = new FacilityAssembler();
+
             return new WorkingShiftSummary(
                 ws.GetRef(),
                 ws.Name,
@@ -70,6 +78,13 @@ namespace ClearCanvas.Ris.Application.Services
                 ws.EndTime,
                 assembler.
                 CreateFacilitySummary(ws.Clinic),
+                ws.WorkOnMonday,
+                ws.WorkOnTuesday,
+                ws.WorkOnWednesday,
+                ws.WorkOnThursday,
+                ws.WorkOnFriday,
+                ws.WorkOnSaturday,
+                ws.WorkOnSunday,
                 ws.Deactivated);
         }
 
@@ -83,14 +98,30 @@ namespace ClearCanvas.Ris.Application.Services
             ws.EndTime = detail.EndTime;
             ws.ValidFromDate = detail.ValidFromDate;
             ws.ValidToDate = detail.ValidToDate;
-            foreach (var item in detail.Doctors)
-            {
-                DoctorWorkingPlan d = new DoctorWorkingPlan();
-                d.Clinic = context.Load<Facility>(detail.Clinic.FacilityRef);
-                d.Doctor = context.Load<Staff>(item.DoctorSummary.StaffRef);
-                d.PlanDate = item.PlanDate;
-                ws.Doctors.Add(d);
-            }
+
+            ws.WorkOnMonday = detail.WorkingOnMonday;
+            ws.WorkOnTuesday = detail.WorkingOnTuesday;
+            ws.WorkOnWednesday = detail.WorkingOnWednesday;
+            ws.WorkOnThursday = detail.WorkingOnThursday;
+            ws.WorkOnFriday = detail.WorkingOnFriday;
+            ws.WorkOnSaturday = detail.WorkingOnSaturday;
+            ws.WorkOnSunday = detail.WorkingOnSunday;
+
+            ws.Doctors.Clear(); //= CollectionUtils.Map<StaffSummary, Staff>(detail.Doctors, s => context.Load<Staff>(s.StaffRef));
+
+            CollectionUtils.ForEach(detail.Doctors,
+                 delegate(StaffSummary summary)
+                 {
+                     ws.Doctors.Add(context.Load<Staff>(summary.StaffRef, EntityLoadFlags.Proxy));
+                 });
+            //foreach (var item in detail.Doctors)
+            //{
+            //    DoctorWorkingPlan d = new DoctorWorkingPlan();
+            //    d.Clinic = context.Load<Facility>(detail.Clinic.FacilityRef);
+            //    d.Doctor = context.Load<Staff>(item.DoctorSummary.StaffRef);
+            //    d.PlanDate = item.PlanDate;
+            //    ws.Doctors.Add(d);
+            //}
 
 
         }

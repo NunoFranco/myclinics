@@ -40,7 +40,9 @@ using ClearCanvas.Healthcare;
 using ClearCanvas.Healthcare.Brokers;
 using ClearCanvas.Ris.Application.Common;
 using ClearCanvas.Ris.Application.Common.Admin.FacilityAdmin;
-using AuthorityTokens=ClearCanvas.Ris.Application.Common.AuthorityTokens;
+using AuthorityTokens = ClearCanvas.Ris.Application.Common.AuthorityTokens;
+using ClearCanvas.Enterprise.Authentication;
+using ClearCanvas.Enterprise.Authentication.Brokers;
 
 namespace ClearCanvas.Ris.Application.Services.Admin.FacilityAdmin
 {
@@ -54,22 +56,63 @@ namespace ClearCanvas.Ris.Application.Services.Admin.FacilityAdmin
         public ListAllFacilitiesResponse ListAllFacilities(ListAllFacilitiesRequest request)
         {
             FacilitySearchCriteria criteria = new FacilitySearchCriteria();
-            string CurrentClinicCode = Enterprise.Common.Common.GetClinicCode (System.Threading.Thread.CurrentPrincipal.Identity.Name);
-            string userName = Enterprise.Common.Common.GetLoginUserName (System.Threading.Thread.CurrentPrincipal.Identity.Name);
-            if (userName.ToLower() != "sa")//if sa list all Facilities, if normal user List 1 facility only
-                criteria.Code.EqualTo(CurrentClinicCode);
-			criteria.Code.SortAsc(0);
-			if (!request.IncludeDeactivated)
-				criteria.Deactivated.EqualTo(false);
+            //string CurrentClinicCode = Enterprise.Common.Common.GetClinicCode(System.Threading.Thread.CurrentPrincipal.Identity.Name);
+            //string userName = Enterprise.Common.Common.GetLoginUserName(System.Threading.Thread.CurrentPrincipal.Identity.Name);
+            //if (userName.ToLower() != "sa")//if sa list all Facilities, if normal user List 1 facility only
+            //    criteria.Code.EqualTo(CurrentClinicCode);
+            //criteria.Code.SortAsc(0);
+            if (!request.IncludeDeactivated)
+                criteria.Deactivated.EqualTo(false);
 
             FacilityAssembler assembler = new FacilityAssembler();
             return new ListAllFacilitiesResponse(
                 CollectionUtils.Map<Facility, FacilitySummary, List<FacilitySummary>>(
-                    PersistenceContext.GetBroker<IFacilityBroker>().Find(criteria, request.Page),
+                    ListAllFacilities(criteria,request.Page),
                     delegate(Facility f)
                     {
                         return assembler.CreateFacilitySummary(f);
                     }));
+        }
+        [ReadOperation]
+        public List<Facility> ListAllFacilities(FacilitySearchCriteria fCriteria, SearchResultPage page)
+        {
+            string userName = Enterprise.Common.Common.GetLoginUserName(System.Threading.Thread.CurrentPrincipal.Identity.Name);
+            UserSearchCriteria criter = new UserSearchCriteria();
+            criter.UserName.EqualTo(userName);
+            User currentuser = PersistenceContext.GetBroker<IUserBroker>().FindOne(criter);
+            //FacilitySearchCriteria fCriteria = new FacilitySearchCriteria();
+            if (fCriteria == null)
+            {
+                fCriteria = new FacilitySearchCriteria();
+                fCriteria.Deactivated.EqualTo(false);
+            }
+            fCriteria.Code.SortAsc(0);
+            if (userName.ToLower() != "sa")//if sa list all Facilities, if normal user List 1 facility only
+                fCriteria.Code.In(CollectionUtils.Map<Clinic, string>(currentuser.Clinics, c => c.Code));
+            List<Facility> facilities;
+            if (page == null)
+                facilities = CollectionUtils.Map<Facility, Facility>(PersistenceContext.GetBroker<IFacilityBroker>().Find(fCriteria), c => c);
+            else
+                facilities = CollectionUtils.Map<Facility, Facility>(PersistenceContext.GetBroker<IFacilityBroker>().Find(fCriteria, page), c => c);
+            return facilities ;
+        }
+        [ReadOperation]
+        public List<Facility> ListAllActiveFacilities()
+        {
+            return ListAllFacilities(null , null);
+        }
+        /// <summary>
+        /// this function call only in server side cannot call Directly from Client Side
+        /// </summary>
+        /// <param name="Code"></param>
+        /// <returns></returns>
+        [ReadOperation]
+        public Facility GeServerSidetCurrentClinic()
+        {
+            string Code = Enterprise.Common.Common.GetClinicCode(System.Threading.Thread.CurrentPrincipal.Identity.Name);
+            FacilitySearchCriteria criteria = new FacilitySearchCriteria();
+            criteria.Code.EqualTo(Code);
+            return PersistenceContext.GetBroker<IFacilityBroker>().FindOne(criteria);
         }
 
         [ReadOperation]
@@ -105,8 +148,8 @@ namespace ClearCanvas.Ris.Application.Services.Admin.FacilityAdmin
         }
 
         [UpdateOperation]
-		[PrincipalPermission(SecurityAction.Demand, Role = AuthorityTokens.Admin.Data.Facility)]
-		public UpdateFacilityResponse UpdateFacility(UpdateFacilityRequest request)
+        [PrincipalPermission(SecurityAction.Demand, Role = AuthorityTokens.Admin.Data.Facility)]
+        public UpdateFacilityResponse UpdateFacility(UpdateFacilityRequest request)
         {
             Facility facility = PersistenceContext.Load<Facility>(request.FacilityDetail.FacilityRef, EntityLoadFlags.CheckVersion);
 
@@ -116,30 +159,30 @@ namespace ClearCanvas.Ris.Application.Services.Admin.FacilityAdmin
             return new UpdateFacilityResponse(assembler.CreateFacilitySummary(facility));
         }
 
-		[UpdateOperation]
-		[PrincipalPermission(SecurityAction.Demand, Role = AuthorityTokens.Admin.Data.Facility)]
-		public DeleteFacilityResponse DeleteFacility(DeleteFacilityRequest request)
-		{
-			try
-			{
-				IFacilityBroker broker = PersistenceContext.GetBroker<IFacilityBroker>();
-				Facility item = broker.Load(request.FacilityRef, EntityLoadFlags.Proxy);
-				broker.Delete(item);
-				PersistenceContext.SynchState();
-				return new DeleteFacilityResponse();
-			}
-			catch (PersistenceException)
-			{
-				throw new RequestValidationException(string.Format(SR.ExceptionFailedToDelete, TerminologyTranslator.Translate(typeof(Facility))));
-			}
-		}
+        [UpdateOperation]
+        [PrincipalPermission(SecurityAction.Demand, Role = AuthorityTokens.Admin.Data.Facility)]
+        public DeleteFacilityResponse DeleteFacility(DeleteFacilityRequest request)
+        {
+            try
+            {
+                IFacilityBroker broker = PersistenceContext.GetBroker<IFacilityBroker>();
+                Facility item = broker.Load(request.FacilityRef, EntityLoadFlags.Proxy);
+                broker.Delete(item);
+                PersistenceContext.SynchState();
+                return new DeleteFacilityResponse();
+            }
+            catch (PersistenceException)
+            {
+                throw new RequestValidationException(string.Format(SR.ExceptionFailedToDelete, TerminologyTranslator.Translate(typeof(Facility))));
+            }
+        }
 
-		#endregion
-        [ReadOperation ]
-        public  Facility GetFacilityFromCode(string Code)
+        #endregion
+        [ReadOperation]
+        public Facility GetFacilityFromCode(string Code)
         {
             FacilitySearchCriteria criteria = new FacilitySearchCriteria();
-            criteria.Code .EqualTo(Code);
+            criteria.Code.EqualTo(Code);
             return PersistenceContext.GetBroker<IFacilityBroker>().FindOne(criteria);
 
         }

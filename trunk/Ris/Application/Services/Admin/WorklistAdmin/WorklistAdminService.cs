@@ -107,7 +107,7 @@ namespace ClearCanvas.Ris.Application.Services.Admin.WorklistAdmin
                 worklists,
                 worklist => adminAssembler.GetWorklistSummary(worklist, this.PersistenceContext)));
         }
-
+        
         [ReadOperation]
         public ListProcedureTypeGroupsResponse ListProcedureTypeGroups(ListProcedureTypeGroupsRequest request)
         {

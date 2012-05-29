@@ -58,7 +58,7 @@ namespace ClearCanvas.Ris.Application.Services.Admin.StaffAdmin
         {
 
             var assembler = new StaffAssembler();
-            Facility CurrentClinic = PersistenceContext.GetBroker<IFacilityBroker>().Load(request.ClinicRef);
+            Facility CurrentClinic = new FacilityAdmin.FacilityAdminService().GeServerSidetCurrentClinic();
             FacilityAssembler FAssembler = new FacilityAssembler();
             var criteria = new StaffSearchCriteria();
             criteria.Name.FamilyName.SortAsc(0);
@@ -77,13 +77,40 @@ namespace ClearCanvas.Ris.Application.Services.Admin.StaffAdmin
 
             if (!request.IncludeDeactivated)
                 criteria.Deactivated.EqualTo(false);
-
+            criteria.MainClinic.EqualTo(CurrentClinic);
             ApplyStaffTypesFilter(request.StaffTypesFilter, new[] { criteria }, FAssembler.CreateFacilitySummary(CurrentClinic));
 
             return new ListStaffResponse(
                 CollectionUtils.Map<Staff, StaffSummary, List<StaffSummary>>(
                     PersistenceContext.GetBroker<IStaffBroker>().Find(criteria, request.Page),
                     s => assembler.CreateStaffSummary(s)));
+        }
+        [ReadOperation]
+        public List<Staff> ListStaff(StaffSearchCriteria criteria, SearchResultPage page)
+        {
+            if (criteria == null)
+            {
+                criteria = new StaffSearchCriteria();
+                criteria.Deactivated.EqualTo(false);
+            }
+            criteria.MainClinic.EqualTo(new FacilityAdmin.FacilityAdminService().GeServerSidetCurrentClinic());
+           
+            List<Staff> staffs;
+            if (page == null)
+                staffs = CollectionUtils.Map<Staff, Staff>(
+                    PersistenceContext.GetBroker<IStaffBroker>().Find(criteria),
+                    s => s);
+            else
+                staffs = CollectionUtils.Map<Staff, Staff>(
+                                    PersistenceContext.GetBroker<IStaffBroker>().Find(criteria, page),
+                                    s => s);
+
+            return staffs;
+        }
+        [ReadOperation]
+        public List<Staff> ListActiveStaffs()
+        {
+            return ListStaff(null, null);
         }
 
         private static void ApplyCondition(ISearchCondition<string> condition, string value, bool exactMatch)
@@ -118,7 +145,7 @@ namespace ClearCanvas.Ris.Application.Services.Admin.StaffAdmin
                 EnumUtils.GetEnumValueList<AddressTypeEnum>(PersistenceContext),
                 CollectionUtils.Map(PersistenceContext.GetBroker<IStaffGroupBroker>().FindAll(false),
                                     (StaffGroup group) => groupAssember.CreateSummary(group)),
-                CollectionUtils.Map(PersistenceContext.GetBroker<IFacilityBroker>().FindAll(false),
+                CollectionUtils.Map(new FacilityAdmin.FacilityAdminService().ListAllActiveFacilities(),
                                     (Facility f) => fAssember.CreateFacilitySummary(f))
                 );
         }
