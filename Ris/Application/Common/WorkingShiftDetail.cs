@@ -51,8 +51,9 @@ namespace ClearCanvas.Ris.Application.Common
             DateTime validto, 
             DateTime starttime, 
             DateTime endtime, 
-            List<DoctorWorkingPlanSummary> doctors,
+            List<StaffSummary> doctors,
             FacilitySummary fSummary,
+            bool sunday,bool monday,bool tuesday, bool wednesday, bool thursday, bool friday, bool saturday,
             bool deactivated)
         {
             WorkingShiftRef = entityRef;
@@ -65,6 +66,13 @@ namespace ClearCanvas.Ris.Application.Common
             this.EndTime = endtime;
             this.Doctors = doctors;
             Clinic = fSummary;
+            this.WorkingOnMonday = monday;
+            this.WorkingOnTuesday = tuesday;
+            this.WorkingOnWednesday = wednesday;
+            this.WorkingOnThursday = thursday;
+            this.WorkingOnFriday = friday;
+            this.WorkingOnSaturday = saturday;
+            this.WorkingOnSunday = sunday;
         }
 
         [DataMember]
@@ -91,10 +99,32 @@ namespace ClearCanvas.Ris.Application.Common
 
         [DataMember]
         public DateTime EndTime;
-[DataMember]
+
+        [DataMember]
+        public bool WorkingOnSunday;
+
+        [DataMember]
+        public bool WorkingOnMonday;
+
+        [DataMember]
+        public bool WorkingOnTuesday;
+
+        [DataMember]
+        public bool WorkingOnWednesday;
+
+        [DataMember]
+        public bool WorkingOnThursday;
+
+        [DataMember]
+        public bool WorkingOnFriday;
+
+        [DataMember]
+        public bool WorkingOnSaturday;
+
+        [DataMember]
         public FacilitySummary  Clinic;
         [DataMember]
-        public List<DoctorWorkingPlanSummary> Doctors;
+        public List<StaffSummary> Doctors;
 		[DataMember]
 		public bool Deactivated;
 

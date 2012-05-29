@@ -465,4 +465,13 @@
   <data name="WorkingShiftStaffAssignmentPageName" xml:space="preserve">
     <value>Staff Assignment</value>
   </data>
+  <data name="StaffIDColumnName" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="StaffNameColumnName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="StaffTypeColumnName" xml:space="preserve">
+    <value>Type</value>
+  </data>
 </root>

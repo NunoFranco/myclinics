@@ -646,6 +646,33 @@ namespace ClearCanvas.Ris.Client.Admin {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ID.
+        /// </summary>
+        internal static string StaffIDColumnName {
+            get {
+                return ResourceManager.GetString("StaffIDColumnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string StaffNameColumnName {
+            get {
+                return ResourceManager.GetString("StaffNameColumnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        internal static string StaffTypeColumnName {
+            get {
+                return ResourceManager.GetString("StaffTypeColumnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update code &apos;{0}&apos;.
         /// </summary>
         internal static string TitlaUpdateWorkingShift {

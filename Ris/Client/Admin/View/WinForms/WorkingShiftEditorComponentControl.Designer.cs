@@ -66,6 +66,19 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
             this._dtpEndTime = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this._staffSelector = new ClearCanvas.Desktop.View.WinForms.ListItemSelector();
+            this._dtpExactDate = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
+            this._dtpValidFrom = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
+            this._dtpValidTo = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this._chkSaturday = new System.Windows.Forms.CheckBox();
+            this._chkFriday = new System.Windows.Forms.CheckBox();
+            this._chkThursday = new System.Windows.Forms.CheckBox();
+            this._chkWednesday = new System.Windows.Forms.CheckBox();
+            this._chkTuesday = new System.Windows.Forms.CheckBox();
+            this._chkMonday = new System.Windows.Forms.CheckBox();
+            this._chkSunday = new System.Windows.Forms.CheckBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // _txtName
@@ -117,11 +130,107 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // _staffSelector
+            // 
+            this._staffSelector.AvailableItemsTable = null;
+            resources.ApplyResources(this._staffSelector, "_staffSelector");
+            this._staffSelector.Name = "_staffSelector";
+            this._staffSelector.ReadOnly = false;
+            this._staffSelector.SelectedItemsTable = null;
+            // 
+            // _dtpExactDate
+            // 
+            resources.ApplyResources(this._dtpExactDate, "_dtpExactDate");
+            this._dtpExactDate.Maximum = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this._dtpExactDate.Minimum = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this._dtpExactDate.Name = "_dtpExactDate";
+            this._dtpExactDate.ShowDate = false;
+            this._dtpExactDate.ShowTime = true;
+            this._dtpExactDate.Value = new System.DateTime(2012, 5, 27, 14, 53, 30, 235);
+            // 
+            // _dtpValidFrom
+            // 
+            resources.ApplyResources(this._dtpValidFrom, "_dtpValidFrom");
+            this._dtpValidFrom.Maximum = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this._dtpValidFrom.Minimum = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this._dtpValidFrom.Name = "_dtpValidFrom";
+            this._dtpValidFrom.Nullable = true;
+            this._dtpValidFrom.Value = new System.DateTime(2012, 5, 27, 14, 53, 30, 235);
+            // 
+            // _dtpValidTo
+            // 
+            resources.ApplyResources(this._dtpValidTo, "_dtpValidTo");
+            this._dtpValidTo.Maximum = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this._dtpValidTo.Minimum = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this._dtpValidTo.Name = "_dtpValidTo";
+            this._dtpValidTo.Nullable = true;
+            this._dtpValidTo.Value = new System.DateTime(2012, 5, 27, 14, 53, 30, 235);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this._chkSaturday);
+            this.groupBox1.Controls.Add(this._chkFriday);
+            this.groupBox1.Controls.Add(this._chkThursday);
+            this.groupBox1.Controls.Add(this._chkWednesday);
+            this.groupBox1.Controls.Add(this._chkTuesday);
+            this.groupBox1.Controls.Add(this._chkMonday);
+            this.groupBox1.Controls.Add(this._chkSunday);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // _chkSaturday
+            // 
+            resources.ApplyResources(this._chkSaturday, "_chkSaturday");
+            this._chkSaturday.Name = "_chkSaturday";
+            this._chkSaturday.UseVisualStyleBackColor = true;
+            // 
+            // _chkFriday
+            // 
+            resources.ApplyResources(this._chkFriday, "_chkFriday");
+            this._chkFriday.Name = "_chkFriday";
+            this._chkFriday.UseVisualStyleBackColor = true;
+            // 
+            // _chkThursday
+            // 
+            resources.ApplyResources(this._chkThursday, "_chkThursday");
+            this._chkThursday.Name = "_chkThursday";
+            this._chkThursday.UseVisualStyleBackColor = true;
+            // 
+            // _chkWednesday
+            // 
+            resources.ApplyResources(this._chkWednesday, "_chkWednesday");
+            this._chkWednesday.Name = "_chkWednesday";
+            this._chkWednesday.UseVisualStyleBackColor = true;
+            // 
+            // _chkTuesday
+            // 
+            resources.ApplyResources(this._chkTuesday, "_chkTuesday");
+            this._chkTuesday.Name = "_chkTuesday";
+            this._chkTuesday.UseVisualStyleBackColor = true;
+            // 
+            // _chkMonday
+            // 
+            resources.ApplyResources(this._chkMonday, "_chkMonday");
+            this._chkMonday.Name = "_chkMonday";
+            this._chkMonday.UseVisualStyleBackColor = true;
+            // 
+            // _chkSunday
+            // 
+            resources.ApplyResources(this._chkSunday, "_chkSunday");
+            this._chkSunday.Name = "_chkSunday";
+            this._chkSunday.UseVisualStyleBackColor = true;
+            // 
             // WorkingShiftEditorComponentControl
             // 
             this.AcceptButton = this.btnOk;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this._dtpValidTo);
+            this.Controls.Add(this._dtpValidFrom);
+            this.Controls.Add(this._dtpExactDate);
+            this.Controls.Add(this._staffSelector);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this._dtpEndTime);
@@ -129,6 +238,8 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
             this.Controls.Add(this._txtDescription);
             this.Controls.Add(this._txtName);
             this.Name = "WorkingShiftEditorComponentControl";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -141,5 +252,17 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
         private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpEndTime;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
+        private ClearCanvas.Desktop.View.WinForms.ListItemSelector _staffSelector;
+        private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpExactDate;
+        private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpValidFrom;
+        private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpValidTo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox _chkSaturday;
+        private System.Windows.Forms.CheckBox _chkFriday;
+        private System.Windows.Forms.CheckBox _chkThursday;
+        private System.Windows.Forms.CheckBox _chkWednesday;
+        private System.Windows.Forms.CheckBox _chkTuesday;
+        private System.Windows.Forms.CheckBox _chkMonday;
+        private System.Windows.Forms.CheckBox _chkSunday;
     }
 }
