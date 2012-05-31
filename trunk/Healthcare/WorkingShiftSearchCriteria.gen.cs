@@ -80,15 +80,15 @@ namespace ClearCanvas.Healthcare
 	  		}
 	  	}
 	  	
-	  	public ISearchCondition<DateTime?> StartTime
+	  	public ISearchCondition<Double> StartTime
 	  	{
 	  		get
 	  		{
 	  			if(!this.SubCriteria.ContainsKey("StartTime"))
 	  			{
-	  				this.SubCriteria["StartTime"] = new SearchCondition<DateTime?>("StartTime");
+	  				this.SubCriteria["StartTime"] = new SearchCondition<Double>("StartTime");
 	  			}
-	  			return (ISearchCondition<DateTime?>)this.SubCriteria["StartTime"];
+	  			return (ISearchCondition<Double>)this.SubCriteria["StartTime"];
 	  		}
 	  	}
 	  	
@@ -104,15 +104,39 @@ namespace ClearCanvas.Healthcare
 	  		}
 	  	}
 	  	
-	  	public ISearchCondition<DateTime?> EndTime
+	  	public ISearchCondition<Double> EndTime
 	  	{
 	  		get
 	  		{
 	  			if(!this.SubCriteria.ContainsKey("EndTime"))
 	  			{
-	  				this.SubCriteria["EndTime"] = new SearchCondition<DateTime?>("EndTime");
+	  				this.SubCriteria["EndTime"] = new SearchCondition<Double>("EndTime");
 	  			}
-	  			return (ISearchCondition<DateTime?>)this.SubCriteria["EndTime"];
+	  			return (ISearchCondition<Double>)this.SubCriteria["EndTime"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<string> EndTimeType
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("EndTimeType"))
+	  			{
+	  				this.SubCriteria["EndTimeType"] = new SearchCondition<string>("EndTimeType");
+	  			}
+	  			return (ISearchCondition<string>)this.SubCriteria["EndTimeType"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<string> StartTimeType
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("StartTimeType"))
+	  			{
+	  				this.SubCriteria["StartTimeType"] = new SearchCondition<string>("StartTimeType");
+	  			}
+	  			return (ISearchCondition<string>)this.SubCriteria["StartTimeType"];
 	  		}
 	  	}
 	  	
@@ -152,15 +176,15 @@ namespace ClearCanvas.Healthcare
 	  		}
 	  	}
 	  	
-	  	public ISearchCondition<bool> WorkOnWednessday
+	  	public ISearchCondition<bool> WorkOnWednesday
 	  	{
 	  		get
 	  		{
-	  			if(!this.SubCriteria.ContainsKey("WorkOnWednessday"))
+	  			if(!this.SubCriteria.ContainsKey("WorkOnWednesday"))
 	  			{
-	  				this.SubCriteria["WorkOnWednessday"] = new SearchCondition<bool>("WorkOnWednessday");
+	  				this.SubCriteria["WorkOnWednesday"] = new SearchCondition<bool>("WorkOnWednesday");
 	  			}
-	  			return (ISearchCondition<bool>)this.SubCriteria["WorkOnWednessday"];
+	  			return (ISearchCondition<bool>)this.SubCriteria["WorkOnWednesday"];
 	  		}
 	  	}
 	  	

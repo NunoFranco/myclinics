@@ -32,13 +32,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Linq;
+//using System.Data.Linq;
 using ClearCanvas.Common;
 using ClearCanvas.Desktop;
 using ClearCanvas.Ris.Application.Common;
 using ClearCanvas.Ris.Application.Common.Admin.WorkingShiftAdmin;
 using ClearCanvas.Enterprise.Common;
 using ClearCanvas.Desktop.Tables;
+using ClearCanvas.Common.Utilities;
 
 namespace ClearCanvas.Ris.Client.Admin
 {
@@ -56,6 +58,11 @@ namespace ClearCanvas.Ris.Client.Admin
     [AssociateView(typeof(WorkingShiftEditorComponentViewExtensionPoint))]
     public class WorkingShiftEditorComponent : ApplicationComponent
     {
+        public enum TimeType
+        { 
+            AM,
+            PM
+        }
 
         private readonly EntityRef _WorkingShiftRef;
         private readonly bool _isNew;
@@ -65,17 +72,17 @@ namespace ClearCanvas.Ris.Client.Admin
         public WorkingShiftDetail Detail { get { return _detail; } set { _detail = value; } }
 
 
-        class StaffTable : Table<StaffSummary >
+        class StaffTable : ClearCanvas.Desktop.Tables.Table<StaffSummary>
         {
             public StaffTable()
             {
                 this.Columns.Add(new TableColumn<StaffSummary, string>(SR.StaffIDColumnName,
-               delegate(StaffSummary item) { return item.StaffId ; }));
+               delegate(StaffSummary item) { return item.StaffId; }));
                 this.Columns.Add(new TableColumn<StaffSummary, string>(SR.StaffNameColumnName,
-                    delegate(StaffSummary item) { return item.Name.ToString() ; }));
-           
+                    delegate(StaffSummary item) { return item.Name.ToString(); }));
+
                 this.Columns.Add(new TableColumn<StaffSummary, string>(SR.StaffTypeColumnName,
-                    delegate(StaffSummary item) { return item.StaffType.Value ; }));
+                    delegate(StaffSummary item) { return item.StaffType.Value; }));
             }
         }
 
@@ -95,29 +102,39 @@ namespace ClearCanvas.Ris.Client.Admin
         public WorkingShiftEditorComponent(EntityRef workinfShiftRef)
         {
             _WorkingShiftRef = workinfShiftRef;
-            _isNew = false ;
+            _isNew = false;
             _availablestaffs = new StaffTable();
             _selectedstaffs = new StaffTable();
         }
-
+        public List<EnumValueInfo> StartTimeTypeList { get; set; }//AM,PM
+        public List<EnumValueInfo> EndTimeTypeList { get; set; }
+        public string AMTooltip { get; set; }
+        public string PMTooltip { get; set; }
         /// <summary>
         /// Called by the host to initialize the application component.
         /// </summary>
         public override void Start()
         {
-            
-            Platform.GetService<IWorkingShiftAdminService>(
-                delegate(IWorkingShiftAdminService service)
+            List<EnumValueInfo> lst = new List<EnumValueInfo>() 
             {
-                LoadWorkingShiftEditorFormDataResponse  response = service.LoadWorkingShiftEditorFormData (
-                    new LoadWorkingShiftEditorFormDataRequest(LoginSession.Current.WorkingFacility.FacilityRef)
-                    );
-              
-                _availablestaffs.Items.AddRange( response.staffs);
-            });
+                new EnumValueInfo(){ Code = TimeType.AM .ToString(), Value =SR.AM },
+                new EnumValueInfo(){ Code = TimeType.PM.ToString(), Value =SR.PM }
+            };
+            StartTimeTypeList = new List<EnumValueInfo>();
+            EndTimeTypeList = new List<EnumValueInfo>();
+            StartTimeTypeList.AddRange(lst);
+            EndTimeTypeList.AddRange(lst);
+
             if (_isNew)
             {
                 _detail = new WorkingShiftDetail();
+                _detail.Clinic = LoginSession.Current.WorkingFacility;
+                _detail.StartTime = DateTime.Now.ToOADate();
+                _detail.EndTime = DateTime.Now.ToOADate();
+                _detail.ValidFromDate = DateTime.Now;
+                _detail.ValidToDate = DateTime.Now.AddMonths(1);
+                _detail.EndTimeType = TimeType.AM.ToString();
+                _detail.StartTimeType = TimeType.AM.ToString();
             }
             else
             {
@@ -126,10 +143,24 @@ namespace ClearCanvas.Ris.Client.Admin
                     {
                         LoadWorkingShiftForEditResponse response = service.LoadWorkingShiftForEdit(
                             new LoadWorkingShiftForEditRequest(_WorkingShiftRef));
-                        _detail = response.WorkingShiftdetail ;
+                        _detail = response.WorkingShiftdetail;
                         _selectedstaffs.Items.AddRange(_detail.Doctors);
                     });
             }
+            Platform.GetService<IWorkingShiftAdminService>(
+                            delegate(IWorkingShiftAdminService service)
+                            {
+                                LoadWorkingShiftEditorFormDataResponse response = service.LoadWorkingShiftEditorFormData(
+                                    new LoadWorkingShiftEditorFormDataRequest(LoginSession.Current.WorkingFacility.FacilityRef)
+                                    );
+                                _availablestaffs.Items.AddRange(CollectionUtils.Reject(response.staffs,
+                                                delegate(StaffSummary x)
+                                                {
+                                                    return CollectionUtils.Contains(_selectedstaffs.Items,
+                                                        delegate(StaffSummary y) { return x.StaffRef.Equals(y.StaffRef, true); });
+                                                }));
+
+                            });
 
             // TODO prepare the component for its live phase
             base.Start();
@@ -153,9 +184,11 @@ namespace ClearCanvas.Ris.Client.Admin
         {
             get { return _selectedstaffs; }
         }
+
         public void ItemsAddedOrRemoved()
         {
             this.Modified = true;
+            NotifyPropertyChanged("Modified");
         }
         #region Presentation Model
         public string Name
@@ -169,14 +202,32 @@ namespace ClearCanvas.Ris.Client.Admin
         }
         public string Description
         {
-            get { return _detail.Description ; }
+            get { return _detail.Description; }
             set
             {
-                _detail.Description  = value;
+                _detail.Description = value;
                 this.Modified = true;
             }
         }
-        public DateTime ValidFromDate
+        public EnumValueInfo StartTimeType
+        {
+            get { return StartTimeTypeList.First(x => x.Code == _detail.StartTimeType); }
+            set
+            {
+                _detail.StartTimeType = value.Code;
+                this.Modified = true;
+            }
+        }
+        public EnumValueInfo EndTimeType
+        {
+            get { return EndTimeTypeList.First(x => x.Code == _detail.EndTimeType); }
+            set
+            {
+                _detail.EndTimeType = value.Code;
+                this.Modified = true;
+            }
+        }
+        public DateTime? ValidFromDate
         {
             get { return _detail.ValidFromDate; }
             set
@@ -185,7 +236,7 @@ namespace ClearCanvas.Ris.Client.Admin
                 this.Modified = true;
             }
         }
-        public DateTime ValidToDate
+        public DateTime? ValidToDate
         {
             get { return _detail.ValidToDate; }
             set
@@ -196,24 +247,27 @@ namespace ClearCanvas.Ris.Client.Admin
         }
         public DateTime StartTime
         {
-            get { return _detail.StartTime; }
+            get { return DateTime.FromOADate(_detail.StartTime); }
             set
             {
-                _detail.StartTime = value;
+                _detail.StartTime = value.ToOADate();
                 this.Modified = true;
             }
         }
         public DateTime EndTime
         {
-            get { return _detail.EndTime; }
+            get
+            {
+                return DateTime.FromOADate(_detail.EndTime);
+            }
             set
             {
-                _detail.EndTime = value;
+                _detail.EndTime = value.ToOADate();
                 this.Modified = true;
             }
         }
 
-        public bool  WorkingOnSunday
+        public bool WorkingOnSunday
         {
             get { return _detail.WorkingOnSunday; }
             set
@@ -222,7 +276,7 @@ namespace ClearCanvas.Ris.Client.Admin
                 this.Modified = true;
             }
         }
-        public bool  WorkingOnMonday
+        public bool WorkingOnMonday
         {
             get { return _detail.WorkingOnMonday; }
             set
@@ -231,9 +285,9 @@ namespace ClearCanvas.Ris.Client.Admin
                 this.Modified = true;
             }
         }
-        public bool  WorkingOnTuesday
+        public bool WorkingOnTuesday
         {
-            get { return _detail.WorkingOnTuesday ; }
+            get { return _detail.WorkingOnTuesday; }
             set
             {
                 _detail.WorkingOnTuesday = value;
@@ -242,16 +296,16 @@ namespace ClearCanvas.Ris.Client.Admin
         }
         public bool WorkingOnWednesday
         {
-            get { return _detail.WorkingOnWednesday ; }
+            get { return _detail.WorkingOnWednesday; }
             set
             {
                 _detail.WorkingOnWednesday = value;
                 this.Modified = true;
             }
         }
-        public bool  WorkingOnThursday
+        public bool WorkingOnThursday
         {
-            get { return _detail.WorkingOnThursday ; }
+            get { return _detail.WorkingOnThursday; }
             set
             {
                 _detail.WorkingOnThursday = value;
@@ -260,7 +314,7 @@ namespace ClearCanvas.Ris.Client.Admin
         }
         public bool WorkingOnFriday
         {
-            get { return _detail.WorkingOnFriday ; }
+            get { return _detail.WorkingOnFriday; }
             set
             {
                 _detail.WorkingOnFriday = value;
@@ -334,6 +388,15 @@ namespace ClearCanvas.Ris.Client.Admin
         }
         private void SaveChanges()
         {
+            if (_detail.Doctors == null)
+            {
+                _detail.Doctors = new List<StaffSummary>();
+            }
+            else
+            {
+                _detail.Doctors.Clear();
+            }
+            _detail.Doctors.AddRange(_selectedstaffs.Items);
             Platform.GetService<IWorkingShiftAdminService>(
                 delegate(IWorkingShiftAdminService service)
                 {

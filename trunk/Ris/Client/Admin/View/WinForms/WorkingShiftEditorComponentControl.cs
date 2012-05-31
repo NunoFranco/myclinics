@@ -59,10 +59,19 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
             _component = component;
 
             _txtName.DataBindings.Add("Value", _component, "Name", true, DataSourceUpdateMode.OnPropertyChanged);
-            _txtDescription.DataBindings.Add("Value", _component, "Description", true, DataSourceUpdateMode.OnPropertyChanged);
+            //_txtDescription.DataBindings.Add("Value", _component, "Description", true, DataSourceUpdateMode.OnPropertyChanged);
 
-            _dtpstartTime.DataBindings.Add("Enabled", _component, "StartTime", true, DataSourceUpdateMode.OnPropertyChanged);
-            _dtpEndTime.DataBindings.Add("Enabled", _component, "EndTime", true, DataSourceUpdateMode.OnPropertyChanged);
+            _dtpstartTime.DataBindings.Add("Value", _component, "StartTime", true, DataSourceUpdateMode.OnPropertyChanged);
+            _dtpEndTime.DataBindings.Add("Value", _component, "EndTime", true, DataSourceUpdateMode.OnPropertyChanged);
+
+            _cmbStartTimeType.DataSource = component.StartTimeTypeList ; 
+            _cmbStartTimeType.DataBindings.Add("Value", _component, "StartTimeType", true, DataSourceUpdateMode.OnPropertyChanged);
+            _cmbEndTimeType.DataSource = component.EndTimeTypeList;
+            _cmbEndTimeType.DataBindings.Add("Value", _component, "EndTimeType", true, DataSourceUpdateMode.OnPropertyChanged);
+
+
+            _dtpValidFrom.DataBindings.Add("Value", _component, "ValidFromDate", true, DataSourceUpdateMode.OnPropertyChanged);
+            _dtpValidTo.DataBindings.Add("Value", _component, "ValidToDate", true, DataSourceUpdateMode.OnPropertyChanged);
             
             _chkMonday.DataBindings.Add("Checked", _component, "WorkingOnMonday", true, DataSourceUpdateMode.OnPropertyChanged);
             _chkTuesday.DataBindings.Add("Checked", _component, "WorkingOnTuesday", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -85,6 +94,7 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
         private void OnItemsAddedOrRemoved(object sender, EventArgs args)
         {
             _component.ItemsAddedOrRemoved();
+            this.btnOk.Enabled = _component.Modified;
         }
         private void btnOk_Click(object sender, EventArgs e)
         {

@@ -61,13 +61,9 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkingShiftEditorComponentControl));
             this._txtName = new ClearCanvas.Desktop.View.WinForms.TextField();
-            this._txtDescription = new ClearCanvas.Desktop.View.WinForms.TextAreaField();
-            this._dtpstartTime = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
-            this._dtpEndTime = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this._staffSelector = new ClearCanvas.Desktop.View.WinForms.ListItemSelector();
-            this._dtpExactDate = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
             this._dtpValidFrom = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
             this._dtpValidTo = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -78,7 +74,25 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
             this._chkTuesday = new System.Windows.Forms.CheckBox();
             this._chkMonday = new System.Windows.Forms.CheckBox();
             this._chkSunday = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this._dtpstartTime = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this._dtpEndTime = new ClearCanvas.Desktop.View.WinForms.DateTimeField();
+            this._cmbStartTimeType = new ClearCanvas.Desktop.View.WinForms.ComboBoxField();
+            this._cmbEndTimeType = new ClearCanvas.Desktop.View.WinForms.ComboBoxField();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // _txtName
@@ -89,32 +103,6 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
             this._txtName.PasswordChar = '\0';
             this._txtName.ToolTip = null;
             this._txtName.Value = null;
-            // 
-            // _txtDescription
-            // 
-            resources.ApplyResources(this._txtDescription, "_txtDescription");
-            this._txtDescription.Name = "_txtDescription";
-            this._txtDescription.Value = null;
-            // 
-            // _dtpstartTime
-            // 
-            resources.ApplyResources(this._dtpstartTime, "_dtpstartTime");
-            this._dtpstartTime.Maximum = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this._dtpstartTime.Minimum = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this._dtpstartTime.Name = "_dtpstartTime";
-            this._dtpstartTime.ShowDate = false;
-            this._dtpstartTime.ShowTime = true;
-            this._dtpstartTime.Value = new System.DateTime(2012, 5, 27, 14, 53, 30, 235);
-            // 
-            // _dtpEndTime
-            // 
-            resources.ApplyResources(this._dtpEndTime, "_dtpEndTime");
-            this._dtpEndTime.Maximum = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this._dtpEndTime.Minimum = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this._dtpEndTime.Name = "_dtpEndTime";
-            this._dtpEndTime.ShowDate = false;
-            this._dtpEndTime.ShowTime = true;
-            this._dtpEndTime.Value = new System.DateTime(2012, 5, 27, 14, 51, 20, 536);
             // 
             // btnOk
             // 
@@ -138,16 +126,6 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
             this._staffSelector.ReadOnly = false;
             this._staffSelector.SelectedItemsTable = null;
             // 
-            // _dtpExactDate
-            // 
-            resources.ApplyResources(this._dtpExactDate, "_dtpExactDate");
-            this._dtpExactDate.Maximum = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this._dtpExactDate.Minimum = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this._dtpExactDate.Name = "_dtpExactDate";
-            this._dtpExactDate.ShowDate = false;
-            this._dtpExactDate.ShowTime = true;
-            this._dtpExactDate.Value = new System.DateTime(2012, 5, 27, 14, 53, 30, 235);
-            // 
             // _dtpValidFrom
             // 
             resources.ApplyResources(this._dtpValidFrom, "_dtpValidFrom");
@@ -168,13 +146,7 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this._chkSaturday);
-            this.groupBox1.Controls.Add(this._chkFriday);
-            this.groupBox1.Controls.Add(this._chkThursday);
-            this.groupBox1.Controls.Add(this._chkWednesday);
-            this.groupBox1.Controls.Add(this._chkTuesday);
-            this.groupBox1.Controls.Add(this._chkMonday);
-            this.groupBox1.Controls.Add(this._chkSunday);
+            this.groupBox1.Controls.Add(this.tableLayoutPanel5);
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
@@ -221,25 +193,118 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
             this._chkSunday.Name = "_chkSunday";
             this._chkSunday.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this._staffSelector, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
+            // tableLayoutPanel2
+            // 
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            this.tableLayoutPanel2.Controls.Add(this._txtName, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 2, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            // 
+            // tableLayoutPanel3
+            // 
+            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
+            this.tableLayoutPanel3.Controls.Add(this._dtpValidFrom, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this._dtpValidTo, 1, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            // 
+            // tableLayoutPanel4
+            // 
+            resources.ApplyResources(this.tableLayoutPanel4, "tableLayoutPanel4");
+            this.tableLayoutPanel4.Controls.Add(this.btnCancel, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnOk, 1, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            // 
+            // tableLayoutPanel5
+            // 
+            resources.ApplyResources(this.tableLayoutPanel5, "tableLayoutPanel5");
+            this.tableLayoutPanel5.Controls.Add(this._chkSunday, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this._chkSaturday, 6, 0);
+            this.tableLayoutPanel5.Controls.Add(this._chkMonday, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this._chkFriday, 5, 0);
+            this.tableLayoutPanel5.Controls.Add(this._chkTuesday, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this._chkThursday, 4, 0);
+            this.tableLayoutPanel5.Controls.Add(this._chkWednesday, 3, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            // 
+            // tableLayoutPanel6
+            // 
+            resources.ApplyResources(this.tableLayoutPanel6, "tableLayoutPanel6");
+            this.tableLayoutPanel6.Controls.Add(this._dtpstartTime, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this._cmbStartTimeType, 1, 0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            // 
+            // _dtpstartTime
+            // 
+            resources.ApplyResources(this._dtpstartTime, "_dtpstartTime");
+            this._dtpstartTime.Maximum = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this._dtpstartTime.Minimum = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this._dtpstartTime.Name = "_dtpstartTime";
+            this._dtpstartTime.ShowDate = false;
+            this._dtpstartTime.ShowTime = true;
+            this._dtpstartTime.Value = new System.DateTime(2012, 5, 27, 14, 53, 30, 235);
+            // 
+            // tableLayoutPanel7
+            // 
+            resources.ApplyResources(this.tableLayoutPanel7, "tableLayoutPanel7");
+            this.tableLayoutPanel7.Controls.Add(this._dtpEndTime, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this._cmbEndTimeType, 1, 0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            // 
+            // _dtpEndTime
+            // 
+            resources.ApplyResources(this._dtpEndTime, "_dtpEndTime");
+            this._dtpEndTime.Maximum = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this._dtpEndTime.Minimum = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this._dtpEndTime.Name = "_dtpEndTime";
+            this._dtpEndTime.ShowDate = false;
+            this._dtpEndTime.ShowTime = true;
+            this._dtpEndTime.Value = new System.DateTime(2012, 5, 27, 14, 51, 20, 536);
+            // 
+            // _cmbStartTimeType
+            // 
+            this._cmbStartTimeType.DataSource = null;
+            this._cmbStartTimeType.DisplayMember = "";
+            resources.ApplyResources(this._cmbStartTimeType, "_cmbStartTimeType");
+            this._cmbStartTimeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cmbStartTimeType.Name = "_cmbStartTimeType";
+            this._cmbStartTimeType.Value = null;
+            // 
+            // _cmbEndTimeType
+            // 
+            this._cmbEndTimeType.DataSource = null;
+            this._cmbEndTimeType.DisplayMember = "";
+            resources.ApplyResources(this._cmbEndTimeType, "_cmbEndTimeType");
+            this._cmbEndTimeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cmbEndTimeType.Name = "_cmbEndTimeType";
+            this._cmbEndTimeType.Value = null;
+            // 
             // WorkingShiftEditorComponentControl
             // 
             this.AcceptButton = this.btnOk;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this._dtpValidTo);
-            this.Controls.Add(this._dtpValidFrom);
-            this.Controls.Add(this._dtpExactDate);
-            this.Controls.Add(this._staffSelector);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this._dtpEndTime);
-            this.Controls.Add(this._dtpstartTime);
-            this.Controls.Add(this._txtDescription);
-            this.Controls.Add(this._txtName);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "WorkingShiftEditorComponentControl";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -247,13 +312,9 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
         #endregion
 
         private ClearCanvas.Desktop.View.WinForms.TextField _txtName;
-        private ClearCanvas.Desktop.View.WinForms.TextAreaField _txtDescription;
-        private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpstartTime;
-        private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpEndTime;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
         private ClearCanvas.Desktop.View.WinForms.ListItemSelector _staffSelector;
-        private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpExactDate;
         private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpValidFrom;
         private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpValidTo;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -264,5 +325,16 @@ namespace ClearCanvas.Ris.Client.Admin.View.WinForms
         private System.Windows.Forms.CheckBox _chkTuesday;
         private System.Windows.Forms.CheckBox _chkMonday;
         private System.Windows.Forms.CheckBox _chkSunday;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpstartTime;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private ClearCanvas.Desktop.View.WinForms.DateTimeField _dtpEndTime;
+        private ClearCanvas.Desktop.View.WinForms.ComboBoxField _cmbStartTimeType;
+        private ClearCanvas.Desktop.View.WinForms.ComboBoxField _cmbEndTimeType;
     }
 }

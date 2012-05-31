@@ -29,11 +29,15 @@ namespace ClearCanvas.Healthcare
 	  	
 	  	private DateTime? _validFromDate;
 	  	
-	  	private DateTime? _startTime;
+	  	private Double _startTime;
 	  	
 	  	private DateTime? _validToDate;
 	  	
-	  	private DateTime? _endTime;
+	  	private Double _endTime;
+	  	
+	  	private string _endTimeType;
+	  	
+	  	private string _startTimeType;
 	  	
 	  	private bool _workOnSunday;
 	  	
@@ -78,7 +82,7 @@ namespace ClearCanvas.Healthcare
 	  	/// <summary>
 	  	/// All fields constructor
 	  	/// </summary>
-	  	public WorkingShift(string name1, string description1, DateTime? validfromdate1, DateTime? starttime1, DateTime? validtodate1, DateTime? endtime1, bool workonsunday1, bool workonmonday1, bool workontuesday1, bool workonwednessday1, bool workonthursday1, bool workonfriday1, bool workonsaturday1, ISet<ClearCanvas.Healthcare.Staff> doctors1, DateTime? exactdate1, ClearCanvas.Healthcare.Facility clinic1)
+	  	public WorkingShift(string name1, string description1, DateTime? validfromdate1, Double starttime1, DateTime? validtodate1, Double endtime1, string endtimetype1, string starttimetype1, bool workonsunday1, bool workonmonday1, bool workontuesday1, bool workonwednesday1, bool workonthursday1, bool workonfriday1, bool workonsaturday1, ISet<ClearCanvas.Healthcare.Staff> doctors1, DateTime? exactdate1, ClearCanvas.Healthcare.Facility clinic1)
 			:base()
 	  	{
 		  	CustomInitialize();
@@ -96,13 +100,17 @@ namespace ClearCanvas.Healthcare
 		  	
 		  	_endTime = endtime1;
 		  	
+		  	_endTimeType = endtimetype1;
+		  	
+		  	_startTimeType = starttimetype1;
+		  	
 		  	_workOnSunday = workonsunday1;
 		  	
 		  	_workOnMonday = workonmonday1;
 		  	
 		  	_workOnTuesday = workontuesday1;
 		  	
-		  	_workOnWednesday = workonwednessday1;
+		  	_workOnWednesday = workonwednesday1;
 		  	
 		  	_workOnThursday = workonthursday1;
 		  	
@@ -172,7 +180,7 @@ namespace ClearCanvas.Healthcare
 		
 		
 		[PersistentProperty]
-	  	public virtual DateTime? StartTime
+	  	public virtual Double StartTime
 	  	{
 			
 			get { return _startTime; }
@@ -200,13 +208,41 @@ namespace ClearCanvas.Healthcare
 		
 		
 		[PersistentProperty]
-	  	public virtual DateTime? EndTime
+	  	public virtual Double EndTime
 	  	{
 			
 			get { return _endTime; }
 			
 			
 			 set { _endTime = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual string EndTimeType
+	  	{
+			
+			get { return _endTimeType; }
+			
+			
+			 set { _endTimeType = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual string StartTimeType
+	  	{
+			
+			get { return _startTimeType; }
+			
+			
+			 set { _startTimeType = value; }
 			
 	  	}
 		
