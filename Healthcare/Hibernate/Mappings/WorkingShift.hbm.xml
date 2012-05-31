@@ -9,9 +9,11 @@
     <property name="Name" column="Name_" type="String" unique="true" not-null="true"/>
     <property name="Description" column="Description_" type="String" length="1024"/>
     <property name="ValidFromDate" column="ValidFromDate_" type="DateTime" not-null="false" />
-    <property name="StartTime" column="StartTime_" type="DateTime" not-null="false" />
+    <property name="StartTime" column="StartTime_" type="Double" not-null="false" />
     <property name="ValidToDate" column="ValidToDate_" type="DateTime" not-null="false"/>
-    <property name="EndTime" column="EndTime_" type="DateTime" not-null="false"/>
+    <property name="EndTime" column="EndTime_" type="Double" not-null="false"/>
+    <property name="EndTimeType" column="EndTimeType_" type="string" not-null="false"/>
+    <property name="StartTimeType" column="StartTimeType_" type="string" not-null="false"/>
     <property name="WorkOnSunday" column="WorkOnSunday_" type="Boolean" not-null="false"/>
     <property name="WorkOnMonday" column="WorkOnMonday_" type="Boolean" not-null="false"/>
     <property name="WorkOnTuesday" column="WorkOnTuesday_" type="Boolean" not-null="false"/>
