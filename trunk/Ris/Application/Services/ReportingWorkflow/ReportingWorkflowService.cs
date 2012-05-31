@@ -45,7 +45,7 @@ using ClearCanvas.Ris.Application.Common.ReportingWorkflow;
 using Iesi.Collections.Generic;
 using AuthorityTokens = ClearCanvas.Ris.Application.Common.AuthorityTokens;
 using ClearCanvas.Workflow;
-using HL7InterfacePlugin;
+//using HL7InterfacePlugin;
 
 namespace ClearCanvas.Ris.Application.Services.ReportingWorkflow
 {
@@ -199,8 +199,8 @@ namespace ClearCanvas.Ris.Application.Services.ReportingWorkflow
 			this.PersistenceContext.SynchState();
             
             //send Message ORU_R01
-            HL7MessageCreator.MessageCreator.UpdateReportResult_ORU_R01 msg = new HL7MessageCreator.MessageCreator.UpdateReportResult_ORU_R01(interpretation,CurrentUserStaff,request);
-            msg.Send();
+            //HL7MessageCreator.MessageCreator.UpdateReportResult_ORU_R01 msg = new HL7MessageCreator.MessageCreator.UpdateReportResult_ORU_R01(interpretation,CurrentUserStaff,request);
+            //msg.Send();
 			return new CompleteInterpretationAndVerifyResponse
 					{
 						InterpretationStepRef = interpretation.GetRef(),
