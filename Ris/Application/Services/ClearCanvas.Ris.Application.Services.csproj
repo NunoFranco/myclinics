@@ -246,10 +246,6 @@
       <Project>{576C4A35-B314-49D0-BF53-4BD43D8D1F31}</Project>
       <Name>ClearCanvas.Workflow</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Server\HL7InterfacePlugin\HL7InterfacePlugin.csproj">
-      <Project>{89DF567B-A0D1-456A-A28F-043FD57D7F9A}</Project>
-      <Name>HL7InterfacePlugin</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Common\ClearCanvas.Ris.Application.Common.csproj">
       <Project>{09F49217-CD98-4773-8CFB-594F189EEE3B}</Project>
       <Name>ClearCanvas.Ris.Application.Common</Name>

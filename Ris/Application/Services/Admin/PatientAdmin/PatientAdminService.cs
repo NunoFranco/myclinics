@@ -39,7 +39,7 @@ using ClearCanvas.Healthcare;
 using ClearCanvas.Healthcare.Brokers;
 using ClearCanvas.Ris.Application.Common;
 using ClearCanvas.Ris.Application.Common.Admin.PatientAdmin;
-using HL7Interface.Interface;
+//using HL7Interface.Interface;
 
 namespace ClearCanvas.Ris.Application.Services.Admin.PatientAdmin
 {
@@ -115,8 +115,8 @@ namespace ClearCanvas.Ris.Application.Services.Admin.PatientAdmin
             this.PersistenceContext.SynchState();
 
             //send message to PACS to Update patient
-            HL7MessageCreator.MessageCreator.AddNewPatient_ADT01 sendAddpatientMessage = new HL7MessageCreator.MessageCreator.AddNewPatient_ADT01(profile);
-            sendAddpatientMessage.Send();
+            ////HL7MessageCreator.MessageCreator.AddNewPatient_ADT01 sendAddpatientMessage = new HL7MessageCreator.MessageCreator.AddNewPatient_ADT01(profile);
+            //sendAddpatientMessage.Send();
 
             PatientProfileAssembler assembler = new PatientProfileAssembler();
             return new UpdatePatientProfileResponse(assembler.CreatePatientProfileSummary(profile, PersistenceContext));
@@ -135,8 +135,8 @@ namespace ClearCanvas.Ris.Application.Services.Admin.PatientAdmin
             PersistenceContext.Lock(patient, DirtyState.New);
             PersistenceContext.SynchState();
            //send message to PACS to add new patient
-            HL7MessageCreator.MessageCreator.AddNewPatient_ADT01 sendAddpatientMessage = new HL7MessageCreator.MessageCreator.AddNewPatient_ADT01(profile);
-            sendAddpatientMessage.Send();
+            //HL7MessageCreator.MessageCreator.AddNewPatient_ADT01 sendAddpatientMessage = new HL7MessageCreator.MessageCreator.AddNewPatient_ADT01(profile);
+            //sendAddpatientMessage.Send();
 
             PatientProfileAssembler assembler = new PatientProfileAssembler();
             return new AddPatientResponse(assembler.CreatePatientProfileSummary(profile, PersistenceContext));

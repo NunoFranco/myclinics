@@ -25,28 +25,28 @@
 		<EnterpriseDirectory>$(SolutionDir)..\..\Enterprise</EnterpriseDirectory>
 		<WorkflowDirectory>$(SolutionDir)..\..\Workflow</WorkflowDirectory>
 		<HealthcareDirectory>$(SolutionDir)..\..\Healthcare</HealthcareDirectory>
-		<HL7Directory>$(SolutionDir)..\..\HL7</HL7Directory>
+		
 		<ReferencedAssembliesDirectory>$(SolutionDir)..\..\ReferencedAssemblies</ReferencedAssembliesDirectory>
 		<RisApplicationDirectory>$(SolutionDir)..\Application</RisApplicationDirectory>
     <ShredHostDirectory>$(SolutionDir)..\..\Server\ShredHost</ShredHostDirectory>
 		<ShredHostServiceDirectory>$(SolutionDir)..\..\Server\ShredHostService</ShredHostServiceDirectory>
 		<RisShredsDirectory>$(SolutionDir)..\Shreds</RisShredsDirectory>
 		<TrunkDirectory>$(SolutionDir)..\..</TrunkDirectory>
-    <HL7ConfigurationDir>$(SolutionDir)..\HL7Configuration</HL7ConfigurationDir>
-    <HL7InterfaceDir>$(SolutionDir)\HL7InterfacePlugin</HL7InterfaceDir>
+    
+    
     <WorklistServerDir>$(SolutionDir)\WorklistServer</WorklistServerDir>
     
 	</PropertyGroup>
   <!-- Long Chang Added 22-Apr-->
-  <ItemGroup>
+  <!--<ItemGroup>
     <HL7InterfaceFiles Include="$(HL7InterfaceDir)\bin\$(Configuration)\HL7InterfacePlugin.dll" />
     <HL7InterfaceFiles Include="$(HL7InterfaceDir)\bin\$(Configuration)\NHapi.Base.dll" />
     <HL7InterfaceFiles Include="$(HL7InterfaceDir)\bin\$(Configuration)\NHapi.Model.V25.dll" />
-  </ItemGroup>
+  </ItemGroup>-->
   
-  <ItemGroup>
+  <!--<ItemGroup>
     <HL7ConfigurationFiles Include="$(HL7ConfigurationDir)\bin\$(Configuration)\HL7Configuration.dll" />
-  </ItemGroup>
+  </ItemGroup>-->
   <ItemGroup>
     <WorklistServerFiles Include="$(WorklistServerDir)\bin\$(Configuration)\WorklistServer.exe"/>   
   </ItemGroup>
@@ -94,7 +94,7 @@
     <ShredHostAppConfigSourceFiles  Include="$(SolutionDir)\app.config" />
     <ShredHostAppConfigSourceFiles  Include="$(ShredHostServiceDirectory)\app.config" />
   <ShredHostAppConfigSourceFiles Include="$(HealthcareDirectory)\Hibernate\app.config" />
-    <ShredHostAppConfigSourceFiles Include="$(SolutionDir)\HL7Configuration\app.config" />
+    <!--<ShredHostAppConfigSourceFiles Include="$(SolutionDir)\HL7Configuration\app.config" />-->
   </ItemGroup>
 
   <ItemGroup>
@@ -102,7 +102,7 @@
     <AppConfigSourceFiles Include="$(SolutionDir)\app.config" />
     <AppConfigSourceFiles Include="$(SolutionDir)\Executable\app.config" />
     <!-- Longchang Added -->
-    <AppConfigSourceFiles Include="$(SolutionDir)\HL7Configuration\app.config" />
+    <!--<AppConfigSourceFiles Include="$(SolutionDir)\HL7Configuration\app.config" />-->
     <!-- Finished Long Chang Added-->
   </ItemGroup>
 
