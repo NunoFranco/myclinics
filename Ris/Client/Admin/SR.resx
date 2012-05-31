@@ -474,4 +474,16 @@
   <data name="StaffTypeColumnName" xml:space="preserve">
     <value>Type</value>
   </data>
+  <data name="AM" xml:space="preserve">
+    <value>AM</value>
+  </data>
+  <data name="PM" xml:space="preserve">
+    <value>PM</value>
+  </data>
+  <data name="TooltipAM" xml:space="preserve">
+    <value>From 1h Midnight to 12h Midday</value>
+  </data>
+  <data name="TooltipPM" xml:space="preserve">
+    <value>From 13h Midday to 23h midnight </value>
+  </data>
 </root>

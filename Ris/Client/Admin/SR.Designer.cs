@@ -70,6 +70,15 @@ namespace ClearCanvas.Ris.Client.Admin {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AM.
+        /// </summary>
+        internal static string AM {
+            get {
+                return ResourceManager.GetString("AM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bed.
         /// </summary>
         internal static string ColumnBed {
@@ -646,6 +655,15 @@ namespace ClearCanvas.Ris.Client.Admin {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PM.
+        /// </summary>
+        internal static string PM {
+            get {
+                return ResourceManager.GetString("PM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ID.
         /// </summary>
         internal static string StaffIDColumnName {
@@ -1056,6 +1074,24 @@ namespace ClearCanvas.Ris.Client.Admin {
         internal static string TitleWorkQueue {
             get {
                 return ResourceManager.GetString("TitleWorkQueue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 1h Midnight to 12h Midday.
+        /// </summary>
+        internal static string TooltipAM {
+            get {
+                return ResourceManager.GetString("TooltipAM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From 13h Midday to 23h midnight .
+        /// </summary>
+        internal static string TooltipPM {
+            get {
+                return ResourceManager.GetString("TooltipPM", resourceCulture);
             }
         }
         

@@ -39,27 +39,29 @@ namespace ClearCanvas.Ris.Application.Common
     [DataContract]
     public class WorkingShiftDetail : DataContractBase, IEquatable<WorkingShiftDetail>
     {
-		public WorkingShiftDetail()
-		{
+        public WorkingShiftDetail()
+        {
 
-		}
+        }
 
-        public WorkingShiftDetail(EntityRef entityRef, 
-            string name, 
+        public WorkingShiftDetail(EntityRef entityRef,
+            string name,
             string description,
-            DateTime validfrom, 
-            DateTime validto, 
-            DateTime starttime, 
-            DateTime endtime, 
+            DateTime? validfrom,
+            DateTime? validto,
+            Double starttime,
+            Double endtime,
+            string starttimetype,
+        string endtimetype,
             List<StaffSummary> doctors,
             FacilitySummary fSummary,
-            bool sunday,bool monday,bool tuesday, bool wednesday, bool thursday, bool friday, bool saturday,
+            bool sunday, bool monday, bool tuesday, bool wednesday, bool thursday, bool friday, bool saturday,
             bool deactivated)
         {
             WorkingShiftRef = entityRef;
             Name = name;
             Description = description;
-        	Deactivated = deactivated;
+            Deactivated = deactivated;
             this.ValidFromDate = validfrom;
             this.ValidToDate = validto;
             this.StartTime = starttime;
@@ -73,6 +75,8 @@ namespace ClearCanvas.Ris.Application.Common
             this.WorkingOnFriday = friday;
             this.WorkingOnSaturday = saturday;
             this.WorkingOnSunday = sunday;
+            this.StartTimeType = starttimetype;
+            this.EndTimeType = endtimetype;
         }
 
         [DataMember]
@@ -85,20 +89,24 @@ namespace ClearCanvas.Ris.Application.Common
         public string Description;
 
         [DataMember]
-        public DateTime  PlanDate;
+        public DateTime PlanDate;
 
 
         [DataMember]
-        public DateTime ValidFromDate;
+        public DateTime? ValidFromDate;
 
         [DataMember]
-        public DateTime ValidToDate;
+        public DateTime? ValidToDate;
 
         [DataMember]
-        public DateTime StartTime;
+        public Double StartTime;
+        [DataMember]
+        public string StartTimeType;
 
         [DataMember]
-        public DateTime EndTime;
+        public string EndTimeType;
+        [DataMember]
+        public Double EndTime;
 
         [DataMember]
         public bool WorkingOnSunday;
@@ -122,11 +130,11 @@ namespace ClearCanvas.Ris.Application.Common
         public bool WorkingOnSaturday;
 
         [DataMember]
-        public FacilitySummary  Clinic;
+        public FacilitySummary Clinic;
         [DataMember]
         public List<StaffSummary> Doctors;
-		[DataMember]
-		public bool Deactivated;
+        [DataMember]
+        public bool Deactivated;
 
         public bool Equals(WorkingShiftDetail WorkingShiftDetail)
         {
@@ -142,7 +150,7 @@ namespace ClearCanvas.Ris.Application.Common
 
         public override int GetHashCode()
         {
-			return WorkingShiftRef.GetHashCode();
+            return WorkingShiftRef.GetHashCode();
         }
     }
 }

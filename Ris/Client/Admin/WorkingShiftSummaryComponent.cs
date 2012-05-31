@@ -97,16 +97,16 @@ namespace ClearCanvas.Ris.Client.Admin
                     return item.Description;
                 },
                 0.6f));
-            this.Columns.Add(new TableColumn<WorkingShiftSummary, DateTime? >(SR.WorkingShiftStartTimeColumn ,
+            this.Columns.Add(new TableColumn<WorkingShiftSummary, string >(SR.WorkingShiftStartTimeColumn ,
                 delegate(WorkingShiftSummary item)
                 {
-                    return item.StartTime ;
+                    return DateTime.FromOADate(item.StartTime ).ToString("hh:mm");
                 },
                 0.6f));
-            this.Columns.Add(new TableColumn<WorkingShiftSummary, DateTime? >(SR.WorkingShiftEndTimeColumn ,
+            this.Columns.Add(new TableColumn<WorkingShiftSummary, string >(SR.WorkingShiftEndTimeColumn ,
                 delegate(WorkingShiftSummary item)
                 {
-                    return item.EndTime ;
+                    return DateTime.FromOADate(item.EndTime).ToString("hh:mm") ;
                 },
                 0.6f));
         }

@@ -43,8 +43,10 @@ namespace ClearCanvas.Ris.Application.Common
             string description,
             DateTime? validfrom, 
             DateTime? validto, 
-            DateTime? starttime, 
-            DateTime? endtime, 
+            Double starttime, 
+            Double endtime,
+              string starttimetype,
+        string endtimetype,
             FacilitySummary fSummary,
             bool sunday,bool monday,bool tuesday, bool wednesday, bool thursday, bool friday, bool saturday,
             bool deactivated)
@@ -65,6 +67,8 @@ namespace ClearCanvas.Ris.Application.Common
             this.WorkingOnFriday = friday;
             this.WorkingOnSaturday = saturday;
             this.WorkingOnSunday = sunday;
+            this.StartTimeType = starttimetype;
+            this.EndTimeType = endtimetype;
             
         }
 
@@ -88,11 +92,15 @@ namespace ClearCanvas.Ris.Application.Common
         public DateTime? ValidToDate;
 
         [DataMember]
-        public DateTime? StartTime;
+        public Double  StartTime;
 
         [DataMember]
-        public DateTime? EndTime;
+        public Double  EndTime;
+        [DataMember]
+        public string StartTimeType;
 
+        [DataMember]
+        public string EndTimeType;
         [DataMember]
         public bool WorkingOnSunday;
 
