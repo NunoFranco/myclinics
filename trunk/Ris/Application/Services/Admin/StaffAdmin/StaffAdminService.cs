@@ -130,7 +130,7 @@ namespace ClearCanvas.Ris.Application.Services.Admin.StaffAdmin
             CheckReadAccess(s);
 
             var assembler = new StaffAssembler();
-            return new LoadStaffForEditResponse(assembler.CreateStaffDetail(s, null, this.PersistenceContext));
+            return new LoadStaffForEditResponse(assembler.CreateStaffDetail(s, new FacilityAdmin.FacilityAdminService().GeServerSidetCurrentClinic(), this.PersistenceContext));
         }
 
         [ReadOperation]

@@ -58,6 +58,14 @@ namespace ClearCanvas.Ris.Application.Services
             detail.WorkingOnFriday = Shift.WorkOnFriday;
             detail.WorkingOnSaturday = Shift.WorkOnSaturday;
             detail.WorkingOnSunday = Shift.WorkOnSunday;
+
+            detail.ValidFromDate = Shift.ValidFromDate;
+            detail.ValidToDate = Shift.ValidToDate;
+            detail.StartTime = Shift.StartTime;
+            detail.EndTime = Shift.EndTime;
+            
+            detail.StartTimeType = Shift.StartTimeType;
+            detail.EndTimeType  = Shift.EndTimeType ;
             detail.Doctors = CollectionUtils.Map<Staff, StaffSummary>(
                     Shift.Doctors,
                     d => staffAssembler.CreateStaffSummary(d));
@@ -76,6 +84,8 @@ namespace ClearCanvas.Ris.Application.Services
                 ws.ValidToDate,
                 ws.StartTime,
                 ws.EndTime,
+                ws.StartTimeType,
+                ws.EndTimeType ,
                 assembler.
                 CreateFacilitySummary(ws.Clinic),
                 ws.WorkOnMonday,
@@ -98,7 +108,8 @@ namespace ClearCanvas.Ris.Application.Services
             ws.EndTime = detail.EndTime;
             ws.ValidFromDate = detail.ValidFromDate;
             ws.ValidToDate = detail.ValidToDate;
-
+            ws.StartTimeType= detail.StartTimeType  ;
+            ws.EndTimeType  = detail.EndTimeType;
             ws.WorkOnMonday = detail.WorkingOnMonday;
             ws.WorkOnTuesday = detail.WorkingOnTuesday;
             ws.WorkOnWednesday = detail.WorkingOnWednesday;
