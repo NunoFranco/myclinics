@@ -209,7 +209,7 @@ namespace ClearCanvas.Enterprise.Hibernate.Ddl.Migration
         public virtual Statement[] Render(AddEnumValueChange change)
 		{
 			EnumerationMemberInfo e = change.Value;
-			string sql = string.Format("insert into {0} (Code_, Value_, Description_, DisplayOrder_, Deactivated_) values ({1}, {2}, {3}, {4}, {5})",
+			string sql = string.Format("insert into {0} (OID_, Code_, Value_, Description_, DisplayOrder_, Deactivated_) values (newid(),{1}, {2}, {3}, {4}, {5})",
 				GetQualifiedName(change.Table),
 				FormatValue(e.Code),
 				FormatValue(e.Value),
