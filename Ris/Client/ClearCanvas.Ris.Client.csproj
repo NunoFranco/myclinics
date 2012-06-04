@@ -68,12 +68,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Program Files\Reference Assemblies\Microsoft\Framework\v3.0\System.ServiceModel.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressEditorComponent.cs" />
     <Compile Include="AddressesSummaryComponent.cs" />
     <Compile Include="AsyncLoader.cs" />
+    <Compile Include="AttachmentDocumentTools.cs" />
     <Compile Include="AttachmentSummaryTableBase.cs" />
     <Compile Include="AuthorityTokens.cs" />
     <Compile Include="BannerSettings.cs" />
@@ -265,6 +267,7 @@
     <Compile Include="StaffSelectorEditorComponent.cs" />
     <Compile Include="StaffStaffGroupEditorComponent.cs" />
     <Compile Include="FolderExplorerUserConfiguration.cs" />
+    <Compile Include="UploadFileComponent.cs" />
     <Compile Include="UserLookupHandler.cs" />
     <Compile Include="UserWorklistTool.cs" />
     <Compile Include="ViewImagesHelper.cs" />

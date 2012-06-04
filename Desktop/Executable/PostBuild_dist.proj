@@ -99,8 +99,8 @@
     <SharedPluginFiles Include="$(ProjectDir)\..\..\Desktop\Help\bin\$(Configuration)\ClearCanvas.Desktop.Help.dll" />
     <SharedPluginFiles Include="$(ProjectDir)\..\..\Desktop\ExtensionBrowser\bin\$(Configuration)\ClearCanvas.Desktop.ExtensionBrowser.dll" />
     <SharedPluginFiles Include="$(ProjectDir)\..\..\Desktop\ExtensionBrowser\View\WinForms\bin\$(Configuration)\ClearCanvas.Desktop.ExtensionBrowser.View.WinForms.dll" />
-    <SharedPluginFiles Include="$(ProjectDir)\..\..\PACS_Security\View\WinForm\bin\$(Configuration)\PACS_Security.View.WinForm.dll" />
-    <SharedPluginFiles Include="$(ProjectDir)\..\..\PACS_Security\bin\$(Configuration)\PACS_Security.dll" />
+    <!--<SharedPluginFiles Include="$(ProjectDir)\..\..\PACS_Security\View\WinForm\bin\$(Configuration)\PACS_Security.View.WinForm.dll" />
+    <SharedPluginFiles Include="$(ProjectDir)\..\..\PACS_Security\bin\$(Configuration)\PACS_Security.dll" />-->
     <SharedPluginFiles Include="$(ProjectDir)\..\..\HealthCare\bin\$(Configuration)\Clearcanvas.Healthcare.dll" />
     <SharedPluginFiles Include="$(ProjectDir)\..\..\ReferencedAssemblies\NHibernate2.0\Iesi.Collections.dll" />
     <SharedPluginFiles Include="$(ProjectDir)\..\..\Enterprise\core\bin\$(Configuration)\Clearcanvas.Enterprise.core.dll" />
