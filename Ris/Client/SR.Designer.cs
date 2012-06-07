@@ -2239,6 +2239,15 @@ namespace ClearCanvas.Ris.Client {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new Prescription.
+        /// </summary>
+        internal static string TitleAddDoctorPrescription {
+            get {
+                return ResourceManager.GetString("TitleAddDoctorPrescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Email Address....
         /// </summary>
         internal static string TitleAddEmailAddress {
@@ -2397,6 +2406,24 @@ namespace ClearCanvas.Ris.Client {
         internal static string TitleDemographicProfiles {
             get {
                 return ResourceManager.GetString("TitleDemographicProfiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string TitleDoctorPrescriptionDescriptionColumn {
+            get {
+                return ResourceManager.GetString("TitleDoctorPrescriptionDescriptionColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string TitleDoctorPrescritpionNameColumn {
+            get {
+                return ResourceManager.GetString("TitleDoctorPrescritpionNameColumn", resourceCulture);
             }
         }
         
@@ -2721,6 +2748,15 @@ namespace ClearCanvas.Ris.Client {
         internal static string TitleUpdateDiagnosticService {
             get {
                 return ResourceManager.GetString("TitleUpdateDiagnosticService", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating Prescription - {0}.
+        /// </summary>
+        internal static string TitleUpdateDoctorPrescription {
+            get {
+                return ResourceManager.GetString("TitleUpdateDoctorPrescription", resourceCulture);
             }
         }
         
