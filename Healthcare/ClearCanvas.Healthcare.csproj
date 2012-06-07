@@ -106,6 +106,7 @@
     <Compile Include="Brokers\IDicomSeriesBroker.gen.cs" />
     <Compile Include="Brokers\IDiscountRuleBroker.cs" />
     <Compile Include="Brokers\IDiscountRuleBroker.gen.cs" />
+    <Compile Include="Brokers\IDoctorPrescriptionBroker.gen.cs" />
     <Compile Include="Brokers\IExternalPractitionerBroker.gen.cs" />
     <Compile Include="Brokers\IExternalPractitionerContactPointBroker.gen.cs" />
     <Compile Include="Brokers\IFacilityBroker.gen.cs" />
@@ -172,6 +173,9 @@
     <Compile Include="ContactPersonRelationshipEnum.gen.cs" />
     <Compile Include="ContactPersonSearchCriteria.gen.cs" />
     <Compile Include="ContactPersonTypeEnum.gen.cs" />
+    <Compile Include="DoctorPrescription.cs" />
+    <Compile Include="DoctorPrescription.gen.cs" />
+    <Compile Include="DoctorPrescriptionSearchCriteria.gen.cs" />
     <Compile Include="MeasureUnit.cs" />
     <Compile Include="MeasureUnit.gen.cs" />
     <Compile Include="MeasureUnitSearchCriteria.gen.cs" />

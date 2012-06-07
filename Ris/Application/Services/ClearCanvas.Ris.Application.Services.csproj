@@ -106,6 +106,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="DoctorPrescriptionAssembler.cs" />
+    <Compile Include="DoctorPrescription\DoctorPrescriptionService.cs" />
     <Compile Include="WorkingShiftAssembler.cs" />
     <Compile Include="DicomSeriesAssembler.cs" />
     <Compile Include="PersistentWorkflow.cs" />

@@ -86,6 +86,10 @@ namespace ClearCanvas.Ris.Application.Common
 
                 [AuthorityToken(Description = "Allow administration of Working Shift.")]
                 public const string WorkingShift = "RIS/Admin/Data/Working Shift";
+
+                [AuthorityToken(Description = "Allow access to the Add new Prescription")]
+                public const string DoctorPrescription = "RIS/Admin/DoctorPrescription";
+
 			}
 
 		}
