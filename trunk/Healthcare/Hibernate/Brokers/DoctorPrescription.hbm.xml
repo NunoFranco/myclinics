@@ -8,11 +8,7 @@
     <version name="Version" column="Version_"/>
     <property name="Name" column="Name_" type="String" unique="true" not-null="true"/>
     <property name="Description" column="Description_" type="String" length="1024"/>
-    <set name="Medicines" table="PrescriptionMedicines_" lazy="true">
-      <cache usage="nonstrict-read-write"/>
-      <key column="PrescriptionOID_"/>
-      <many-to-many column="MedicineOID_" class="ProcedureType" fetch="join"/>
-    </set>
+    <many-to-one name="Medicines" class="ProcedureType" column="MedicineOID_"/>
     <many-to-one name="Clinic" class="Facility" column="ClinicOID_" not-null="false" fetch="join"/>
     <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
   </class>
