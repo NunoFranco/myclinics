@@ -398,6 +398,13 @@
       <DependentUpon>DiagnosticServiceSummaryComponentControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DiagnosticServiceSummaryComponentView.cs" />
+    <Compile Include="DoctorPrescriptionEditorComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DoctorPrescriptionEditorComponentControl.Designer.cs">
+      <DependentUpon>DoctorPrescriptionEditorComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorPrescriptionEditorComponentView.cs" />
     <Compile Include="ExternalPractitionerContactPointDetailsEditorComponentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1066,6 +1073,12 @@
     <EmbeddedResource Include="DiagnosticServiceSummaryComponentControl.resx">
       <DependentUpon>DiagnosticServiceSummaryComponentControl.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorPrescriptionEditorComponentControl.resx">
+      <DependentUpon>DoctorPrescriptionEditorComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorPrescriptionEditorComponentControl.vi.resx">
+      <DependentUpon>DoctorPrescriptionEditorComponentControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FolderExplorerConfigurationComponentControl.resx">
       <SubType>Designer</SubType>

@@ -1038,4 +1038,16 @@
   <data name="OrderScheduleTimeColumn" xml:space="preserve">
     <value>Scheduled Time</value>
   </data>
+  <data name="TitleAddDoctorPrescription" xml:space="preserve">
+    <value>Add new Prescription</value>
+  </data>
+  <data name="TitleDoctorPrescriptionDescriptionColumn" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TitleDoctorPrescritpionNameColumn" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="TitleUpdateDoctorPrescription" xml:space="preserve">
+    <value>Updating Prescription - {0}</value>
+  </data>
 </root>
