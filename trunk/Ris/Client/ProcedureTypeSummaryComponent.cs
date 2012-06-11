@@ -157,6 +157,7 @@ namespace ClearCanvas.Ris.Client
 				{
 					request.Id = _id;
 					request.Name = _name;
+                    request.Category = ClearCanvas.Healthcare.ProcedureTypeCategory.PRO;
 					_response = service.ListProcedureTypes(request);
 				});
 			return _response.ProcedureTypes;

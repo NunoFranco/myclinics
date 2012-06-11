@@ -42,33 +42,21 @@ namespace ClearCanvas.Ris.Client.View.WinForms
             // 
             // _okButton
             // 
-            this._okButton.AccessibleDescription = null;
-            this._okButton.AccessibleName = null;
             resources.ApplyResources(this._okButton, "_okButton");
-            this._okButton.BackgroundImage = null;
-            this._okButton.Font = null;
             this._okButton.Name = "_okButton";
             this._okButton.UseVisualStyleBackColor = true;
             this._okButton.Click += new System.EventHandler(this._okButton_Click);
             // 
             // _cancelButton
             // 
-            this._cancelButton.AccessibleDescription = null;
-            this._cancelButton.AccessibleName = null;
             resources.ApplyResources(this._cancelButton, "_cancelButton");
-            this._cancelButton.BackgroundImage = null;
-            this._cancelButton.Font = null;
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.UseVisualStyleBackColor = true;
             this._cancelButton.Click += new System.EventHandler(this._cancelButton_Click);
             // 
             // _scheduledTime
             // 
-            this._scheduledTime.AccessibleDescription = null;
-            this._scheduledTime.AccessibleName = null;
             resources.ApplyResources(this._scheduledTime, "_scheduledTime");
-            this._scheduledTime.BackgroundImage = null;
-            this._scheduledTime.Font = null;
             this._scheduledTime.Maximum = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this._scheduledTime.Minimum = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this._scheduledTime.Name = "_scheduledTime";
@@ -79,11 +67,7 @@ namespace ClearCanvas.Ris.Client.View.WinForms
             // 
             // _scheduledDate
             // 
-            this._scheduledDate.AccessibleDescription = null;
-            this._scheduledDate.AccessibleName = null;
             resources.ApplyResources(this._scheduledDate, "_scheduledDate");
-            this._scheduledDate.BackgroundImage = null;
-            this._scheduledDate.Font = null;
             this._scheduledDate.Maximum = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this._scheduledDate.Minimum = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this._scheduledDate.Name = "_scheduledDate";
@@ -92,67 +76,44 @@ namespace ClearCanvas.Ris.Client.View.WinForms
             // 
             // _procedureType
             // 
-            this._procedureType.AccessibleDescription = null;
-            this._procedureType.AccessibleName = null;
             resources.ApplyResources(this._procedureType, "_procedureType");
-            this._procedureType.BackgroundImage = null;
-            this._procedureType.Font = null;
             this._procedureType.Name = "_procedureType";
             this._procedureType.Value = null;
             // 
             // _performingFacility
             // 
-            this._performingFacility.AccessibleDescription = null;
-            this._performingFacility.AccessibleName = null;
-            resources.ApplyResources(this._performingFacility, "_performingFacility");
-            this._performingFacility.BackgroundImage = null;
             this._performingFacility.DataSource = null;
             this._performingFacility.DisplayMember = "";
             this._performingFacility.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._performingFacility.Font = null;
+            resources.ApplyResources(this._performingFacility, "_performingFacility");
             this._performingFacility.Name = "_performingFacility";
             this._performingFacility.Value = null;
             // 
             // _laterality
             // 
-            this._laterality.AccessibleDescription = null;
-            this._laterality.AccessibleName = null;
-            resources.ApplyResources(this._laterality, "_laterality");
-            this._laterality.BackgroundImage = null;
             this._laterality.DataSource = null;
             this._laterality.DisplayMember = "";
             this._laterality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._laterality.Font = null;
+            resources.ApplyResources(this._laterality, "_laterality");
             this._laterality.Name = "_laterality";
             this._laterality.Value = null;
             // 
             // _portable
             // 
-            this._portable.AccessibleDescription = null;
-            this._portable.AccessibleName = null;
             resources.ApplyResources(this._portable, "_portable");
-            this._portable.BackgroundImage = null;
-            this._portable.Font = null;
             this._portable.Name = "_portable";
             this._portable.UseVisualStyleBackColor = true;
             // 
             // _checkedIn
             // 
-            this._checkedIn.AccessibleDescription = null;
-            this._checkedIn.AccessibleName = null;
             resources.ApplyResources(this._checkedIn, "_checkedIn");
-            this._checkedIn.BackgroundImage = null;
-            this._checkedIn.Font = null;
             this._checkedIn.Name = "_checkedIn";
             this._checkedIn.UseVisualStyleBackColor = true;
             // 
             // ProcedureEditorComponentControl
             // 
-            this.AccessibleDescription = null;
-            this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = null;
             this.Controls.Add(this._checkedIn);
             this.Controls.Add(this._portable);
             this.Controls.Add(this._laterality);
@@ -162,7 +123,6 @@ namespace ClearCanvas.Ris.Client.View.WinForms
             this.Controls.Add(this._scheduledDate);
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._okButton);
-            this.Font = null;
             this.Name = "ProcedureEditorComponentControl";
             this.ResumeLayout(false);
             this.PerformLayout();

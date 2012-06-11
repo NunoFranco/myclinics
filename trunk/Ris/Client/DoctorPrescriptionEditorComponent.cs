@@ -50,7 +50,26 @@ namespace ClearCanvas.Ris.Client
     public sealed class DoctorPrescriptionEditorComponentViewExtensionPoint : ExtensionPoint<IApplicationComponentView>
     {
     }
+    //public class DoctorPrescriptionItemsTable:Table<DoctorPrescriptionItemsSummary>
+    //{
+    //    public DoctorPrescriptionItemsTable()
+    //    {
 
+    //        this.Columns.Add(new TableColumn<DoctorPrescriptionItemsSummary, string>(SR.TitleColumnMedicineName ,
+    //            delegate(DoctorPrescriptionItemsSummary rpt) { return rpt.Medicine.Name; }));
+
+    //        this.Columns.Add(new TableColumn<DoctorPrescriptionItemsSummary, string>(SR.TitleColumnMedicineDescription,
+    //            delegate(DoctorPrescriptionItemsSummary rpt) { return rpt.Name; },
+    //            0.5f));
+    //        this.Columns.Add(new TableColumn<DoctorPrescriptionItemsSummary, string>(string.Format(SR.ProcedureTypeColumnBasePrice, PrimaryCurrencyCode),
+    //                        delegate(DoctorPrescriptionItemsSummary rpt) { return NumberUtils.GetCurrencyDisplayFormat(PrimaryLocale, Customeformat, rpt.BasePrice); },
+    //                        0.5f));
+    //        this.Columns.Add(new TableColumn<DoctorPrescriptionItemsSummary, string>(SR.ProcedureTypeColumnTax,
+    //            delegate(DoctorPrescriptionItemsSummary rpt) { return rpt.Tax.ToString(); },
+    //            0.5f));
+    //        this.Sort(new TableSortParams(this.Columns[columnSortIndex], true));
+    //    }
+    //}
     /// <summary>
     /// DoctorPrescriptionEditorComponent class.
     /// </summary>
@@ -85,8 +104,8 @@ namespace ClearCanvas.Ris.Client
         }
 
         #region Presentation Model
-        private readonly ProcedureTypeSummaryTable _availableMedicines;
-        private readonly ProcedureTypeSummaryTable _selectedMedicines;
+        private readonly DoctorPrescriptionItemsTable _availableMedicines;
+        private readonly DoctorPrescriptionItemsTable _selectedMedicines;
         public ITable AvailableMedicineTable
         {
             get { return _availableMedicines; }
@@ -196,7 +215,7 @@ namespace ClearCanvas.Ris.Client
                      {
                          _detail = new DoctorPrescriptionDetail();
                          _detail.Clinic = LoginSession.Current.WorkingFacility;
-                         _detail.Medicines = new List<ProcedureTypeSummary>();
+                         _detail.Medicines = new List<DoctorPrescriptionItemsSummary>();
                      }
                      else
                      {

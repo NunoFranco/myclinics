@@ -192,6 +192,7 @@ namespace ClearCanvas.Ris.Client
                 loginDialog.Facilities = facilities;
                 loginDialog.Facility = initialFacilityCode;
                 loginDialog.UserName = userName;
+                loginDialog.ShowFacility = LoginDialogSettings.Default.ShowFacility; 
 				if (location != Point.Empty)
 					loginDialog.Location = location;
 

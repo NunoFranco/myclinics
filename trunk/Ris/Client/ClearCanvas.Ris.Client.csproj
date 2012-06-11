@@ -125,6 +125,11 @@
     <Compile Include="BiographyVisitDetailViewComponent.cs" />
     <Compile Include="BiographyVisitHistoryComponent.cs" />
     <Compile Include="BiographyOrderDetailViewComponent.cs" />
+    <Compile Include="Cache\ClientCacheBase.cs" />
+    <Compile Include="Cache\EnumCache.cs" />
+    <Compile Include="Cache\ProcedureTypeCache.cs" />
+    <Compile Include="Cache\StaffCache.cs" />
+    <Compile Include="Cache\FacilityCache.cs" />
     <Compile Include="CannedTextCategoryEditorComponent.cs" />
     <Compile Include="CannedTextSettings.cs" />
     <Compile Include="CannedTextSettings.Designer.cs">

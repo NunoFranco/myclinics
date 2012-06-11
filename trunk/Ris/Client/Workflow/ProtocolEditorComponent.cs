@@ -140,7 +140,7 @@ namespace ClearCanvas.Ris.Client.Workflow
 			string[] staffTypes = string.IsNullOrEmpty(filters)
 				? new string[] { }
 				: CollectionUtils.Map<string, string>(filters.Split(','), delegate(string s) { return s.Trim(); }).ToArray();
-			_supervisorLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, staffTypes);
+            _supervisorLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, staffTypes, new string[] { });
 
 			_rememberSupervisor = ProtocollingSettings.Default.ShouldApplyDefaultSupervisor;
 

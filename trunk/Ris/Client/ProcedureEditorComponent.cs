@@ -261,10 +261,10 @@ namespace ClearCanvas.Ris.Client
             _requisition.CanModify = _selectedProcedureType.IsRequired;
 			_requisition.ProcedureType = _selectedProcedureType;
 			_requisition.ScheduledTime = _scheduledTime;
-			_requisition.Laterality = _selectedLaterality;
+            //_requisition.Laterality = _selectedLaterality;
 			_requisition.PerformingFacility = _selectedFacility;
-			_requisition.PortableModality = _portableModality;
-			_requisition.CheckedIn = _checkedIn;
+            //_requisition.PortableModality = _portableModality;
+            //_requisition.CheckedIn = _checkedIn;
 
 			this.Exit(ApplicationComponentExitCode.Accepted);
 		}

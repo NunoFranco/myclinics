@@ -42,7 +42,7 @@ namespace ClearCanvas.Ris.Client.View.WinForms
 	{
 		private readonly LoginForm _form;
 		private LoginDialogMode _mode;
-
+        public bool ShowFacility { get; set; }
 		public LoginDialog()
 		{
 			_form = new LoginForm();
@@ -59,7 +59,11 @@ namespace ClearCanvas.Ris.Client.View.WinForms
             _form.Facilities = Facilities;
 			return _form.ShowDialog() == DialogResult.OK;
 		}
-
+        public bool ShowFacilities
+        {
+            get { return _form.ShowFacilities ; }
+            set { _form.ShowFacilities = value; }
+        }
 		public Point Location
 		{
 			get { return _form.Location; }

@@ -1050,4 +1050,7 @@
   <data name="TitleUpdateDoctorPrescription" xml:space="preserve">
     <value>Updating Prescription - {0}</value>
   </data>
+  <data name="TitleColumnMedicineName" xml:space="preserve">
+    <value>Medicine</value>
+  </data>
 </root>

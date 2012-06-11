@@ -2338,6 +2338,15 @@ namespace ClearCanvas.Ris.Client {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Medicine.
+        /// </summary>
+        internal static string TitleColumnMedicineName {
+            get {
+                return ResourceManager.GetString("TitleColumnMedicineName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact Persons.
         /// </summary>
         internal static string TitleContactPersons {

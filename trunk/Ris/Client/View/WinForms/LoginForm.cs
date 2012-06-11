@@ -43,7 +43,7 @@ namespace ClearCanvas.Ris.Client.View.WinForms
     {
         private string[] _facilityChoices;
         private Point _refPoint;
-
+        //public bool  ShowFacilities { get; set; }
         public LoginForm()
         {
             // Need to explicitely dismiss the splash screen here, as the login dialog is shown before the desktop window, which is normally
@@ -53,6 +53,8 @@ namespace ClearCanvas.Ris.Client.View.WinForms
 #endif
 
             InitializeComponent();
+            this._facility.Visible = ShowFacilities;
+            this.lblFacility.Visible = this._facility.Visible;
         }
 
         public void SetMode(LoginDialogMode mode)
@@ -137,7 +139,7 @@ namespace ClearCanvas.Ris.Client.View.WinForms
 
         private void UpdateButtonStates()
         {
-            bool ok = !string.IsNullOrEmpty(_userName.Text) && !string.IsNullOrEmpty(_password.Text);
+            bool ok = !string.IsNullOrEmpty(_userName.Text) && !string.IsNullOrEmpty(_password.Text) && !string.IsNullOrEmpty(_facility.Text);
             _loginButton.Enabled = ok;
         }
 

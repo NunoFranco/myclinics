@@ -353,7 +353,7 @@ namespace ClearCanvas.Ris.Client.Workflow
 			var staffTypes = string.IsNullOrEmpty(filters)
 				? new string[] { }
 				: CollectionUtils.Map<string, string>(filters.Split(','), s => s.Trim()).ToArray();
-			_supervisorLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, staffTypes);
+            _supervisorLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, staffTypes, new string[] { });
 
 			StartTranscribingWorklistItem();
 

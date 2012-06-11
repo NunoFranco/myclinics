@@ -66,7 +66,7 @@ namespace ClearCanvas.Ris.Client.Workflow
 		/// </summary>
 		public override void Start()
 		{
-			_staffLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, this.StaffTypes);
+			_staffLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, this.StaffTypes, new string[]{});
             _staff = !string.IsNullOrEmpty(this.DefaultSupervisorID) ? GetStaffByID(this.DefaultSupervisorID, LoginSession.Current.WorkingFacility.FacilityRef) : null;
 
 			base.Start();
