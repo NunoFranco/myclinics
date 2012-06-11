@@ -36,7 +36,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using ClearCanvas;
 namespace ClearCanvas.Ris.Client.View.WinForms
 {
     public partial class ChangePasswordForm : Form
@@ -48,7 +48,7 @@ namespace ClearCanvas.Ris.Client.View.WinForms
 
         public string UserName
         {
-            get { return Enterprise.Common.Common.EncryptUserName(_userName.Text, Enterprise.Common.Common.CurrentLoginUserProfile.CurrentClinicCode, Enterprise.Common.Common.CurrentLoginUserProfile.CurrentClinicOID.ToString() ); }
+            get { return ClearCanvas.Enterprise.Common.Common.EncryptUserName(_userName.Text, Enterprise.Common.Common.CurrentLoginUserProfile.CurrentClinicCode, Enterprise.Common.Common.CurrentLoginUserProfile.CurrentClinicOID.ToString() ); }
             set { _userName.Text = Enterprise.Common.Common.GetLoginUserName( value); }
         }
 

@@ -69,7 +69,7 @@ namespace ClearCanvas.Ris.Client.Workflow
 			string[] staffTypes = string.IsNullOrEmpty(filters)
 				? new string[] { }
 				: CollectionUtils.Map<string, string>(filters.Split(','), delegate(string s) { return s.Trim(); }).ToArray();
-			_radiologistLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, staffTypes);
+            _radiologistLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, staffTypes, new string[] { });
 
 			base.Start();
 		}

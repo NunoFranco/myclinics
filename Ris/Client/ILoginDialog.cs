@@ -58,6 +58,12 @@ namespace ClearCanvas.Ris.Client
 		/// </summary>
 		Point Location { get; set; }
 
+
+        /// <summary>
+        /// Gets or set visibility of Facility.
+        /// </summary>
+        bool ShowFacility { get; set; }
+
 		/// <summary>
 		/// Gets or sets the dialogs mode.
 		/// </summary>

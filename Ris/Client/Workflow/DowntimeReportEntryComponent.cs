@@ -163,13 +163,13 @@ namespace ClearCanvas.Ris.Client.Workflow
 			var radFilters = DowntimeSettings.Default.ReportEntryRadiologistStaffTypeFilters;
 			var radStaffTypes = string.IsNullOrEmpty(radFilters) ? new string[] { } :
 				CollectionUtils.Map<string, string>(radFilters.Split(','), s => s.Trim()).ToArray();
-			_interpreterLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, radStaffTypes);
+            _interpreterLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, radStaffTypes, new string[] { });
 
 			// transcriptionist staff lookup handler, using filters provided by application configuration
 			var transFilters = DowntimeSettings.Default.ReportEntryTranscriptionistStaffTypeFilters;
 			var transStaffTypes = string.IsNullOrEmpty(transFilters) ? new string[] { } :
 				CollectionUtils.Map<string, string>(transFilters.Split(','), s => s.Trim()).ToArray();
-			_transcriptionistLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, transStaffTypes);
+            _transcriptionistLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, transStaffTypes, new string[] { });
 
 			base.Start();
 		}

@@ -205,7 +205,7 @@ namespace ClearCanvas.Ris.Client.Workflow
 				? new string[] { }
 				: CollectionUtils.Map<string, string>(filters.Split(','), s => s.Trim()).ToArray();
 
-			_radiologistLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, staffTypes);
+            _radiologistLookupHandler = new StaffLookupHandler(this.Host.DesktopWindow, staffTypes, new string[] { });
 
 			base.Start();
 		}

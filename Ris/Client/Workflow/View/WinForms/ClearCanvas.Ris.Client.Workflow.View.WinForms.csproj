@@ -340,6 +340,9 @@
       <DependentUpon>LinkProceduresComponentControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="OrderEditorComponentControl.vi.resx">
+      <DependentUpon>OrderEditorComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PriorReportComponentControl.resx">
       <DependentUpon>PriorReportComponentControl.cs</DependentUpon>
       <SubType>Designer</SubType>

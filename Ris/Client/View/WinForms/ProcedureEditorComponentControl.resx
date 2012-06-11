@@ -117,140 +117,59 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;_procedureType.Type" xml:space="preserve">
-    <value>ClearCanvas.Desktop.View.WinForms.SuggestComboField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_checkedIn.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;_portable.Parent" xml:space="preserve">
-    <value>$this</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_okButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 172</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_portable.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="_okButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="_laterality.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
+  <data name="_okButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
-  <data name="_checkedIn.Text" xml:space="preserve">
-    <value>Patient is checked-in</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_okButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="_cancelButton.Text" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="_okButton.Text" xml:space="preserve">
+    <value>OK</value>
   </data>
-  <data name="_portable.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="_laterality.LabelText" xml:space="preserve">
-    <value>Laterality</value>
-  </data>
-  <data name="_performingFacility.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 13</value>
-  </data>
-  <data name="_scheduledDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 41</value>
-  </data>
-  <data name="&gt;&gt;_okButton.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="_procedureType.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;_scheduledTime.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="_procedureType.LabelText" xml:space="preserve">
-    <value>Procedure Type</value>
-  </data>
-  <data name="_scheduledTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;_scheduledDate.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="_laterality.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="_procedureType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>485, 41</value>
-  </data>
-  <data name="&gt;&gt;_scheduledTime.Type" xml:space="preserve">
-    <value>ClearCanvas.Desktop.View.WinForms.DateTimeField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="_portable.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 178</value>
-  </data>
-  <data name="&gt;&gt;_checkedIn.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;_checkedIn.Name" xml:space="preserve">
-    <value>_checkedIn</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="_laterality.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="_performingFacility.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 178</value>
-  </data>
-  <data name="&gt;&gt;_performingFacility.Type" xml:space="preserve">
-    <value>ClearCanvas.Desktop.View.WinForms.ComboBoxField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="_laterality.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 178</value>
+  <data name="&gt;&gt;_okButton.Name" xml:space="preserve">
+    <value>_okButton</value>
   </data>
   <data name="&gt;&gt;_okButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_procedureType.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_okButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;_performingFacility.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;_okButton.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
-  <data name="_scheduledDate.LabelText" xml:space="preserve">
-    <value>Scheduled Date</value>
+  <data name="_cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>425, 172</value>
   </data>
-  <data name="&gt;&gt;_portable.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="_cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
-  <data name="&gt;&gt;_performingFacility.Name" xml:space="preserve">
-    <value>_performingFacility</value>
+  <data name="_cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
-  <data name="_okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 172</value>
+  <data name="_cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="_performingFacility.LabelText" xml:space="preserve">
-    <value>Performing Facility</value>
+  <data name="_cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="_okButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="&gt;&gt;_cancelButton.Name" xml:space="preserve">
+    <value>_cancelButton</value>
   </data>
-  <data name="&gt;&gt;_procedureType.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;_cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="_checkedIn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 17</value>
-  </data>
-  <data name="_procedureType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 20</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ProcedureEditorComponentControl</value>
-  </data>
-  <data name="&gt;&gt;_laterality.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="_portable.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;_cancelButton.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;_cancelButton.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -258,68 +177,137 @@
   <data name="_scheduledTime.LabelText" xml:space="preserve">
     <value>Scheduled Time</value>
   </data>
-  <data name="_scheduledDate.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="_scheduledTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>277, 84</value>
   </data>
-  <data name="&gt;&gt;_procedureType.Name" xml:space="preserve">
-    <value>_procedureType</value>
-  </data>
-  <data name="_performingFacility.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="_scheduledTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;_scheduledTime.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="_cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>425, 172</value>
-  </data>
-  <data name="_scheduledDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 84</value>
-  </data>
-  <data name="&gt;&gt;_okButton.Name" xml:space="preserve">
-    <value>_okButton</value>
-  </data>
-  <data name="&gt;&gt;_portable.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="_procedureType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="_checkedIn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 178</value>
-  </data>
-  <data name="&gt;&gt;_checkedIn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>ClearCanvas.Desktop.View.WinForms.ApplicationComponentUserControl, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;_okButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="_scheduledDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="_portable.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 17</value>
-  </data>
-  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>517, 214</value>
   </data>
   <data name="_scheduledTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>223, 41</value>
   </data>
-  <data name="_okButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="_scheduledTime.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_scheduledTime.Name" xml:space="preserve">
+    <value>_scheduledTime</value>
+  </data>
+  <data name="&gt;&gt;_scheduledTime.Type" xml:space="preserve">
+    <value>ClearCanvas.Desktop.View.WinForms.DateTimeField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_scheduledTime.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_scheduledTime.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="_scheduledDate.LabelText" xml:space="preserve">
+    <value>Scheduled Date</value>
+  </data>
+  <data name="_scheduledDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 84</value>
+  </data>
+  <data name="_scheduledDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="_checkedIn.TabIndex" type="System.Int32, mscorlib">
+  <data name="_scheduledDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 41</value>
+  </data>
+  <data name="_scheduledDate.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_scheduledDate.Name" xml:space="preserve">
+    <value>_scheduledDate</value>
+  </data>
+  <data name="&gt;&gt;_scheduledDate.Type" xml:space="preserve">
+    <value>ClearCanvas.Desktop.View.WinForms.DateTimeField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_scheduledDate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_scheduledDate.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="_procedureType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="_procedureType.LabelText" xml:space="preserve">
+    <value>Procedure Type</value>
+  </data>
+  <data name="_procedureType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 20</value>
+  </data>
+  <data name="_procedureType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="_procedureType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>485, 41</value>
+  </data>
+  <data name="_procedureType.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_procedureType.Name" xml:space="preserve">
+    <value>_procedureType</value>
+  </data>
+  <data name="&gt;&gt;_procedureType.Type" xml:space="preserve">
+    <value>ClearCanvas.Desktop.View.WinForms.SuggestComboField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_procedureType.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_procedureType.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_performingFacility.LabelText" xml:space="preserve">
+    <value>Performing Facility</value>
+  </data>
+  <data name="_performingFacility.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 178</value>
+  </data>
+  <data name="_performingFacility.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="_performingFacility.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 13</value>
   </data>
   <data name="_performingFacility.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;_checkedIn.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="_performingFacility.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;_performingFacility.Name" xml:space="preserve">
+    <value>_performingFacility</value>
+  </data>
+  <data name="&gt;&gt;_performingFacility.Type" xml:space="preserve">
+    <value>ClearCanvas.Desktop.View.WinForms.ComboBoxField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;_performingFacility.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_performingFacility.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_laterality.LabelText" xml:space="preserve">
+    <value>Laterality</value>
+  </data>
+  <data name="_laterality.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 178</value>
+  </data>
+  <data name="_laterality.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="_laterality.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 16</value>
+  </data>
+  <data name="_laterality.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="_laterality.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;_laterality.Name" xml:space="preserve">
+    <value>_laterality</value>
   </data>
   <data name="&gt;&gt;_laterality.Type" xml:space="preserve">
     <value>ClearCanvas.Desktop.View.WinForms.ComboBoxField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -327,70 +315,91 @@
   <data name="&gt;&gt;_laterality.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;_laterality.Name" xml:space="preserve">
-    <value>_laterality</value>
+  <data name="&gt;&gt;_laterality.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_portable.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_portable.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 178</value>
+  </data>
+  <data name="_portable.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="_portable.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 17</value>
+  </data>
+  <data name="_portable.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="_portable.Text" xml:space="preserve">
     <value>Portable</value>
   </data>
-  <data name="_cancelButton.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="_okButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="&gt;&gt;_performingFacility.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_cancelButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_scheduledTime.Name" xml:space="preserve">
-    <value>_scheduledTime</value>
-  </data>
-  <data name="_okButton.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="&gt;&gt;_scheduledDate.Type" xml:space="preserve">
-    <value>ClearCanvas.Desktop.View.WinForms.DateTimeField, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="_procedureType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="_cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="_checkedIn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="_cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="_scheduledTime.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;_scheduledDate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_cancelButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_scheduledDate.Name" xml:space="preserve">
-    <value>_scheduledDate</value>
-  </data>
-  <data name="&gt;&gt;_cancelButton.Name" xml:space="preserve">
-    <value>_cancelButton</value>
-  </data>
-  <data name="_scheduledTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 84</value>
+  <data name="_portable.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;_portable.Name" xml:space="preserve">
     <value>_portable</value>
   </data>
+  <data name="&gt;&gt;_portable.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_portable.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_portable.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_checkedIn.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_checkedIn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 178</value>
+  </data>
+  <data name="_checkedIn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="_checkedIn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 17</value>
+  </data>
+  <data name="_checkedIn.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="_checkedIn.Text" xml:space="preserve">
+    <value>Patient is checked-in</value>
+  </data>
+  <data name="_checkedIn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;_checkedIn.Name" xml:space="preserve">
+    <value>_checkedIn</value>
+  </data>
+  <data name="&gt;&gt;_checkedIn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_checkedIn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_checkedIn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>Vietnamese</value>
-  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>517, 214</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ProcedureEditorComponentControl</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>ClearCanvas.Desktop.View.WinForms.ApplicationComponentUserControl, ClearCanvas.Desktop.View.WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
 </root>
