@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         public SummaryGenerator(DataSet data)
             : base(data)
         {
-            template = "{0}Summary.Generated.cs";
+            template = "{0}Summary.gen.cs";
         }
         public override void Generate()
         {

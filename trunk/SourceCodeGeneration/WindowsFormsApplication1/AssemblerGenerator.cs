@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         public AssemblerGenerator(DataSet data)
             : base(data)
         {
-            template = "{0}Assembler.Generated.cs";
+            template = "{0}Assembler.gen.cs";
         }
         public override void Generate()
         {

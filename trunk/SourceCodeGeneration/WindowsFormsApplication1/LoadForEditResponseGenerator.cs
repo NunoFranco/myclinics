@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         public LoadForEditGenerator(DataSet data)
             : base(data)
         {
-            template = "Load{0}ForEditResponse.Generated.cs";
+            template = "Load{0}ForEditResponse.gen.cs";
         }
         public override void Generate()
         {
