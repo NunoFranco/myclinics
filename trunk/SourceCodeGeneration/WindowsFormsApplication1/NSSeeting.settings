@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WindowsFormsApplication1" GeneratedClassName="NSSeeting">
+  <Profiles />
+  <Settings>
+    <Setting Name="Entity_NS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ClearCanvas.Healthcare</Value>
+    </Setting>
+    <Setting Name="Common_NS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ClearCanvas.Ris.Application.Common</Value>
+    </Setting>
+    <Setting Name="Service_NS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ClearCanvas.Ris.Application.Services</Value>
+    </Setting>
+    <Setting Name="Component_NS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ClearCanvas.Ris.Client</Value>
+    </Setting>
+    <Setting Name="ComponentControl_NS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ClearCanvas.Ris.Client.View.Winforms</Value>
+    </Setting>
+    <Setting Name="ProjectRoot" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\Myprojects\Ris2sp1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

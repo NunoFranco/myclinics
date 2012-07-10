@@ -42,7 +42,16 @@ namespace WindowsFormsApplication1
                 lbFiles.Items.Remove(selecteditems[count]);
             }
         }
-
+        public void SaveSetting()
+        {
+            NSSeeting.Default.Common_NS = this.txtCommonNS.Text;
+            NSSeeting.Default.ComponentControl_NS = this.txtComponentControlNS.Text;
+            NSSeeting.Default.Component_NS = this.txtComponentNS.Text;
+            NSSeeting.Default.Entity_NS = this.txtEntityNS.Text;
+            NSSeeting.Default.Service_NS = this.txtServiceNS.Text;
+            NSSeeting.Default.ProjectRoot = this.txtProjectRoot.Text;
+            NSSeeting.Default.Save();
+        }
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             GerneratorBase.SufNameSpace = string.IsNullOrEmpty(this.textBox1.Text) ? "" : "." + this.textBox1.Text;
@@ -52,6 +61,8 @@ namespace WindowsFormsApplication1
             GerneratorBase.EntityNS = txtEntityNS.Text;
             GerneratorBase.ComponentNS = txtComponentNS.Text;
             GerneratorBase.ComponentControlNS = txtComponentControlNS.Text;
+
+            SaveSetting();
             GerneratorBase.Type = this.cboType.Text;
             string conventionName = ".hbm.xml";
             foreach (var item in lbFiles.Items)
@@ -98,6 +109,12 @@ namespace WindowsFormsApplication1
             {
                 this.cboType.SelectedIndex = 0;
             }
+            this.txtCommonNS.Text = NSSeeting.Default.Common_NS;
+            this.txtComponentControlNS.Text = NSSeeting.Default.ComponentControl_NS;
+            this.txtComponentNS.Text = NSSeeting.Default.Component_NS;
+            this.txtEntityNS.Text = NSSeeting.Default.Entity_NS;
+            this.txtServiceNS.Text = NSSeeting.Default.Service_NS;
+            this.txtProjectRoot.Text = NSSeeting.Default.ProjectRoot;
         }
 
         public Attribute GetAttribute(string name)

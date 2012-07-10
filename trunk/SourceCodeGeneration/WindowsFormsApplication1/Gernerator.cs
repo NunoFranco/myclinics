@@ -10,6 +10,7 @@ namespace WindowsFormsApplication1
     public class GerneratorBase
     {
         public static string SufNameSpace { get; set; }
+        public static string DetectNSTemplate = "using {0};" + System.Environment.NewLine;
         public DeclareFiledList GetSummaryFields()
         {
 
@@ -29,6 +30,21 @@ namespace WindowsFormsApplication1
                 foreach (DataRow item in dtManyToOne.Rows)
                 {
                     string classname = item["class"].ToString();
+                    if (classname.Contains(","))//Classname,Assembly
+                    {
+                        classname = classname.Substring(0, classname.IndexOf(","));
+                        string fullClassName = classname;
+                        if (classname.Contains("."))
+                        {
+                            int Lastindex = classname.LastIndexOf(".") + 1;
+
+                            classname = classname.Substring(Lastindex, classname.Length - Lastindex);
+                            string objecnamespace = string.Format(DetectNSTemplate, fullClassName.Substring(0, fullClassName.LastIndexOf(".")));
+                            //DetectedNS = DetectedNS.Replace(objecnamespace, "");//make sure there is no duplcate NS
+                            //DetectedNS += objecnamespace;
+
+                        }
+                    }
                     if (!classname.EndsWith("Enum"))
                     {
                         classname += "Summary";
@@ -120,16 +136,17 @@ namespace WindowsFormsApplication1
         public static string ComponentControlNS { get; set; }
         public static string SuffixNS { get; set; }
         public static string EntityNS { get; set; }
+        public string DetectedNS { get; set; }
         public static string templateFolder = "..\\..\\templates";
         public static string Type;
-        public static  string _GeneratedFilePath = "..\\..\\Generated";
+        public static string _GeneratedFilePath = "..\\..\\Generated";
         public string GeneratedFilePath
         {
             get
             {
                 return Path.Combine(_GeneratedFilePath, Type);
             }
-            
+
         }
         public string GeneratedContent = "";
         public DataSet ds = new DataSet();
@@ -150,6 +167,7 @@ namespace WindowsFormsApplication1
             text = text.Replace(NS_NAME.componentNameSpance, ComponentNS);
             text = text.Replace(NS_NAME.componentControlNameSpance, ComponentControlNS);
             text = text.Replace(NS_NAME.entityNameSpance, EntityNS);
+            text = text.Replace(NS_NAME.detectedNamespace, DetectedNS);
             return text;
         }
         public virtual void Generate()
@@ -167,7 +185,7 @@ namespace WindowsFormsApplication1
                     sw.Write(GeneratedContent);
                 }
             }
-            FileInfo f = new FileInfo(Path.Combine(Path.Combine(templateFolder,Type), template.Replace(generatedText, "") ));
+            FileInfo f = new FileInfo(Path.Combine(Path.Combine(templateFolder, Type), template.Replace(generatedText, "")));
             if (f.Exists)
             {
 
@@ -187,7 +205,7 @@ namespace WindowsFormsApplication1
         }
         public FileInfo GetTemplate(string fname)
         {
-            FileInfo f = new FileInfo(Path.Combine(Path.Combine(templateFolder,Type), fname));
+            FileInfo f = new FileInfo(Path.Combine(Path.Combine(templateFolder, Type), fname));
             if (f.Exists)
                 return f;
             return null;
@@ -222,6 +240,7 @@ namespace WindowsFormsApplication1
         public const string serviceNameSpance = "{$ServiceNS}";
         public const string componentNameSpance = "{$componentNS}";
         public const string componentControlNameSpance = "{$componentControlNS}";
+        public const string detectedNamespace = "{$detectedNS}";
     }
     public class MappingObject
     {

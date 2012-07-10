@@ -49,6 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblerGenerator.cs" />
+    <Compile Include="NSSeeting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>NSSeeting.settings</DependentUpon>
+    </Compile>
     <Compile Include="SummaryComponentGenerator.cs" />
     <Compile Include="AddResponseGenerator.cs" />
     <Compile Include="Attributes.cs" />
@@ -87,6 +92,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
+    <None Include="NSSeeting.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>NSSeeting.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
