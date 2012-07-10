@@ -106,7 +106,7 @@ namespace WindowsFormsApplication1
             {
                 case "common":
                     return new Common();
-                case "service":
+                case "services":
                     return new Services();
                 case "component":
                     return new Component();
