@@ -39,10 +39,10 @@ using System.Xml;
 
 namespace {$CommonNS}{$Suffix}
 {
-    [DataContract]
+    
     public partial class {0}Detail : DataContractBase
     {
-		public void CustomConstructor
+		public void CustomConstructor()
 		{
 			
 		}

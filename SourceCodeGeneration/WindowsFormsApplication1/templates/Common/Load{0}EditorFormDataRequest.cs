@@ -37,7 +37,7 @@ using System.Runtime.Serialization;
 
 namespace {$CommonNS}{$Suffix}
 {
-	[DataContract]
+	
 	public partial class Load{0}EditorFormDataRequest : DataContractBase
 	{
 	}

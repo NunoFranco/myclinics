@@ -34,14 +34,14 @@ using System.Collections.Generic;
 using System.Text;
 using ClearCanvas.Enterprise.Common;
 using System.Runtime.Serialization;
-using {$EntityNS};
+
 
 namespace {$CommonNS}{$Suffix}
 {
-    [DataContract]
-    public patial class List{0}sRequest : ListRequestBase
+   
+    public partial class List{0}sRequest : ListRequestBase
     {
-        public CustomConstructor()
+        public void CustomConstructor()
         {
 
         }

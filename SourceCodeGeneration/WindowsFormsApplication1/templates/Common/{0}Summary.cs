@@ -35,10 +35,10 @@ using ClearCanvas.Enterprise.Common;
 
 namespace {$CommonNS}{$Suffix}
 {
-    [DataContract]
+   
     public partial class {0}Summary : DataContractBase, IEquatable<{0}Summary>
     {
-		public CustomConstructor()
+		public void CustomConstructor()
 		{
 		}
     }

@@ -37,10 +37,10 @@ using System.Runtime.Serialization;
 
 namespace {$CommonNS}{$Suffix}
 {
-	[DataContract]
+	
 	public class Load{0}EditorFormDataResponse : DataContractBase
 	{
-		public CustomConstructor()
+		public void CustomConstructor()
 		{
 		
 		}
