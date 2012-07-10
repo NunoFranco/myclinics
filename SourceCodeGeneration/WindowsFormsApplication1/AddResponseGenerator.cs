@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         public AddResponseGenerator(DataSet data)
             : base(data)
         {
-            template = "Add{0}Response.Generated.cs";
+            template = "Add{0}Response.gen.cs";
         }
         public override void Generate()
         {

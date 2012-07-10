@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         public ListResponseGenerator(DataSet data)
             : base(data)
         {
-            template = "List{0}sResponse.Generated.cs";
+            template = "List{0}sResponse.gen.cs";
         }
         public override void Generate()
         {

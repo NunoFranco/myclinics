@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         public UpdateRequestGenerator(DataSet data)
             : base(data)
         {
-            template = "Update{0}Request.Generated.cs";
+            template = "Update{0}Request.gen.cs";
         }
         public override void Generate()
         {

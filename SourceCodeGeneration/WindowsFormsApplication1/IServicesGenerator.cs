@@ -17,7 +17,7 @@ namespace WindowsFormsApplication1
         public IServicesGenerator(DataSet data)
             : base(data)
         {
-            template = "I{0}Service.Generated.cs";
+            template = "I{0}Service.gen.cs";
         }
         public override void Generate()
         {

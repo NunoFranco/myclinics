@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         public DeleteRequestGenerator(DataSet data)
             : base(data)
         {
-            template = "Delete{0}Request.Generated.cs";
+            template = "Delete{0}Request.gen.cs";
         }
         public override void Generate()
         {

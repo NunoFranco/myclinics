@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
         public DetailGenerator(DataSet data)
             : base(data)
         {
-            template = "{0}Detail.Generated.cs";
+            template = "{0}Detail.gen.cs";
         }
         public override void Generate()
         {
