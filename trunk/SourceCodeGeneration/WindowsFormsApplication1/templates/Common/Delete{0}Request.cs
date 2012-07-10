@@ -34,10 +34,10 @@ using System.Runtime.Serialization;
 
 namespace {$CommonNS}{$Suffix}	
 {
-	[DataContract]
-	public class Delete{0}Request : DataContractBase
+	
+	public partial class Delete{0}Request : DataContractBase
 	{
-		public CustomConstructor();
+		public void CustomConstructor()
 		{
 			
 		}
