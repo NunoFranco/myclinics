@@ -48,7 +48,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtComponentControlNS = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtProjectRoot = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.cboType = new System.Windows.Forms.ComboBox();
@@ -219,13 +219,13 @@
             this.label8.TabIndex = 4;
             this.label8.Text = "Project Root";
             // 
-            // textBox2
+            // txtProjectRoot
             // 
-            this.textBox2.Location = new System.Drawing.Point(590, 155);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(226, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "D:\\Myprojects\\Ris2sp1";
+            this.txtProjectRoot.Location = new System.Drawing.Point(590, 155);
+            this.txtProjectRoot.Name = "txtProjectRoot";
+            this.txtProjectRoot.Size = new System.Drawing.Size(226, 20);
+            this.txtProjectRoot.TabIndex = 5;
+            this.txtProjectRoot.Text = "D:\\Myprojects\\Ris2sp1";
             // 
             // button1
             // 
@@ -267,7 +267,7 @@
             this.Controls.Add(this.txtServiceNS);
             this.Controls.Add(this.txtComponentNS);
             this.Controls.Add(this.txtComponentControlNS);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtProjectRoot);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -310,7 +310,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtComponentControlNS;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtProjectRoot;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cboType;
