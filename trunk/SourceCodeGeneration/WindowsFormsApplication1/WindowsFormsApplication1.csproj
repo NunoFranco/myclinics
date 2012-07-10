@@ -49,10 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblerGenerator.cs" />
-    <Compile Include="AddRequestGenerator.cs" />
+    <Compile Include="SummaryComponentGenerator.cs" />
     <Compile Include="AddResponseGenerator.cs" />
     <Compile Include="Attributes.cs" />
-    <Compile Include="SummaryComponentGenerator.cs" />
+    <Compile Include="AddRequestGenerator.cs" />
     <Compile Include="ServicesGenerator.cs" />
     <Compile Include="IServicesGenerator.cs" />
     <Compile Include="UpdateResponseGenerator.cs" />

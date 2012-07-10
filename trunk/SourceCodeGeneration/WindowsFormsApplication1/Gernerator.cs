@@ -104,7 +104,7 @@ namespace WindowsFormsApplication1
             }
         }
         public string xmlFilename = "";
-        public string generatedText = ".Generated";
+        public string generatedText = ".gen";
         public string template { get; set; }
         public string objectNamespace = "";//"ClearCanvas.Healthcare.";
         public string GeneratedTemplateName
@@ -122,7 +122,15 @@ namespace WindowsFormsApplication1
         public static string EntityNS { get; set; }
         public static string templateFolder = "..\\..\\templates";
         public static string Type;
-        public static  string GeneratedFilePath = "..\\..\\Generated";
+        public static  string _GeneratedFilePath = "..\\..\\Generated";
+        public string GeneratedFilePath
+        {
+            get
+            {
+                return Path.Combine(_GeneratedFilePath, Type);
+            }
+            
+        }
         public string GeneratedContent = "";
         public DataSet ds = new DataSet();
         public GerneratorBase(DataSet dataset)

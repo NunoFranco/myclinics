@@ -129,7 +129,10 @@ namespace WindowsFormsApplication1
                 0.5f));" + System.Environment.NewLine;
             foreach (var item in FiledList)
             {
-                result += string.Format(filetemplat, item.Name);
+                string tmp = filetemplat.Replace("{0}", objectname);
+                tmp = tmp.Replace("{1}", item.TypeName);
+                tmp = tmp.Replace("{2}", item.Name );
+                result += tmp;
             }
             return result.EndsWith("," + System.Environment.NewLine) ? result.Substring(0, result.Length - 3) : result;//Remove last "," - 3 because contain new line 2 chars
 }
