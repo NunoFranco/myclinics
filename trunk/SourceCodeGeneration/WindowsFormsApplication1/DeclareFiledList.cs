@@ -44,8 +44,32 @@ namespace WindowsFormsApplication1
         {
             FiledList = new List<Field>();
         }
+        string pro = @"
+        public {0} {1}
+        {
+            get
+            {
+              return  _detail.{1};
+            }
+            set
+            {
+                _detail.{1} = value;
+                this.Modified = true;
+            }
+        }";
+        public string GetPresentationModelFields()
+        {
+            string result = "";
 
-        public string GetDeclareFields()
+            foreach (var item in FiledList)
+            {
+                string tmp = pro.Replace("{0}", item.TypeName);
+                tmp = tmp.Replace("{1}", item.Name);
+                result += tmp;
+            }
+            return result;
+        }
+        public string GetContractDeclareFields()
         {
             string result = "";
             string filetemplat = "[DataMember]" + System.Environment.NewLine + "public " + "{0} {1};" + System.Environment.NewLine;
@@ -99,7 +123,34 @@ namespace WindowsFormsApplication1
             }
             return result;
         }
+        public string GetSummaryPropertyFields()
+        {
+            string result = "";
+            string filetemplat = @" 
+            public {0} {1} 
+            { 
+                get 
+                {
+                    return _detail.{1};
+                }
+                set 
+                {
+                    if (_detail.{1} == value)
+                        return;
 
+                    _detail.{1} = value;
+                    NotifyPropertyChanged({2});
+                }
+             }" + System.Environment.NewLine;
+            foreach (var item in FiledList)
+            {
+                string tmp = filetemplat.Replace("{0}", item.TypeName);
+                tmp = tmp.Replace("{1}", item.Name);
+                tmp = tmp.Replace("{2}","\"" + item.Name + "\"");
+                result += tmp;
+            }
+            return result;
+        }
         public string GetContructorFields()
         {
             string result = "";
@@ -108,7 +159,7 @@ namespace WindowsFormsApplication1
             {
                 result += string.Format(filetemplat, item.Name);
             }
-            return result.EndsWith("," + System.Environment.NewLine ) ? result.Substring(0, result.Length - 3) : result;//Remove last "," - 3 because contain new line 2 chars
+            return result.EndsWith("," + System.Environment.NewLine) ? result.Substring(0, result.Length - 3) : result;//Remove last "," - 3 because contain new line 2 chars
         }
         public string GetAssemblerContructorFields()
         {
@@ -118,7 +169,7 @@ namespace WindowsFormsApplication1
             {
                 result += string.Format(filetemplat, item.Name);
             }
-            return result.EndsWith("," + System.Environment.NewLine ) ? result.Substring(0, result.Length - 3) : result;//Remove last "," - 3 because contain new line 2 chars
+            return result.EndsWith("," + System.Environment.NewLine) ? result.Substring(0, result.Length - 3) : result;//Remove last "," - 3 because contain new line 2 chars
         }
 
         public string GetSummarytableFields(string objectname)
@@ -131,10 +182,10 @@ namespace WindowsFormsApplication1
             {
                 string tmp = filetemplat.Replace("{0}", objectname);
                 tmp = tmp.Replace("{1}", item.TypeName);
-                tmp = tmp.Replace("{2}", item.Name );
+                tmp = tmp.Replace("{2}", item.Name);
                 result += tmp;
             }
             return result.EndsWith("," + System.Environment.NewLine) ? result.Substring(0, result.Length - 3) : result;//Remove last "," - 3 because contain new line 2 chars
-}
+        }
     }
 }

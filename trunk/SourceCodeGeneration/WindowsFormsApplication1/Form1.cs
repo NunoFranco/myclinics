@@ -70,7 +70,7 @@ namespace WindowsFormsApplication1
 
                 FileInfo f = new FileInfo(item.ToString());
                 GerneratorBase.SufNameSpace = "." + f.Name.Replace(conventionName, "");
-                GerneratorBase.SuffixNS = "." + f.Name.Replace(conventionName, "");
+                GerneratorBase.SuffixNS = "." + f.Name.Replace(conventionName, "") + "s";
                 DataSet ds = new DataSet();
                 ds.ReadXml(item.ToString());
 

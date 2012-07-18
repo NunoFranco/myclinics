@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblerGenerator.cs" />
+    <Compile Include="EditorComponentGenerator.cs" />
     <Compile Include="NSSeeting.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

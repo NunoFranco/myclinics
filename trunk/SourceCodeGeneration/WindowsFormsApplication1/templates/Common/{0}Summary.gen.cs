@@ -30,22 +30,49 @@
 #endregion
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using ClearCanvas.Common;
-using ClearCanvas.Desktop;
-using ClearCanvas.Desktop.Validation;
+using System.Runtime.Serialization;
 using ClearCanvas.Enterprise.Common;
-using {$CommonNS};
+using ClearCanvas.Ris.Application.Common;
+{$detectedNS}
 
-namespace {$componentNS}
+namespace {$CommonNS}{$Suffix}
 {
-   
-    
-    public partial class {0}EditorComponent : ApplicationComponent
+    [DataContract]
+    public partial class {0}Summary : DataContractBase, IEquatable<{0}Summary>
     {
-        public void CustomConstructor()
+        public {0}Summary(EntityRef entityRef ,{1})
+        {
+            this.objRef = entityRef;
+			{2}
+			
+			CustomConstructor();
+        }
+
+		public {0}Summary()
 		{
+			CustomConstructor();
 		}
+
+        [DataMember]
+        public EntityRef objRef;
+
+        {3}
+
+		public bool Equals({0}Summary that)
+        {
+            if (that == null) return false;
+            return Equals(this.objRef, that.objRef);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(this, obj)) return true;
+            return Equals(obj as {0}Summary);
+        }
+
+        public override int GetHashCode()
+        {
+            return objRef.GetHashCode();
+        }
     }
 }

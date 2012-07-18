@@ -30,22 +30,23 @@
 #endregion
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using ClearCanvas.Common;
-using ClearCanvas.Desktop;
-using ClearCanvas.Desktop.Validation;
+using System.Text;
 using ClearCanvas.Enterprise.Common;
-using {$CommonNS};
-
-namespace {$componentNS}
+using System.Runtime.Serialization;
+{$detectedNS}
+namespace {$CommonNS}{$Suffix}
 {
-   
-    
-    public partial class {0}EditorComponent : ApplicationComponent
-    {
-        public void CustomConstructor()
+	[DataContract]
+	public partial class Load{0}ForEditRequest : DataContractBase
+	{
+		public Load{0}ForEditRequest(EntityRef entityRef)
 		{
+			this.objRef = entityRef;
+			CustomConstructor();
 		}
-    }
+
+		[DataMember]
+		public EntityRef objRef;
+	}
 }

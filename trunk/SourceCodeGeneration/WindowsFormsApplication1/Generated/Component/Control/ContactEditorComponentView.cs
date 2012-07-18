@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 
 // Copyright (c) 2010, ClearCanvas Inc.
 // All rights reserved.
@@ -29,23 +29,46 @@
 
 #endregion
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using ClearCanvas.Common;
 using ClearCanvas.Desktop;
-using ClearCanvas.Desktop.Validation;
-using ClearCanvas.Enterprise.Common;
-using {$CommonNS};
+using ClearCanvas.Desktop.View.WinForms;
 
-namespace {$componentNS}
+namespace ClearCanvas.Material.Client.View.WinForms
 {
-   
-    
-    public partial class {0}EditorComponent : ApplicationComponent
+    /// <summary>
+    /// Provides a Windows Forms view onto <see cref="ContactEditorComponent"/>.
+    /// </summary>
+    [ExtensionOf(typeof(ContactEditorComponentViewExtensionPoint))]
+    public class ContactEditorComponentView : WinFormsView, IApplicationComponentView
     {
-        public void CustomConstructor()
-		{
-		}
+        private ContactEditorComponent _component;
+        private ContactEditorComponentControl _control;
+
+        #region IApplicationComponentView Members
+
+        /// <summary>
+        /// Called by the host to assign this view to a component.
+        /// </summary>
+        public void SetComponent(IApplicationComponent component)
+        {
+            _component = (ContactEditorComponent)component;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Gets the underlying GUI component for this view.
+        /// </summary>
+        public override object GuiElement
+        {
+            get
+            {
+                if (_control == null)
+                {
+                    _control = new ContactEditorComponentControl(_component);
+                }
+                return _control;
+            }
+        }
     }
 }

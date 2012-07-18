@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 
 // Copyright (c) 2010, ClearCanvas Inc.
 // All rights reserved.
@@ -36,13 +36,13 @@ using ClearCanvas.Common;
 using ClearCanvas.Desktop;
 using ClearCanvas.Desktop.Validation;
 using ClearCanvas.Enterprise.Common;
-using {$CommonNS};
+using ClearCanvas.Material.Application.Common;
 
-namespace {$componentNS}
+namespace ClearCanvas.Material.Client
 {
    
     
-    public partial class {0}EditorComponent : ApplicationComponent
+    public partial class ContactEditorComponent : ApplicationComponent
     {
         public void CustomConstructor()
 		{

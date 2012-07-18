@@ -43,12 +43,12 @@ using ClearCanvas.Enterprise.Core;
 using {$CommonNS};
 using {$CommonNS}{$Suffix};
 using AuthorityTokens = {$CommonNS}.AuthorityTokens;
-
+using ClearCanvas.Ris.Application.Services;
+using ClearCanvas.Ris.Application.Common;
 namespace {$ServiceNS}{$Suffix}
 {
-    [ExtensionOf(typeof(ApplicationServiceExtensionPoint))]
-    [ServiceImplementsContract(typeof(I{0}Service))]
-    public partial class {0}Service : ApplicationServiceBase, I{0}Service
+    
+    public partial class {0}Service 
     {
         
     }

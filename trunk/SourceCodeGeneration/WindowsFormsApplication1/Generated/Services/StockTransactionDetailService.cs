@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 
 // Copyright (c) 2010, ClearCanvas Inc.
 // All rights reserved.
@@ -30,22 +30,27 @@
 #endregion
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System.Security.Permissions;
 using ClearCanvas.Common;
-using ClearCanvas.Desktop;
-using ClearCanvas.Desktop.Validation;
+using ClearCanvas.Common.Utilities;
 using ClearCanvas.Enterprise.Common;
-using {$CommonNS};
-
-namespace {$componentNS}
+using ClearCanvas.Enterprise.Core.Modelling;
+using ClearCanvas.Material.Healthcare;
+using ClearCanvas.Material.Healthcare.Brokers;
+using ClearCanvas.Enterprise.Core;
+using ClearCanvas.Material.Application.Common;
+using ClearCanvas.Material.Application.Common.StockTransactionLine;
+using AuthorityTokens = ClearCanvas.Material.Application.Common.AuthorityTokens;
+using ClearCanvas.Ris.Application.Services;
+using ClearCanvas.Ris.Application.Common;
+namespace ClearCanvas.Material.Application.Common.StockTransactionsLines
 {
-   
-    
-    public partial class {0}EditorComponent : ApplicationComponent
+    [ExtensionOf(typeof(ApplicationServiceExtensionPoint))]
+    [ServiceImplementsContract(typeof(IStockTransactionDetailService))]
+    public partial class StockTransactionDetailService : ApplicationServiceBase, IStockTransactionDetailService
     {
-        public void CustomConstructor()
-		{
-		}
+        
     }
 }

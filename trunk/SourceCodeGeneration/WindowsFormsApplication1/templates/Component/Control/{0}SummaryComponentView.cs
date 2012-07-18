@@ -37,7 +37,8 @@ using ClearCanvas.Common;
 using ClearCanvas.Desktop;
 using ClearCanvas.Desktop.View.WinForms;
 
-namespace {$componentNS}.Admin.View.WinForms
+
+namespace {$componentNS}.View.WinForms
 {
     /// <summary>
     /// Provides a Windows Forms view onto <see cref="{0}SummaryComponent"/>

@@ -29,23 +29,20 @@
 
 #endregion
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using ClearCanvas.Common;
-using ClearCanvas.Desktop;
-using ClearCanvas.Desktop.Validation;
 using ClearCanvas.Enterprise.Common;
-using {$CommonNS};
+using System.Runtime.Serialization;
+{$detectedNS}
 
-namespace {$componentNS}
+namespace {$CommonNS}{$Suffix}	
 {
-   
-    
-    public partial class {0}EditorComponent : ApplicationComponent
-    {
-        public void CustomConstructor()
+	[DataContract]
+	public partial class Delete{0}Request : DataContractBase
+	{
+		public Delete{0}Request(EntityRef Ref)
 		{
+			this.objRef = Ref;
+			CustomConstructor();
 		}
-    }
+        public EntityRef objRef;
+	}
 }

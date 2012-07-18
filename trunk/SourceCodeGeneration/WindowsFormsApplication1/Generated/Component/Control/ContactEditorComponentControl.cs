@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 
 // Copyright (c) 2010, ClearCanvas Inc.
 // All rights reserved.
@@ -30,22 +30,45 @@
 #endregion
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Windows.Forms;
+using ClearCanvas.Desktop.View.WinForms;
 using ClearCanvas.Common;
-using ClearCanvas.Desktop;
-using ClearCanvas.Desktop.Validation;
-using ClearCanvas.Enterprise.Common;
-using {$CommonNS};
-
-namespace {$componentNS}
+namespace ClearCanvas.Material.Client.View.WinForms
 {
-   
-    
-    public partial class {0}EditorComponent : ApplicationComponent
+    /// <summary>
+    /// Provides a Windows Forms user-interface for <see cref="ContactEditorComponent"/>.
+    /// </summary>
+    public partial class ContactEditorComponentControl : ApplicationComponentUserControl
     {
-        public void CustomConstructor()
-		{
-		}
+        private ContactEditorComponent _component;
+        
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public ContactEditorComponentControl(ContactEditorComponent component)
+            : base(component)
+        {
+            _component = component;
+            InitializeComponent();
+
+           
+
+           // _baseType.DataSource = _component.BaseTypeChoices;
+           // _baseType.DataBindings.Add("Value", _component, "BaseType", true, DataSourceUpdateMode.OnPropertyChanged);
+           // _baseType.Format += delegate(object sender, ListControlConvertEventArgs e) { e.Value = _component.FormatBaseTypeItem(e.ListItem); };
+
+           
+        }
+
+        private void _acceptButton_Click(object sender, EventArgs e)
+        {
+            _component.Accept();
+        }
+
+        private void _cancelButton_Click(object sender, EventArgs e)
+        {
+            _component.Cancel();
+        }
+       
     }
 }

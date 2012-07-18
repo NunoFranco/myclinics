@@ -202,6 +202,41 @@ namespace WindowsFormsApplication1
                     sw.Write(partialContent);
                 }
             }
+            var att = Attribute.GetCustomAttribute(this.GetType(), typeof(Component));
+            if (att != null)//generate type in selected combobox
+            {
+                string componentname = template.Replace(generatedText + ".cs", "");
+                string[] ControlFilesList = new string[] {  componentname + "Control.cs",componentname + "Control.Designer.cs", componentname + "View.cs", componentname + "Control.resx" };
+                foreach (var item in ControlFilesList)
+                {
+                    FileInfo control = new FileInfo(Path.Combine(Path.Combine(Path.Combine(templateFolder, Type), "Control"), item));
+                    string text = getFileContent(control.FullName);
+                    text = text.Replace("{0}", ObjectName);
+                    text = text.Replace(NS_NAME.componentNameSpance , ComponentNS );
+                    var Controldir = new DirectoryInfo(Path.Combine(GeneratedFilePath, "Control"));
+                    if (!Controldir.Exists)
+                    {
+                        Controldir.Create();
+                    }
+                    WriteFile(Path.Combine(GeneratedFilePath, "Control\\" + string.Format(item, ObjectName)), text);
+                }
+
+
+            }
+        }
+        string getFileContent(string fname)
+        {
+            using (StreamReader fr = new StreamReader(fname))
+            {
+                return fr.ReadToEnd();
+            }
+        }
+        void WriteFile(string fname, string content)
+        {
+            using (StreamWriter fw = new StreamWriter(fname))
+            {
+                fw.Write(content);
+            }
         }
         public FileInfo GetTemplate(string fname)
         {

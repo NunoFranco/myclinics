@@ -32,7 +32,6 @@
 using System;
 using System.Windows.Forms;
 using ClearCanvas.Desktop.View.WinForms;
-using {$CommonNS}.Billing.ServiecInterfaces;
 using ClearCanvas.Common;
 namespace {$componentNS}.View.WinForms
 {

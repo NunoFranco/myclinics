@@ -29,9 +29,9 @@
 
 #endregion
 
-namespace {$componentNS}.View.WinForms
+namespace ClearCanvas.Material.Client.View.WinForms
 {
-    partial class {0}EditorComponentControl
+    partial class ContactEditorComponentControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -59,19 +59,31 @@ namespace {$componentNS}.View.WinForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof({0}EditorComponentControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactEditorComponentControl));
            
             // 
-            // {0}EditorComponentControl
+            // ContactEditorComponentControl
             // 
             this.AccessibleDescription = null;
             this.AccessibleName = null;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = null;
-           
+            this.Controls.Add(this.chkIsRequired);
+            this.Controls.Add(this._comboCategory);
+            this.Controls.Add(this._comboUnit);
+            this.Controls.Add(this._totalPrice);
+            this.Controls.Add(this._itemTax);
+            this.Controls.Add(this._itemPrice);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this._xmlEditorPanel);
+            this.Controls.Add(this._name);
+            this.Controls.Add(this._id);
+            this.Controls.Add(this._baseType);
+            this.Controls.Add(this._cancelButton);
+            this.Controls.Add(this._acceptButton);
             this.Font = null;
-            this.Name = "{0}EditorComponentControl";
+            this.Name = "ContactEditorComponentControl";
             this.ResumeLayout(false);
             this.PerformLayout();
 
