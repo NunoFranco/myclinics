@@ -1,6 +1,6 @@
-namespace {$componentNS}.Admin.View.WinForms
+namespace ClearCanvas.Material.Client.Admin.View.WinForms
 {
-    partial class {0}SummaryComponentControl
+    partial class DoctorPrescriptionSummaryComponentControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,24 +28,24 @@ namespace {$componentNS}.Admin.View.WinForms
         /// </summary>
         private void InitializeComponent()
         {
-            this._{0}TableView = new ClearCanvas.Desktop.View.WinForms.TableView();
+            this._DoctorPrescriptionTableView = new ClearCanvas.Desktop.View.WinForms.TableView();
             this.SuspendLayout();
             // 
-            // _{0}TableView
+            // _DoctorPrescriptionTableView
             // 
-            this._{0}TableView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._{0}TableView.Location = new System.Drawing.Point(0, 0);
-            this._{0}TableView.Name = "_{0}TableView";
-            this._{0}TableView.ReadOnly = false;
-            this._{0}TableView.Size = new System.Drawing.Size(766, 423);
-            this._{0}TableView.TabIndex = 0;
-            this._{0}TableView.DoubleClick += new System.EventHandler(this._{0}TableView_ItemDoubleClicked);
-            this._{0}TableView.SelectionChanged += new System.EventHandler(this._{0}TableView_SelectionChanged);
+            this._DoctorPrescriptionTableView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._DoctorPrescriptionTableView.Location = new System.Drawing.Point(0, 0);
+            this._DoctorPrescriptionTableView.Name = "_DoctorPrescriptionTableView";
+            this._DoctorPrescriptionTableView.ReadOnly = false;
+            this._DoctorPrescriptionTableView.Size = new System.Drawing.Size(766, 423);
+            this._DoctorPrescriptionTableView.TabIndex = 0;
+            this._DoctorPrescriptionTableView.DoubleClick += new System.EventHandler(this._DoctorPrescriptionTableView_ItemDoubleClicked);
+            this._DoctorPrescriptionTableView.SelectionChanged += new System.EventHandler(this._DoctorPrescriptionTableView_SelectionChanged);
             // 
-            // {0}SummaryComponentControl
+            // DoctorPrescriptionSummaryComponentControl
             // 
-            this.Controls.Add(this._{0}TableView);
-            this.Name = "{0}SummaryComponentControl";
+            this.Controls.Add(this._DoctorPrescriptionTableView);
+            this.Name = "DoctorPrescriptionSummaryComponentControl";
             this.Size = new System.Drawing.Size(766, 423);
             this.ResumeLayout(false);
 
@@ -62,6 +62,6 @@ namespace {$componentNS}.Admin.View.WinForms
 		private ClearCanvas.Desktop.View.WinForms.ComboBoxField _category;
 		private System.Windows.Forms.Button _clearButton;
 		private System.Windows.Forms.Button _searchButton;
-        private ClearCanvas.Desktop.View.WinForms.TableView _{0}TableView;
+        private ClearCanvas.Desktop.View.WinForms.TableView _DoctorPrescriptionTableView;
     }
 }

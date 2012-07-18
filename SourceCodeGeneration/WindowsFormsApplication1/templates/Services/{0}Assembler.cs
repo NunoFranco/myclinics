@@ -38,7 +38,8 @@ using {$EntityNS};
 using {$CommonNS}{$Suffix};
 using System.Xml;
 using ClearCanvas.Enterprise.Core;
-
+using ClearCanvas.Ris.Application.Services;
+using ClearCanvas.Ris.Application.Common;
 namespace {$ServiceNS}{$Suffix}
 {
 

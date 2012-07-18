@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 
 // Copyright (c) 2010, ClearCanvas Inc.
 // All rights reserved.
@@ -30,22 +30,45 @@
 #endregion
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+
 using ClearCanvas.Common;
 using ClearCanvas.Desktop;
-using ClearCanvas.Desktop.Validation;
-using ClearCanvas.Enterprise.Common;
-using {$CommonNS};
+using ClearCanvas.Desktop.View.WinForms;
 
-namespace {$componentNS}
+
+namespace ClearCanvas.Material.Client.View.WinForms
 {
-   
-    
-    public partial class {0}EditorComponent : ApplicationComponent
+    /// <summary>
+    /// Provides a Windows Forms view onto <see cref="ContactSummaryComponent"/>
+    /// </summary>
+    [ExtensionOf(typeof(ContactSummaryComponentViewExtensionPoint))]
+    public class ContactSummaryComponentView : WinFormsView, IApplicationComponentView
     {
-        public void CustomConstructor()
-		{
-		}
+        private ContactSummaryComponent _component;
+        private ContactSummaryComponentControl _control;
+
+
+        #region IApplicationComponentView Members
+
+        public void SetComponent(IApplicationComponent component)
+        {
+            _component = (ContactSummaryComponent)component;
+        }
+
+        #endregion
+
+        public override object GuiElement
+        {
+            get
+            {
+                if (_control == null)
+                {
+                    _control = new ContactSummaryComponentControl(_component);
+                }
+                return _control;
+            }
+        }
     }
 }

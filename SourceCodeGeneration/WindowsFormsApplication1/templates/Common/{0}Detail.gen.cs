@@ -30,22 +30,36 @@
 #endregion
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using ClearCanvas.Common;
-using ClearCanvas.Desktop;
-using ClearCanvas.Desktop.Validation;
+using System.Text;
+using System.Runtime.Serialization;
+using ClearCanvas.Ris.Application.Common;
 using ClearCanvas.Enterprise.Common;
-using {$CommonNS};
+using System.Xml;
+{$detectedNS}
 
-namespace {$componentNS}
+namespace {$CommonNS}{$Suffix}
 {
-   
-    
-    public partial class {0}EditorComponent : ApplicationComponent
+    [DataContract]
+    public partial class {0}Detail : DataContractBase
     {
-        public void CustomConstructor()
+		public {0}Detail()
 		{
+			CustomConstructor();
 		}
+
+		public {0}Detail(EntityRef entityRef ,{1})
+        {
+            {2}
+			
+			CustomConstructor();
+        }
+		public EntityRef {0}Ref;
+        {3}
+		
+		public {0}Summary GetSummary()
+        {
+            return new {0}Summary(this.{0}Ref, {4});
+        }
     }
 }

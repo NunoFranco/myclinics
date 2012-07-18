@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
             content = content.Replace("{0}", ObjectName);
             content = content.Replace("{1}", GetDetailFields().GetConstructorParameterFields());
             content = content.Replace("{2}", GetDetailFields().SetConstructorParameterFields ());
-            content = content.Replace("{3}", GetDetailFields().GetDeclareFields());
+            content = content.Replace("{3}", GetDetailFields().GetContractDeclareFields());
             GeneratedContent = content.Replace("{4}", GetSummaryFields().GetContructorFields ());
            
             base.Generate();

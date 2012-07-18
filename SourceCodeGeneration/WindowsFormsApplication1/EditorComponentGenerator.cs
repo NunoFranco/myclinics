@@ -12,18 +12,18 @@ namespace WindowsFormsApplication1
     ///{3}:Declare Field List
     ///
     [Component]
-    public class SummaryComponentGenerator : GerneratorBase
+    public class EditorComponentGenerator : GerneratorBase
     {
-        public SummaryComponentGenerator(DataSet data)
+        public EditorComponentGenerator(DataSet data)
             : base(data)
         {
-            template = "{0}SummaryComponent.gen.cs";
+            template = "{0}EditorComponent.gen.cs";
         }
         public override void Generate()
         {
             string content = GetTemplateContent(template);
             GeneratedContent = content.Replace("{0}", ObjectName);
-            GeneratedContent = GeneratedContent.Replace("{1}", GetSummaryFields().GetSummarytableFields(ObjectName));
+            GeneratedContent = GeneratedContent.Replace("{1}",GetDetailFields().GetPresentationModelFields());     
             base.Generate();
         }
     }

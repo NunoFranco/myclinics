@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
         {
             string content = GetTemplateContent(template);
             content = content.Replace("{0}", ObjectName);
-            GeneratedContent = content.Replace("{1}", GetSummaryFields().GetDeclareFields ());
+            GeneratedContent = content.Replace("{1}", GetSummaryFields().GetContractDeclareFields ());
           
             base.Generate();
         }

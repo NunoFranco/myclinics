@@ -29,23 +29,40 @@
 
 #endregion
 
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using ClearCanvas.Common;
-using ClearCanvas.Desktop;
-using ClearCanvas.Desktop.Validation;
+using System.IO;
+using System.Text;
+using ClearCanvas.Common.Utilities;
 using ClearCanvas.Enterprise.Common;
-using {$CommonNS};
-
-namespace {$componentNS}
+using {$EntityNS};
+using {$CommonNS}{$Suffix};
+using System.Xml;
+using ClearCanvas.Enterprise.Core;
+using ClearCanvas.Ris.Application.Services;
+using ClearCanvas.Ris.Application.Common;
+namespace {$ServiceNS}{$Suffix}
 {
-   
-    
-    public partial class {0}EditorComponent : ApplicationComponent
+
+    public partial class {0}Assembler
     {
-        public void CustomConstructor()
+        public {0}Summary CreateSummary({0} obj)
+        {
+            return new {0}Summary(obj.GetRef(), {1});
+			
+        }
+
+        public {0}Detail CreateDetail({0} obj, IPersistenceContext context)
+        {
+            // write plan to string
+            return new {0}Detail(
+                obj.GetRef(),{2});
+				
+        }
+
+		public void Update{0}({0} obj, {0}Detail detail, IPersistenceContext context)
 		{
+			//loop through property and set value
+			{3}
 		}
     }
 }
