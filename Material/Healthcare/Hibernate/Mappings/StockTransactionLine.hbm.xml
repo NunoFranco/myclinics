@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Material.Healthcare" namespace="ClearCanvas.Material.Healthcare">
+  <class name="StockTransactionLine" proxy="StockTransactionLine" table="Material_StockTransactionDetail_">
+    <cache usage="nonstrict-read-write"/>
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+
+    <many-to-one name="Material" column="MaterialOID_" class="ClearCanvas.Healthcare.ProcedureType,ClearCanvas.Healthcare" not-null="true"/>
+    <property name="Amount" column="Amount_" type="double" not-null="true" />
+    <property name="InputPrice" column="InputPrice_" type="double" not-null="true" />
+    <property name="SalePrice" column="SalePrice_" type="double" not-null="false" />
+    <property name="InsurancePrice" column="InsurancePrice_" type="double" not-null="false" />
+    <property name="SoldAmount" column="SoldAmount_" type="double" not-null="true" />
+    <many-to-one name="UOM" column="UOM_" class="ClearCanvas.Healthcare.UOMEnum,ClearCanvas.Healthcare" not-null="true"/>
+    <many-to-one name="Transaction" column="TransactionOID_" class="StockTransaction" not-null="true"/>
+    <property name="ExpireDate" column="ExpireDate_" type="DateTime" not-null="false"/>
+    <property name="Tax" column="Tax_" type="double" />
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+    <many-to-one name="Clinic" class="ClearCanvas.Healthcare.Facility,ClearCanvas.Healthcare" column="ClinicOID_" not-null="false" fetch="join"/>
+  </class>
+</hibernate-mapping>

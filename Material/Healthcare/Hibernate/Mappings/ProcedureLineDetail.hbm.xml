@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Material.Healthcare" namespace="ClearCanvas.Material.Healthcare">
+  <class name="ProcedureLine" proxy="ProcedureLine" table="Material_ProcedureDetail_">
+    <cache usage="nonstrict-read-write"/>
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+    <many-to-one name="ParentProcedure" class="ClearCanvas.Healthcare.Procedure,ClearCanvas.Healthcare" column="ProcedureOID_" not-null="false"/>
+    <many-to-one name="StockTransactionsDetails" class="StockTransactionLine" column="StockTransactionDetailOID_" not-null="false"/>
+    <property name="Amount" column="Amount_" type="double" not-null="true" />
+    <property name="SalePrice" column="SalePrice_" type="double" not-null="true" />
+    <many-to-one name="UOM" column="UOM_" class="ClearCanvas.Healthcare.UOMEnum,ClearCanvas.Healthcare" not-null="true"/>
+    <property name="CreatedDate" column="CreatedDate_" type="DateTime" not-null="false"/>
+    <property name="Tax" column="Tax_" type="double" />
+    <property name="IsInsuranceSale" column="IsInsuranceSale_" type="Boolean" not-null="true"/>
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+  </class>
+</hibernate-mapping>

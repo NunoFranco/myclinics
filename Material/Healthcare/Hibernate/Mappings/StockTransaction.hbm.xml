@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Material.Healthcare" namespace="ClearCanvas.Material.Healthcare">
+  <class name="StockTransaction" proxy="StockTransaction" table="Material_StockTransaction_">
+    <cache usage="nonstrict-read-write"/>
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+
+    <property name="Code" column="Code_" type="String" length="100" not-null="true" unique="true"/>
+    <many-to-one name="Supplier" column="SupplierOID_" class="Contact"/>
+    <many-to-one name="InWarehouse" column="InWarehouseOID_" class="Warehouse"/>
+    <many-to-one name="OutWarehouse" column="OutWarehouseOID_" class="Warehouse"/>
+    <many-to-one name="EquipmentLot" column="MaterialLot_" class="MaterialLot"/>
+    <many-to-one name="Order" column="OrderOID_" class="ClearCanvas.Healthcare.Order,ClearCanvas.Healthcare"/>
+    <property name="Description" column="Description_" type="String" />
+    <property name="TransactionDate" column="TransactionDate_" type="DateTime" not-null="true"/>
+    <many-to-one name="User" column="UserOID_" class="ClearCanvas.Enterprise.Authentication.User,ClearCanvas.Enterprise.Authentication" not-null="true"/>
+    <many-to-one name="TransactionType" column="TransactionType_" class="StockTransactionTypeEnum" not-null="true"/>
+    <set name="Details" lazy="true" inverse="true" cascade="all-delete-orphan" access="nosetter.camelcase-underscore">
+      <key column="TransactionOID_"/>
+      <one-to-many class="StockTransactionLine"/>
+    </set>
+
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+    <many-to-one name="Clinic" class="ClearCanvas.Healthcare.Facility,ClearCanvas.Healthcare" column="ClinicOID_" not-null="false" fetch="join"/>
+  </class>
+</hibernate-mapping>
