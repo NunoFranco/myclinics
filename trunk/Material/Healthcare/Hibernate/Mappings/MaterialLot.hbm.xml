@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Material.Healthcare" namespace="ClearCanvas.Material.Healthcare">
+  <class name="MaterialLot" proxy="MaterialLot" table="Material_MaterialLot_">
+    <cache usage="nonstrict-read-write"/>
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+
+    <property name="Id" column="Id_" type="String" length="100" not-null="true" unique="true"/>
+    <property name="Description" column="Description" type="String" />
+    <many-to-one name="Supplier" class="Contact" column="SupplierOID_" not-null="false"/>
+    <property name="InputDate" column="InputDate_" type="DateTime" not-null="true"/>
+    <many-to-one name="Clinic" class="ClearCanvas.Healthcare.Facility,ClearCanvas.Healthcare" column="ClinicOID_" not-null="false" fetch="join"/>
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+    
+  </class>
+</hibernate-mapping>

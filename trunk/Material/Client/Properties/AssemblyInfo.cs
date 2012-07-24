@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("2.0.12729.37986")]
 [assembly: AssemblyFileVersion("2.0.12729.37986")]
 [assembly: ClearCanvas.Common.Plugin]
-[assembly: AssemblyTitle("ClearCanvas.Ris.Client.Material")]
+[assembly: AssemblyTitle("ClearCanvas.Material.Client")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyCopyright("Copyright (c) 2010")]
 [assembly: AssemblyTrademark("")]

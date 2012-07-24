@@ -7,13 +7,14 @@
     <ProjectGuid>{89DF567B-A0D1-456A-A28F-043FD57D7F9A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClearCanvas.Ris.Client.Material</RootNamespace>
-    <AssemblyName>ClearCanvas.Ris.Client.Material</AssemblyName>
+    <RootNamespace>ClearCanvas.Material.Client</RootNamespace>
+    <AssemblyName>ClearCanvas.Material.Client</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,10 +35,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactEditorComponent.cs" />
+    <Compile Include="ContactEditorComponent.gen.cs" />
+    <Compile Include="ContactSummaryComponent.gen.cs" />
+    <Compile Include="MaterialLotEditorComponent.cs" />
+    <Compile Include="MaterialLotEditorComponent.gen.cs" />
+    <Compile Include="MaterialLotSummaryComponent.gen.cs" />
+    <Compile Include="MedicineCounterEditorComponent.cs" />
+    <Compile Include="MedicineCounterEditorComponent.gen.cs" />
+    <Compile Include="MedicineCounterSummaryComponent.gen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SR.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -45,6 +61,9 @@
       <DependentUpon>SR.resx</DependentUpon>
     </Compile>
     <Compile Include="Tool1.cs" />
+    <Compile Include="WarehouseEditorComponent.cs" />
+    <Compile Include="WarehouseEditorComponent.gen.cs" />
+    <Compile Include="WarehouseSummaryComponent.gen.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SR.resx">
@@ -61,6 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icons\Tool1Small.png" />
+    <EmbeddedResource Include="SR.vi.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\ClearCanvas.Common.csproj">
@@ -70,6 +92,26 @@
     <ProjectReference Include="..\..\Desktop\ClearCanvas.Desktop.csproj">
       <Project>{26E9A01A-64B5-42C5-8252-FBB30DF9CEC7}</Project>
       <Name>ClearCanvas.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Enterprise\Common\ClearCanvas.Enterprise.Common.csproj">
+      <Project>{B5EBFFD7-6641-4932-91C9-4C4322B41868}</Project>
+      <Name>ClearCanvas.Enterprise.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Enterprise\Desktop\ClearCanvas.Enterprise.Desktop.csproj">
+      <Project>{CBD5EBD0-7AE9-4824-AE8C-4888983E1B5B}</Project>
+      <Name>ClearCanvas.Enterprise.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ris\Application\Common\ClearCanvas.Ris.Application.Common.csproj">
+      <Project>{09F49217-CD98-4773-8CFB-594F189EEE3B}</Project>
+      <Name>ClearCanvas.Ris.Application.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ris\Client\ClearCanvas.Ris.Client.csproj">
+      <Project>{F8E75C01-AB14-4DDE-ABEA-3EECC4957A1F}</Project>
+      <Name>ClearCanvas.Ris.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application\Common\ClearCanvas.Material.Application.Common.csproj">
+      <Project>{57788D36-60AF-49FF-8604-CE3D6790E8C2}</Project>
+      <Name>ClearCanvas.Material.Application.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
