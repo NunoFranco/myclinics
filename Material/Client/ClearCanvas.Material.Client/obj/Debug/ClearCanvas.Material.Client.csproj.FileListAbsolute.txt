@@ -1,0 +1,15 @@
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\obj\Debug\ResolveAssemblyReference.cache
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\obj\Debug\ClearCanvas.Material.Client.SR.resources
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\obj\Debug\ClearCanvas.Material.Client.csproj.GenerateResource.Cache
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\bin\Debug\ClearCanvas.Material.Client.dll
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\bin\Debug\ClearCanvas.Material.Client.pdb
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\bin\Debug\ClearCanvas.Common.dll
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\bin\Debug\ClearCanvas.Desktop.dll
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\bin\Debug\log4net.dll
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\bin\Debug\nunit.framework.dll
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\bin\Debug\ClearCanvas.Common.pdb
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\bin\Debug\ClearCanvas.Common.xml
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\bin\Debug\ClearCanvas.Desktop.pdb
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\bin\Debug\ClearCanvas.Desktop.xml
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\obj\Debug\ClearCanvas.Material.Client.dll
+E:\LongCh\CCSource-clone\Material\Client\ClearCanvas.Material.Client\obj\Debug\ClearCanvas.Material.Client.pdb
