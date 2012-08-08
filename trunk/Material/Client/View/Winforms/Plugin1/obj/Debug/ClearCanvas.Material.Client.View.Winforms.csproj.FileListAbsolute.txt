@@ -1,0 +1,10 @@
+E:\LongCh\CCSource-clone\Material\Client\View\Winforms\Plugin1\obj\Debug\ResolveAssemblyReference.cache
+E:\LongCh\CCSource-clone\Ris\Client\build\Debug\plugins\ClearCanvas.Material.Client.View.Winforms.dll
+E:\LongCh\CCSource-clone\Ris\Client\build\Debug\plugins\ClearCanvas.Material.Client.View.Winforms.pdb
+E:\LongCh\CCSource-clone\Material\Client\View\Winforms\Plugin1\obj\Debug\ClearCanvas.Material.Client.View.Winforms.dll
+E:\LongCh\CCSource-clone\Material\Client\View\Winforms\Plugin1\obj\Debug\ClearCanvas.Material.Client.View.Winforms.pdb
+E:\LongCh\CCSource-clone\Material\Client\View\Winforms\Plugin1\obj\Debug\ClearCanvas.Material.Client.View.Winforms.MedicineReturnComponentControl.resources
+E:\LongCh\CCSource-clone\Material\Client\View\Winforms\Plugin1\obj\Debug\ClearCanvas.Material.Client.View.Winforms.csproj.GenerateResource.Cache
+E:\LongCh\TestDevExpress\build\Debug\plugins\ClearCanvas.Material.Client.View.Winforms.dll
+E:\LongCh\TestDevExpress\build\Debug\plugins\ClearCanvas.Material.Client.View.Winforms.pdb
+E:\LongCh\CCSource-clone\Material\Client\View\Winforms\Plugin1\obj\Debug\ClearCanvas.Material.Client.View.Winforms.MedicineSoldOutNoOrderComponentControl.resources

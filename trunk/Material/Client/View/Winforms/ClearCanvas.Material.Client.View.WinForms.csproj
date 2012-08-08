@@ -1,0 +1,169 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36A4206C-5618-4ECA-A123-67D0C1252086}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClearCanvas.Material.Client.View.WinForms</RootNamespace>
+    <AssemblyName>ClearCanvas.Material.Client.View.WinForms</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContactEditorComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ContactEditorComponentControl.designer.cs">
+      <DependentUpon>ContactEditorComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContactEditorComponentView.cs" />
+    <Compile Include="ContactSummaryComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ContactSummaryComponentControl.designer.cs">
+      <DependentUpon>ContactSummaryComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContactSummaryComponentView.cs" />
+    <Compile Include="MaterialLotEditorComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MaterialLotEditorComponentControl.Designer.cs">
+      <DependentUpon>MaterialLotEditorComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialLotEditorComponentView.cs" />
+    <Compile Include="MaterialLotSummaryComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MaterialLotSummaryComponentControl.Designer.cs">
+      <DependentUpon>MaterialLotSummaryComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialLotSummaryComponentView.cs" />
+    <Compile Include="MedicineCounterEditorComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MedicineCounterEditorComponentControl.Designer.cs">
+      <DependentUpon>MedicineCounterEditorComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineCounterEditorComponentView.cs" />
+    <Compile Include="MedicineCounterSummaryComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MedicineCounterSummaryComponentControl.Designer.cs">
+      <DependentUpon>MedicineCounterSummaryComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineCounterSummaryComponentView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WarehouseEditorComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WarehouseEditorComponentControl.Designer.cs">
+      <DependentUpon>WarehouseEditorComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseEditorComponentView.cs" />
+    <Compile Include="WarehouseSummaryComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WarehouseSummaryComponentControl.Designer.cs">
+      <DependentUpon>WarehouseSummaryComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseSummaryComponentView.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common\ClearCanvas.Common.csproj">
+      <Project>{F6EAD428-E6CF-4DF6-B2F3-D33D532C5343}</Project>
+      <Name>ClearCanvas.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Desktop\ClearCanvas.Desktop.csproj">
+      <Project>{26E9A01A-64B5-42C5-8252-FBB30DF9CEC7}</Project>
+      <Name>ClearCanvas.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Desktop\View\WinForms\ClearCanvas.Desktop.View.WinForms.csproj">
+      <Project>{BB434EC3-A580-4744-A635-A2B4029C66DE}</Project>
+      <Name>ClearCanvas.Desktop.View.WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Enterprise\Common\ClearCanvas.Enterprise.Common.csproj">
+      <Project>{B5EBFFD7-6641-4932-91C9-4C4322B41868}</Project>
+      <Name>ClearCanvas.Enterprise.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Enterprise\Desktop\ClearCanvas.Enterprise.Desktop.csproj">
+      <Project>{CBD5EBD0-7AE9-4824-AE8C-4888983E1B5B}</Project>
+      <Name>ClearCanvas.Enterprise.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ClearCanvas.Material.Client.csproj">
+      <Project>{89DF567B-A0D1-456A-A28F-043FD57D7F9A}</Project>
+      <Name>ClearCanvas.Material.Client</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ContactEditorComponentControl.resx">
+      <DependentUpon>ContactEditorComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContactSummaryComponentControl.resx">
+      <DependentUpon>ContactSummaryComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialLotEditorComponentControl.resx">
+      <DependentUpon>MaterialLotEditorComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialLotSummaryComponentControl.resx">
+      <DependentUpon>MaterialLotSummaryComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineCounterEditorComponentControl.resx">
+      <DependentUpon>MedicineCounterEditorComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineCounterSummaryComponentControl.resx">
+      <DependentUpon>MedicineCounterSummaryComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WarehouseEditorComponentControl.resx">
+      <DependentUpon>WarehouseEditorComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WarehouseSummaryComponentControl.resx">
+      <DependentUpon>WarehouseSummaryComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
