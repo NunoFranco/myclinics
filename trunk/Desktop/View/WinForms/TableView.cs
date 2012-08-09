@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (c) 2010, ClearCanvas Inc.
+// Copyright (c) 2009, ClearCanvas Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification, 
@@ -39,6 +39,11 @@ using ClearCanvas.Common;
 using ClearCanvas.Common.Utilities;
 using ClearCanvas.Desktop.Actions;
 using ClearCanvas.Desktop.Tables;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using System.Reflection;
 
 namespace ClearCanvas.Desktop.View.WinForms
 {
@@ -54,7 +59,7 @@ namespace ClearCanvas.Desktop.View.WinForms
         private ITable _table;
         private bool _multiLine;
 
-    	private bool _smartColumnSizing = false;
+        private bool _smartColumnSizing = false;
 
         private bool _delaySelectionChangeNotification = true; // see bug 386
         private bool _surpressSelectionChangedEvent = false;
@@ -64,22 +69,22 @@ namespace ClearCanvas.Desktop.View.WinForms
         private const int CELL_SUBROW_HEIGHT = 18;
         private readonly int _rowHeight = 0;
 
-    	private ISelection _selectionBeforeSort;
+        private ISelection _selectionBeforeSort;
 
-		public TableView()
+        public TableView()
         {
             InitializeComponent();
 
             // if we allow the framework to generate columns, there seems to be a bug with 
             // setting the minimum column width > 100 pixels
             // therefore, turn off the auto-generate and create the columns ourselves
-            _dataGridView.AutoGenerateColumns = false;
+            //_view.AutoGenerateColumns = false;
 
-            _rowHeight = this.DataGridView.RowTemplate.Height;
-            this.DataGridView.RowPrePaint += SetCustomBackground;
-            this.DataGridView.RowPostPaint += DisplayCellSubRows;
-            this.DataGridView.RowPostPaint += OutlineCell;
-            this.DataGridView.RowPostPaint += SetLinkColor;
+            //_rowHeight = this.DataGridView.RowHeight;
+            //this.DataGridView.RowPrePaint += SetCustomBackground;
+            //this.DataGridView.RowPostPaint += DisplayCellSubRows;
+            //this.DataGridView.RowPostPaint += OutlineCell;
+            //this.DataGridView.RowPostPaint += SetLinkColor;
         }
 
         #region Design Time properties and Events
@@ -112,54 +117,55 @@ namespace ClearCanvas.Desktop.View.WinForms
         [DefaultValue(true)]
         public bool ReadOnly
         {
-            get { return _dataGridView.ReadOnly; }
-            set { _dataGridView.ReadOnly = value; }
+            get { return _view.OptionsBehavior.ReadOnly; }
+            set { _view.OptionsBehavior.ReadOnly = value; }
         }
 
         [DefaultValue(true)]
         public bool MultiSelect
         {
-            get { return _dataGridView.MultiSelect; }
-            set { _dataGridView.MultiSelect = value; }
+            get { return _view.OptionsSelection.MultiSelect; }
+            set { _view.OptionsSelection.MultiSelect = value; }
         }
 
-		/// <summary>
-		/// Gets or sets a value indicating the automatic column sizing mode.
-		/// </summary>
-		/// <remarks>
-		/// Setting this property disables the <see cref="SmartColumnSizing"/> algorithm.
-		/// </remarks>
-		[DefaultValue(DataGridViewAutoSizeColumnsMode.Fill)]
-		public DataGridViewAutoSizeColumnsMode AutoSizeColumnsMode
-    	{
-			get { return _dataGridView.AutoSizeColumnsMode; }
-			set
-			{
-				this.SmartColumnSizing = false;
-				_dataGridView.AutoSizeColumnsMode = value;
-			}
-    	}
+        ///// <summary>
+        ///// Gets or sets a value indicating the automatic column sizing mode.
+        ///// </summary>
+        ///// <remarks>
+        ///// Setting this property disables the <see cref="SmartColumnSizing"/> algorithm.
+        ///// </remarks>
+        //[DefaultValue(DataGridViewAutoSizeColumnsMode.Fill)]
+        //public DataGridViewAutoSizeColumnsMode AutoSizeColumnsMode
+        //{
+        //    get { return _view.op.AutoSizeColumnsMode; }
+        //    set
+        //    {
 
-		/// <summary>
-		/// Gets or sets a value enabling the smart column sizing algorithm.
-		/// </summary>
-		/// <remarks>
-		/// This algorithm overrides the <see cref="AutoSizeColumnsMode"/> property.
-		/// </remarks>
-		[DefaultValue(false)]
-		[Description("Enables or disables the smart column sizing algorithm. Enabling this algorithm overrides the AutoSizeColumnsMode property.")]
-    	public bool SmartColumnSizing
-    	{
-			get { return _smartColumnSizing; }
-			set
-			{
-				_smartColumnSizing = value;
-				if (_smartColumnSizing)
-					_dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-				else
-					this.ResetSmartColumnSizing();
-			}
-    	}
+        //        this.SmartColumnSizing = false;
+        //        _view.AutoSizeColumnsMode = value;
+        //    }
+        //}
+
+        /// <summary>
+        /// Gets or sets a value enabling the smart column sizing algorithm.
+        /// </summary>
+        /// <remarks>
+        /// This algorithm overrides the <see cref="AutoSizeColumnsMode"/> property.
+        /// </remarks>
+        [DefaultValue(false)]
+        [Description("Enables or disables the smart column sizing algorithm. Enabling this algorithm overrides the AutoSizeColumnsMode property.")]
+        public bool SmartColumnSizing
+        {
+            get { return _smartColumnSizing; }
+            set
+            {
+                _smartColumnSizing = value;
+                if (_smartColumnSizing)
+                    _view.OptionsView.ColumnAutoWidth = true;
+                else
+                    this.ResetSmartColumnSizing();
+            }
+        }
 
         [DefaultValue(false)]
         [Description("Enables or disables multi-line rows.  If enabled, text longer than the column width is wrapped and the row is auto-sized. If disabled, a single line of truncated text is followed by an ellipsis")]
@@ -171,13 +177,13 @@ namespace ClearCanvas.Desktop.View.WinForms
                 _multiLine = value;
                 if (_multiLine)
                 {
-                    this._dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    this._dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                    //this._view.OptionsView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    this._view.OptionsView.RowAutoHeight = true;
                 }
                 else
                 {
-                    this._dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
-                    this._dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+                    //this._view.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
+                    //this._view.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
                 }
             }
         }
@@ -189,15 +195,22 @@ namespace ClearCanvas.Desktop.View.WinForms
             get { return ToolStripItemDisplayStyle.Image; }
             set
             {
-            	// this is not a settable property anymore, but this is here for backward compile-time compatability
+                // this is not a settable property anymore, but this is here for backward compile-time compatability
             }
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int FirstDisplayedScrollingRowIndex
         {
-            get { return _dataGridView.FirstDisplayedScrollingRowIndex; }
-            set { _dataGridView.FirstDisplayedScrollingRowIndex = value; }
+            get {
+                int last = 0, First = _view.TopRowIndex;
+                if (_view.RowCount == 0)
+                    return -1;
+                while (_view.IsRowVisible(_view.GetVisibleRowHandle(last)) == DevExpress.XtraGrid.Views.Grid.RowVisibleState.Hidden)
+                    last++;
+                return last; 
+            }
+            set { _view.FocusedRowHandle  = value; }
         }
 
         [DefaultValue(true)]
@@ -217,8 +230,8 @@ namespace ClearCanvas.Desktop.View.WinForms
         [DefaultValue(true)]
         public bool ShowColumnHeading
         {
-            get { return _dataGridView.ColumnHeadersVisible; }
-            set { _dataGridView.ColumnHeadersVisible = value; }
+            get { return _view.OptionsView.ShowColumnHeaders; }
+            set { _view.OptionsView.ShowColumnHeaders = value; }
         }
 
         public event EventHandler SelectionChanged
@@ -248,11 +261,11 @@ namespace ClearCanvas.Desktop.View.WinForms
         public RightToLeft ToolStripRightToLeft
         {
             get { return RightToLeft.No; }
-			set
-			{
-				// this is not a settable property anymore, but this is here for backward compile-time compatability
-			}
-		}
+            set
+            {
+                // this is not a settable property anymore, but this is here for backward compile-time compatability
+            }
+        }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public bool SuppressSelectionChangedEvent
@@ -300,55 +313,55 @@ namespace ClearCanvas.Desktop.View.WinForms
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ITable Table
         {
-        	get { return _table; }
-        	set
-        	{
-        		if (this.SmartColumnSizing)
-        		{
-        			this.PerformSmartColumnSizing(() => SetTable(value));
-        		}
-        		else
-        		{
-        			SetTable(value);
-        		}
-        	}
+            get { return _table; }
+            set
+            {
+                if (this.SmartColumnSizing)
+                {
+                    this.PerformSmartColumnSizing(() => SetTable(value));
+                }
+                else
+                {
+                    SetTable(value);
+                }
+            }
         }
 
-    	private void SetTable(ITable value)
-    	{
-    		UnsubscribeFromOldTable();
+        private void SetTable(ITable value)
+        {
+            UnsubscribeFromOldTable();
 
-    		_table = value;
+            _table = value;
 
-    		// by setting the datasource to null here, we eliminate the SelectionChanged events that
-    		// would get fired during the call to InitColumns()
-    		_dataGridView.DataSource = null;
+            // by setting the datasource to null here, we eliminate the SelectionChanged events that
+            // would get fired during the call to InitColumns()
+            _view.GridControl.DataSource = null;
 
-    		InitColumns();
+            InitColumns();
 
-    		if (_table != null)
-    		{
-    			// Set a cell padding to provide space for the top of the focus 
-    			// rectangle and for the content that spans multiple columns. 
-    			var newPadding = new Padding(0, 1, 0,
-    			                             CELL_SUBROW_HEIGHT*(_table.CellRowCount - 1));
-    			this.DataGridView.RowTemplate.DefaultCellStyle.Padding = newPadding;
+            if (_table != null)
+            {
+                // Set a cell padding to provide space for the top of the focus 
+                // rectangle and for the content that spans multiple columns. 
+                var newPadding = new Padding(0, 1, 0,
+                                             CELL_SUBROW_HEIGHT * (_table.CellRowCount - 1));
+                //this.DataGridView.RowTemplate.DefaultCellStyle.Padding = newPadding;
 
-    			// Set the row height to accommodate the content that 
-    			// spans multiple columns.
-    			this.DataGridView.RowTemplate.Height = _rowHeight + CELL_SUBROW_HEIGHT*(_table.CellRowCount - 1);
+                // Set the row height to accommodate the content that 
+                // spans multiple columns.
+                //this.DataGridView.RowTemplate.Height = _rowHeight + CELL_SUBROW_HEIGHT * (_table.CellRowCount - 1);
 
-    			// DataSource must be set after RowTemplate in order for changes to take effect
-    			_dataGridView.DataSource = new TableAdapter(_table);
-    			_dataGridView.ColumnHeaderMouseClick += _dataGridView_ColumnHeaderMouseClick;
+                // DataSource must be set after RowTemplate in order for changes to take effect
+                _view.GridControl.DataSource = new TableAdapter(_table);
+                _view.Click -= _view_Click;
 
-    			_table.BeforeSorted += _table_BeforeSortedEvent;
-    			_table.Sorted += _table_SortedEvent;
-    		}
+                _table.BeforeSorted += _table_BeforeSortedEvent;
+                _table.Sorted += _table_SortedEvent;
+            }
 
-    		InitializeSortButton();
-    		IntializeFilter();
-    	}
+            InitializeSortButton();
+            IntializeFilter();
+        }
 
         /// <summary>
         /// Gets/sets the current selection
@@ -371,22 +384,31 @@ namespace ClearCanvas.Desktop.View.WinForms
                 if (!existingSelection.Equals(newSelection))
                 {
                     // de-select any rows that should not be selected
-                    foreach (DataGridViewRow row in _dataGridView.SelectedRows)
+                    for (int i = 0; i < _view.GetSelectedRows().Length; i++)
                     {
+                        int Index = _view.GetSelectedRows()[i];
+                        var row = _view.GetRow(Index);
                         if (!CollectionUtils.Contains(newSelection.Items,
-							item => Equals(item, row.DataBoundItem)))
+                            item => Equals(item, row)))
                         {
-                            row.Selected = false;
+                            _view.UnselectRow(Index);
                         }
                     }
 
                     // select any rows that should be selected
                     foreach (var item in newSelection.Items)
                     {
-                        var row = CollectionUtils.SelectFirst(_dataGridView.Rows,
-							(DataGridViewRow r) => Equals(item, r.DataBoundItem));
-                        if (row != null)
-                            row.Selected = true;
+                        int row = -1;
+                        for (int i = 0; i < _view.RowCount; i++)
+                        {
+                            if (Equals(item, _view.GetRow(i)))
+                            {
+                                row = i;
+                                break;
+                            }
+                        }
+                        if (row != -1)
+                            _view.SelectRow(row);
                     }
 
                     ForceSelectionDisplay();
@@ -395,7 +417,16 @@ namespace ClearCanvas.Desktop.View.WinForms
                 }
             }
         }
+        GridViewInfo GetGridViewInfo(GridView view)
+        {
 
+            FieldInfo fi;
+
+            fi = typeof(GridView).GetField("fViewInfo", BindingFlags.NonPublic | BindingFlags.Instance);
+
+            return fi.GetValue(view) as GridViewInfo;
+
+        }
         /// <summary>
         /// Whenever the table is refreshed/modified by a component it tends to jump the DataGridView display
         /// to the top of the list, this isn't desirable. The following method forces the given selection to
@@ -404,24 +435,26 @@ namespace ClearCanvas.Desktop.View.WinForms
         private void ForceSelectionDisplay()
         {
             // check if ALL the selected entries are not visible to the user
-            if (CollectionUtils.TrueForAll(_dataGridView.SelectedRows, (DataGridViewRow row) => !row.Displayed)
-				&& _table.Items.Count != 0)
+            if (CollectionUtils.TrueForAll(_view.GetSelectedRows(), (int row) => (_view.GetVisibleIndex(row) != -1))
+                && _table.Items.Count != 0)
             {
                 // create an array to capture the indicies of the selection collection (lol)
                 // indicies needed for index position calculation of viewable index
-                var selectedRows = new int[_dataGridView.SelectedRows.Count];
+                var selectedRows = new int[_view.GetSelectedRows().Length];
                 var i = 0;
-                foreach (DataGridViewRow row in _dataGridView.SelectedRows)
+                for (int row = 0; row < _view.GetSelectedRows().Length; row++)
                 {
-                    selectedRows[i] = row.Index;
+                    selectedRows[i] = _view.GetSelectedRows()[row];
                     i++;
                 }
 
                 // create variables for the index of the last row and the number of rows displayable
                 // by the control without scrolling
                 // row differential then becomes the index in which the all the last displayable rows starts at
-                var lastRow = _dataGridView.Rows.GetLastRow(new DataGridViewElementStates());
-                var displayedRows = _dataGridView.DisplayedRowCount(false) - 1;
+                GridViewInfo info = GetGridViewInfo(_view);
+
+                var lastRow = _view.RowCount;
+                var displayedRows = info.RowsInfo.Count - 1;
                 var rowDifferential = lastRow - displayedRows; // calculate the differential 
 
                 // pre-existing tables
@@ -456,138 +489,138 @@ namespace ClearCanvas.Desktop.View.WinForms
         /// </summary>
         public event KeyEventHandler DataGridKeyDown
         {
-            add { _dataGridView.KeyDown += value; }
-            remove { _dataGridView.KeyDown -= value; }
+            add { _view.KeyDown += value; }
+            remove { _view.KeyDown -= value; }
         }
 
-		/// <summary>
-		/// Begins editing the specified column in the first selected row.
-		/// </summary>
-		/// <param name="column">Zero-based column index of column to edit.</param>
-		/// <param name="selectAll"></param>
-		public bool BeginEdit(int column, bool selectAll)
-		{
-			var firstSelRow = (DataGridViewRow)CollectionUtils.FirstElement(_dataGridView.SelectedRows);
-			if (firstSelRow != null)
-			{
-				var rowIndex = firstSelRow.Index;
+        /// <summary>
+        /// Begins editing the specified column in the first selected row.
+        /// </summary>
+        /// <param name="column">Zero-based column index of column to edit.</param>
+        /// <param name="selectAll"></param>
+        public bool BeginEdit(int column, bool selectAll)
+        {
+            //var firstSelRow = (DataGridViewRow)CollectionUtils.FirstElement(_view.SelectedRows);
+            //if (firstSelRow != null)
+            //{
+            //    var rowIndex = firstSelRow.Index;
 
-				_dataGridView.CurrentCell = _dataGridView[column, rowIndex];
+            //    _view.CurrentCell = _view[column, rowIndex];
 
-				return _dataGridView.BeginEdit(selectAll);
-			}
-			return false;
-		}
+            //    return _view.BeginEdit(selectAll);
+            //}
+            return false;
+        }
 
-		/// <summary>
-		/// Begins editing the specified column in the first selected row.
-		/// </summary>
-		/// <param name="column"></param>
-		/// <param name="selectAll"></param>
-		/// <returns></returns>
-		public bool BeginEdit(ITableColumn column, bool selectAll)
-		{
-			Platform.CheckForNullReference(column, "column");
-			var colIndex = _table.Columns.IndexOf(column);
-			if(colIndex < 0)
-				throw new ArgumentException("Specified column does not exist in this table.");
+        /// <summary>
+        /// Begins editing the specified column in the first selected row.
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="selectAll"></param>
+        /// <returns></returns>
+        public bool BeginEdit(ITableColumn column, bool selectAll)
+        {
+            Platform.CheckForNullReference(column, "column");
+            var colIndex = _table.Columns.IndexOf(column);
+            if (colIndex < 0)
+                throw new ArgumentException("Specified column does not exist in this table.");
 
-			return BeginEdit(colIndex, selectAll);
-		}
+            return BeginEdit(colIndex, selectAll);
+        }
 
 
         #endregion
 
-		#region Smart Column Sizing
+        #region Smart Column Sizing
 
-    	private delegate void BeforeSizingOperationDelegate();
-		private Dictionary<string, int> _manualColumnWidths = null;
-		private bool _isInternalColumnWidthChange = false;
+        private delegate void BeforeSizingOperationDelegate();
+        private Dictionary<string, int> _manualColumnWidths = null;
+        private bool _isInternalColumnWidthChange = false;
 
-    	private void ResetSmartColumnSizing()
-    	{
-    		_manualColumnWidths = null;
-    		_isInternalColumnWidthChange = false;
-    		_smartColumnSizing = false;
-    	}
+        private void ResetSmartColumnSizing()
+        {
+            _manualColumnWidths = null;
+            _isInternalColumnWidthChange = false;
+            _smartColumnSizing = false;
+        }
 
-		private void PerformSmartColumnSizing(BeforeSizingOperationDelegate beforeSizingOperation)
-    	{
-    		_isInternalColumnWidthChange = true;
-    		_dataGridView.AutoSizeColumnsMode = (_manualColumnWidths == null) ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.None;
-    		this.SuspendLayout();
+        private void PerformSmartColumnSizing(BeforeSizingOperationDelegate beforeSizingOperation)
+        {
+            _isInternalColumnWidthChange = true;
+            //_view.AutoSizeColumnsMode = (_manualColumnWidths == null) ? DataGridViewAutoSizeColumnsMode.Fill : DataGridViewAutoSizeColumnsMode.None;
+            this.SuspendLayout();
 
-    		try
-    		{
-    			if (beforeSizingOperation != null)
-    				beforeSizingOperation.Invoke();
+            try
+            {
+                if (beforeSizingOperation != null)
+                    beforeSizingOperation.Invoke();
 
-    			if (_manualColumnWidths != null)
-    			{
-    				int totalColumnWidth = 0;
-    				foreach (DataGridViewColumn column in _dataGridView.Columns)
-    					totalColumnWidth += column.Visible ? GetManualColumnWidth(column) : 0;
+                if (_manualColumnWidths != null)
+                {
+                    int totalColumnWidth = 0;
+                    foreach (DataGridViewColumn column in _view.Columns)
+                        totalColumnWidth += column.Visible ? GetManualColumnWidth(column) : 0;
 
-    				float clientAreaWidth = _dataGridView.ClientSize.Width;
-    				VScrollBar scrollBar = (VScrollBar) CollectionUtils.SelectFirst(_dataGridView.Controls, c => c is VScrollBar);
-    				if (scrollBar != null && scrollBar.Visible)
-    					clientAreaWidth -= scrollBar.Width;
+                    float clientAreaWidth = _view.GridControl.ClientSize .Width;
+                    VScrollBar scrollBar = (VScrollBar)CollectionUtils.SelectFirst(_view.GridControl.Controls, c => c is VScrollBar);
+                    if (scrollBar != null && scrollBar.Visible)
+                        clientAreaWidth -= scrollBar.Width;
 
-    				float widthMultiplier = 1;
+                    float widthMultiplier = 1;
 
-    				if (totalColumnWidth < clientAreaWidth)
-    					widthMultiplier = (clientAreaWidth)/totalColumnWidth;
+                    if (totalColumnWidth < clientAreaWidth)
+                        widthMultiplier = (clientAreaWidth) / totalColumnWidth;
 
-    				foreach (DataGridViewColumn column in _dataGridView.Columns)
-    					column.Width = (int) (GetManualColumnWidth(column)*widthMultiplier);
-    			}
-    		}
-    		finally
-    		{
-    			this.ResumeLayout(true);
-    			_dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-    			_isInternalColumnWidthChange = false;
-    		}
-    	}
+                    foreach (DataGridViewColumn column in _view.Columns)
+                        column.Width = (int)(GetManualColumnWidth(column) * widthMultiplier);
+                }
+            }
+            finally
+            {
+                this.ResumeLayout(true);
+                _view.OptionsView.ColumnAutoWidth  = false ;
+                _isInternalColumnWidthChange = false;
+            }
+        }
 
-    	private int GetManualColumnWidth(DataGridViewColumn column)
-    	{
-    		if (!_manualColumnWidths.ContainsKey(column.Name))
-    			return column.Width;
-    		return _manualColumnWidths[column.Name];
-    	}
+        private int GetManualColumnWidth(DataGridViewColumn column)
+        {
+            if (!_manualColumnWidths.ContainsKey(column.Name))
+                return column.Width;
+            return _manualColumnWidths[column.Name];
+        }
 
-    	protected override void OnSizeChanged(EventArgs e)
-    	{
-    		base.OnSizeChanged(e);
-    		if (this.SmartColumnSizing)
-    			this.PerformSmartColumnSizing(null);
-    	}
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            if (this.SmartColumnSizing)
+                this.PerformSmartColumnSizing(null);
+        }
 
-    	protected override void OnLoad(EventArgs e)
-    	{
-    		base.OnLoad(e);
-    		if (this.SmartColumnSizing)
-    			this.PerformSmartColumnSizing(null);
-    	}
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            if (this.SmartColumnSizing)
+                this.PerformSmartColumnSizing(null);
+        }
 
-    	private void DataGridView_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
-    	{
-    		if (this.SmartColumnSizing)
-    		{
-    			if (!_isInternalColumnWidthChange)
-    			{
-    				if (_manualColumnWidths == null)
-    					_manualColumnWidths = new Dictionary<string, int>();
-    				foreach (DataGridViewColumn column in _dataGridView.Columns)
-    					_manualColumnWidths[column.Name] = column.Width;
-    			}
-    		}
-    	}
+        private void DataGridView_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            if (this.SmartColumnSizing)
+            {
+                if (!_isInternalColumnWidthChange)
+                {
+                    if (_manualColumnWidths == null)
+                        _manualColumnWidths = new Dictionary<string, int>();
+                    foreach (DataGridViewColumn column in _view.Columns)
+                        _manualColumnWidths[column.Name] = column.Width;
+                }
+            }
+        }
 
-		#endregion
+        #endregion
 
-		protected ToolStrip ToolStrip
+        protected ToolStrip ToolStrip
         {
             get { return _toolStrip; }
         }
@@ -618,14 +651,15 @@ namespace ClearCanvas.Desktop.View.WinForms
         private Selection GetSelectionHelper()
         {
             return new Selection(
-                CollectionUtils.Map(_dataGridView.SelectedRows,
-                                    (DataGridViewRow row) => row.DataBoundItem));
+                CollectionUtils.Map(_view.GetSelectedRows(),
+                                    (int row) => _view.GetRow(row)));
         }
 
         private void InitColumns()
         {
             // clear the old columns
-            _dataGridView.Columns.Clear();
+            _view.Columns.Clear();
+
 
             if (_table != null)
             {
@@ -633,52 +667,49 @@ namespace ClearCanvas.Desktop.View.WinForms
                 foreach (ITableColumn col in _table.Columns)
                 {
                     // this is ugly but somebody's gotta do it
-                    DataGridViewColumn dgcol;
+                    GridColumn dgcol = _view.Columns.AddVisible(col.Name ,col.Name );
                     if (col.ColumnType == typeof(bool))
-                        dgcol = new DataGridViewCheckBoxColumn();
+                    {
+                        var checkBox = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+                        dgcol.ColumnEdit = checkBox;
+                    }
                     else if (col.ColumnType == typeof(Image) || col.ColumnType == typeof(IconSet))
                     {
-                        dgcol = new DataGridViewImageColumn();
-
-                        dgcol.SortMode = DataGridViewColumnSortMode.Automatic;
-
-                        // Set the default to display nothing if not icons are provided.
-                        // Otherwise WinForms will by default display an ugly icon with 'x'
-                        dgcol.DefaultCellStyle.NullValue = null;
+                        var image = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
+                        image.AllowNullInput = DefaultBoolean.True;
+                        dgcol.ColumnEdit = image;
                     }
                     else if (col.HasClickableLink)
                     {
-                        dgcol = new DataGridViewLinkColumn();
-                        var linkColumn = (DataGridViewLinkColumn)dgcol;
-                        linkColumn.LinkBehavior = LinkBehavior.SystemDefault;
-                        linkColumn.TrackVisitedState = false;
-                        linkColumn.SortMode = DataGridViewColumnSortMode.Automatic;
+                        var link = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+                        dgcol.ColumnEdit = link;
+
                     }
                     else
                     {
                         // assume any other type of column will be displayed as text
-						// if it provides a custom editor, then we need to use a sub-class of the text box column
-                        dgcol = (col.GetCellEditor() != null) ? 
-							(DataGridViewColumn) new CustomEditableTableViewColumn(_table, col) : new DataGridViewTextBoxColumn();
+                        // if it provides a custom editor, then we need to use a sub-class of the text box column
+                        var text = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+                        dgcol.ColumnEdit = text;
                     }
 
                     // initialize the necessary properties
                     dgcol.Name = col.Name;
-                    dgcol.HeaderText = col.Name;
-                    dgcol.DataPropertyName = col.Name;
-                    dgcol.ReadOnly = col.ReadOnly;
-                    dgcol.MinimumWidth = (int)(col.WidthFactor * _table.BaseColumnWidthChars * fontSize);
-                    dgcol.FillWeight = col.WidthFactor;
-                    dgcol.Visible = col.Visible;
+                    //dgcol.ColumnEditName = col.Name;
+                    dgcol.ColumnEdit.ReadOnly = col.ReadOnly;
+                    //dgcol.Width = (int)(col.WidthFactor * _table.BaseColumnWidthChars * fontSize);
+                    //dgcol.wei = col.WidthFactor;
+                    //dgcol.Visible = col.Visible;
 
                     // Associate the ITableColumn with the DataGridViewColumn
                     dgcol.Tag = col;
 
                     col.VisibleChanged += OnColumnVisibilityChanged;
+                    
 
-                    _dataGridView.Columns.Add(dgcol);
+                    //_view.Columns.Add(dgcol);
                 }
-            	_table.Columns.ItemsChanged += OnColumnsChanged;
+                _table.Columns.ItemsChanged += OnColumnsChanged;
             }
         }
 
@@ -689,17 +720,17 @@ namespace ClearCanvas.Desktop.View.WinForms
                 foreach (ITableColumn column in _table.Columns)
                     column.VisibleChanged -= OnColumnVisibilityChanged;
 
-				_dataGridView.ColumnHeaderMouseClick -= _dataGridView_ColumnHeaderMouseClick;
-				_table.Columns.ItemsChanged -= OnColumnsChanged;
-				_table.BeforeSorted -= _table_BeforeSortedEvent;
-				_table.Sorted -= _table_SortedEvent;
+                _view.Click -= _view_Click;
+                _table.Columns.ItemsChanged -= OnColumnsChanged;
+                _table.BeforeSorted -= _table_BeforeSortedEvent;
+                _table.Sorted -= _table_SortedEvent;
             }
         }
 
-    	private void OnColumnsChanged(object sender, ItemChangedEventArgs e)
-    	{
-    		this.Table = this.Table;
-    	}
+        private void OnColumnsChanged(object sender, ItemChangedEventArgs e)
+        {
+            this.Table = this.Table;
+        }
 
         private void OnColumnVisibilityChanged(object sender, EventArgs e)
         {
@@ -715,9 +746,9 @@ namespace ClearCanvas.Desktop.View.WinForms
                 dgcolumn.Visible = column.Visible;
         }
 
-        private DataGridViewColumn FindDataGridViewColumn(ITableColumn column)
+        private GridColumn FindDataGridViewColumn(ITableColumn column)
         {
-            foreach (DataGridViewColumn dgcolumn in _dataGridView.Columns)
+            foreach (GridColumn dgcolumn in _view.Columns)
             {
                 if (dgcolumn.Tag == column)
                     return dgcolumn;
@@ -783,121 +814,122 @@ namespace ClearCanvas.Desktop.View.WinForms
         }
 
         // Paints the content that spans multiple columns and the focus rectangle.
-        private void DisplayCellSubRows(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            var rowBounds = GetAdjustedRowBounds(e.RowBounds);
+        //private void DisplayCellSubRows(object sender, DataGridViewRowPostPaintEventArgs e)
+        //{
+        //    var rowBounds = GetAdjustedRowBounds(e.RowBounds);
 
-            SolidBrush forebrush = null;
-            try
-            {
-                // Determine the foreground color.
-                if ((e.State & DataGridViewElementStates.Selected) ==
-                    DataGridViewElementStates.Selected)
-                {
-                    forebrush = new SolidBrush(e.InheritedRowStyle.SelectionForeColor);
-                }
-                else
-                {
-                    forebrush = new SolidBrush(e.InheritedRowStyle.ForeColor);
-                }
+        //    SolidBrush forebrush = null;
+        //    try
+        //    {
+        //        // Determine the foreground color.
+        //        if ((e.State & DataGridViewElementStates.Selected) ==
+        //            DataGridViewElementStates.Selected)
+        //        {
+        //            forebrush = new SolidBrush(e.InheritedRowStyle.SelectionForeColor);
+        //        }
+        //        else
+        //        {
+        //            forebrush = new SolidBrush(e.InheritedRowStyle.ForeColor);
+        //        }
 
-                // Store text for each subrow
-                var sb = new StringBuilder[_table.CellRowCount];
-                for (var i = 0; i < _table.CellRowCount; i++)
-                {
-                    sb[i] = new StringBuilder();
-                }
+        //        // Store text for each subrow
+        //        var sb = new StringBuilder[_table.CellRowCount];
+        //        for (var i = 0; i < _table.CellRowCount; i++)
+        //        {
+        //            sb[i] = new StringBuilder();
+        //        }
 
-                for (var i = 0; i < _table.Columns.Count; i++)
-                {
-                    var col = _table.Columns[i] as ITableColumn;
-                    if (col != null && col.CellRow > 0)
-                    {
-                        var row = this.DataGridView.Rows[e.RowIndex];
-                        var recipe = row.Index != -1 ? row.Cells[i].Value : null;
+        //        for (var i = 0; i < _table.Columns.Count; i++)
+        //        {
+        //            var col = _table.Columns[i] as ITableColumn;
+        //            if (col != null && col.CellRow > 0)
+        //            {
+        //                var row = _view.GetRow(e.RowIndex);
+        //                //var recipe = _view.GetRowCellValue(e.RowIndex,e.
 
-                        if (recipe != null)
-                        {
-                            sb[col.CellRow].Append(recipe + " ");
-                        }
+        //                //if (recipe != null)
+        //                //{
+        //                //    sb[col.CellRow].Append(recipe + " ");
+        //                //}
 
-                    }
-                }
+        //            }
+        //        }
 
-                // Draw text for each sub row (Rows 1 and higher in the Table)
-                for (var i = 1; i < _table.CellRowCount; i++)
-                {
-                    var text = sb[i].ToString().Trim();
+        //        // Draw text for each sub row (Rows 1 and higher in the Table)
+        //        for (var i = 1; i < _table.CellRowCount; i++)
+        //        {
+        //            var text = sb[i].ToString().Trim();
 
-                    if (string.IsNullOrEmpty(text) == false)
-                    {
-                        // Calculate the bounds for the content that spans multiple 
-                        // columns, adjusting for the horizontal scrolling position 
-                        // and the current row height, and displaying only whole
-                        // lines of text.
-                        var textArea = rowBounds;
-                        textArea.X -= this.DataGridView.HorizontalScrollingOffset;
-                        textArea.Width += this.DataGridView.HorizontalScrollingOffset;
-                        textArea.Y += _rowHeight + (i - 1) * CELL_SUBROW_HEIGHT;
-                        textArea.Height = CELL_SUBROW_HEIGHT;
+        //            if (string.IsNullOrEmpty(text) == false)
+        //            {
+        //                // Calculate the bounds for the content that spans multiple 
+        //                // columns, adjusting for the horizontal scrolling position 
+        //                // and the current row height, and displaying only whole
+        //                // lines of text.
+        //                var textArea = rowBounds;
+        //                textArea.X -= this.DataGridView.HorizontalScrollingOffset;
+        //                textArea.Width += this.DataGridView.HorizontalScrollingOffset;
+        //                textArea.Y += _rowHeight + (i - 1) * CELL_SUBROW_HEIGHT;
+        //                textArea.Height = CELL_SUBROW_HEIGHT;
 
-                        // Calculate the portion of the text area that needs painting.
-                        RectangleF clip = textArea;
-                        var startX = this.DataGridView.RowHeadersVisible ? this.DataGridView.RowHeadersWidth : 0;
-                        clip.Width -= startX + 1 - clip.X;
-                        clip.X = startX + 1;
-                        var oldClip = e.Graphics.ClipBounds;
-                        e.Graphics.SetClip(clip);
+        //                // Calculate the portion of the text area that needs painting.
+        //                RectangleF clip = textArea;
+        //                var startX = this.DataGridView.RowHeadersVisible ? this.DataGridView.RowHeadersWidth : 0;
+        //                clip.Width -= startX + 1 - clip.X;
+        //                clip.X = startX + 1;
+        //                var oldClip = e.Graphics.ClipBounds;
+        //                e.Graphics.SetClip(clip);
 
-                        // Use a different font for subrows
-                        // TODO: Make this a parameter of the Table
-                        //Font subRowFont = new Font(e.InheritedRowStyle.Font, FontStyle.Italic);
+        //                // Use a different font for subrows
+        //                // TODO: Make this a parameter of the Table
+        //                //Font subRowFont = new Font(e.InheritedRowStyle.Font, FontStyle.Italic);
 
-                        var format = new StringFormat
-                                     	{
-                                     		FormatFlags = StringFormatFlags.NoWrap,
-                                     		Trimming = StringTrimming.EllipsisWord
-                                     	};
+        //                var format = new StringFormat
+        //                                {
+        //                                    FormatFlags = StringFormatFlags.NoWrap,
+        //                                    Trimming = StringTrimming.EllipsisWord
+        //                                };
 
-                    	// Draw the content that spans multiple columns.
-                        e.Graphics.DrawString(text, e.InheritedRowStyle.Font, forebrush, textArea, format);
+        //                // Draw the content that spans multiple columns.
+        //                e.Graphics.DrawString(text, e.InheritedRowStyle.Font, forebrush, textArea, format);
 
-                        e.Graphics.SetClip(oldClip);
-                    }
-                }
-            }
-            finally
-            {
-                if (forebrush != null)
-                    forebrush.Dispose();
-            }
-        }
+        //                e.Graphics.SetClip(oldClip);
+        //            }
+        //        }
+        //    }
+        //    finally
+        //    {
+        //        if (forebrush != null)
+        //            forebrush.Dispose();
+        //    }
+        //}
 
         // Make all the link column the same color as the fore color
         private void SetLinkColor(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            var row = _dataGridView.Rows[e.RowIndex];
-            foreach (DataGridViewCell cell in row.Cells)
-            {
-                if (cell is DataGridViewLinkCell)
-                {
-                    var linkCell = (DataGridViewLinkCell)cell;
-                    linkCell.ActiveLinkColor = linkCell.LinkColor = linkCell.VisitedLinkColor
-                        = row.Selected ? cell.InheritedStyle.SelectionForeColor : cell.InheritedStyle.ForeColor;
-                }
-            }
+            //var row = _view.GetRow(e.RowIndex);
+        
+            //foreach (DataGridViewCell cell in row.Cells)
+            //{
+            //    if (cell is DataGridViewLinkCell)
+            //    {
+            //        var linkCell = (DataGridViewLinkCell)cell;
+            //        linkCell.ActiveLinkColor = linkCell.LinkColor = linkCell.VisitedLinkColor
+            //            = _view.IsRowSelected(e.RowIndex ) ? cell.InheritedStyle.SelectionForeColor : cell.InheritedStyle.ForeColor;
+            //    }
+            //}
         }
 
         private Rectangle GetAdjustedRowBounds(Rectangle rowBounds)
         {
             return new Rectangle(
-                    (this.DataGridView.RowHeadersVisible ? this.DataGridView.RowHeadersWidth : 0) + rowBounds.Left,
+                    (_view.OptionsView.ShowColumnHeaders ? _view.GridControl.Width  : 0) + rowBounds.Left,
                     rowBounds.Top,
-                    this.DataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) - this.DataGridView.HorizontalScrollingOffset,
+                    _view.GridControl.Width ,
                     rowBounds.Height);
         }
 
-        private void _dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void _view_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)    // rowindex == -1 represents a header click
             {
@@ -912,30 +944,30 @@ namespace ClearCanvas.Desktop.View.WinForms
             FlushPendingSelectionChangeNotification();
 
             // Find the row we're on
-            var pt = _dataGridView.PointToClient(MousePosition);
-            var info = _dataGridView.HitTest(pt.X, pt.Y);
-
-
+            var pt = _view.GridControl.PointToClient(MousePosition);
+            
+            GridHitInfo hi = _view.CalcHitInfo(_view.GridControl.PointToClient(MousePosition));
+            //var info = hi.RowHandle 
             try
             {
                 // temporarily disable the delaying of selection change notifications
                 // if we modify the selection while opening the context menu, we need those notifications to propagate immediately
                 _delaySelectionChangeNotification = false;
 
-                if (_dataGridView.SelectedRows.Count == 0)
+                if (_view.GetSelectedRows().Length  == 0)
                 {
                     // select the new row
-                    if (info.RowIndex >= 0)
-                        _dataGridView.Rows[info.RowIndex].Selected = true;
+                    if (hi.RowHandle >= 0)
+                        _view.SelectRow(hi.RowHandle);
                 }
-                else if (_dataGridView.SelectedRows.Count == 1 && _dataGridView.SelectedRows[0].Index != info.RowIndex)
+                else if (_view.GetSelectedRows().Length == 1 && _view.GetSelectedRows()[0] != hi.RowHandle)
                 {
                     // deselect the selected row
-                    _dataGridView.SelectedRows[0].Selected = false;
+                    _view.UnselectRow(_view.GetSelectedRows()[0]);
 
                     // Now select the new row
-                    if (info.RowIndex >= 0)
-                        _dataGridView.Rows[info.RowIndex].Selected = true;
+                    if (hi.RowHandle >= 0)
+                        _view.SelectRow(hi.RowHandle);
                 }
                 else
                 {
@@ -968,21 +1000,7 @@ namespace ClearCanvas.Desktop.View.WinForms
 
         }
 
-        private void _dataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            if (_surpressSelectionChangedEvent)
-                return;
-
-            if (_delaySelectionChangeNotification)
-            {
-                // fix Bug 386: rather than firing our own _selectionChanged event immediately, post delayed notification
-                PostSelectionChangeNotification();
-            }
-            else
-            {
-                NotifySelectionChanged();
-            }
-        }
+      
 
         /// <summary>
         /// Handling this event is necessary to ensure that changes to checkbox cells are propagated
@@ -990,13 +1008,14 @@ namespace ClearCanvas.Desktop.View.WinForms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _dataGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        private void _view_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             // if the state of a checkbox cell has changed, commit the edit immediately
-            if (_dataGridView.CurrentCell is DataGridViewCheckBoxCell)
-            {
-                _dataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
-            }
+            //_view.GetSelectedCells
+            //if (_view.CurrentCell is DataGridViewCheckBoxCell)
+            //{
+            //    _view.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            //}
         }
 
         /// <summary>
@@ -1005,7 +1024,7 @@ namespace ClearCanvas.Desktop.View.WinForms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _dataGridView_ItemDrag(object sender, ItemDragEventArgs e)
+        private void _view_ItemDrag(object sender, ItemDragEventArgs e)
         {
             // if a drag is being initiated, need to flush any pending selection change notification immediately before
             // proceeding (bug 386)
@@ -1068,9 +1087,9 @@ namespace ClearCanvas.Desktop.View.WinForms
         }
 
 
-        protected DataGridView DataGridView
+        protected DevExpress.XtraGrid.GridControl DataGridView
         {
-            get { return _dataGridView; }
+            get { return _view.GridControl ; }
         }
 
         private void TableView_Load(object sender, EventArgs e)
@@ -1096,12 +1115,12 @@ namespace ClearCanvas.Desktop.View.WinForms
                 _sortButton.DropDownItems.Add(_sortDescendingButton);
                 _sortButton.DropDownItems.Add(_sortSeparator);
 
-				foreach (ITableColumn column in _table.Columns)
-            	{
-					ToolStripItem item = new ToolStripMenuItem(column.Name, null, _sortButtonDropDownItem_Click, column.Name);
-					if (_sortButton.DropDownItems.ContainsKey(column.Name) == false)
-						_sortButton.DropDownItems.Add(item);
-				}
+                foreach (ITableColumn column in _table.Columns)
+                {
+                    ToolStripItem item = new ToolStripMenuItem(column.Name, null, _sortButtonDropDownItem_Click, column.Name);
+                    if (_sortButton.DropDownItems.ContainsKey(column.Name) == false)
+                        _sortButton.DropDownItems.Add(item);
+                }
 
                 ResetSortButtonState();
             }
@@ -1112,27 +1131,27 @@ namespace ClearCanvas.Desktop.View.WinForms
             if (_table == null || _table.SortParams == null)
                 return;
 
-			foreach (ToolStripItem item in _sortButton.DropDownItems)
-        	{
-				if (item == _sortAscendingButton)
-					this.SortAscendingButtonCheck = _table.SortParams.Ascending;
-				else if (item == _sortDescendingButton)
-					this.SortDescendingButtonCheck = _table.SortParams.Ascending == false;
-				else if (item == _sortSeparator)
-					continue;
-				else
-				{
-					if (item.Name.Equals(_table.SortParams.Column.Name))
-					{
-						item.Image = SR.CheckSmall;
-						_sortButton.ToolTipText = String.Format(SR.MessageSortBy, item.Name);
-					}
-					else
-					{
-						item.Image = null;
-					}
-				}
-			}
+            foreach (ToolStripItem item in _sortButton.DropDownItems)
+            {
+                if (item == _sortAscendingButton)
+                    this.SortAscendingButtonCheck = _table.SortParams.Ascending;
+                else if (item == _sortDescendingButton)
+                    this.SortDescendingButtonCheck = _table.SortParams.Ascending == false;
+                else if (item == _sortSeparator)
+                    continue;
+                else
+                {
+                    if (item.Name.Equals(_table.SortParams.Column.Name))
+                    {
+                        item.Image = SR.CheckSmall;
+                        _sortButton.ToolTipText = String.Format(SR.MessageSortBy, item.Name);
+                    }
+                    else
+                    {
+                        item.Image = null;
+                    }
+                }
+            }
         }
 
         private bool SortAscendingButtonCheck
@@ -1149,23 +1168,23 @@ namespace ClearCanvas.Desktop.View.WinForms
 
         private void _table_BeforeSortedEvent(object sender, EventArgs e)
         {
-        	_selectionBeforeSort = this.Selection;
+            _selectionBeforeSort = this.Selection;
         }
 
-		private void _table_SortedEvent(object sender, EventArgs e)
+        private void _table_SortedEvent(object sender, EventArgs e)
         {
-			if (_selectionBeforeSort.Items.Length > 0)
-				this.Selection = _selectionBeforeSort;
+            if (_selectionBeforeSort.Items.Length > 0)
+                this.Selection = _selectionBeforeSort;
 
-			ResetSortButtonState();
-		}
+            ResetSortButtonState();
+        }
 
-		private void _dataGridView_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-		{
-			ForceSelectionDisplay();
-		}
-		
-		private void sortAscendingButton_Click(object sender, EventArgs e)
+        private void _view_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ForceSelectionDisplay();
+        }
+
+        private void sortAscendingButton_Click(object sender, EventArgs e)
         {
             if (_table == null || _table.SortParams == null)
                 return;
@@ -1236,84 +1255,111 @@ namespace ClearCanvas.Desktop.View.WinForms
             this.Table = _table;
         }
 
-        private void _dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void _view_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Ignore header cells
             if (e.RowIndex == -1)
                 return;
 
-            var dgCol = _dataGridView.Columns[e.ColumnIndex];
-            if (dgCol is DataGridViewLinkColumn)
+            var dgCol = _view.Columns[e.ColumnIndex];
+            if (dgCol.ColumnEdit is DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit)
             {
                 var col = (ITableColumn)dgCol.Tag;
                 col.ClickLink(_table.Items[e.RowIndex]);
             }
-            else if (dgCol is DataGridViewButtonColumn)
+            else if (dgCol.ColumnEdit is DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit)
             {
                 throw new NotImplementedException();
             }
         }
 
-		private void _dataGridView_CellToolTipTextNeeded(object sender, DataGridViewCellToolTipTextNeededEventArgs e)
-		{
+        private void _view_CellToolTipTextNeeded(object sender, DataGridViewCellToolTipTextNeededEventArgs e)
+        {
             // Ignore header cells
             if (e.RowIndex == -1)
                 return;
 
-			var column = (ITableColumn)_dataGridView.Columns[e.ColumnIndex].Tag;
-			e.ToolTipText = column.GetTooltipText(_table.Items[e.RowIndex]);
-		}
+            var column = (ITableColumn)_view.Columns[e.ColumnIndex].Tag;
+            e.ToolTipText = column.GetTooltipText(_table.Items[e.RowIndex]);
+        }
 
-		private void _dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-		{
-			var column = (ITableColumn)_dataGridView.Columns[e.ColumnIndex].Tag;
+        private void _view_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            var column = (ITableColumn)_view.Columns[e.ColumnIndex].Tag;
 
-			// Unless we know the type of e.Value can be handled by the DataGridView, we do not want to set e.FormattingApplied to true. Doing so will 
-			// prevent the cell from formatting e.Value into type it can handle (eg. string), result in FormatException for value type like int, float, etc.			
-			if (column.ColumnType == typeof(IconSet))
-			{
-				try
-				{
-					// try to create the icon
-					var iconSet = (IconSet)e.Value;
-					if (iconSet != null)
-						e.Value = IconFactory.CreateIcon(iconSet.SmallIcon, column.ResourceResolver);
-				}
-				catch (Exception ex)
-				{
-					Platform.Log(LogLevel.Error, ex);
-				}
-			}
-			else
-			{
-				e.Value = column.FormatValue(e.Value);
-			}
-		}
+            // Unless we know the type of e.Value can be handled by the DataGridView, we do not want to set e.FormattingApplied to true. Doing so will 
+            // prevent the cell from formatting e.Value into type it can handle (eg. string), result in FormatException for value type like int, float, etc.			
+            if (column.ColumnType == typeof(IconSet))
+            {
+                try
+                {
+                    // try to create the icon
+                    var iconSet = (IconSet)e.Value;
+                    if (iconSet != null)
+                        e.Value = IconFactory.CreateIcon(iconSet.SmallIcon, column.ResourceResolver);
+                }
+                catch (Exception ex)
+                {
+                    Platform.Log(LogLevel.Error, ex);
+                }
+            }
+            else
+            {
+                e.Value = column.FormatValue(e.Value);
+            }
+        }
 
-		private void _dataGridView_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
-		{
-			// if we do custom editing, the dgv sometimes tries to pass a string back and expects
-			// the cell to "parse" it to obtain the actual value
-			// therefore, we subscribe to this event so that we can retrieve the value from the 
-			// underlying ITable
-			var column = (ITableColumn)_dataGridView.Columns[e.ColumnIndex].Tag;
+        private void _view_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
+        {
+            // if we do custom editing, the dgv sometimes tries to pass a string back and expects
+            // the cell to "parse" it to obtain the actual value
+            // therefore, we subscribe to this event so that we can retrieve the value from the 
+            // underlying ITable
+            var column = (ITableColumn)_view.Columns[e.ColumnIndex].Tag;
 
-			// if no custom editor, then nothing needs to be done here
-			if (column.GetCellEditor() == null)
-				return;
+            // if no custom editor, then nothing needs to be done here
+            if (column.GetCellEditor() == null)
+                return;
 
-			// retrieve value from table, and inform dgv that we have parsed the string successfully
-			e.Value = column.GetValue(_table.Items[e.RowIndex]);
-			e.ParsingApplied = true;
-		}
+            // retrieve value from table, and inform dgv that we have parsed the string successfully
+            e.Value = column.GetValue(_table.Items[e.RowIndex]);
+            e.ParsingApplied = true;
+        }
 
-		private void _dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-		{
-			var column = (ITableColumn)_dataGridView.Columns[e.ColumnIndex].Tag;
-			var item = _table.Items[e.RowIndex];
+        private void _view_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            var column = (ITableColumn)_view.Columns[e.ColumnIndex].Tag;
+            var item = _table.Items[e.RowIndex];
 
-			// prevent editing on read-only columns, or if this particular item is not editable
-			e.Cancel = column.ReadOnly || !column.IsEditable(item);
-		}
-	}
+            // prevent editing on read-only columns, or if this particular item is not editable
+            e.Cancel = column.ReadOnly || !column.IsEditable(item);
+        }
+
+        private void _view_Click(object sender, EventArgs e)
+        {
+            GridView view = sender as GridView;
+            GridHitInfo hi = view.CalcHitInfo(view.GridControl.PointToClient(MousePosition));
+            if (hi.HitTest == GridHitTest.Column)
+            {
+                ForceSelectionDisplay();
+            }
+
+        }
+
+        private void _view_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+        {
+            if (_surpressSelectionChangedEvent)
+                return;
+
+            if (_delaySelectionChangeNotification)
+            {
+                // fix Bug 386: rather than firing our own _selectionChanged event immediately, post delayed notification
+                PostSelectionChangeNotification();
+            }
+            else
+            {
+                NotifySelectionChanged();
+            }
+        }
+    }
 }

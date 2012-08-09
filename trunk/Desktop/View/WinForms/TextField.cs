@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (c) 2010, ClearCanvas Inc.
+// Copyright (c) 2009, ClearCanvas Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification, 
@@ -32,7 +32,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Clifton.Windows.Forms;
+
 namespace ClearCanvas.Desktop.View.WinForms
 {
     public partial class TextField : UserControl
@@ -43,9 +43,6 @@ namespace ClearCanvas.Desktop.View.WinForms
         {
             InitializeComponent();
         }
-        [Browsable(true)]
-        [DefaultValue(false)]
-        public bool IsPercentValidate { get; set; }
 
         /*
         public string Value
@@ -82,7 +79,7 @@ namespace ClearCanvas.Desktop.View.WinForms
                 _textBox.ReadOnly = value;
             }
         }
-       
+
         public char PasswordChar
         {
             get { return _textBox.PasswordChar; }
@@ -107,7 +104,7 @@ namespace ClearCanvas.Desktop.View.WinForms
             add { _textBox.TextChanged += value; }
             remove { _textBox.TextChanged -= value; }
         }
-        [Localizable(true)]
+
         public string LabelText
         {
             get { return _label.Text; }
@@ -182,48 +179,6 @@ namespace ClearCanvas.Desktop.View.WinForms
 					_textBox.Text.Substring(currentIndex));
 			}
 		}
-
-        private void _textBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (IsPercentValidate)
-            {
-                if (!Char.IsNumber(e.KeyChar))
-                {
-                    e.Handled = !(_textBox.SelectionStart != 0 && (e.KeyChar.ToString() ==
-                        System.Windows.Forms.Application.CurrentCulture.NumberFormat.NumberDecimalSeparator &&
-                        (_textBox.Text.IndexOf(System.Windows.Forms.Application.CurrentCulture.NumberFormat.NumberDecimalSeparator) == -1)) &&
-                        e.KeyChar != Convert.ToChar(8));
-                }
-                else
-                {
-
-                    try
-                    {
-                        decimal result = 0;
-                        e.Handled = !decimal.TryParse(_textBox.Text + e.KeyChar, out result) && result < 100;
-                        
-                    }
-                    catch
-                    {
-                    }
-
-
-                }
-            }
-        }
-
-        private void _textBox_Validating(object sender, CancelEventArgs e)
-        {
-            if (IsPercentValidate)
-            {
-                decimal isdecimal = 0;
-                if (decimal.TryParse(_textBox.Text, out isdecimal))
-                {
-                    e.Cancel = Convert.ToDecimal(_textBox.Text) > 100;
-                    _textBox.Text = "100";
-                }
-            }
-        }
 
         // private static string NullIfEmpty(string value)
         // {

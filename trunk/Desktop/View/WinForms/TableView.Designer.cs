@@ -61,8 +61,9 @@ namespace ClearCanvas.Desktop.View.WinForms
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridControl _dataGridView;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this._view = new DevExpress.XtraGrid.Views.Grid.GridView();
             this._contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._selectionChangeTimer = new System.Windows.Forms.Timer(this.components);
@@ -75,12 +76,34 @@ namespace ClearCanvas.Desktop.View.WinForms
             this._clearFilterButton = new System.Windows.Forms.ToolStripButton();
             this._statusStrip = new System.Windows.Forms.StatusStrip();
             this._statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this._dataGridView = new ClearCanvas.Desktop.View.WinForms.DataGridViewWithDragSupport();
+            _dataGridView = new DevExpress.XtraGrid.GridControl();
+            ((System.ComponentModel.ISupportInitialize)(_dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._view)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).BeginInit();
             this._toolStrip.SuspendLayout();
             this._statusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // _dataGridView
+            // 
+            _dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            _dataGridView.Location = new System.Drawing.Point(0, 25);
+            _dataGridView.MainView = this._view;
+            _dataGridView.Name = "_dataGridView";
+            _dataGridView.Size = new System.Drawing.Size(540, 203);
+            _dataGridView.TabIndex = 4;
+            _dataGridView.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this._view});
+            // 
+            // _view
+            // 
+            this._view.GridControl = _dataGridView;
+            this._view.Name = "_view";
+            this._view.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this._view.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this._view.OptionsSelection.MultiSelect = true;
+            this._view.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this._view_SelectionChanged);
+            this._view.Click += new System.EventHandler(this._view_Click);
             // 
             // _contextMenu
             // 
@@ -190,55 +213,23 @@ namespace ClearCanvas.Desktop.View.WinForms
             this._statusLabel.Spring = true;
             this._statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // _dataGridView
-            // 
-            this._dataGridView.AllowUserToAddRows = false;
-            this._dataGridView.AllowUserToDeleteRows = false;
-            this._dataGridView.AllowUserToOrderColumns = true;
-            this._dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this._dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this._dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this._dataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
-            this._dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._dataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this._dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._dataGridView.ContextMenuStrip = this._contextMenu;
-            this._dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._dataGridView.Location = new System.Drawing.Point(0, 25);
-            this._dataGridView.Name = "_dataGridView";
-            this._dataGridView.RowHeadersVisible = false;
-            this._dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this._dataGridView.Size = new System.Drawing.Size(540, 203);
-            this._dataGridView.TabIndex = 2;
-            this._dataGridView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this._dataGridView_CellBeginEdit);
-            this._dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataGridView_CellDoubleClick);
-            this._dataGridView.CellParsing += new System.Windows.Forms.DataGridViewCellParsingEventHandler(this._dataGridView_CellParsing);
-            this._dataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this._dataGridView_CellFormatting);
-            this._dataGridView.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this._dataGridView_CellToolTipTextNeeded);
-            this._dataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this._dataGridView_CurrentCellDirtyStateChanged);
-            this._dataGridView.ItemDrag += new System.EventHandler<System.Windows.Forms.ItemDragEventArgs>(this._dataGridView_ItemDrag);
-            this._dataGridView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DataGridView_ColumnWidthChanged);
-            this._dataGridView.SelectionChanged += new System.EventHandler(this._dataGridView_SelectionChanged);
-            this._dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this._dataGridView_CellContentClick);
-            // 
             // TableView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this._dataGridView);
+            this.Controls.Add(_dataGridView);
             this.Controls.Add(this._statusStrip);
             this.Controls.Add(this._toolStrip);
             this.Name = "TableView";
             this.Size = new System.Drawing.Size(540, 228);
             this.Load += new System.EventHandler(this.TableView_Load);
+            ((System.ComponentModel.ISupportInitialize)(_dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._view)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).EndInit();
             this._toolStrip.ResumeLayout(false);
             this._toolStrip.PerformLayout();
             this._statusStrip.ResumeLayout(false);
             this._statusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,8 +239,7 @@ namespace ClearCanvas.Desktop.View.WinForms
 
         private System.Windows.Forms.BindingSource _bindingSource;
         private System.Windows.Forms.ContextMenuStrip _contextMenu;
-		private System.ComponentModel.IContainer components;
-		private ClearCanvas.Desktop.View.WinForms.DataGridViewWithDragSupport _dataGridView;
+        private System.ComponentModel.IContainer components;
         private System.Windows.Forms.Timer _selectionChangeTimer;
         private System.Windows.Forms.ToolStrip _toolStrip;
         private System.Windows.Forms.ToolStripDropDownButton _sortButton;
@@ -260,5 +250,6 @@ namespace ClearCanvas.Desktop.View.WinForms
         private System.Windows.Forms.ToolStripButton _clearFilterButton;
         private System.Windows.Forms.StatusStrip _statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel _statusLabel;
+        private DevExpress.XtraGrid.Views.Grid.GridView _view;
 	}
 }

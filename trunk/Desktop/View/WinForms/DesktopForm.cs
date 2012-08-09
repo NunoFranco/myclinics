@@ -1,6 +1,6 @@
 ﻿#region License
 
-// Copyright (c) 2010, ClearCanvas Inc.
+// Copyright (c) 2009, ClearCanvas Inc.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without modification, 
@@ -41,7 +41,7 @@ using Crownwood.DotNetMagic.Forms;
 namespace ClearCanvas.Desktop.View.WinForms
 {
     /// <summary>
-	/// Form used by the <see cref="DesktopWindowView"/> class.
+    /// Form used by the <see cref="DesktopWindowView"/> class.
     /// </summary>
     /// <remarks>
     /// This class may be subclassed.
@@ -57,27 +57,26 @@ namespace ClearCanvas.Desktop.View.WinForms
         public DesktopForm()
         {
 #if !MONO
-			SplashScreenManager.DismissSplashScreen(this);
+            SplashScreenManager.DismissSplashScreen(this);
 #endif
-            
-			InitializeComponent();
-            
+            InitializeComponent();
+
             _dockingManager = new DockingManager(_toolStripContainer.ContentPanel, VisualStyle.IDE2005);
             _dockingManager.ActiveColor = SystemColors.Control;
             _dockingManager.InnerControl = _tabbedGroups;
-			_dockingManager.TabControlCreated += OnDockingManagerTabControlCreated;
+            _dockingManager.TabControlCreated += OnDockingManagerTabControlCreated;
 
-			_tabbedGroups.DisplayTabMode = DisplayTabModes.HideAll;
-			_tabbedGroups.TabControlCreated += OnTabbedGroupsTabControlCreated;
+            _tabbedGroups.DisplayTabMode = DisplayTabModes.HideAll;
+            _tabbedGroups.TabControlCreated += OnTabbedGroupsTabControlCreated;
 
-			if (_tabbedGroups.ActiveLeaf != null)
-			{
-				InitializeTabControl(_tabbedGroups.ActiveLeaf.TabControl);
-			}
+            if (_tabbedGroups.ActiveLeaf != null)
+            {
+                InitializeTabControl(_tabbedGroups.ActiveLeaf.TabControl);
+            }
 
-			ToolStripSettings.Default.PropertyChanged += OnToolStripSettingsPropertyChanged;
-			OnToolStripSettingsPropertyChanged(ToolStripSettings.Default, new PropertyChangedEventArgs("WrapLongToolstrips"));
-			OnToolStripSettingsPropertyChanged(ToolStripSettings.Default, new PropertyChangedEventArgs("IconSize"));
+            ToolStripSettings.Default.PropertyChanged += OnToolStripSettingsPropertyChanged;
+            OnToolStripSettingsPropertyChanged(ToolStripSettings.Default, new PropertyChangedEventArgs("WrapLongToolstrips"));
+            OnToolStripSettingsPropertyChanged(ToolStripSettings.Default, new PropertyChangedEventArgs("IconSize"));
         }
 
         #region Public properties
@@ -138,26 +137,26 @@ namespace ClearCanvas.Desktop.View.WinForms
             InitializeTabControl(tabControl);
         }
 
-    	private void OnToolStripSettingsPropertyChanged(object sender, PropertyChangedEventArgs e)
-    	{
-    		if (e.PropertyName == "WrapLongToolstrips")
-    		{
-    			if (ToolStripSettings.Default.WrapLongToolstrips && _toolbar.Orientation == Orientation.Vertical)
-    			{
-    				// for some reason, switching to flow layout while vertical causes the toolbar to take up the entire screen
-    				// thus, we force the toolbar to the horizontal orientation in the top panel when wrapped.
-    				_toolStripContainer.SuspendLayout();
-    				_toolStripContainer.TopToolStripPanel.Join(_toolbar);
-    				_toolStripContainer.TopToolStripPanel.Join(_mainMenu);
-    				_toolStripContainer.ResumeLayout(true);
-    			}
-				_toolbar.LayoutStyle = ToolStripSettings.Default.WrapLongToolstrips ? ToolStripLayoutStyle.Flow : ToolStripLayoutStyle.StackWithOverflow;
-    		}
-			else if (e.PropertyName == "IconSize")
-			{
-				ToolStripBuilder.ChangeIconSize(_toolbar, ToolStripSettings.Default.IconSize);
-			}
-    	}
+        private void OnToolStripSettingsPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "WrapLongToolstrips")
+            {
+                if (ToolStripSettings.Default.WrapLongToolstrips && _toolbar.Orientation == Orientation.Vertical)
+                {
+                    // for some reason, switching to flow layout while vertical causes the toolbar to take up the entire screen
+                    // thus, we force the toolbar to the horizontal orientation in the top panel when wrapped.
+                    _toolStripContainer.SuspendLayout();
+                    _toolStripContainer.TopToolStripPanel.Join(_toolbar);
+                    _toolStripContainer.TopToolStripPanel.Join(_mainMenu);
+                    _toolStripContainer.ResumeLayout(true);
+                }
+                _toolbar.LayoutStyle = ToolStripSettings.Default.WrapLongToolstrips ? ToolStripLayoutStyle.Flow : ToolStripLayoutStyle.StackWithOverflow;
+            }
+            else if (e.PropertyName == "IconSize")
+            {
+                ToolStripBuilder.ChangeIconSize(_toolbar, ToolStripSettings.Default.IconSize);
+            }
+        }
 
         #endregion
 
@@ -169,13 +168,13 @@ namespace ClearCanvas.Desktop.View.WinForms
         /// </summary>
         /// <param name="tabControl"></param>
         protected virtual void InitializeTabControl(Crownwood.DotNetMagic.Controls.TabControl tabControl)
-		{
-			if (tabControl == null)
-				return;
+        {
+            if (tabControl == null)
+                return;
 
-			tabControl.TextTips = true;
-			tabControl.ToolTips = false;
-			tabControl.MaximumHeaderWidth = 256;
+            tabControl.TextTips = true;
+            tabControl.ToolTips = false;
+            tabControl.MaximumHeaderWidth = 256;
         }
 
         /// <summary>
@@ -197,33 +196,25 @@ namespace ClearCanvas.Desktop.View.WinForms
 
             if (actionModel != null)
             {
-				if (actionModel.ChildNodes.Count > 0)
-				{
-					// Toolstrip should only be visible if there are items on it
-					toolStrip.Visible = true;
+                if (actionModel.ChildNodes.Count > 0)
+                {
+                    // Toolstrip should only be visible if there are items on it
+                    toolStrip.Visible = true;
 
-					if (kind == ToolStripBuilder.ToolStripKind.Toolbar)
-						ToolStripBuilder.BuildToolStrip(kind, toolStrip.Items, actionModel.ChildNodes, ToolStripBuilder.ToolStripBuilderStyle.GetDefault(), ToolStripSettings.Default.IconSize);
-					else
-						ToolStripBuilder.BuildToolStrip(kind, toolStrip.Items, actionModel.ChildNodes);
-				}
-				else
-				{
-					toolStrip.Visible = false;
-				}
+                    if (kind == ToolStripBuilder.ToolStripKind.Toolbar || kind == ToolStripBuilder.ToolStripKind.RibbonToolbar)
+                        ToolStripBuilder.BuildToolStrip(kind, toolStrip.Items, actionModel.ChildNodes, ToolStripBuilder.ToolStripBuilderStyle.GetDefault(), ToolStripSettings.Default.IconSize);
+                    else
+                        ToolStripBuilder.BuildToolStrip(kind, toolStrip.Items, actionModel.ChildNodes);
+                }
+                else
+                {
+                    toolStrip.Visible = false;
+                }
             }
 
             toolStrip.ResumeLayout();
         }
 
         #endregion
-
-        private void _tabbedGroups_Load(object sender, System.EventArgs e)
-        {
-            //this.Location = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Location;
-            //this.Height = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height;
-            //this.Width = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Width;
-            //this.MinimumSize = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Size;
-        }
     }
 }

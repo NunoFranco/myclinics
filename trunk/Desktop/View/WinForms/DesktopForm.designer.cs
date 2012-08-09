@@ -103,10 +103,14 @@ namespace ClearCanvas.Desktop.View.WinForms
             this._toolbar = new System.Windows.Forms.ToolStrip();
             this._toolStripContainer = new System.Windows.Forms.ToolStripContainer();
             this._tabbedGroups = new Crownwood.DotNetMagic.Controls.TabbedGroups();
+            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this._toolStripContainer.ContentPanel.SuspendLayout();
             this._toolStripContainer.TopToolStripPanel.SuspendLayout();
             this._toolStripContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._tabbedGroups)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // _mainMenu
@@ -115,7 +119,7 @@ namespace ClearCanvas.Desktop.View.WinForms
             this._mainMenu.ImageScalingSize = new System.Drawing.Size(24, 24);
             this._mainMenu.Location = new System.Drawing.Point(0, 0);
             this._mainMenu.Name = "_mainMenu";
-            this._mainMenu.Size = new System.Drawing.Size(1128, 24);
+            this._mainMenu.Size = new System.Drawing.Size(792, 24);
             this._mainMenu.TabIndex = 4;
             this._mainMenu.Text = "menuStrip1";
             // 
@@ -126,7 +130,7 @@ namespace ClearCanvas.Desktop.View.WinForms
             this._toolbar.ImageScalingSize = new System.Drawing.Size(48, 48);
             this._toolbar.Location = new System.Drawing.Point(0, 24);
             this._toolbar.Name = "_toolbar";
-            this._toolbar.Size = new System.Drawing.Size(1128, 25);
+            this._toolbar.Size = new System.Drawing.Size(792, 25);
             this._toolbar.Stretch = true;
             this._toolbar.TabIndex = 4;
             this._toolbar.Text = "toolStrip1";
@@ -138,11 +142,11 @@ namespace ClearCanvas.Desktop.View.WinForms
             // 
             this._toolStripContainer.ContentPanel.BackColor = System.Drawing.SystemColors.ControlDark;
             this._toolStripContainer.ContentPanel.Controls.Add(this._tabbedGroups);
-            this._toolStripContainer.ContentPanel.Size = new System.Drawing.Size(1128, 666);
+            this._toolStripContainer.ContentPanel.Size = new System.Drawing.Size(792, 512);
             this._toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this._toolStripContainer.Location = new System.Drawing.Point(0, 0);
             this._toolStripContainer.Name = "_toolStripContainer";
-            this._toolStripContainer.Size = new System.Drawing.Size(1128, 715);
+            this._toolStripContainer.Size = new System.Drawing.Size(792, 561);
             this._toolStripContainer.TabIndex = 5;
             this._toolStripContainer.Text = "toolStripContainer1";
             // 
@@ -165,19 +169,42 @@ namespace ClearCanvas.Desktop.View.WinForms
             this._tabbedGroups.OfficeStyleSelected = Crownwood.DotNetMagic.Controls.OfficeStyle.Light;
             this._tabbedGroups.ProminentLeaf = null;
             this._tabbedGroups.ResizeBarColor = System.Drawing.SystemColors.Control;
-            this._tabbedGroups.Size = new System.Drawing.Size(1128, 666);
+            this._tabbedGroups.Size = new System.Drawing.Size(792, 512);
             this._tabbedGroups.Style = Crownwood.DotNetMagic.Common.VisualStyle.IDE2005;
             this._tabbedGroups.TabIndex = 0;
-            this._tabbedGroups.Load += new System.EventHandler(this._tabbedGroups_Load);
+            // 
+            // ribbonControl1
+            // 
+            this.ribbonControl1.ApplicationButtonText = null;
+            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Name = "ribbonControl1";
+            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage1});
+            this.ribbonControl1.SelectedPage = this.ribbonPage1;
+            this.ribbonControl1.Size = new System.Drawing.Size(792, 141);
+            this.ribbonControl1.Visible = false;
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "ribbonPage1";
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
             // DesktopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1128, 715);
+            this.ClientSize = new System.Drawing.Size(792, 561);
+            this.Controls.Add(this.ribbonControl1);
             this.Controls.Add(this._toolStripContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this._mainMenu;
             this.Name = "DesktopForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -188,6 +215,7 @@ namespace ClearCanvas.Desktop.View.WinForms
             this._toolStripContainer.ResumeLayout(false);
             this._toolStripContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._tabbedGroups)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -198,6 +226,9 @@ namespace ClearCanvas.Desktop.View.WinForms
 		private ToolStrip _toolbar;
 		private ToolStripContainer _toolStripContainer;
 		private Crownwood.DotNetMagic.Controls.TabbedGroups _tabbedGroups;
-        private Crownwood.DotNetMagic.Docking.DockingManager _dockingManager;
+		private Crownwood.DotNetMagic.Docking.DockingManager _dockingManager;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
 	}
 }

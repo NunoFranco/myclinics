@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DotNetMagic2005, Version=5.2.2.0, Culture=neutral, PublicKeyToken=6cf6edec59e036ec, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\ReferencedAssemblies\DotNetMagic2005.DLL</HintPath>
@@ -63,6 +69,12 @@
       <DependentUpon>CloseHelperComponentControl.cs</DependentUpon>
     </Compile>
     <Compile Include="CloseHelperComponentView.cs" />
+    <Compile Include="LookupEditField.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LookupEditField.Designer.cs">
+      <DependentUpon>LookupEditField.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomTableCellEditControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +217,12 @@
     </Compile>
     <Compile Include="TrackBarUpDown.Designer.cs">
       <DependentUpon>TrackBarUpDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="Win32Constants.cs" />
     <Compile Include="WinFormsActionView.cs" />
@@ -448,28 +466,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ClearFilterMini.png" />
-    <EmbeddedResource Include="CloseHelperComponentControl.vi.resx">
-      <DependentUpon>CloseHelperComponentControl.cs</DependentUpon>
+    <EmbeddedResource Include="ComboBoxField.vi.resx">
+      <DependentUpon>ComboBoxField.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DesktopMonitorComponentControl.vi.resx">
-      <DependentUpon>DesktopMonitorComponentControl.cs</DependentUpon>
+    <EmbeddedResource Include="LookupEditField.resx">
+      <DependentUpon>LookupEditField.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExceptionHandlerComponentControl.vi.resx">
-      <DependentUpon>ExceptionHandlerComponentControl.cs</DependentUpon>
+    <EmbeddedResource Include="LookupEditField.vi.resx">
+      <DependentUpon>LookupEditField.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GalleryComponentControl.resx">
       <DependentUpon>GalleryComponentControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListItemSelector.vi.resx">
-      <DependentUpon>ListItemSelector.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NavigatorComponentContainerControl.vi.resx">
-      <DependentUpon>NavigatorComponentContainerControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProgressDialogComponentControl.vi.resx">
-      <DependentUpon>ProgressDialogComponentControl.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Resources\ClearFilterLarge.png" />
     <EmbeddedResource Include="Resources\ClearFilterMedium.png" />
     <None Include="SplashScreenSettings.settings">
@@ -497,10 +508,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>RichTextField.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SimpleComponentContainerControl.vi.resx">
-      <DependentUpon>SimpleComponentContainerControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SR.vi.resx" />
     <EmbeddedResource Include="SuggestComboBox.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SuggestComboBox.cs</DependentUpon>
@@ -531,6 +538,9 @@
     <EmbeddedResource Include="TrackBarUpDown.resx">
       <DependentUpon>TrackBarUpDown.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
