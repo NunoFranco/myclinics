@@ -80,10 +80,10 @@ namespace ClearCanvas.Desktop.View.WinForms
             // therefore, turn off the auto-generate and create the columns ourselves
             //_view.AutoGenerateColumns = false;
 
-            //_rowHeight = this.DataGridView.RowHeight;
+            _rowHeight = _view.RowHeight;
             //this.DataGridView.RowPrePaint += SetCustomBackground;
             //this.DataGridView.RowPostPaint += DisplayCellSubRows;
-            //this.DataGridView.RowPostPaint += OutlineCell;
+            this._view.CustomDrawCell += OutlineCell;
             //this.DataGridView.RowPostPaint += SetLinkColor;
         }
 
@@ -202,15 +202,16 @@ namespace ClearCanvas.Desktop.View.WinForms
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int FirstDisplayedScrollingRowIndex
         {
-            get {
+            get
+            {
                 int last = 0, First = _view.TopRowIndex;
                 if (_view.RowCount == 0)
                     return -1;
                 while (_view.IsRowVisible(_view.GetVisibleRowHandle(last)) == DevExpress.XtraGrid.Views.Grid.RowVisibleState.Hidden)
                     last++;
-                return last; 
+                return last;
             }
-            set { _view.FocusedRowHandle  = value; }
+            set { _view.FocusedRowHandle = value; }
         }
 
         [DefaultValue(true)]
@@ -561,7 +562,7 @@ namespace ClearCanvas.Desktop.View.WinForms
                     foreach (DataGridViewColumn column in _view.Columns)
                         totalColumnWidth += column.Visible ? GetManualColumnWidth(column) : 0;
 
-                    float clientAreaWidth = _view.GridControl.ClientSize .Width;
+                    float clientAreaWidth = _view.GridControl.ClientSize.Width;
                     VScrollBar scrollBar = (VScrollBar)CollectionUtils.SelectFirst(_view.GridControl.Controls, c => c is VScrollBar);
                     if (scrollBar != null && scrollBar.Visible)
                         clientAreaWidth -= scrollBar.Width;
@@ -578,7 +579,7 @@ namespace ClearCanvas.Desktop.View.WinForms
             finally
             {
                 this.ResumeLayout(true);
-                _view.OptionsView.ColumnAutoWidth  = false ;
+                _view.OptionsView.ColumnAutoWidth = false;
                 _isInternalColumnWidthChange = false;
             }
         }
@@ -667,7 +668,7 @@ namespace ClearCanvas.Desktop.View.WinForms
                 foreach (ITableColumn col in _table.Columns)
                 {
                     // this is ugly but somebody's gotta do it
-                    GridColumn dgcol = _view.Columns.AddVisible(col.Name ,col.Name );
+                    GridColumn dgcol = _view.Columns.AddVisible(col.Name, col.Name);
                     if (col.ColumnType == typeof(bool))
                     {
                         var checkBox = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -705,7 +706,7 @@ namespace ClearCanvas.Desktop.View.WinForms
                     dgcol.Tag = col;
 
                     col.VisibleChanged += OnColumnVisibilityChanged;
-                    
+
 
                     //_view.Columns.Add(dgcol);
                 }
@@ -790,125 +791,13 @@ namespace ClearCanvas.Desktop.View.WinForms
             }
         }
 
-        // Paints the custom outline for each row
-        private void OutlineCell(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            var rowBounds = GetAdjustedRowBounds(e.RowBounds);
 
-            if (_table != null)
-            {
-                const int penWidth = 2;
-                var outline = new Rectangle(
-                    rowBounds.Left + penWidth / 2,
-                    rowBounds.Top + penWidth / 2 + 1,
-                    rowBounds.Width - penWidth,
-                    rowBounds.Height - penWidth - 2);
-
-                var colorName = _table.GetItemOutlineColor(_table.Items[e.RowIndex]);
-                var outlineColor = string.IsNullOrEmpty(colorName) || colorName.Equals("Empty") ? Color.Empty : Color.FromName(colorName);
-                using (var outlinePen = new Pen(outlineColor, penWidth))
-                {
-                    e.Graphics.DrawRectangle(outlinePen, outline);
-                }
-            }
-        }
-
-        // Paints the content that spans multiple columns and the focus rectangle.
-        //private void DisplayCellSubRows(object sender, DataGridViewRowPostPaintEventArgs e)
-        //{
-        //    var rowBounds = GetAdjustedRowBounds(e.RowBounds);
-
-        //    SolidBrush forebrush = null;
-        //    try
-        //    {
-        //        // Determine the foreground color.
-        //        if ((e.State & DataGridViewElementStates.Selected) ==
-        //            DataGridViewElementStates.Selected)
-        //        {
-        //            forebrush = new SolidBrush(e.InheritedRowStyle.SelectionForeColor);
-        //        }
-        //        else
-        //        {
-        //            forebrush = new SolidBrush(e.InheritedRowStyle.ForeColor);
-        //        }
-
-        //        // Store text for each subrow
-        //        var sb = new StringBuilder[_table.CellRowCount];
-        //        for (var i = 0; i < _table.CellRowCount; i++)
-        //        {
-        //            sb[i] = new StringBuilder();
-        //        }
-
-        //        for (var i = 0; i < _table.Columns.Count; i++)
-        //        {
-        //            var col = _table.Columns[i] as ITableColumn;
-        //            if (col != null && col.CellRow > 0)
-        //            {
-        //                var row = _view.GetRow(e.RowIndex);
-        //                //var recipe = _view.GetRowCellValue(e.RowIndex,e.
-
-        //                //if (recipe != null)
-        //                //{
-        //                //    sb[col.CellRow].Append(recipe + " ");
-        //                //}
-
-        //            }
-        //        }
-
-        //        // Draw text for each sub row (Rows 1 and higher in the Table)
-        //        for (var i = 1; i < _table.CellRowCount; i++)
-        //        {
-        //            var text = sb[i].ToString().Trim();
-
-        //            if (string.IsNullOrEmpty(text) == false)
-        //            {
-        //                // Calculate the bounds for the content that spans multiple 
-        //                // columns, adjusting for the horizontal scrolling position 
-        //                // and the current row height, and displaying only whole
-        //                // lines of text.
-        //                var textArea = rowBounds;
-        //                textArea.X -= this.DataGridView.HorizontalScrollingOffset;
-        //                textArea.Width += this.DataGridView.HorizontalScrollingOffset;
-        //                textArea.Y += _rowHeight + (i - 1) * CELL_SUBROW_HEIGHT;
-        //                textArea.Height = CELL_SUBROW_HEIGHT;
-
-        //                // Calculate the portion of the text area that needs painting.
-        //                RectangleF clip = textArea;
-        //                var startX = this.DataGridView.RowHeadersVisible ? this.DataGridView.RowHeadersWidth : 0;
-        //                clip.Width -= startX + 1 - clip.X;
-        //                clip.X = startX + 1;
-        //                var oldClip = e.Graphics.ClipBounds;
-        //                e.Graphics.SetClip(clip);
-
-        //                // Use a different font for subrows
-        //                // TODO: Make this a parameter of the Table
-        //                //Font subRowFont = new Font(e.InheritedRowStyle.Font, FontStyle.Italic);
-
-        //                var format = new StringFormat
-        //                                {
-        //                                    FormatFlags = StringFormatFlags.NoWrap,
-        //                                    Trimming = StringTrimming.EllipsisWord
-        //                                };
-
-        //                // Draw the content that spans multiple columns.
-        //                e.Graphics.DrawString(text, e.InheritedRowStyle.Font, forebrush, textArea, format);
-
-        //                e.Graphics.SetClip(oldClip);
-        //            }
-        //        }
-        //    }
-        //    finally
-        //    {
-        //        if (forebrush != null)
-        //            forebrush.Dispose();
-        //    }
-        //}
 
         // Make all the link column the same color as the fore color
         private void SetLinkColor(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             //var row = _view.GetRow(e.RowIndex);
-        
+
             //foreach (DataGridViewCell cell in row.Cells)
             //{
             //    if (cell is DataGridViewLinkCell)
@@ -923,9 +812,9 @@ namespace ClearCanvas.Desktop.View.WinForms
         private Rectangle GetAdjustedRowBounds(Rectangle rowBounds)
         {
             return new Rectangle(
-                    (_view.OptionsView.ShowColumnHeaders ? _view.GridControl.Width  : 0) + rowBounds.Left,
+                    (_view.OptionsView.ShowIndicator ? indicatorWidth : 0) + rowBounds.Left,
                     rowBounds.Top,
-                    _view.GridControl.Width ,
+                    _view.GridControl.Width,
                     rowBounds.Height);
         }
 
@@ -945,7 +834,7 @@ namespace ClearCanvas.Desktop.View.WinForms
 
             // Find the row we're on
             var pt = _view.GridControl.PointToClient(MousePosition);
-            
+
             GridHitInfo hi = _view.CalcHitInfo(_view.GridControl.PointToClient(MousePosition));
             //var info = hi.RowHandle 
             try
@@ -954,7 +843,7 @@ namespace ClearCanvas.Desktop.View.WinForms
                 // if we modify the selection while opening the context menu, we need those notifications to propagate immediately
                 _delaySelectionChangeNotification = false;
 
-                if (_view.GetSelectedRows().Length  == 0)
+                if (_view.GetSelectedRows().Length == 0)
                 {
                     // select the new row
                     if (hi.RowHandle >= 0)
@@ -1000,7 +889,7 @@ namespace ClearCanvas.Desktop.View.WinForms
 
         }
 
-      
+
 
         /// <summary>
         /// Handling this event is necessary to ensure that changes to checkbox cells are propagated
@@ -1089,14 +978,14 @@ namespace ClearCanvas.Desktop.View.WinForms
 
         protected DevExpress.XtraGrid.GridControl DataGridView
         {
-            get { return _view.GridControl ; }
+            get { return _view.GridControl; }
         }
 
         private void TableView_Load(object sender, EventArgs e)
         {
             InitializeMenu();
             InitializeToolStrip();
-
+            
             _isLoaded = true;
         }
 
@@ -1361,5 +1250,129 @@ namespace ClearCanvas.Desktop.View.WinForms
                 NotifySelectionChanged();
             }
         }
+
+        public int indicatorWidth
+        {
+            get
+            {
+               return (_view.GetViewInfo() as GridViewInfo).ViewRects.IndicatorWidth;
+            }
+        }
+        private void _view_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            GridViewInfo vi = _view.GetViewInfo() as GridViewInfo;
+
+            var rowBounds = GetAdjustedRowBounds(vi.GetGridRowInfo(e.RowHandle).Bounds);
+
+            SolidBrush forebrush = null;
+            try
+            {
+                // Determine the foreground color.
+                if (_view.IsRowSelected(e.RowHandle) || _view.IsCellSelected(e.RowHandle, e.Column))
+                {
+                    forebrush = new SolidBrush(_view.Appearance.SelectedRow.ForeColor);
+                }
+                else
+                {
+                    forebrush = new SolidBrush(e.Appearance.ForeColor);
+                }
+
+                // Store text for each subrow
+                var sb = new StringBuilder[_table.CellRowCount];
+                for (var i = 0; i < _table.CellRowCount; i++)
+                {
+                    sb[i] = new StringBuilder();
+                }
+
+                for (var i = 0; i < _table.Columns.Count; i++)
+                {
+                    var col = _table.Columns[i] as ITableColumn;
+                    if (col != null && col.CellRow > 0)
+                    {
+                        //var row = _view.GetRow(e.RowHandle);
+
+                        var recipe = e.RowHandle != -1 ? e.CellValue : null;
+
+                        if (recipe != null)
+                        {
+                            sb[col.CellRow].Append(recipe + " ");
+                        }
+
+
+                    }
+                }
+
+                // Draw text for each sub row (Rows 1 and higher in the Table)
+                for (var i = 1; i < _table.CellRowCount; i++)
+                {
+                    var text = sb[i].ToString().Trim();
+
+                    if (string.IsNullOrEmpty(text) == false)
+                    {
+                        // Calculate the bounds for the content that spans multiple 
+                        // columns, adjusting for the horizontal scrolling position 
+                        // and the current row height, and displaying only whole
+                        // lines of text.
+                        var textArea = rowBounds;
+                        textArea.X -= this._view.HorzScrollStep;
+                        textArea.Width += this._view.HorzScrollStep;
+                        textArea.Y += _rowHeight + (i - 1) * CELL_SUBROW_HEIGHT;
+                        textArea.Height = CELL_SUBROW_HEIGHT;
+
+                        // Calculate the portion of the text area that needs painting.
+                        RectangleF clip = textArea;
+                        var startX = this._view.OptionsView.ShowIndicator ? indicatorWidth : 0;
+                        clip.Width -= startX + 1 - clip.X;
+                        clip.X = startX + 1;
+                        var oldClip = e.Graphics.ClipBounds;
+
+                        e.Graphics.SetClip(clip);
+
+                        // Use a different font for subrows
+                        // TODO: Make this a parameter of the Table
+                        //Font subRowFont = new Font(e.InheritedRowStyle.Font, FontStyle.Italic);
+
+                        var format = new StringFormat
+                        {
+                            FormatFlags = StringFormatFlags.NoWrap,
+                            Trimming = StringTrimming.EllipsisWord
+                        };
+
+                        // Draw the content that spans multiple columns.
+                        e.Graphics.DrawString(text, e.Appearance.Font, forebrush, textArea, format);
+
+                        e.Graphics.SetClip(oldClip);
+                    }
+                }
+            }
+            finally
+            {
+                if (forebrush != null)
+                    forebrush.Dispose();
+            }
+        }
+        // Paints the custom outline for each row
+        private void OutlineCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            var rowBounds = GetAdjustedRowBounds(e.Bounds);
+
+            if (_table != null)
+            {
+                const int penWidth = 2;
+                var outline = new Rectangle(
+                    rowBounds.Left + penWidth / 2,
+                    rowBounds.Top + penWidth / 2 + 1,
+                    rowBounds.Width - penWidth,
+                    rowBounds.Height - penWidth - 2);
+
+                var colorName = _table.GetItemOutlineColor(_table.Items[e.RowHandle]);
+                var outlineColor = string.IsNullOrEmpty(colorName) || colorName.Equals("Empty") ? Color.Empty : Color.FromName(colorName);
+                using (var outlinePen = new Pen(outlineColor, penWidth))
+                {
+                    e.Graphics.DrawRectangle(outlinePen, outline);
+                }
+            }
+        }
+
     }
 }

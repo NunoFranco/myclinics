@@ -192,6 +192,12 @@
     <Compile Include="TableDimensionsPicker.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TableView_old.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TableView_old.Designer.cs">
+      <DependentUpon>TableView_old.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestComponentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -526,6 +532,9 @@
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableView_old.resx">
+      <DependentUpon>TableView_old.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextAreaField.resx">
       <DependentUpon>TextAreaField.cs</DependentUpon>
