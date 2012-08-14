@@ -123,6 +123,9 @@
   <data name="ExceptionSave" xml:space="preserve">
     <value>Cannot Save Contacts Right now, Try again Later or contact Administrator for more detail.</value>
   </data>
+  <data name="MessageConfirmPrintInvoice" xml:space="preserve">
+    <value>Do you want to Print Invoices/Transaction Detail?</value>
+  </data>
   <data name="TitleAddContact" xml:space="preserve">
     <value>Add Contacts</value>
   </data>
@@ -174,8 +177,44 @@
   <data name="TitleMedicineCounterSummary" xml:space="preserve">
     <value>Medicine Counter Management</value>
   </data>
+  <data name="TitleStockTransactionCodeColumn" xml:space="preserve">
+    <value>Transaction Code</value>
+  </data>
+  <data name="TitleStockTransactionDescriptionColumn" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TitleStockTransactionSummary" xml:space="preserve">
+    <value>Transaction management</value>
+  </data>
+  <data name="TitleStockTransactionTransactionDateColumn" xml:space="preserve">
+    <value>Transaction Date</value>
+  </data>
+  <data name="TitleStockTransactionTypeColumn" xml:space="preserve">
+    <value>Transaction Type</value>
+  </data>
+  <data name="TitleTransactionLineAmountColumn" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="TitleTransactionLineCodeColumn" xml:space="preserve">
+    <value>Medicine Code</value>
+  </data>
+  <data name="TitleTransactionLineExpireDateColumn" xml:space="preserve">
+    <value>Medicine Expire Date</value>
+  </data>
+  <data name="TitleTransactionLineInputPriceColumn" xml:space="preserve">
+    <value>Input Unit Price</value>
+  </data>
+  <data name="TitleTransactionLineNameColumn" xml:space="preserve">
+    <value>Medicine Full Name</value>
+  </data>
+  <data name="TitleTransactionLineTaxColumn" xml:space="preserve">
+    <value>Tax Rate (%)</value>
+  </data>
+  <data name="TitleTransactionLineUOMColumn" xml:space="preserve">
+    <value>UOM</value>
+  </data>
   <data name="TitleUpdateContact" xml:space="preserve">
-    <value>Updating Contact</value>
+    <value>Updating Contact - {0}</value>
   </data>
   <data name="TitleUpdateMaterialLot" xml:space="preserve">
     <value>Updating Material Lot - {0}</value>
@@ -197,5 +236,20 @@
   </data>
   <data name="TitleWarehouseSummary" xml:space="preserve">
     <value>Warehouse Management</value>
+  </data>
+  <data name="ToolContacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="ToolInstockingMedicine" xml:space="preserve">
+    <value>In-Stocking Medicines</value>
+  </data>
+  <data name="ToolMaterialLot" xml:space="preserve">
+    <value>Material Lot</value>
+  </data>
+  <data name="ToolMedicineCounter" xml:space="preserve">
+    <value>Medicine Counter</value>
+  </data>
+  <data name="ToolWarehouse" xml:space="preserve">
+    <value>Warehouses</value>
   </data>
 </root>

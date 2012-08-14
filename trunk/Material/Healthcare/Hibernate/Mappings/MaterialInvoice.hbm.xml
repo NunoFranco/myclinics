@@ -8,13 +8,17 @@
     <version name="Version" column="Version_"/>
 
     <property name="Code" column="Code_" type="String" length="100" not-null="true" unique="true"/>
-    <many-to-one name="Patient" column="PatientOID_" class="ClearCanvas.Healthcare.Patient, ClearCanvas.Healthcare" not-null="true"/>
+    <many-to-one name="Patient" column="PatientOID_" class="ClearCanvas.Healthcare.Patient, ClearCanvas.Healthcare" not-null="false"/>\
+    
     <many-to-one name="Material" column="MaterialOID_" class="ClearCanvas.Healthcare.ProcedureType, ClearCanvas.Healthcare" not-null="true"/>
     <many-to-one name="Lot" column="MaterialLotOID_" class="MaterialLot" not-null="true"/>
-
+    <property name="PatientName" column="PatientName_" type="string" />
+    <property name="BuyerName" column="BuyerName_" type="string" />
     <property name="SoldDate" column="CreatedDate_" type="DateTime" not-null="true" />
     <property name="SoldAmount" column="SoldAmount_" type="Decimal" not-null="true" />
     <property name="Price" column="SoldPrice" type="Decimal" not-null="true" />
+    <property name="ReceiveCurrencyAmount" column="ReceiveCurrencyAmount_" type="Decimal" not-null="true" />
+    <property name="ReturnCurrencyAmount" column="ReturnCurrencyAmount_" type="Decimal" not-null="true" />
     <property name="Comment" column="Comment" type="string" />
     <many-to-one name="Clinic" class="ClearCanvas.Healthcare.Facility,ClearCanvas.Healthcare" column="ClinicOID_" not-null="false" fetch="join"/>
   </class>

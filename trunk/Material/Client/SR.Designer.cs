@@ -79,6 +79,15 @@ namespace ClearCanvas.Material.Client {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to Print Invoices/Transaction Detail?.
+        /// </summary>
+        internal static string MessageConfirmPrintInvoice {
+            get {
+                return ResourceManager.GetString("MessageConfirmPrintInvoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Contacts.
         /// </summary>
         internal static string TitleAddContact {
@@ -232,7 +241,115 @@ namespace ClearCanvas.Material.Client {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Updating Contact.
+        ///   Looks up a localized string similar to Transaction Code.
+        /// </summary>
+        internal static string TitleStockTransactionCodeColumn {
+            get {
+                return ResourceManager.GetString("TitleStockTransactionCodeColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        internal static string TitleStockTransactionDescriptionColumn {
+            get {
+                return ResourceManager.GetString("TitleStockTransactionDescriptionColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transaction management.
+        /// </summary>
+        internal static string TitleStockTransactionSummary {
+            get {
+                return ResourceManager.GetString("TitleStockTransactionSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transaction Date.
+        /// </summary>
+        internal static string TitleStockTransactionTransactionDateColumn {
+            get {
+                return ResourceManager.GetString("TitleStockTransactionTransactionDateColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transaction Type.
+        /// </summary>
+        internal static string TitleStockTransactionTypeColumn {
+            get {
+                return ResourceManager.GetString("TitleStockTransactionTypeColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount.
+        /// </summary>
+        internal static string TitleTransactionLineAmountColumn {
+            get {
+                return ResourceManager.GetString("TitleTransactionLineAmountColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medicine Code.
+        /// </summary>
+        internal static string TitleTransactionLineCodeColumn {
+            get {
+                return ResourceManager.GetString("TitleTransactionLineCodeColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medicine Expire Date.
+        /// </summary>
+        internal static string TitleTransactionLineExpireDateColumn {
+            get {
+                return ResourceManager.GetString("TitleTransactionLineExpireDateColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input Unit Price.
+        /// </summary>
+        internal static string TitleTransactionLineInputPriceColumn {
+            get {
+                return ResourceManager.GetString("TitleTransactionLineInputPriceColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medicine Full Name.
+        /// </summary>
+        internal static string TitleTransactionLineNameColumn {
+            get {
+                return ResourceManager.GetString("TitleTransactionLineNameColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tax Rate (%).
+        /// </summary>
+        internal static string TitleTransactionLineTaxColumn {
+            get {
+                return ResourceManager.GetString("TitleTransactionLineTaxColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UOM.
+        /// </summary>
+        internal static string TitleTransactionLineUOMColumn {
+            get {
+                return ResourceManager.GetString("TitleTransactionLineUOMColumn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updating Contact - {0}.
         /// </summary>
         internal static string TitleUpdateContact {
             get {
@@ -300,6 +417,51 @@ namespace ClearCanvas.Material.Client {
         internal static string TitleWarehouseSummary {
             get {
                 return ResourceManager.GetString("TitleWarehouseSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contacts.
+        /// </summary>
+        internal static string ToolContacts {
+            get {
+                return ResourceManager.GetString("ToolContacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In-Stocking Medicines.
+        /// </summary>
+        internal static string ToolInstockingMedicine {
+            get {
+                return ResourceManager.GetString("ToolInstockingMedicine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Material Lot.
+        /// </summary>
+        internal static string ToolMaterialLot {
+            get {
+                return ResourceManager.GetString("ToolMaterialLot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medicine Counter.
+        /// </summary>
+        internal static string ToolMedicineCounter {
+            get {
+                return ResourceManager.GetString("ToolMedicineCounter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warehouses.
+        /// </summary>
+        internal static string ToolWarehouse {
+            get {
+                return ResourceManager.GetString("ToolWarehouse", resourceCulture);
             }
         }
     }

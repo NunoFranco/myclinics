@@ -57,38 +57,8 @@ namespace ClearCanvas.Material.Application.Common
                 [AuthorityToken(Description = "Allow administration of MedicineCounter.")]
                 public const string MedicineCounter = "Material/Admin/Data/MedicineCounter";
 
-				[AuthorityToken(Description = "Allow administration of Procedure Type Groups (such as Performing, Reading, and Relevance Groups.")]
-				public const string ProcedureTypeGroup = "Material/Admin/Data/Procedure Type Group";
-
-				[AuthorityToken(Description = "Allow administration of Imaging Services and the Imaging Service Tree.")]
-				public const string DiagnosticService = "Material/Admin/Data/Imaging Service";
-
-				[AuthorityToken(Description = "Allow administration of Enumerations.")]
-				public const string Enumeration = "Material/Admin/Data/Enumeration";
-
-				[AuthorityToken(Description = "Allow administration of Worklists.")]
-				public const string Worklist = "Material/Admin/Data/Worklist";
-
-				[AuthorityToken(Description = "Allow administration of Protocol Groups and Codes.")]
-				public const string ProtocolGroups = "Material/Admin/Data/Protocol Groups";
-
-				[AuthorityToken(Description = "Allow administration of Staff.")]
-				public const string Staff = "Material/Admin/Data/Staff";
-
-				[AuthorityToken(Description = "Allow administration of Staff Groups.")]
-				public const string StaffGroup = "Material/Admin/Data/Staff Group";
-
-				[AuthorityToken(Description = "Allow administration of External Practitioners.")]
-				public const string ExternalPractitioner = "Material/Admin/Data/External Practitioner";
-
-				[AuthorityToken(Description = "Allow administration of Patient Note Categories.")]
-				public const string PatientNoteCategory = "Material/Admin/Data/Patient Note Category";
-
-                [AuthorityToken(Description = "Allow administration of Working Shift.")]
-                public const string WorkingShift = "Material/Admin/Data/Working Shift";
-
-                [AuthorityToken(Description = "Allow access to the Add new Prescription")]
-                public const string DoctorPrescription = "Material/Admin/DoctorPrescription";
+                [AuthorityToken(Description = "Allow administration of Medicine Sold Out.")]
+                public const string MedicineTransaction = "Material/Admin/Data/MedicineTransaction";
 
 			}
 
