@@ -38,6 +38,7 @@ using ClearCanvas.Desktop.Validation;
 using ClearCanvas.Enterprise.Common;
 using ClearCanvas.Ris.Client;
 using {$CommonNS};
+using {$CommonNS}{$Suffix};
 
 
 namespace {$componentNS}
@@ -59,9 +60,9 @@ namespace {$componentNS}
         public event EventHandler ItemAdded;
         public event EventHandler ItemUpdated;
         public bool IsCloseWhenSaved { get; set; }
-        private readonly EntityRef _ref;
+        private EntityRef _ref;
         private {0}Detail _detail;
-        private readonly bool _isNew;
+        private bool _isNew;
 
         private {0}Summary _summary;
         private List<{0}Summary> _baseTypeChoices;
@@ -77,8 +78,8 @@ namespace {$componentNS}
         }
         void ResetNew()
         {
-            _detail = new {0}Detail;
-            NotifyAllPropertiesChanged();
+            _detail = new {0}Detail();
+            ReBindData();
         }
         public EntityRef {0}Ref
         {
@@ -96,8 +97,15 @@ namespace {$componentNS}
                                      //ItemsTable.Items.Clear();
                                      //ItemsTable.Items.AddRange(_detail.Medicines);
                                  });
-                NotifyAllPropertiesChanged();
+                ReBindData();
             }
+        }
+        public void ReBindData()
+        {
+            {2}
+            _isNew = true;
+            this.Modified = false;
+            NotifyAllPropertiesChanged();
         }
         /// <summary>
         /// Constructor.
@@ -212,14 +220,14 @@ namespace {$componentNS}
 
         private void SaveChanges()
         {
-            _detail.Clinic = LoginSession.Current.WorkingFacility.FacilityRef;
+            _detail.Clinic = LoginSession.Current.WorkingFacility;
             Platform.GetService<I{0}Service>(
                 delegate(I{0}Service service)
                 {
                     if (_isNew)
                     {
                         Add{0}Response response = service.Add{0}(new Add{0}Request(_detail));
-                        _summary = response.objSummary;
+                        _summary = response.Summarys;
                         ItemAdded(this, System.EventArgs.Empty);
                     }
                     else

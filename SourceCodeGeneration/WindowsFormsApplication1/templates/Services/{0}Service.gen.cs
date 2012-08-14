@@ -54,52 +54,52 @@ namespace {$ServiceNS}{$Suffix}
     {
         #region I{0}Service Members
 
-        //[ReadOperation]
-        //public TextQueryResponse<{0}Summary> TextQuery(TextQueryRequest request)
-        //{
-        //    I{0}Broker broker = PersistenceContext.GetBroker<I{0}Broker>();
-        //    {0}Assembler assembler = new {0}Assembler();
+        [ReadOperation]
+        public TextQueryResponse<{0}Summary> TextQuery(TextQueryRequest request)
+        {
+            I{0}Broker broker = PersistenceContext.GetBroker<I{0}Broker>();
+            {0}Assembler assembler = new {0}Assembler();
 
-        //    TextQueryHelper<{0}, {0}SearchCriteria, {0}Summary> helper
-        //        = new TextQueryHelper<{0}, {0}SearchCriteria, {0}Summary>(
-        //            delegate
-        //            {
-        //                string rawQuery = request.TextQuery;
+            TextQueryHelper<{0}, {0}SearchCriteria, {0}Summary> helper
+                = new TextQueryHelper<{0}, {0}SearchCriteria, {0}Summary>(
+                    delegate
+                    {
+                        string rawQuery = request.TextQuery;
 
-        //                IList<string> terms = TextQueryHelper.ParseTerms(rawQuery);
-        //                List<{0}SearchCriteria> criteria = new List<{0}SearchCriteria>();
+                        IList<string> terms = TextQueryHelper.ParseTerms(rawQuery);
+                        List<{0}SearchCriteria> criteria = new List<{0}SearchCriteria>();
 
-        //                // allow matching on name (assume entire query is a name which may contain spaces)
-        //                {0}SearchCriteria nameCriteria = new {0}SearchCriteria();
-        //                nameCriteria.Name.StartsWith(rawQuery);
-        //                criteria.Add(nameCriteria);
+                        // allow matching on name (assume entire query is a name which may contain spaces)
+                        {0}SearchCriteria nameCriteria = new {0}SearchCriteria();
+                        nameCriteria.Name.StartsWith(rawQuery);
+                        criteria.Add(nameCriteria);
 
-        //                // allow matching of any term against ID
-        //                /*criteria.AddRange(CollectionUtils.Map<string, {0}SearchCriteria>(terms,
-        //                             delegate(string term)
-        //                             {
-        //                                 {0}SearchCriteria c = new {0}SearchCriteria();
-        //                                 c.Id.StartsWith(term);
-        //                                 return c;
-        //                             }));*/
+                        // allow matching of any term against ID
+                        /*criteria.AddRange(CollectionUtils.Map<string, {0}SearchCriteria>(terms,
+                                     delegate(string term)
+                                     {
+                                         {0}SearchCriteria c = new {0}SearchCriteria();
+                                         c.Id.StartsWith(term);
+                                         return c;
+                                     }));*/
 
-        //                return criteria.ToArray();
-        //            },
-        //            delegate({0} pt)
-        //            {
-        //                return assembler.CreateSummary(pt);
-        //            },
-        //            delegate({0}SearchCriteria[] criteria, int threshold)
-        //            {
-        //                return broker.Count(criteria) <= threshold;
-        //            },
-        //            delegate({0}SearchCriteria[] criteria, SearchResultPage page)
-        //            {
-        //                return broker.Find(criteria, page);
-        //            });
+                        return criteria.ToArray();
+                    },
+                    delegate({0} pt)
+                    {
+                        return assembler.CreateSummary(pt);
+                    },
+                    delegate({0}SearchCriteria[] criteria, int threshold)
+                    {
+                        return broker.Count(criteria) <= threshold;
+                    },
+                    delegate({0}SearchCriteria[] criteria, SearchResultPage page)
+                    {
+                        return broker.Find(criteria, page);
+                    });
 
-        //    return helper.Query(request);
-        //}
+            return helper.Query(request);
+        }
 		
         [ReadOperation]
         public List{0}sResponse List{0}s(List{0}sRequest request)

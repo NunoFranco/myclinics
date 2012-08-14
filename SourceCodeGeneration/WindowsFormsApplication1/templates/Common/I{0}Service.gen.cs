@@ -42,13 +42,13 @@ namespace {$CommonNS}{$Suffix}
 	[ServiceContract]
 	public interface I{0}Service
 	{
-        ///// <summary>
-        ///// Returns a list of procedure type based on a textual query.
-        ///// </summary>
-        ///// <param name="request"></param>
-        ///// <returns></returns>
-        //[OperationContract]
-        //TextQueryResponse<{0}Summary> TextQuery(TextQueryRequest request);
+        /// <summary>
+        /// Returns a list of procedure type based on a textual query.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [OperationContract]
+        TextQueryResponse<{0}Summary> TextQuery(TextQueryRequest request);
 
 		/// <summary>
 		/// Summary list of all items.
