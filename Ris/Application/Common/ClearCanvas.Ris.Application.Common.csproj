@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -12,25 +11,9 @@
     <AssemblyName>ClearCanvas.Ris.Application.Common</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <OldToolsVersion>3.5</OldToolsVersion>
+    <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,7 +23,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -49,14 +31,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -70,6 +48,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressDetail.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\AddPackageProcedureRequest.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\AddPackageProcedureResponse.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\DeletePackageProcedureRequest.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\DeletePackageProcedureResponse.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\GetPackageProcedureEditFormDataRequest.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\GetPackageProcedureEditFormDataResponse.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\GetPackageProcedureSummaryFormDataRequest.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\GetPackageProcedureSummaryFormDataResponse.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\IPackageProcedureAdminService.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\ListPackageProceduresRequest.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\ListPackageProceduresResponse.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\LoadPackageProcedureForEditRequest.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\LoadPackageProcedureForEditResponse.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\PackageProcedureDetail.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\UpdatePackageProcedureRequest.cs" />
+    <Compile Include="Admin\PackageProcedureAdmin\UpdatePackageProcedureResponse.cs" />
     <Compile Include="Admin\DiagnosticServiceAdmin\AddDiagnosticServiceRequest.cs" />
     <Compile Include="Admin\DiagnosticServiceAdmin\AddDiagnosticServiceResponse.cs" />
     <Compile Include="Admin\DiagnosticServiceAdmin\DeleteDiagnosticServiceRequest.cs" />
@@ -83,8 +77,6 @@
     <Compile Include="Admin\DiagnosticServiceAdmin\LoadDiagnosticServiceForEditResponse.cs" />
     <Compile Include="Admin\DiagnosticServiceAdmin\UpdateDiagnosticServiceRequest.cs" />
     <Compile Include="Admin\DiagnosticServiceAdmin\UpdateDiagnosticServiceResponse.cs" />
-    <Compile Include="Admin\EnumerationAdmin\RefreshEnumerationCacheResponse.cs" />
-    <Compile Include="Admin\EnumerationAdmin\RefreshEnumerationCacheRequest.cs" />
     <Compile Include="Admin\EnumerationAdmin\EnumValueAdminInfo.cs" />
     <Compile Include="Admin\ExternalPractitionerAdmin\DeleteExternalPractitionerRequest.cs" />
     <Compile Include="Admin\ExternalPractitionerAdmin\DeleteExternalPractitionerResponse.cs" />
@@ -139,44 +131,16 @@
     <Compile Include="Admin\StaffGroupAdmin\LoadStaffGroupForEditRequest.cs" />
     <Compile Include="Admin\StaffGroupAdmin\LoadStaffGroupForEditResponse.cs" />
     <Compile Include="Admin\StaffGroupAdmin\StaffGroupTextQueryRequest.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\AddWorkingShiftRequest.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\AddWorkingShiftResponse.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\LoadWorkingShiftEditorFormDataRequest.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\LoadWorkingShiftEditorFormDataResponse.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\DeleteWorkingShiftRequest.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\DeleteWorkingShiftResponse.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\IWorkingShiftAdminService.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\ListWorkingShiftsRequest.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\ListWorkingShiftsResponse.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\LoadWorkingShiftForEditRequest.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\LoadWorkingShiftForEditResponse.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\UpdateWorkingShiftRequest.cs" />
-    <Compile Include="Admin\WorkingShiftAdmin\UpdateWorkingShiftResponse.cs" />
-    <Compile Include="Admin\WorklistAdmin\AddWorklistRequest.cs" />
-    <Compile Include="Admin\WorklistAdmin\AddWorklistResponse.cs" />
     <Compile Include="Admin\WorklistAdmin\DeleteWorklistRequest.cs" />
     <Compile Include="Admin\WorklistAdmin\DeleteWorklistResponse.cs" />
     <Compile Include="Admin\WorklistAdmin\GetWorklistEditFormChoicesRequest.cs" />
     <Compile Include="Admin\WorklistAdmin\GetWorklistEditFormChoicesResponse.cs" />
-    <Compile Include="Admin\WorklistAdmin\GetWorklistEditFormDataRequest.cs" />
-    <Compile Include="Admin\WorklistAdmin\GetWorklistEditFormDataResponse.cs" />
     <Compile Include="Admin\WorklistAdmin\GetWorklistEditValidationRequest.cs" />
     <Compile Include="Admin\WorklistAdmin\GetWorklistEditValidationResponse.cs" />
-    <Compile Include="Admin\WorklistAdmin\IWorklistAdminService.cs" />
-    <Compile Include="Admin\WorklistAdmin\ListProcedureTypeGroupsRequest.cs" />
-    <Compile Include="Admin\WorklistAdmin\ListProcedureTypeGroupsResponse.cs" />
     <Compile Include="Admin\WorklistAdmin\ListWorklistCategoriesRequest.cs" />
     <Compile Include="Admin\WorklistAdmin\ListWorklistCategoriesResponse.cs" />
     <Compile Include="Admin\WorklistAdmin\ListWorklistClassesRequest.cs" />
     <Compile Include="Admin\WorklistAdmin\ListWorklistClassesResponse.cs" />
-    <Compile Include="Admin\WorklistAdmin\ListWorklistsRequest.cs" />
-    <Compile Include="Admin\WorklistAdmin\ListWorklistsResponse.cs" />
-    <Compile Include="Admin\WorklistAdmin\LoadWorklistForEditRequest.cs" />
-    <Compile Include="Admin\WorklistAdmin\LoadWorklistForEditResponse.cs" />
-    <Compile Include="Admin\WorklistAdmin\UpdateWorklistRequest.cs" />
-    <Compile Include="Admin\WorklistAdmin\UpdateWorklistResponse.cs" />
-    <Compile Include="Admin\WorklistAdmin\WorklistAdminDetail.cs" />
-    <Compile Include="Admin\WorklistAdmin\WorklistAdminSummary.cs" />
     <Compile Include="Admin\WorklistAdmin\WorklistClassSummary.cs" />
     <Compile Include="Admin\WorkQueueAdmin\GetWorkQueueFormDataRequest.cs" />
     <Compile Include="Admin\WorkQueueAdmin\GetWorkQueueFormDataResponse.cs" />
@@ -198,121 +162,15 @@
       <DependentUpon>AttachedDocumentSettings.settings</DependentUpon>
     </Compile>
     <Compile Include="AttachmentSummary.cs" />
-    <Compile Include="Billing\AuthorityToken.cs" />
-    <Compile Include="Billing\BillingCommonEnums.cs" />
-    <Compile Include="Billing\Constant.cs" />
-    <Compile Include="Billing\CurrencyDetail.cs" />
-    <Compile Include="Billing\CurrencyManager.cs" />
-    <Compile Include="Billing\CurrencySummary.cs" />
-    <Compile Include="Billing\DiscountInsuranceDetail.cs" />
-    <Compile Include="Billing\DiscountInsuranceSummary.cs" />
-    <Compile Include="Billing\DiscountRuleDetail.cs" />
-    <Compile Include="Billing\DiscountRuleSummary.cs" />
-    <Compile Include="Billing\InsuranceRuleDetail.cs" />
-    <Compile Include="Billing\InsuranceRuleSummary.cs" />
-    <Compile Include="Billing\OrderInvoicesAssembler.cs" />
-    <Compile Include="Billing\OrderInvoicesDetail.cs" />
-    <Compile Include="Billing\OrderInvoicesSummary.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\AddCurrencyRequestRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\AddCurrencyResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\AddDiscountSummaryRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\AddDiscountSummaryResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\AddInsuranceSummaryRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\AddInsuranceSummaryResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\AddOrderInvoicesRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\AddOrderInvoicesResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ChangePrimaryCurrencyRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ChangePrimaryCurrencyResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ConfirmInsuranceRequest .cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ConfirmInsuranceResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\DeleteCurrencyRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\DeleteCurrencyResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\DeleteInsuranceSummaryRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\DeleteInsuranceSummaryResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\DeleteObjectSummaryRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\DeleteObjectSummaryResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\GetDiscountPriceRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\GetDiscountPriceResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListCurrenceyDetailRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListCurrencyDetailResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListCurrencyRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListCurrencyResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListDiscountRuleDetailRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListDiscountRuleDetailResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListDiscountRuleRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListDiscountRuleResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListInsuranceRuleDetailRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListInsuranceRuleDetailResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListInsuranceRuleRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListInsuranceRuleResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListOrderInvoicesRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListOrderInvoicesResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListPrimaryCurrencyRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\ListPrimaryCurrencyResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadCurrencyEditRequest .cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadCurrencyEditResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadDiscountRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadDiscountResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadInsuranceRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadInsuranceResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadInsuranceSummaryEditRequest .cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadInsuranceSummaryEditResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadObjectSummaryEditRequest .cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadObjectSummaryEditResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadOrderInvoicesEditRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\LoadOrderInvoicesEditResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\RejectInsuranceRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\RejectInsuranceResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\UpdateCurrencyRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\UpdateCurrencyResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\UpdateObjectSummaryRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\UpdateObjectSummaryResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\UpdateOrderInvoicesRequest.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\UpdateOrderInvoicesResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\UpdateProcedureAdjestmentPriceRequest .cs" />
-    <Compile Include="Billing\ServiceInterfaces\BillingDTO\UpdateProcedureAdjestmentPriceResponse.cs" />
-    <Compile Include="Billing\ServiceInterfaces\IBillingService.cs" />
-    <Compile Include="Billing\ServiceInterfaces\ICurrenciesService.cs" />
-    <Compile Include="Billing\ServiceInterfaces\IDiscountRuleService.cs" />
-    <Compile Include="Billing\ServiceInterfaces\IIsuranceRuleService.cs" />
-    <Compile Include="Billing\ServiceInterfaces\IOrderInvoiceService.cs" />
-    <Compile Include="Billing\ServiceInterfaces\SR.Designer.cs">
-      <DependentUpon>SR.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="CannedTextService\EditCannedTextCategoriesRequest.cs" />
     <Compile Include="CannedTextService\EditCannedTextCategoriesResponse.cs" />
-    <Compile Include="CommonFunctions.cs" />
-    <Compile Include="DoctorPrescription\AddDoctorPrescriptionRequest.cs" />
-    <Compile Include="DoctorPrescription\AddDoctorPrescriptionResponse.cs" />
-    <Compile Include="DoctorPrescription\DeleteDoctorPrescriptionRequest.cs" />
-    <Compile Include="DoctorPrescription\DeleteDoctorPrescriptionResponse.cs" />
-    <Compile Include="DoctorPrescription\IDoctorPrescriptionAdminService.cs" />
-    <Compile Include="DoctorPrescription\ListDoctorPrescriptionsRequest.cs" />
-    <Compile Include="DoctorPrescription\ListDoctorPrescriptionsResponse.cs" />
-    <Compile Include="DoctorPrescription\LoadDoctorPrescriptionEditorFormDataRequest.cs" />
-    <Compile Include="DoctorPrescription\LoadDoctorPrescriptionEditorFormDataResponse.cs" />
-    <Compile Include="DoctorPrescription\LoadDoctorPrescriptionForEditRequest.cs" />
-    <Compile Include="DoctorPrescription\LoadDoctorPrescriptionForEditResponse.cs" />
-    <Compile Include="DoctorPrescription\DoctorPrescriptionSummary.cs" />
-    <Compile Include="DoctorPrescription\DoctorPrescriptionDetail.cs" />
-    <Compile Include="DoctorPrescription\UpdateDoctorPrescriptionRequest.cs" />
-    <Compile Include="DoctorPrescription\UpdateDoctorPrescriptionResponse.cs" />
-    <Compile Include="DoctorWorkingPlanSummary.cs" />
-    <Compile Include="WorkingShiftDetail.cs" />
-    <Compile Include="WorkinfShiftSummary.cs" />
+    <Compile Include="PackageProcedureummary.cs" />
+    <Compile Include="IFileTransferService.cs" />
     <Compile Include="Jsml\ShimUtil.cs" />
     <Compile Include="ModalityProcedureStepSummary.cs" />
     <Compile Include="ModalityWorkflow\DicomSeriesDetail.cs" />
     <Compile Include="ProtocollingWorkflow\GetLinkableProtocolsRequest.cs" />
     <Compile Include="ProtocollingWorkflow\GetLinkableProtocolsResponse.cs" />
-    <Compile Include="RegistrationWorkflow\OrderEntry\UpdateOrderStatusRequest.cs" />
-    <Compile Include="RegistrationWorkflow\OrderEntry\UpdateOrderStatusResponse.cs" />
-    <Compile Include="RegistrationWorkflow\OrderEntry\ReConfirmOrderResponse.cs" />
-    <Compile Include="RegistrationWorkflow\OrderEntry\ReConfirmOrderRequest.cs" />
-    <Compile Include="RegistrationWorkflow\OrderEntry\LoadOrderRequest.cs" />
-    <Compile Include="RegistrationWorkflow\OrderEntry\LoadOrderResponse.cs" />
     <Compile Include="RegistrationWorkflow\OrderEntry\QueryCancelOrderWarningsRequest.cs" />
     <Compile Include="RegistrationWorkflow\OrderEntry\QueryCancelOrderWarningsResponse.cs" />
     <Compile Include="ReportingWorkflow\GetDocumentationStatusResponse.cs" />
@@ -616,6 +474,20 @@
     <Compile Include="VisitLocationDetail.cs" />
     <Compile Include="VisitPractitionerDetail.cs" />
     <Compile Include="VisitSummary.cs" />
+    <Compile Include="Admin\WorklistAdmin\AddWorklistRequest.cs" />
+    <Compile Include="Admin\WorklistAdmin\AddWorklistResponse.cs" />
+    <Compile Include="Admin\WorklistAdmin\GetWorklistEditFormDataRequest.cs" />
+    <Compile Include="Admin\WorklistAdmin\GetWorklistEditFormDataResponse.cs" />
+    <Compile Include="Admin\WorklistAdmin\IWorklistAdminService.cs" />
+    <Compile Include="Admin\WorklistAdmin\ListProcedureTypeGroupsRequest.cs" />
+    <Compile Include="Admin\WorklistAdmin\ListProcedureTypeGroupsResponse.cs" />
+    <Compile Include="Admin\WorklistAdmin\ListWorklistsRequest.cs" />
+    <Compile Include="Admin\WorklistAdmin\ListWorklistsResponse.cs" />
+    <Compile Include="Admin\WorklistAdmin\LoadWorklistForEditRequest.cs" />
+    <Compile Include="Admin\WorklistAdmin\LoadWorklistForEditResponse.cs" />
+    <Compile Include="Admin\WorklistAdmin\UpdateWorklistRequest.cs" />
+    <Compile Include="Admin\WorklistAdmin\UpdateWorklistResponse.cs" />
+    <Compile Include="Admin\WorklistAdmin\WorklistAdminDetail.cs" />
     <Compile Include="CompositeIdentifierDetail.cs" />
     <Compile Include="DefaultAuthorityGroups.cs" />
     <Compile Include="AttachedDocumentSummary.cs" />
@@ -668,6 +540,7 @@
     <Compile Include="RegistrationWorkflow\OrderEntry\ReplaceOrderResponse.cs" />
     <Compile Include="ReportingWorkflow\GetRadiologistListRequest.cs" />
     <Compile Include="ReportingWorkflow\GetRadiologistListResponse.cs" />
+    <Compile Include="Admin\WorklistAdmin\WorklistAdminSummary.cs" />
     <Compile Include="DiagnosticServiceDetail.cs" />
     <Compile Include="DiagnosticServiceSummary.cs" />
     <Compile Include="ProcedureStepSummary.cs" />
@@ -799,11 +672,6 @@
     <Compile Include="WorklistSummary.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Billing\ServiceInterfaces\SR.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SR.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="SR.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
@@ -819,14 +687,6 @@
       <Project>{B5EBFFD7-6641-4932-91C9-4C4322B41868}</Project>
       <Name>ClearCanvas.Enterprise.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Enterprise\Core\ClearCanvas.Enterprise.Core.csproj">
-      <Project>{431E9444-9915-4D49-B92D-9B7EC086622A}</Project>
-      <Name>ClearCanvas.Enterprise.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Healthcare\ClearCanvas.Healthcare.csproj">
-      <Project>{748C08F1-FD6E-49F6-90BB-90C3A323C714}</Project>
-      <Name>ClearCanvas.Healthcare</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -834,23 +694,6 @@
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>AttachedDocumentSettings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
