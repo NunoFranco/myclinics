@@ -14,7 +14,7 @@
     <many-to-one name="EquipmentLot" column="MaterialLot_" class="MaterialLot"/>
     <many-to-one name="Order" column="OrderOID_" class="ClearCanvas.Healthcare.Order,ClearCanvas.Healthcare"/>
     <property name="Description" column="Description_" type="String" />
-    <property name="TransactionDate" column="TransactionDate_" type="DateTime" not-null="true"/>
+    <property name="TransactionDate" column="TransactionDate_" type="DateTime" />
     <many-to-one name="User" column="UserOID_" class="ClearCanvas.Enterprise.Authentication.User,ClearCanvas.Enterprise.Authentication" not-null="true"/>
     <many-to-one name="TransactionType" column="TransactionType_" class="StockTransactionTypeEnum" not-null="true"/>
     <set name="Details" lazy="true" inverse="true" cascade="all-delete-orphan" access="nosetter.camelcase-underscore">

@@ -34,6 +34,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClearCanvas.Ris.Application.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Ris\Application\Common\bin\Debug\ClearCanvas.Ris.Application.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearCanvas.Ris.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Ris\Client\bin\Debug\ClearCanvas.Ris.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v10.1, Version=10.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -61,6 +78,27 @@
       <DependentUpon>ContactSummaryComponentControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ContactSummaryComponentView.cs" />
+    <Compile Include="MedicineReturnComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MedicineReturnComponentControl.Designer.cs">
+      <DependentUpon>MedicineReturnComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineReturnComponentView.cs" />
+    <Compile Include="MedicineSoldOutNoOrderComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MedicineSoldOutNoOrderComponentControl.Designer.cs">
+      <DependentUpon>MedicineSoldOutNoOrderComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicineSoldOutNoOrderComponentView.cs" />
+    <Compile Include="StockTransactionEditoeComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StockTransactionEditoeComponentControl.Designer.cs">
+      <DependentUpon>StockTransactionEditoeComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockTransactionEditoeComponentView.cs" />
     <Compile Include="MaterialLotEditorComponentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -90,6 +128,13 @@
     </Compile>
     <Compile Include="MedicineCounterSummaryComponentView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StockTransactionSummaryComponentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StockTransactionSummaryComponentControl.Designer.cs">
+      <DependentUpon>StockTransactionSummaryComponentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockTransactionSummaryComponentView.cs" />
     <Compile Include="WarehouseEditorComponentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +172,10 @@
       <Project>{CBD5EBD0-7AE9-4824-AE8C-4888983E1B5B}</Project>
       <Name>ClearCanvas.Enterprise.Desktop</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Ris\Client\View\WinForms\ClearCanvas.Ris.Client.View.WinForms.csproj">
+      <Project>{7932D8CA-34CF-47E6-A425-9B8DA4F60341}</Project>
+      <Name>ClearCanvas.Ris.Client.View.WinForms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ClearCanvas.Material.Client.csproj">
       <Project>{89DF567B-A0D1-456A-A28F-043FD57D7F9A}</Project>
       <Name>ClearCanvas.Material.Client</Name>
@@ -136,8 +185,17 @@
     <EmbeddedResource Include="ContactEditorComponentControl.resx">
       <DependentUpon>ContactEditorComponentControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ContactEditorComponentControl.vi.resx">
+      <DependentUpon>ContactEditorComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContactSummaryComponentControl.resx">
       <DependentUpon>ContactSummaryComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicineSoldOutNoOrderComponentControl.resx">
+      <DependentUpon>MedicineSoldOutNoOrderComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockTransactionEditoeComponentControl.resx">
+      <DependentUpon>StockTransactionEditoeComponentControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaterialLotEditorComponentControl.resx">
       <DependentUpon>MaterialLotEditorComponentControl.cs</DependentUpon>
@@ -150,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MedicineCounterSummaryComponentControl.resx">
       <DependentUpon>MedicineCounterSummaryComponentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockTransactionSummaryComponentControl.resx">
+      <DependentUpon>StockTransactionSummaryComponentControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WarehouseEditorComponentControl.resx">
       <DependentUpon>WarehouseEditorComponentControl.cs</DependentUpon>
