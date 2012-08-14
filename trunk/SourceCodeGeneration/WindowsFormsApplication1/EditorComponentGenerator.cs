@@ -23,7 +23,8 @@ namespace WindowsFormsApplication1
         {
             string content = GetTemplateContent(template);
             GeneratedContent = content.Replace("{0}", ObjectName);
-            GeneratedContent = GeneratedContent.Replace("{1}",GetDetailFields().GetPresentationModelFields());     
+            GeneratedContent = GeneratedContent.Replace("{1}", GetSummaryFieldsWithObject().GetPresentationModelFields());
+            GeneratedContent = GeneratedContent.Replace("{2}", GetSummaryFieldsWithObject().GetNotifiedPropertiesChanged ());     
             base.Generate();
         }
     }

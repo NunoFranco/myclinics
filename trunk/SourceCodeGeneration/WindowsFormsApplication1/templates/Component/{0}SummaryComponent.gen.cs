@@ -39,11 +39,10 @@ using ClearCanvas.Desktop.Tools;
 using ClearCanvas.Enterprise.Desktop;
 using {$CommonNS};
 using {$CommonNS}{$Suffix};
-using {$CommonNS}.Billing.ServiecInterfaces;
 using ClearCanvas.Desktop.Tables;
 namespace {$componentNS}
 {
-	[MenuAction("launch", "global-menus/Admin/Doctor Prescription Template", "Launch")]
+	[MenuAction("launch", "global-menus/Admin/{0}", "Launch")]
 	[ActionPermission("launch", {$CommonNS}.AuthorityTokens.Admin.Data.{0})]
 	[ExtensionOf(typeof(DesktopToolExtensionPoint))]
     public class {0}Tool : Tool<IDesktopToolContext>
@@ -61,7 +60,7 @@ namespace {$componentNS}
                     _workspace = ApplicationComponent.LaunchAsWorkspace(
                         this.Context.DesktopWindow,
                         component,
-                        SR.TitleDoctorPrescritpionSummary);
+                        SR.Title{0}Summary);
                     _workspace.Closed += delegate { _workspace = null; };
 
                 }
@@ -226,8 +225,25 @@ namespace {$componentNS}
 		/// <returns>True if items were added, false otherwise.</returns>
 		protected override bool AddItems(out IList<{0}Summary> addedItems)
 		{
-            ShowEditor(true,"" );
-            return true;
+            addedItems = new List<{0}Summary>();
+            if (DialogMode)
+            {
+                addedItems = new List<{0}Summary>();
+                var editor = new {0}EditorComponent();
+                var exitCode = LaunchAsDialog(this.Host.DesktopWindow, editor, SR.TitleAdd{0});
+                if (exitCode == ApplicationComponentExitCode.Accepted)
+                {
+                    addedItems.Add(editor.summary);
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+               
+                ShowEditor(true, "");
+                return true;
+            }
 		}
 
 		/// <summary>
@@ -239,10 +255,25 @@ namespace {$componentNS}
 		protected override bool EditItems(IList<{0}Summary> items, out IList<{0}Summary> editedItems)
 		{
             {0}Summary item = CollectionUtils.FirstElement(items);
-            ShowEditor(false,item.Name );
-            (_shelf.Component as {0}EditorComponent).{0}Ref = item.objRef;
+            editedItems = new List<{0}Summary>();
+            if (DialogMode)
+            {
+                var editor = new {0}EditorComponent(item.objRef );
+                var exitCode = LaunchAsDialog(this.Host.DesktopWindow, editor, SR.TitleUpdate{0});
+                if (exitCode == ApplicationComponentExitCode.Accepted)
+                {
+                    editedItems.Add(editor.summary );
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                ShowEditor(false, item.Id);
+                (_shelf.Component as {0}EditorComponent).{0}Ref = item.objRef;
 
-            return true;
+                return true;
+            }
 		}
 
 		/// <summary>
@@ -264,7 +295,7 @@ namespace {$componentNS}
 					Platform.GetService<I{0}Service>(
 						delegate(I{0}Service service)
 						{
-							service.Delete{0}(new Delete{0}Request(item.{0}Ref));
+							service.Delete{0}(new Delete{0}Request(item.objRef));
 						});
 
 					deletedItems.Add(item);
@@ -293,7 +324,7 @@ namespace {$componentNS}
 					delegate(I{0}Service service)
 					{
 						{0}Detail detail = service.Load{0}ForEdit(
-							new Load{0}ForEditRequest(item.{0}Ref)).objDetail;
+							new Load{0}ForEditRequest(item.objRef)).objDetail;
 						detail.Deactivated  = !detail.Deactivated;
 						{0}Summary summary = service.Update{0}(
 							new Update{0}Request(detail)).objSummary;
@@ -316,7 +347,7 @@ namespace {$componentNS}
 		{
 			if (x != null && y != null)
 			{
-				return x.{0}Ref.Equals(y.{0}Ref, true);
+				return x.objRef.Equals(y.objRef, true);
 			}
 			return false;
 		}

@@ -57,18 +57,18 @@ namespace WindowsFormsApplication1
                 this.Modified = true;
             }
         }";
-        public string GetPresentationModelFields()
-        {
-            string result = "";
+        //public string GetPresentationModelFields()
+        //{
+        //    string result = "";
 
-            foreach (var item in FiledList)
-            {
-                string tmp = pro.Replace("{0}", item.TypeName);
-                tmp = tmp.Replace("{1}", item.Name);
-                result += tmp;
-            }
-            return result;
-        }
+        //    foreach (var item in FiledList)
+        //    {
+        //        string tmp = pro.Replace("{0}", item.TypeName);
+        //        tmp = tmp.Replace("{1}", item.Name);
+        //        result += tmp;
+        //    }
+        //    return result;
+        //}
         public string GetContractDeclareFields()
         {
             string result = "";
@@ -123,7 +123,7 @@ namespace WindowsFormsApplication1
             }
             return result;
         }
-        public string GetSummaryPropertyFields()
+        public string GetPresentationModelFields()
         {
             string result = "";
             string filetemplat = @" 
@@ -148,6 +148,17 @@ namespace WindowsFormsApplication1
                 tmp = tmp.Replace("{1}", item.Name);
                 tmp = tmp.Replace("{2}","\"" + item.Name + "\"");
                 result += tmp;
+            }
+            return result;
+        }
+
+        public string GetNotifiedPropertiesChanged()
+        {
+            string result = "";
+            string filetemplat = "NotifyPropertyChanged(\"{0}\");" + System.Environment.NewLine;
+            foreach (var item in FiledList)
+            {
+                result += string.Format(filetemplat, item.Name);
             }
             return result;
         }
@@ -180,6 +191,8 @@ namespace WindowsFormsApplication1
                 0.5f));" + System.Environment.NewLine;
             foreach (var item in FiledList)
             {
+                if (item.Name.ToLower() == "deactivated")
+                    continue;
                 string tmp = filetemplat.Replace("{0}", objectname);
                 tmp = tmp.Replace("{1}", item.TypeName);
                 tmp = tmp.Replace("{2}", item.Name);

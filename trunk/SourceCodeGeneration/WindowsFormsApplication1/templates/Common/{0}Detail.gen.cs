@@ -50,10 +50,12 @@ namespace {$CommonNS}{$Suffix}
 
 		public {0}Detail(EntityRef entityRef ,{1})
         {
+            {0}Ref = entityRef;
             {2}
 			
 			CustomConstructor();
         }
+        [DataMember]
 		public EntityRef {0}Ref;
         {3}
 		

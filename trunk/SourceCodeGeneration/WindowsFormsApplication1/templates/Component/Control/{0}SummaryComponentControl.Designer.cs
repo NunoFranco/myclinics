@@ -1,4 +1,4 @@
-namespace {$componentNS}.Admin.View.WinForms
+namespace {$componentNS}.View.WinForms
 {
     partial class {0}SummaryComponentControl
     {

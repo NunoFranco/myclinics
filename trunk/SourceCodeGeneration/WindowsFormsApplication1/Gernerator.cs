@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Text;
 using System.IO;
 using System.Data;
@@ -15,6 +16,31 @@ namespace WindowsFormsApplication1
         {
 
             DataTable dtProperty = ds.Tables["property"];
+            //DataTable dtManyToOne = ds.Tables["many-to-one"];
+            DataTable dtcomponent = ds.Tables["component"];
+            DeclareFiledList Summaryfields = new DeclareFiledList();
+            if (dtProperty != null)
+            {
+                foreach (DataRow item in dtProperty.Rows)
+                {
+                    Summaryfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = item["type"].ToString() });
+                }
+            }
+           
+            if (dtcomponent != null)
+            {
+                foreach (DataRow item in dtcomponent.Rows)
+                {
+                    Summaryfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = item["class"].ToString() });
+                }
+            }
+            return Summaryfields;
+        }
+
+        public DeclareFiledList GetSummaryFieldsWithObject()
+        {
+
+            DataTable dtProperty = ds.Tables["property"];
             DataTable dtManyToOne = ds.Tables["many-to-one"];
             DataTable dtcomponent = ds.Tables["component"];
             DeclareFiledList Summaryfields = new DeclareFiledList();
@@ -25,6 +51,24 @@ namespace WindowsFormsApplication1
                     Summaryfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = item["type"].ToString() });
                 }
             }
+
+            if (dtcomponent != null)
+            {
+                foreach (DataRow item in dtcomponent.Rows)
+                {
+                    Summaryfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = item["class"].ToString() });
+                }
+            }
+            return Summaryfields;
+        }
+        public DeclareFiledList GetListFields()
+        {
+            DeclareFiledList Listfields = new DeclareFiledList();
+            DataTable dtcompositeelement = ds.Tables["composite-element"];
+            DataTable dtidbag = ds.Tables["idbag"];
+            DataTable dtset = ds.Tables["set"];
+            DataTable dtonetomany = ds.Tables["one-to-many"];
+            DataTable dtManyToOne = ds.Tables["many-to-one"];
             if (dtManyToOne != null)
             {
                 foreach (DataRow item in dtManyToOne.Rows)
@@ -49,25 +93,9 @@ namespace WindowsFormsApplication1
                     {
                         classname += "Summary";
                     }
-                    Summaryfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = classname });
+                    Listfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = classname });
                 }
             }
-            if (dtcomponent != null)
-            {
-                foreach (DataRow item in dtcomponent.Rows)
-                {
-                    Summaryfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = item["class"].ToString() });
-                }
-            }
-            return Summaryfields;
-        }
-        public DeclareFiledList GetListFields()
-        {
-            DeclareFiledList Listfields = new DeclareFiledList();
-            DataTable dtcompositeelement = ds.Tables["composite-element"];
-            DataTable dtidbag = ds.Tables["idbag"];
-            DataTable dtset = ds.Tables["set"];
-            DataTable dtonetomany = ds.Tables["one-to-many"];
             //if (dtcompositeelement != null)
             //{
             //    foreach (DataRow item in dtcompositeelement.Rows)
@@ -79,14 +107,14 @@ namespace WindowsFormsApplication1
             {
                 foreach (DataRow item in dtidbag.Rows)
                 {
-                    Listfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = "List<" + (dtcompositeelement.Select("idbag_id=" + item["idbag_id"]))[0]["class"].ToString() + ">" });
+                    Listfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = "List<" + (dtidbag.Select("idbag_id=" + item["idbag_id"]))[0]["class"].ToString() + ">" });
                 }
             }
             if (dtset != null)
             {
                 foreach (DataRow item in dtset.Rows)
                 {
-                    Listfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = "List<" + (dtonetomany.Select("set_id=" + item["set_id"]))[0]["class"].ToString() + "Summary>" });
+                    Listfields.FiledList.Add(new Field() { Name = item["name"].ToString(), TypeName = "List<" + (ds.Tables["class"].Select("class_id = " + dtset.Select("set_id=" + item["set_id"])[0]["class_id"]))[0]["name"].ToString() + "Summary>" });
                 }
             }
             return Listfields;
