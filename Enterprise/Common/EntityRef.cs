@@ -41,6 +41,7 @@ namespace ClearCanvas.Enterprise.Common
     /// Abstract base class for <see cref="EntityRef"/>
     /// </summary>
     [DataContract]
+    [KnownType(typeof(EntityRef))]
     public class EntityRef : IVersionedEquatable<EntityRef>
     {
 		/// <summary>
@@ -91,7 +92,8 @@ namespace ClearCanvas.Enterprise.Common
         private string _entityClass;
         private object _entityOid;
         private int _version;
-        public object EntityOID { get { return _entityOid;} }
+        //[DataMember ]
+        public object EntityOID { get { return _entityOid; } }
 
         /// <summary>
         /// Deserialization constructor
