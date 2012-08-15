@@ -1,0 +1,78 @@
+<mockup version="1.0" skin="sketch" measuredW="1374" measuredH="734" mockupW="1251" mockupH="693">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Canvas" x="123" y="41" w="1251" h="693" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::DataGrid" x="138" y="133" w="1206" h="573" measuredW="488" measuredH="175" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>The%20kho%20%5E%2C%20Loai%20The%20%5Ev%2C%20Nha%20kho%20Nguon%20%5E%2C%20Nha%20kho%20%u0111ich%20%5E%2C%20Ngay%20tao%20The%20%5E%0APN0011%2CNh%E2p%2C%2CT%F4ng%20kho%2C20-07-2011%0APC0016%2CChuy%EAn%20kho%2CT%F4ng%20kho%2CKho%20Nha%20Thuoc%201%20%2C24-07-2011%0APX00151%2CXuat%20Ban%2CKho%20Nha%20thu%F4c%201%2C%2C26-07-2011%0APX00161%2CXuat%20Ban%2CKho%20Nha%20thu%F4c%201%2C%2C26-07-2011%0APX00169%2CXuat%20Ban%2CKho%20Nha%20thu%F4c%201%2C%2C26-07-2011</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::ButtonBar" x="140" y="106" w="294" h="29" measuredW="304" measuredH="29" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>%2C%2C</hrefs>
+        <text>Xem%20chi%20tiet%2C%20Xuat%20Excel%2C%20In%20Bao%20Cao</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::SearchBox" x="140" y="71" w="-1" h="-1" measuredW="162" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Tim%20nhanh%20theo%20The%20kho</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::SearchBox" x="323" y="69" w="-1" h="-1" measuredW="197" measuredH="25" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Tim%20nhanh%20theo%20Nha%20kho%20Nguon</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::ComboBox" x="742" y="67" w="-1" h="-1" measuredW="73" measuredH="23" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Tat%20Ca</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="742" y="49" w="-1" h="-1" measuredW="56" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Loai%20The</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="150" y="49" w="-1" h="-1" measuredW="75" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Ma%20The%20Kho</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Label" x="323" y="49" w="-1" h="-1" measuredW="91" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Nha%20Kho%20Ngu%F4n</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::SearchBox" x="534" y="69" w="-1" h="-1" measuredW="187" measuredH="25" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Tim%20nhanh%20theo%20Nha%20kho%20%u0111ich</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="534" y="49" w="-1" h="-1" measuredW="81" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Nha%20Kho%20%u0111ich</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::DateChooser" x="860" y="71" w="-1" h="-1" measuredW="150" measuredH="25" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>25%20%20/%2007%20/2011%20%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Label" x="860" y="49" w="-1" h="-1" measuredW="79" measuredH="21" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Ngay%20tao%20the</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Button" x="1050" y="68" w="-1" h="-1" measuredW="72" measuredH="30" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>MicIcon%7Csmall</icon>
+        <text>Tim</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Button" x="1131" y="68" w="213" h="30" measuredW="207" measuredH="30" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>MicIcon%7Csmall</icon>
+        <text>Tim%20The%20co%20Thuoc%20%u0110%F4c%20A/B</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
