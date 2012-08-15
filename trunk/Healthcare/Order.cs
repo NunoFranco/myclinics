@@ -52,10 +52,10 @@ namespace ClearCanvas.Healthcare
             Platform.CheckMemberIsSet(args.Patient, "Patient");
             Platform.CheckMemberIsSet(args.Visit, "Visit");
             Platform.CheckMemberIsSet(args.AccessionNumber, "AccessionNumber");
-            Platform.CheckMemberIsSet(args.DiagnosticService, "DiagnosticService");
+            //Platform.CheckMemberIsSet(args.DiagnosticService, "DiagnosticService");
             Platform.CheckMemberIsSet(args.ReasonForStudy, "ReasonForStudy");
             Platform.CheckMemberIsSet(args.OrderingFacility, "OrderingFacility");
-            Platform.CheckMemberIsSet(args.OrderingPractitioner, "OrderingPractitioner");
+            Platform.CheckMemberIsSet(args.Doctor, "Doctor");
 
 
             // create the order
@@ -64,13 +64,13 @@ namespace ClearCanvas.Healthcare
                 Patient = args.Patient,
                 Visit = args.Visit,
                 AccessionNumber = args.AccessionNumber,
-                DiagnosticService = args.DiagnosticService,
+                //DiagnosticService = args.DiagnosticService,
                 ReasonForStudy = args.ReasonForStudy,
                 OrderingFacility = args.OrderingFacility,
-                OrderingPractitioner = args.OrderingPractitioner,
+                //OrderingPractitioner = args.OrderingPractitioner,
                 OrderNumber = args.OrderNumber,
                 BillingStatus = args.BillingStatus,
-                Priority = Healthcare.Common.ConvertSystemEnumTohbmEnum<OrderPriorityEnum>(args.Priority.ToString(),args.OrderingFacility.OID  ),
+                //Priority = Healthcare.Common.ConvertSystemEnumTohbmEnum<OrderPriorityEnum>(args.Priority.ToString(),args.OrderingFacility.OID  ),
                 SchedulingRequestTime = args.SchedulingRequestTime,
                 EnteredTime = args.EnteredTime,
                 EnteredBy = args.EnteredBy,
@@ -96,32 +96,32 @@ namespace ClearCanvas.Healthcare
             }
 
             // add recipients
-            if (args.ResultRecipients != null)
-            {
-                foreach (var recipient in args.ResultRecipients)
-                {
-                    order.ResultRecipients.Add(recipient);
-                }
-            }
+            //if (args.ResultRecipients != null)
+            //{
+            //    foreach (var recipient in args.ResultRecipients)
+            //    {
+            //        order.ResultRecipients.Add(recipient);
+            //    }
+            //}
 
-            var recipientsContainsOrderingPractitioner = CollectionUtils.Contains(
-                order.ResultRecipients,
-                r => r.PractitionerContactPoint.Practitioner.Equals(args.OrderingPractitioner));
+            //var recipientsContainsOrderingPractitioner = CollectionUtils.Contains(
+            //    order.ResultRecipients,
+            //    r => r.PractitionerContactPoint.Practitioner.Equals(args.OrderingPractitioner));
 
             // if the result recipients collection does not contain the ordering practitioner, add it by force, using the default contact point
-            if (!recipientsContainsOrderingPractitioner)
-            {
-                // find the default
-                var defaultContactPoint =
-                    CollectionUtils.SelectFirst(args.OrderingPractitioner.ContactPoints, cp => cp.IsDefaultContactPoint)
-                    // if no default, use first available
-                    ?? CollectionUtils.FirstElement(args.OrderingPractitioner.ContactPoints);
+            //if (!recipientsContainsOrderingPractitioner)
+            //{
+            //    // find the default
+            //    var defaultContactPoint =
+            //        CollectionUtils.SelectFirst(args.OrderingPractitioner.ContactPoints, cp => cp.IsDefaultContactPoint)
+            //        // if no default, use first available
+            //        ?? CollectionUtils.FirstElement(args.OrderingPractitioner.ContactPoints);
 
-                if (defaultContactPoint != null)
-                {
-                    order.ResultRecipients.Add(new ResultRecipient(defaultContactPoint, Common.ConvertSystemEnumTohbmEnum<ResultCommunicationModeEnum>(ResultCommunicationMode.ANY.ToString(), args.OrderingFacility.Code )));
-                }
-            }
+            //    if (defaultContactPoint != null)
+            //    {
+            //        order.ResultRecipients.Add(new ResultRecipient(defaultContactPoint, Common.ConvertSystemEnumTohbmEnum<ResultCommunicationModeEnum>(ResultCommunicationMode.ANY.ToString(), args.OrderingFacility.Code )));
+            //    }
+            //}
 
             return order;
         }

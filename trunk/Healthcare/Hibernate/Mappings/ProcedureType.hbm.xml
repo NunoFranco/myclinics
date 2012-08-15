@@ -7,16 +7,38 @@
     </id>
     <version name="Version" column="Version_"/>
 
-    <property name="Id" column="Id_" type="String" length="30" not-null="true" unique="true"/>
-    <property name="Name" column="Name_" type="String" length="100" not-null="true" unique="true"/>
+    <property name="Id" column="Id_" type="String" length="100" not-null="true" unique="true"/>
+    <property name="Name" column="Name_" type="String" length="255" not-null="true" unique="true"/>
     <many-to-one name="BaseType" class="ProcedureType" column="BaseTypeOID_" not-null="false"/>
     <property name="PlanXml" column="PlanXml_" type="StringClob" length="65000" access="field.camelcase-underscore"/>
     <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
     <property name="BasePrice" column="BasePrice_" type="Decimal" not-null="true"/>
+    <property name="MainIngredient" column="MainIngredient_" type="string" />
     <property name="Tax" column="Tax_" type="Decimal" not-null="true"/>
     <property name="IsRequired" column="IsRequred_" type="Boolean" not-null="true"/>
     <many-to-one name="Clinic" class="Facility" column="ClinicOID_"/>
     <many-to-one name="Category" column="CategoryOID_" class="ProcedureTypeCategoryEnum" not-null="true"/>
+    <property name="UseDirection" column="UseDirection_" type="String" not-null="false"/>
+    <property name="MedicineDose" column="MedDose_" type="String" not-null="false"/>
+
+    <!--new added for clinic management-->
+    <property name="InputPrice" column="InputPrice_" type="Decimal" />
+    <property name="ManualPrice" column="ManualPrice_" type="Decimal"/>
+    <property name="IsAutomaticPrice" column="IsAutomaticPrice_" type="Boolean" />
+    <property name="Saleable" column="Saleable_" type="Boolean" />
+    <property name="InsurancePrice" column="InsurancePrice_" type="Decimal" />
+    <property name="MininumAllow" column="MininumAllow_" type="Double"/>
+    <property name="CurrentQuantity" column="CurrentQuantity_" type="Double" />
+    <property name="Barcode" column="BarCode_" type="string" unique="true"/>
+    <property name="IsPoisonA" column="IsPoisonA_" type="Boolean" />
+    <property name="IsPoisonB" column="IsPoisonB_" type="Boolean"/>
+    <property name="IsSaleWithOrder" column="IsSaleWithOrder_" type="Boolean"/>
+    <property name="SideEffective" column="SideEffective_" type="string" />
+    <property name="PackingMethod" column="PackingMethod_" type="string" />
+    <!--<set name="PackageDetails" table="PackageProcedureTypeDetail_" lazy="true" inverse="true"  cascade="all-delete-orphan">
+      <key column="MedicalServicesOID_"/>
+      <one-to-many class="PackageProcedureTypeDetail"/>
+    </set>-->
     <!--<map name="ExtendedProperties" lazy="true" table="ProcedureTypeExtendedProperty_">
       <key column="ProcedureTypeOID_"/>
       <index column="Name_" type="String"/>

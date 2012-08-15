@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Healthcare" namespace="ClearCanvas.Healthcare">
+  <class name="PatientAccountTransaction" proxy="PatientAccountTransaction" table="PatientAccountTransaction_">
+    <cache usage="nonstrict-read-write"/>
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+  
+    <property name="Amount" column="Amount_" type="Double" />
+    <property name="TransactionDate" column="TransactionDate_" type="DateTime" not-null="true"/>
+    <many-to-one name="TransactionType" column="TransactionTypeOID_" class="TransactionTypeEnum" not-null="true"/>
+    <many-to-one name="User" column="UserOID_" class="ClearCanvas.Enterprise.Authentication.User,ClearCanvas.Enterprise.Authentication" not-null="true"/>
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+    <many-to-one name="Clinic" class="Facility" column="ClinicOID_" not-null="false" fetch="join"/>
+  </class>
+</hibernate-mapping>

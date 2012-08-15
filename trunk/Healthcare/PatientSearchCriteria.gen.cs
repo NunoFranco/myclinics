@@ -44,5 +44,17 @@ namespace ClearCanvas.Healthcare
 
 
 		
+	  	public ClearCanvas.Healthcare.FacilitySearchCriteria Clinic
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("Clinic"))
+	  			{
+	  				this.SubCriteria["Clinic"] = new ClearCanvas.Healthcare.FacilitySearchCriteria("Clinic");
+	  			}
+	  			return (ClearCanvas.Healthcare.FacilitySearchCriteria)this.SubCriteria["Clinic"];
+	  		}
+	  	}
+	  	
 	}
 }

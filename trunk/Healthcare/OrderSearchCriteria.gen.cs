@@ -92,18 +92,6 @@ namespace ClearCanvas.Healthcare
 	  		}
 	  	}
 	  	
-	  	public ClearCanvas.Healthcare.DiagnosticServiceSearchCriteria DiagnosticService
-	  	{
-	  		get
-	  		{
-	  			if(!this.SubCriteria.ContainsKey("DiagnosticService"))
-	  			{
-	  				this.SubCriteria["DiagnosticService"] = new ClearCanvas.Healthcare.DiagnosticServiceSearchCriteria("DiagnosticService");
-	  			}
-	  			return (ClearCanvas.Healthcare.DiagnosticServiceSearchCriteria)this.SubCriteria["DiagnosticService"];
-	  		}
-	  	}
-	  	
 	  	public ISearchCondition<DateTime> EnteredTime
 	  	{
 	  		get
@@ -188,15 +176,15 @@ namespace ClearCanvas.Healthcare
 	  		}
 	  	}
 	  	
-	  	public ClearCanvas.Healthcare.ExternalPractitionerSearchCriteria OrderingPractitioner
+	  	public ClearCanvas.Healthcare.StaffSearchCriteria Doctor
 	  	{
 	  		get
 	  		{
-	  			if(!this.SubCriteria.ContainsKey("OrderingPractitioner"))
+	  			if(!this.SubCriteria.ContainsKey("Doctor"))
 	  			{
-	  				this.SubCriteria["OrderingPractitioner"] = new ClearCanvas.Healthcare.ExternalPractitionerSearchCriteria("OrderingPractitioner");
+	  				this.SubCriteria["Doctor"] = new ClearCanvas.Healthcare.StaffSearchCriteria("Doctor");
 	  			}
-	  			return (ClearCanvas.Healthcare.ExternalPractitionerSearchCriteria)this.SubCriteria["OrderingPractitioner"];
+	  			return (ClearCanvas.Healthcare.StaffSearchCriteria)this.SubCriteria["Doctor"];
 	  		}
 	  	}
 	  	
@@ -212,6 +200,18 @@ namespace ClearCanvas.Healthcare
 	  		}
 	  	}
 	  	
+	  	public ISearchCondition<string> DiagnosticResult
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("DiagnosticResult"))
+	  			{
+	  				this.SubCriteria["DiagnosticResult"] = new SearchCondition<string>("DiagnosticResult");
+	  			}
+	  			return (ISearchCondition<string>)this.SubCriteria["DiagnosticResult"];
+	  		}
+	  	}
+	  	
 	  	public ISearchCondition<string> ReasonForStudy
 	  	{
 	  		get
@@ -221,18 +221,6 @@ namespace ClearCanvas.Healthcare
 	  				this.SubCriteria["ReasonForStudy"] = new SearchCondition<string>("ReasonForStudy");
 	  			}
 	  			return (ISearchCondition<string>)this.SubCriteria["ReasonForStudy"];
-	  		}
-	  	}
-	  	
-	  	public ISearchCondition<ClearCanvas.Healthcare.OrderPriorityEnum> Priority
-	  	{
-	  		get
-	  		{
-	  			if(!this.SubCriteria.ContainsKey("Priority"))
-	  			{
-	  				this.SubCriteria["Priority"] = new SearchCondition<ClearCanvas.Healthcare.OrderPriorityEnum>("Priority");
-	  			}
-	  			return (ISearchCondition<ClearCanvas.Healthcare.OrderPriorityEnum>)this.SubCriteria["Priority"];
 	  		}
 	  	}
 	  	

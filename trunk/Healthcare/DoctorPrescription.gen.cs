@@ -27,9 +27,9 @@ namespace ClearCanvas.Healthcare
 	  	
 	  	private string _description;
 	  	
-	  	private ISet<ClearCanvas.Healthcare.ProcedureType> _medicines;
-	  	
 	  	private ClearCanvas.Healthcare.Facility _clinic;
+	  	
+	  	private ISet<ClearCanvas.Healthcare.DoctorPrescriptionItems> _items;
 	  	
 	  	private bool _deactivated;
 	  	
@@ -44,7 +44,7 @@ namespace ClearCanvas.Healthcare
 	  	public DoctorPrescription()
 	  	{
 		 	
-		  	_medicines = new HashedSet<ClearCanvas.Healthcare.ProcedureType>();
+		  	_items = new HashedSet<ClearCanvas.Healthcare.DoctorPrescriptionItems>();
 		  	
 		  	
 		  	CustomInitialize();
@@ -54,7 +54,7 @@ namespace ClearCanvas.Healthcare
 	  	/// <summary>
 	  	/// All fields constructor
 	  	/// </summary>
-	  	public DoctorPrescription(string name1, string description1, ISet<ClearCanvas.Healthcare.ProcedureType> medicines1, ClearCanvas.Healthcare.Facility clinic1)
+	  	public DoctorPrescription(string name1, string description1, ClearCanvas.Healthcare.Facility clinic1, ISet<ClearCanvas.Healthcare.DoctorPrescriptionItems> items1)
 			:base()
 	  	{
 		  	CustomInitialize();
@@ -64,9 +64,9 @@ namespace ClearCanvas.Healthcare
 		  	
 		  	_description = description1;
 		  	
-		  	_medicines = medicines1;
-		  	
 		  	_clinic = clinic1;
+		  	
+		  	_items = items1;
 		  	
 	  	}
 		
@@ -95,7 +95,6 @@ namespace ClearCanvas.Healthcare
 		
 		
 		[PersistentProperty]
-		[Length(1024)]
 	  	public virtual string Description
 	  	{
 			
@@ -110,20 +109,6 @@ namespace ClearCanvas.Healthcare
 		
 		
 		[PersistentProperty]
-	  	public virtual ISet<ClearCanvas.Healthcare.ProcedureType> Medicines
-	  	{
-			
-			get { return _medicines; }
-			
-			
-			protected set { _medicines = value; }
-			
-	  	}
-		
-	  	
-		
-		
-		[PersistentProperty]
 	  	public virtual ClearCanvas.Healthcare.Facility Clinic
 	  	{
 			
@@ -131,6 +116,20 @@ namespace ClearCanvas.Healthcare
 			
 			
 			 set { _clinic = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual ISet<ClearCanvas.Healthcare.DoctorPrescriptionItems> Items
+	  	{
+			
+			get { return _items; }
+			
+			
+			protected set { _items = value; }
 			
 	  	}
 		

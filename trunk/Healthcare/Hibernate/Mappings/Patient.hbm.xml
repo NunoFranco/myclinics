@@ -5,7 +5,7 @@
       <generator class="guid.comb"/>
     </id>
     <version name="Version" column="Version_"/>
-
+    <many-to-one name="Clinic" class="Facility" column="ClinicOID_" not-null="false" fetch="join"/>
     <set name="Profiles" lazy="true" inverse="true" cascade="all-delete-orphan" access="nosetter.camelcase-underscore">
       <key column="PatientOID_"/>
       <one-to-many class="PatientProfile"/>
