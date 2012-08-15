@@ -1,0 +1,276 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{57788D36-60AF-49FF-8604-CE3D6790E8C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClearCanvas.Material.Application.Common</RootNamespace>
+    <AssemblyName>ClearCanvas.Material.Application.Common</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClearCanvas.Common, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\build\$(ConfigurationName)\common\ClearCanvas.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ClearCanvas.Desktop, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\build\$(ConfigurationName)\plugins\ClearCanvas.Desktop.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ClearCanvas.ImageViewer, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(SolutionDir)\build\$(ConfigurationName)\plugins\ClearCanvas.ImageViewer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthorityTokens.cs" />
+    <Compile Include="Contacts\AddContactRequest.cs" />
+    <Compile Include="Contacts\AddContactRequest.gen.cs" />
+    <Compile Include="Contacts\AddContactResponse.cs" />
+    <Compile Include="Contacts\AddContactResponse.gen.cs" />
+    <Compile Include="Contacts\ContactDetail.cs" />
+    <Compile Include="Contacts\ContactDetail.gen.cs" />
+    <Compile Include="Contacts\ContactSummary.cs" />
+    <Compile Include="Contacts\ContactSummary.gen.cs" />
+    <Compile Include="Contacts\DeleteContactRequest.cs" />
+    <Compile Include="Contacts\DeleteContactRequest.gen.cs" />
+    <Compile Include="Contacts\DeleteContactResponse.gen.cs" />
+    <Compile Include="Contacts\IContactService.gen.cs" />
+    <Compile Include="Contacts\ListContactsRequest.cs" />
+    <Compile Include="Contacts\ListContactsRequest.gen.cs" />
+    <Compile Include="Contacts\ListContactsResponse.cs" />
+    <Compile Include="Contacts\ListContactsResponse.gen.cs" />
+    <Compile Include="Contacts\LoadContactForEditRequest.cs" />
+    <Compile Include="Contacts\LoadContactForEditRequest.gen.cs" />
+    <Compile Include="Contacts\LoadContactForEditResponse.cs" />
+    <Compile Include="Contacts\LoadContactForEditResponse.gen.cs" />
+    <Compile Include="MaterialLots\AddMaterialLotRequest.cs" />
+    <Compile Include="MaterialLots\AddMaterialLotRequest.gen.cs" />
+    <Compile Include="MaterialLots\AddMaterialLotResponse.cs" />
+    <Compile Include="MaterialLots\AddMaterialLotResponse.gen.cs" />
+    <Compile Include="MaterialLots\DeleteMaterialLotRequest.cs" />
+    <Compile Include="MaterialLots\DeleteMaterialLotRequest.gen.cs" />
+    <Compile Include="MaterialLots\DeleteMaterialLotResponse.gen.cs" />
+    <Compile Include="MaterialLots\IMaterialLotService.gen.cs" />
+    <Compile Include="MaterialLots\ListMaterialLotsRequest.cs" />
+    <Compile Include="MaterialLots\ListMaterialLotsRequest.gen.cs" />
+    <Compile Include="MaterialLots\ListMaterialLotsResponse.cs" />
+    <Compile Include="MaterialLots\ListMaterialLotsResponse.gen.cs" />
+    <Compile Include="MaterialLots\LoadMaterialLotForEditRequest.cs" />
+    <Compile Include="MaterialLots\LoadMaterialLotForEditRequest.gen.cs" />
+    <Compile Include="MaterialLots\LoadMaterialLotForEditResponse.cs" />
+    <Compile Include="MaterialLots\LoadMaterialLotForEditResponse.gen.cs" />
+    <Compile Include="MaterialLots\MaterialLotDetail.cs" />
+    <Compile Include="MaterialLots\MaterialLotDetail.gen.cs" />
+    <Compile Include="MaterialLots\MaterialLotSummary.cs" />
+    <Compile Include="MaterialLots\MaterialLotSummary.gen.cs" />
+    <Compile Include="MaterialLots\UpdateMaterialLotRequest.cs" />
+    <Compile Include="MaterialLots\UpdateMaterialLotRequest.gen.cs" />
+    <Compile Include="MaterialLots\UpdateMaterialLotResponse.cs" />
+    <Compile Include="MaterialLots\UpdateMaterialLotResponse.gen.cs" />
+    <Compile Include="MedicineCounters\AddMedicineCounterRequest.cs" />
+    <Compile Include="MedicineCounters\AddMedicineCounterRequest.gen.cs" />
+    <Compile Include="MedicineCounters\AddMedicineCounterResponse.cs" />
+    <Compile Include="MedicineCounters\AddMedicineCounterResponse.gen.cs" />
+    <Compile Include="MedicineCounters\DeleteMedicineCounterRequest.cs" />
+    <Compile Include="MedicineCounters\DeleteMedicineCounterRequest.gen.cs" />
+    <Compile Include="MedicineCounters\DeleteMedicineCounterResponse.gen.cs" />
+    <Compile Include="MedicineCounters\IMedicineCounterService.gen.cs" />
+    <Compile Include="MedicineCounters\ListMedicineCountersRequest.cs" />
+    <Compile Include="MedicineCounters\ListMedicineCountersRequest.gen.cs" />
+    <Compile Include="MedicineCounters\ListMedicineCountersResponse.cs" />
+    <Compile Include="MedicineCounters\ListMedicineCountersResponse.gen.cs" />
+    <Compile Include="MedicineCounters\LoadMedicineCounterForEditRequest.cs" />
+    <Compile Include="MedicineCounters\LoadMedicineCounterForEditRequest.gen.cs" />
+    <Compile Include="MedicineCounters\LoadMedicineCounterForEditResponse.cs" />
+    <Compile Include="MedicineCounters\LoadMedicineCounterForEditResponse.gen.cs" />
+    <Compile Include="MedicineCounters\MedicineCounterDetail.cs" />
+    <Compile Include="MedicineCounters\MedicineCounterDetail.gen.cs" />
+    <Compile Include="MedicineCounters\MedicineCounterSummary.cs" />
+    <Compile Include="MedicineCounters\MedicineCounterSummary.gen.cs" />
+    <Compile Include="MedicineCounters\UpdateMedicineCounterRequest.cs" />
+    <Compile Include="MedicineCounters\UpdateMedicineCounterRequest.gen.cs" />
+    <Compile Include="MedicineCounters\UpdateMedicineCounterResponse.cs" />
+    <Compile Include="MedicineCounters\UpdateMedicineCounterResponse.gen.cs" />
+    <Compile Include="ProcedureLines\AddProcedureLineDetailRequest.cs" />
+    <Compile Include="ProcedureLines\AddProcedureLineDetailRequest.gen.cs" />
+    <Compile Include="ProcedureLines\AddProcedureLineDetailResponse.cs" />
+    <Compile Include="ProcedureLines\AddProcedureLineDetailResponse.gen.cs" />
+    <Compile Include="ProcedureLines\DeleteProcedureLineDetailRequest.cs" />
+    <Compile Include="ProcedureLines\DeleteProcedureLineDetailRequest.gen.cs" />
+    <Compile Include="ProcedureLines\DeleteProcedureLineDetailResponse.gen.cs" />
+    <Compile Include="ProcedureLines\IProcedureLineDetailService.gen.cs" />
+    <Compile Include="ProcedureLines\ListProcedureLineDetailsRequest.cs" />
+    <Compile Include="ProcedureLines\ListProcedureLineDetailsRequest.gen.cs" />
+    <Compile Include="ProcedureLines\ListProcedureLineDetailsResponse.cs" />
+    <Compile Include="ProcedureLines\ListProcedureLineDetailsResponse.gen.cs" />
+    <Compile Include="ProcedureLines\LoadProcedureLineDetailForEditRequest.cs" />
+    <Compile Include="ProcedureLines\LoadProcedureLineDetailForEditRequest.gen.cs" />
+    <Compile Include="ProcedureLines\LoadProcedureLineDetailForEditResponse.cs" />
+    <Compile Include="ProcedureLines\LoadProcedureLineDetailForEditResponse.gen.cs" />
+    <Compile Include="ProcedureLines\ProcedureLineDetailDetail.cs" />
+    <Compile Include="ProcedureLines\ProcedureLineDetailDetail.gen.cs" />
+    <Compile Include="ProcedureLines\ProcedureLineDetailSummary.cs" />
+    <Compile Include="ProcedureLines\ProcedureLineDetailSummary.gen.cs" />
+    <Compile Include="ProcedureLines\UpdateProcedureLineDetailRequest.cs" />
+    <Compile Include="ProcedureLines\UpdateProcedureLineDetailRequest.gen.cs" />
+    <Compile Include="ProcedureLines\UpdateProcedureLineDetailResponse.cs" />
+    <Compile Include="ProcedureLines\UpdateProcedureLineDetailResponse.gen.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Contacts\UpdateContactRequest.cs" />
+    <Compile Include="Contacts\UpdateContactRequest.gen.cs" />
+    <Compile Include="Contacts\UpdateContactResponse.cs" />
+    <Compile Include="Contacts\UpdateContactResponse.gen.cs" />
+    <Compile Include="StockTransactionLine\AddStockTransactionLineRequest.cs" />
+    <Compile Include="StockTransactionLine\AddStockTransactionLineRequest.gen.cs" />
+    <Compile Include="StockTransactionLine\AddStockTransactionLineResponse.cs" />
+    <Compile Include="StockTransactionLine\AddStockTransactionLineResponse.gen.cs" />
+    <Compile Include="StockTransactionLine\DeleteStockTransactionLineRequest.cs" />
+    <Compile Include="StockTransactionLine\DeleteStockTransactionLineRequest.gen.cs" />
+    <Compile Include="StockTransactionLine\DeleteStockTransactionLineResponse.gen.cs" />
+    <Compile Include="StockTransactionLine\IStockTransactionLineService.gen.cs" />
+    <Compile Include="StockTransactionLine\ListStockTransactionLinesRequest.cs" />
+    <Compile Include="StockTransactionLine\ListStockTransactionLinesRequest.gen.cs" />
+    <Compile Include="StockTransactionLine\ListStockTransactionLinesResponse.cs" />
+    <Compile Include="StockTransactionLine\ListStockTransactionLinesResponse.gen.cs" />
+    <Compile Include="StockTransactionLine\LoadStockTransactionLineForEditRequest.cs" />
+    <Compile Include="StockTransactionLine\LoadStockTransactionLineForEditRequest.gen.cs" />
+    <Compile Include="StockTransactionLine\LoadStockTransactionLineForEditResponse.cs" />
+    <Compile Include="StockTransactionLine\LoadStockTransactionLineForEditResponse.gen.cs" />
+    <Compile Include="StockTransactionLine\StockTransactionLineDetail.cs" />
+    <Compile Include="StockTransactionLine\StockTransactionLineDetail.gen.cs" />
+    <Compile Include="StockTransactionLine\StockTransactionLineSummary.cs" />
+    <Compile Include="StockTransactionLine\StockTransactionLineSummary.gen.cs" />
+    <Compile Include="StockTransactionLine\UpdateStockTransactionLineRequest.cs" />
+    <Compile Include="StockTransactionLine\UpdateStockTransactionLineRequest.gen.cs" />
+    <Compile Include="StockTransactionLine\UpdateStockTransactionLineResponse.cs" />
+    <Compile Include="StockTransactionLine\UpdateStockTransactionLineResponse.gen.cs" />
+    <Compile Include="StockTransactions\AddStockTransactionRequest.cs" />
+    <Compile Include="StockTransactions\AddStockTransactionRequest.gen.cs" />
+    <Compile Include="StockTransactions\AddStockTransactionResponse.cs" />
+    <Compile Include="StockTransactions\AddStockTransactionResponse.gen.cs" />
+    <Compile Include="StockTransactions\LoadStockTransactionEditFormDataRequest.gen.cs" />
+    <Compile Include="StockTransactions\LoadStockTransactionEditFormDataResponse.cs" />
+    <Compile Include="StockTransactions\DeleteStockTransactionRequest.cs" />
+    <Compile Include="StockTransactions\DeleteStockTransactionRequest.gen.cs" />
+    <Compile Include="StockTransactions\DeleteStockTransactionResponse.gen.cs" />
+    <Compile Include="StockTransactions\IStockTransactionService.gen.cs" />
+    <Compile Include="StockTransactions\ListStockTransactionsRequest.cs" />
+    <Compile Include="StockTransactions\ListStockTransactionsRequest.gen.cs" />
+    <Compile Include="StockTransactions\ListStockTransactionsResponse.cs" />
+    <Compile Include="StockTransactions\ListStockTransactionsResponse.gen.cs" />
+    <Compile Include="StockTransactions\LoadStockTransactionForEditRequest.cs" />
+    <Compile Include="StockTransactions\LoadStockTransactionForEditRequest.gen.cs" />
+    <Compile Include="StockTransactions\LoadStockTransactionForEditResponse.cs" />
+    <Compile Include="StockTransactions\LoadStockTransactionForEditResponse.gen.cs" />
+    <Compile Include="StockTransactions\StockTransactionDetail.cs" />
+    <Compile Include="StockTransactions\StockTransactionDetail.gen.cs" />
+    <Compile Include="StockTransactions\StockTransactionSummary.cs" />
+    <Compile Include="StockTransactions\StockTransactionSummary.gen.cs" />
+    <Compile Include="StockTransactions\UpdateStockTransactionRequest.cs" />
+    <Compile Include="StockTransactions\UpdateStockTransactionRequest.gen.cs" />
+    <Compile Include="StockTransactions\UpdateStockTransactionResponse.cs" />
+    <Compile Include="StockTransactions\UpdateStockTransactionResponse.gen.cs" />
+    <Compile Include="Warehouses\AddWarehouseRequest.cs" />
+    <Compile Include="Warehouses\AddWarehouseRequest.gen.cs" />
+    <Compile Include="Warehouses\AddWarehouseResponse.cs" />
+    <Compile Include="Warehouses\AddWarehouseResponse.gen.cs" />
+    <Compile Include="Warehouses\DeleteWarehouseRequest.cs" />
+    <Compile Include="Warehouses\DeleteWarehouseRequest.gen.cs" />
+    <Compile Include="Warehouses\DeleteWarehouseResponse.gen.cs" />
+    <Compile Include="Warehouses\IWarehouseService.gen.cs" />
+    <Compile Include="Warehouses\ListWarehousesRequest.cs" />
+    <Compile Include="Warehouses\ListWarehousesRequest.gen.cs" />
+    <Compile Include="Warehouses\ListWarehousesResponse.cs" />
+    <Compile Include="Warehouses\ListWarehousesResponse.gen.cs" />
+    <Compile Include="Warehouses\LoadWarehouseForEditRequest.cs" />
+    <Compile Include="Warehouses\LoadWarehouseForEditRequest.gen.cs" />
+    <Compile Include="Warehouses\LoadWarehouseForEditResponse.cs" />
+    <Compile Include="Warehouses\LoadWarehouseForEditResponse.gen.cs" />
+    <Compile Include="Warehouses\UpdateWarehouseRequest.cs" />
+    <Compile Include="Warehouses\UpdateWarehouseRequest.gen.cs" />
+    <Compile Include="Warehouses\UpdateWarehouseResponse.cs" />
+    <Compile Include="Warehouses\UpdateWarehouseResponse.gen.cs" />
+    <Compile Include="Warehouses\WarehouseDetail.cs" />
+    <Compile Include="Warehouses\WarehouseDetail.gen.cs" />
+    <Compile Include="Warehouses\WarehouseSummary.cs" />
+    <Compile Include="Warehouses\WarehouseSummary.gen.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Enterprise\Common\ClearCanvas.Enterprise.Common.csproj">
+      <Project>{B5EBFFD7-6641-4932-91C9-4C4322B41868}</Project>
+      <Name>ClearCanvas.Enterprise.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Enterprise\Core\ClearCanvas.Enterprise.Core.csproj">
+      <Project>{431E9444-9915-4D49-B92D-9B7EC086622A}</Project>
+      <Name>ClearCanvas.Enterprise.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Ris\Application\Common\ClearCanvas.Ris.Application.Common.csproj">
+      <Project>{09F49217-CD98-4773-8CFB-594F189EEE3B}</Project>
+      <Name>ClearCanvas.Ris.Application.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>ccdevcopy.exe "$(SolutionDir)\build\$(ConfigurationName)"</PreBuildEvent>
+  </PropertyGroup>
+</Project>
