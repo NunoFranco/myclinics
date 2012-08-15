@@ -44,7 +44,7 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
 			HqlProjectionQuery query = new HqlProjectionQuery(hqlFrom);
 
 			OrderSearchCriteria criteria = new OrderSearchCriteria();
-			criteria.OrderingPractitioner.EqualTo(practitioner);
+            //criteria.OrderingPractitioner.EqualTo(practitioner);
 			query.Conditions.AddRange(HqlCondition.FromSearchCriteria("o", criteria));
 
 			return ExecuteHql<Order>(query);

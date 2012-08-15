@@ -30,8 +30,6 @@ namespace ClearCanvas.Healthcare
 	  	
 	  	private string _accessionNumber;
 	  	
-	  	private ClearCanvas.Healthcare.DiagnosticService _diagnosticService;
-	  	
 	  	private DateTime _enteredTime;
 	  	
 	  	private ClearCanvas.Healthcare.Staff _enteredBy;
@@ -46,7 +44,7 @@ namespace ClearCanvas.Healthcare
 	  	
 	  	private DateTime? _endTime;
 	  	
-	  	private ClearCanvas.Healthcare.ExternalPractitioner _orderingPractitioner;
+	  	private ClearCanvas.Healthcare.Staff _doctor;
 	  	
 	  	private ClearCanvas.Healthcare.Facility _orderingFacility;
 	  	
@@ -54,13 +52,17 @@ namespace ClearCanvas.Healthcare
 	  	
 	  	private ISet<ClearCanvas.Healthcare.OrderInvoices> _invoices;
 	  	
+	  	private ISet<ClearCanvas.Healthcare.DoctorPrescriptionItems> _medicines;
+	  	
+	  	private ISet<ClearCanvas.Healthcare.PackageProcedure> _pakageProcedures;
+	  	
+	  	private string _diagnosticResult;
+	  	
 	  	private IList<ClearCanvas.Healthcare.ResultRecipient> _resultRecipients;
 	  	
 	  	private IList<ClearCanvas.Healthcare.OrderAttachment> _attachments;
 	  	
 	  	private string _reasonForStudy;
-	  	
-	  	private ClearCanvas.Healthcare.OrderPriorityEnum _priority;
 	  	
 	  	private ClearCanvas.Healthcare.OrderStatusEnum _status;
 	  	
@@ -91,6 +93,10 @@ namespace ClearCanvas.Healthcare
 		  	
 		  	_invoices = new HashedSet<ClearCanvas.Healthcare.OrderInvoices>();
 		  	
+		  	_medicines = new HashedSet<ClearCanvas.Healthcare.DoctorPrescriptionItems>();
+		  	
+		  	_pakageProcedures = new HashedSet<ClearCanvas.Healthcare.PackageProcedure>();
+		  	
 		  	_resultRecipients = new List<ClearCanvas.Healthcare.ResultRecipient>();
 		  	
 		  	_attachments = new List<ClearCanvas.Healthcare.OrderAttachment>();
@@ -107,7 +113,7 @@ namespace ClearCanvas.Healthcare
 	  	/// <summary>
 	  	/// All fields constructor
 	  	/// </summary>
-	  	public Order(ClearCanvas.Healthcare.Patient patient1, ClearCanvas.Healthcare.Visit visit1, string placernumber1, string accessionnumber1, ClearCanvas.Healthcare.DiagnosticService diagnosticservice1, DateTime enteredtime1, ClearCanvas.Healthcare.Staff enteredby1, string enteredcomment1, DateTime? schedulingrequesttime1, DateTime? scheduledstarttime1, DateTime? starttime1, DateTime? endtime1, ClearCanvas.Healthcare.ExternalPractitioner orderingpractitioner1, ClearCanvas.Healthcare.Facility orderingfacility1, ISet<ClearCanvas.Healthcare.Procedure> procedures1, ISet<ClearCanvas.Healthcare.OrderInvoices> invoices1, IList<ClearCanvas.Healthcare.ResultRecipient> resultrecipients1, IList<ClearCanvas.Healthcare.OrderAttachment> attachments1, string reasonforstudy1, ClearCanvas.Healthcare.OrderPriorityEnum priority1, ClearCanvas.Healthcare.OrderStatusEnum status1, ClearCanvas.Healthcare.OrderCancelInfo cancelinfo1, IDictionary<string, string> extendedproperties1, string ordernumber1, string billingstatus1, ClearCanvas.Healthcare.Facility clinic1)
+	  	public Order(ClearCanvas.Healthcare.Patient patient1, ClearCanvas.Healthcare.Visit visit1, string placernumber1, string accessionnumber1, DateTime enteredtime1, ClearCanvas.Healthcare.Staff enteredby1, string enteredcomment1, DateTime? schedulingrequesttime1, DateTime? scheduledstarttime1, DateTime? starttime1, DateTime? endtime1, ClearCanvas.Healthcare.Staff doctor1, ClearCanvas.Healthcare.Facility orderingfacility1, ISet<ClearCanvas.Healthcare.Procedure> procedures1, ISet<ClearCanvas.Healthcare.OrderInvoices> invoices1, ISet<ClearCanvas.Healthcare.DoctorPrescriptionItems> medicines1, ISet<ClearCanvas.Healthcare.PackageProcedure> pakageprocedures1, string diagnosticresult1, IList<ClearCanvas.Healthcare.ResultRecipient> resultrecipients1, IList<ClearCanvas.Healthcare.OrderAttachment> attachments1, string reasonforstudy1, ClearCanvas.Healthcare.OrderStatusEnum status1, ClearCanvas.Healthcare.OrderCancelInfo cancelinfo1, IDictionary<string, string> extendedproperties1, string ordernumber1, string billingstatus1, ClearCanvas.Healthcare.Facility clinic1)
 			:base()
 	  	{
 		  	CustomInitialize();
@@ -120,8 +126,6 @@ namespace ClearCanvas.Healthcare
 		  	_placerNumber = placernumber1;
 		  	
 		  	_accessionNumber = accessionnumber1;
-		  	
-		  	_diagnosticService = diagnosticservice1;
 		  	
 		  	_enteredTime = enteredtime1;
 		  	
@@ -137,7 +141,7 @@ namespace ClearCanvas.Healthcare
 		  	
 		  	_endTime = endtime1;
 		  	
-		  	_orderingPractitioner = orderingpractitioner1;
+		  	_doctor = doctor1;
 		  	
 		  	_orderingFacility = orderingfacility1;
 		  	
@@ -145,13 +149,17 @@ namespace ClearCanvas.Healthcare
 		  	
 		  	_invoices = invoices1;
 		  	
+		  	_medicines = medicines1;
+		  	
+		  	_pakageProcedures = pakageprocedures1;
+		  	
+		  	_diagnosticResult = diagnosticresult1;
+		  	
 		  	_resultRecipients = resultrecipients1;
 		  	
 		  	_attachments = attachments1;
 		  	
 		  	_reasonForStudy = reasonforstudy1;
-		  	
-		  	_priority = priority1;
 		  	
 		  	_status = status1;
 		  	
@@ -231,21 +239,6 @@ namespace ClearCanvas.Healthcare
 			
 			
 			 set { _accessionNumber = value; }
-			
-	  	}
-		
-	  	
-		
-		
-		[PersistentProperty]
-		[Required]
-	  	public virtual ClearCanvas.Healthcare.DiagnosticService DiagnosticService
-	  	{
-			
-			get { return _diagnosticService; }
-			
-			
-			 set { _diagnosticService = value; }
 			
 	  	}
 		
@@ -347,13 +340,13 @@ namespace ClearCanvas.Healthcare
 		
 		[PersistentProperty]
 		[Required]
-	  	public virtual ClearCanvas.Healthcare.ExternalPractitioner OrderingPractitioner
+	  	public virtual ClearCanvas.Healthcare.Staff Doctor
 	  	{
 			
-			get { return _orderingPractitioner; }
+			get { return _doctor; }
 			
 			
-			 set { _orderingPractitioner = value; }
+			 set { _doctor = value; }
 			
 	  	}
 		
@@ -402,6 +395,48 @@ namespace ClearCanvas.Healthcare
 		
 		
 		[PersistentProperty]
+	  	public virtual ISet<ClearCanvas.Healthcare.DoctorPrescriptionItems> Medicines
+	  	{
+			
+			get { return _medicines; }
+			
+			
+			protected set { _medicines = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual ISet<ClearCanvas.Healthcare.PackageProcedure> PakageProcedures
+	  	{
+			
+			get { return _pakageProcedures; }
+			
+			
+			protected set { _pakageProcedures = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual string DiagnosticResult
+	  	{
+			
+			get { return _diagnosticResult; }
+			
+			
+			 set { _diagnosticResult = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
 		[EmbeddedValueCollection(typeof(ClearCanvas.Healthcare.ResultRecipient))]
 	  	public virtual IList<ClearCanvas.Healthcare.ResultRecipient> ResultRecipients
 	  	{
@@ -436,21 +471,6 @@ namespace ClearCanvas.Healthcare
 			
 			
 			 set { _reasonForStudy = value; }
-			
-	  	}
-		
-	  	
-		
-		
-		[PersistentProperty]
-		[Required]
-	  	public virtual ClearCanvas.Healthcare.OrderPriorityEnum Priority
-	  	{
-			
-			get { return _priority; }
-			
-			
-			 set { _priority = value; }
 			
 	  	}
 		

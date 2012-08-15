@@ -35,6 +35,8 @@ namespace ClearCanvas.Healthcare
 	  	
 	  	private Decimal _basePrice;
 	  	
+	  	private string _mainIngredient;
+	  	
 	  	private Decimal _tax;
 	  	
 	  	private bool _isRequired;
@@ -42,6 +44,36 @@ namespace ClearCanvas.Healthcare
 	  	private ClearCanvas.Healthcare.Facility _clinic;
 	  	
 	  	private ClearCanvas.Healthcare.ProcedureTypeCategoryEnum _category;
+	  	
+	  	private string _useDirection;
+	  	
+	  	private string _medicineDose;
+	  	
+	  	private Decimal _inputPrice;
+	  	
+	  	private Decimal _manualPrice;
+	  	
+	  	private bool _isAutomaticPrice;
+	  	
+	  	private bool _saleable;
+	  	
+	  	private Decimal _insurancePrice;
+	  	
+	  	private Double _mininumAllow;
+	  	
+	  	private Double _currentQuantity;
+	  	
+	  	private string _barcode;
+	  	
+	  	private bool _isPoisonA;
+	  	
+	  	private bool _isPoisonB;
+	  	
+	  	private bool _isSaleWithOrder;
+	  	
+	  	private string _sideEffective;
+	  	
+	  	private string _packingMethod;
 	  	
 	  	private ClearCanvas.Healthcare.UOMEnum _uOM;
 	  	
@@ -64,7 +96,7 @@ namespace ClearCanvas.Healthcare
 	  	/// <summary>
 	  	/// All fields constructor
 	  	/// </summary>
-	  	public ProcedureType(string id1, string name1, ClearCanvas.Healthcare.ProcedureType basetype1, string planxml1, Decimal baseprice1, Decimal tax1, bool isrequired1, ClearCanvas.Healthcare.Facility clinic1, ClearCanvas.Healthcare.ProcedureTypeCategoryEnum category1, ClearCanvas.Healthcare.UOMEnum uom1)
+	  	public ProcedureType(string id1, string name1, ClearCanvas.Healthcare.ProcedureType basetype1, string planxml1, Decimal baseprice1, string mainingredient1, Decimal tax1, bool isrequired1, ClearCanvas.Healthcare.Facility clinic1, ClearCanvas.Healthcare.ProcedureTypeCategoryEnum category1, string usedirection1, string medicinedose1, Decimal inputprice1, Decimal manualprice1, bool isautomaticprice1, bool saleable1, Decimal insuranceprice1, Double mininumallow1, Double currentquantity1, string barcode1, bool ispoisona1, bool ispoisonb1, bool issalewithorder1, string sideeffective1, string packingmethod1, ClearCanvas.Healthcare.UOMEnum uom1)
 			:base()
 	  	{
 		  	CustomInitialize();
@@ -80,6 +112,8 @@ namespace ClearCanvas.Healthcare
 		  	
 		  	_basePrice = baseprice1;
 		  	
+		  	_mainIngredient = mainingredient1;
+		  	
 		  	_tax = tax1;
 		  	
 		  	_isRequired = isrequired1;
@@ -87,6 +121,36 @@ namespace ClearCanvas.Healthcare
 		  	_clinic = clinic1;
 		  	
 		  	_category = category1;
+		  	
+		  	_useDirection = usedirection1;
+		  	
+		  	_medicineDose = medicinedose1;
+		  	
+		  	_inputPrice = inputprice1;
+		  	
+		  	_manualPrice = manualprice1;
+		  	
+		  	_isAutomaticPrice = isautomaticprice1;
+		  	
+		  	_saleable = saleable1;
+		  	
+		  	_insurancePrice = insuranceprice1;
+		  	
+		  	_mininumAllow = mininumallow1;
+		  	
+		  	_currentQuantity = currentquantity1;
+		  	
+		  	_barcode = barcode1;
+		  	
+		  	_isPoisonA = ispoisona1;
+		  	
+		  	_isPoisonB = ispoisonb1;
+		  	
+		  	_isSaleWithOrder = issalewithorder1;
+		  	
+		  	_sideEffective = sideeffective1;
+		  	
+		  	_packingMethod = packingmethod1;
 		  	
 		  	_uOM = uom1;
 		  	
@@ -102,7 +166,7 @@ namespace ClearCanvas.Healthcare
 		
 		[PersistentProperty]
 		[Required]
-		[Length(30)]
+		[Length(100)]
 		[Unique]
 	  	public virtual string Id
 	  	{
@@ -119,7 +183,7 @@ namespace ClearCanvas.Healthcare
 		
 		[PersistentProperty]
 		[Required]
-		[Length(100)]
+		[Length(255)]
 		[Unique]
 	  	public virtual string Name
 	  	{
@@ -181,6 +245,20 @@ namespace ClearCanvas.Healthcare
 		
 		
 		[PersistentProperty]
+	  	public virtual string MainIngredient
+	  	{
+			
+			get { return _mainIngredient; }
+			
+			
+			 set { _mainIngredient = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
 		[Required]
 	  	public virtual Decimal Tax
 	  	{
@@ -233,6 +311,217 @@ namespace ClearCanvas.Healthcare
 			
 			
 			 set { _category = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual string UseDirection
+	  	{
+			
+			get { return _useDirection; }
+			
+			
+			 set { _useDirection = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual string MedicineDose
+	  	{
+			
+			get { return _medicineDose; }
+			
+			
+			 set { _medicineDose = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual Decimal InputPrice
+	  	{
+			
+			get { return _inputPrice; }
+			
+			
+			 set { _inputPrice = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual Decimal ManualPrice
+	  	{
+			
+			get { return _manualPrice; }
+			
+			
+			 set { _manualPrice = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual bool IsAutomaticPrice
+	  	{
+			
+			get { return _isAutomaticPrice; }
+			
+			
+			 set { _isAutomaticPrice = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual bool Saleable
+	  	{
+			
+			get { return _saleable; }
+			
+			
+			 set { _saleable = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual Decimal InsurancePrice
+	  	{
+			
+			get { return _insurancePrice; }
+			
+			
+			 set { _insurancePrice = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual Double MininumAllow
+	  	{
+			
+			get { return _mininumAllow; }
+			
+			
+			 set { _mininumAllow = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual Double CurrentQuantity
+	  	{
+			
+			get { return _currentQuantity; }
+			
+			
+			 set { _currentQuantity = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+		[Unique]
+	  	public virtual string Barcode
+	  	{
+			
+			get { return _barcode; }
+			
+			
+			 set { _barcode = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual bool IsPoisonA
+	  	{
+			
+			get { return _isPoisonA; }
+			
+			
+			 set { _isPoisonA = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual bool IsPoisonB
+	  	{
+			
+			get { return _isPoisonB; }
+			
+			
+			 set { _isPoisonB = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual bool IsSaleWithOrder
+	  	{
+			
+			get { return _isSaleWithOrder; }
+			
+			
+			 set { _isSaleWithOrder = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual string SideEffective
+	  	{
+			
+			get { return _sideEffective; }
+			
+			
+			 set { _sideEffective = value; }
+			
+	  	}
+		
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual string PackingMethod
+	  	{
+			
+			get { return _packingMethod; }
+			
+			
+			 set { _packingMethod = value; }
 			
 	  	}
 		

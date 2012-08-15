@@ -15,9 +15,9 @@
 		  <property name="PatientName" source="pp.Name"/>
 		  <property name="PatientMrn" source="pp.Mrn"/>
 		  <property name="AccessionNumber" source="o.AccessionNumber"/>
-      <property name="DiagnosticServiceName" source="ds.Name"/>
+      <!--<property name="DiagnosticServiceName" source="ds.Name"/>-->
       <property name="ProcedureName" source="rpt.Name"/>
-      <property name="Priority" source="o.Priority"/>
+      <!--<property name="Priority" source="o.Priority"/>-->
 	  </result>
 	  <criteria name="WorklistQueryBaseCriteria">
 		  <property name="PatientProfileAssigningAuthority" source="pp.Mrn.AssigningAuthority"/>

@@ -147,9 +147,9 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
         protected static readonly HqlSelect SelectMrn = new HqlSelect("pp.Mrn");
         protected static readonly HqlSelect SelectPatientName = new HqlSelect("pp.Name");
         protected static readonly HqlSelect SelectAccessionNumber = new HqlSelect("o.AccessionNumber");
-        protected static readonly HqlSelect SelectPriority = new HqlSelect("o.Priority");
+        //protected static readonly HqlSelect SelectPriority = new HqlSelect("o.Priority");
         protected static readonly HqlSelect SelectPatientClass = new HqlSelect("v.PatientClass");
-        protected static readonly HqlSelect SelectDiagnosticServiceName = new HqlSelect("ds.Name");
+        //protected static readonly HqlSelect SelectDiagnosticServiceName = new HqlSelect("ds.Name");
         protected static readonly HqlSelect SelectProcedureTypeName = new HqlSelect("rpt.Name");
         protected static readonly HqlSelect SelectProcedureStepState = new HqlSelect("ps.State");
         protected static readonly HqlSelect SelectHealthcard = new HqlSelect("pp.Healthcard");
@@ -176,7 +176,7 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
         protected static readonly HqlJoin JoinProcedureType = new HqlJoin("rp.Type", "rpt");
         protected static readonly HqlJoin JoinOrder = new HqlJoin("rp.Order", "o");
         protected static readonly HqlJoin JoinProtocol = new HqlJoin("ps.Protocol", "pr");
-        protected static readonly HqlJoin JoinDiagnosticService = new HqlJoin("o.DiagnosticService", "ds");
+        //protected static readonly HqlJoin JoinDiagnosticService = new HqlJoin("o.DiagnosticService", "ds");
         protected static readonly HqlJoin JoinVisit = new HqlJoin("o.Visit", "v");
         protected static readonly HqlJoin JoinPatient = new HqlJoin("o.Patient", "p");
         protected static readonly HqlJoin JoinPatientProfile = new HqlJoin("p.Profiles", "pp");
@@ -195,7 +195,6 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
                 JoinProcedure,
                 JoinProcedureType,
                 JoinOrder,
-                JoinDiagnosticService,
                 JoinVisit,
                 JoinPatient,
                 JoinPatientProfile
@@ -225,9 +224,9 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
                 SelectMrn,
                 SelectPatientName,
                 SelectAccessionNumber,
-                SelectPriority,
+                //SelectPriority,
                 SelectPatientClass,
-                SelectDiagnosticServiceName,
+                //SelectDiagnosticServiceName,
                 SelectProcedureTypeName,
 				SelectProcedurePortable,
 				SelectProcedureLaterality,
@@ -240,7 +239,6 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
                 {
                     JoinProcedureType,
                     JoinOrder,
-                    JoinDiagnosticService,
                     JoinVisit,
                     JoinPatient,
                     JoinPatientProfile
@@ -440,10 +438,10 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
                 }
                 query.Conditions.Add(or);
             }
-            if (worklist.OrderPriorityFilter.IsEnabled)
-            {
-                query.Conditions.Add(new HqlCondition("o.Priority in elements(w.OrderPriorityFilter.Values)"));
-            }
+            //if (worklist.OrderPriorityFilter.IsEnabled)
+            //{
+            //    query.Conditions.Add(new HqlCondition("o.Priority in elements(w.OrderPriorityFilter.Values)"));
+            //}
             if (worklist.PatientClassFilter.IsEnabled)
             {
                 query.Conditions.Add(new HqlCondition("v.PatientClass in elements(w.PatientClassFilter.Values)"));
@@ -452,10 +450,10 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
 			{
 				query.Conditions.Add(new HqlCondition("v.CurrentLocation in elements(w.PatientLocationFilter.Values)"));
 			}
-			if (worklist.OrderingPractitionerFilter.IsEnabled)
-			{
-				query.Conditions.Add(new HqlCondition("o.OrderingPractitioner in elements(w.OrderingPractitionerFilter.Values)"));
-			}
+            //if (worklist.OrderingPractitionerFilter.IsEnabled)
+            //{
+            //    query.Conditions.Add(new HqlCondition("o.OrderingPractitioner in elements(w.OrderingPractitionerFilter.Values)"));
+            //}
 
             // if any of the above filters were applied, add a condition to specify w
             if (worklist.ProcedureTypeGroupFilter.IsEnabled || worklist.FacilityFilter.IsEnabled || worklist.OrderPriorityFilter.IsEnabled
@@ -619,9 +617,9 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
                     SelectMrn,
                     SelectPatientName,
                     SelectAccessionNumber,
-                    SelectPriority,
+                    //SelectPriority,
                     SelectPatientClass,
-                    SelectDiagnosticServiceName,
+                    //SelectDiagnosticServiceName,
                     SelectProcedureTypeName,
 					SelectProcedurePortable,
 					SelectProcedureLaterality,

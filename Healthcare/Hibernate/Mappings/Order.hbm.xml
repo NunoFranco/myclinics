@@ -13,7 +13,7 @@
     <property name="PlacerNumber" column="PlacerNumber_" type="String" length="50"/>
     <property name="AccessionNumber" column="AccessionNumber_" type="String" length="30" not-null="true" unique="true"/>
 
-    <many-to-one name="DiagnosticService" class="DiagnosticService" column="DiagnosticServiceOID_" not-null="true" fetch="join"/>
+    <!--<many-to-one name="DiagnosticService" class="DiagnosticService" column="DiagnosticServiceOID_" not-null="false" fetch="join"/>-->
 
     <!-- Time that the order was entered -->
     <property name="EnteredTime" column="EnteredTime_" type="DateTime" not-null="true"/>
@@ -32,8 +32,10 @@
 
     <!-- Time order status moved to CM, CA, DC, RP -->
     <property name="EndTime" column="EndTime_" type="DateTime" not-null="false" access="nosetter.camelcase-underscore"/>
-
-    <many-to-one name="OrderingPractitioner" class="ExternalPractitioner" column="OrderingPractitionerOID_" not-null="true"/>
+    
+    <many-to-one name="Doctor" class="Staff" column="OrderingDoctorOID_" not-null="true"/>
+    
+    <!--<many-to-one name="OrderingPractitioner" class="ExternalPractitioner" column="OrderingPractitionerOID_" not-null="false"/>-->
     <many-to-one name="OrderingFacility" class="Facility" column="OrderingFacilityOID_" not-null="true"/>
 
     <set name="Procedures" lazy="true" inverse="true" cascade="all-delete-orphan" access="nosetter.camelcase-underscore">
@@ -45,6 +47,16 @@
       <key column="OrderID_"/>
       <one-to-many class="OrderInvoices"/>
     </set>
+    
+    <set name="Medicines" table="OrderMedicines_" lazy="true" inverse="true" cascade="all-delete-orphan">
+      <key column="OrderOID_"/>
+      <many-to-many column="MedicineOID_" class="DoctorPrescriptionItems" fetch="join"/>
+    </set>
+    <set name="PakageProcedures" table="OrderPackageProcedures_" lazy="true" inverse="true" cascade="all-delete-orphan">
+      <key column="OrderOID_"/>
+      <many-to-many column="PackageProcedureOID_" class="PackageProcedure" fetch="join"/>
+    </set>
+    <property name="DiagnosticResult" column="DiagnosticResult_" type="String" not-null="false"/>
     
     <idbag name="ResultRecipients" table="OrderResultRecipient_" lazy="true" access="nosetter.camelcase-underscore">
       <collection-id column="OID_" type="Guid">
@@ -75,17 +87,17 @@
     <!-- Indications.... may need to be a coded-value, not sure yet -->
     <property name="ReasonForStudy" column="ReasonForStudy_" type="String" length="400"/>
 
-    <many-to-one name="Priority" column="Priority_" class="OrderPriorityEnum" not-null="true"/>
+    <!--<many-to-one name="Priority" column="Priority_" class="OrderPriorityEnum" not-null="true"/>-->
     <many-to-one name="Status" column="Status_" class="OrderStatusEnum" not-null="true" access="nosetter.camelcase-underscore"/>
 
     
-    <!-- Information about why the order was cancelled, populated if the order status is CA, DC, or RP -->
+     <!--Information about why the order was cancelled, populated if the order status is CA, DC, or RP--> 
     <component name="CancelInfo" class="OrderCancelInfo" access="nosetter.camelcase-underscore">
       <many-to-one name="Reason" class="OrderCancelReasonEnum" column="CancelReason_"/>
       <many-to-one name="CancelledBy" class="Staff" column="CancelledByOID_"/>
-      <!-- If cancelled by HL7, this field could be using to capture the name of the person who cancelled it -->
+       <!--If cancelled by HL7, this field could be using to capture the name of the person who cancelled it--> 
       <property name="Comment" column="CancelComment_" type="String"/>
-      <!-- Link to the replacment order, if the order was replaced -->
+       <!--Link to the replacment order, if the order was replaced--> 
       <many-to-one name="ReplacementOrder" class="Order" column="ReplacementOrderOID_"/>
     </component>
 

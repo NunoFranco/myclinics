@@ -22,6 +22,8 @@ namespace ClearCanvas.Healthcare
        	#region Private fields
        	
 		
+	  	private ClearCanvas.Healthcare.Facility _clinic;
+	  	
 	  	private ISet<ClearCanvas.Healthcare.PatientProfile> _profiles;
 	  	
 	  	private IList<ClearCanvas.Healthcare.PatientAttachment> _attachments;
@@ -53,12 +55,14 @@ namespace ClearCanvas.Healthcare
 	  	/// <summary>
 	  	/// All fields constructor
 	  	/// </summary>
-	  	public Patient(ISet<ClearCanvas.Healthcare.PatientProfile> profiles1, IList<ClearCanvas.Healthcare.PatientAttachment> attachments1, ISet<ClearCanvas.Healthcare.PatientNote> notes1)
+	  	public Patient(ClearCanvas.Healthcare.Facility clinic1, ISet<ClearCanvas.Healthcare.PatientProfile> profiles1, IList<ClearCanvas.Healthcare.PatientAttachment> attachments1, ISet<ClearCanvas.Healthcare.PatientNote> notes1)
 			:base()
 	  	{
 		  	CustomInitialize();
 
 			
+		  	_clinic = clinic1;
+		  	
 		  	_profiles = profiles1;
 		  	
 		  	_attachments = attachments1;
@@ -72,6 +76,20 @@ namespace ClearCanvas.Healthcare
 	  	
 	  	#region Public Properties
 	  	
+	  	
+		
+		
+		[PersistentProperty]
+	  	public virtual ClearCanvas.Healthcare.Facility Clinic
+	  	{
+			
+			get { return _clinic; }
+			
+			
+			 set { _clinic = value; }
+			
+	  	}
+		
 	  	
 		
 		

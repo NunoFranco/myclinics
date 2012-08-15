@@ -34,11 +34,7 @@ namespace ClearCanvas.Healthcare
 	  	
 	  	private string _accessionNumber;
 	  	
-	  	private string _diagnosticServiceName;
-	  	
 	  	private string _procedureName;
-	  	
-	  	private ClearCanvas.Healthcare.OrderPriorityEnum _priority;
 	  	
 	  	
 	  	#endregion
@@ -99,22 +95,10 @@ namespace ClearCanvas.Healthcare
 			set { _accessionNumber = value; }
 	  	}
 	  	
-	  	public string DiagnosticServiceName
-	  	{
-			get { return _diagnosticServiceName; }
-			set { _diagnosticServiceName = value; }
-	  	}
-	  	
 	  	public string ProcedureName
 	  	{
 			get { return _procedureName; }
 			set { _procedureName = value; }
-	  	}
-	  	
-	  	public ClearCanvas.Healthcare.OrderPriorityEnum Priority
-	  	{
-			get { return _priority; }
-			set { _priority = value; }
 	  	}
 	  	
 	  	

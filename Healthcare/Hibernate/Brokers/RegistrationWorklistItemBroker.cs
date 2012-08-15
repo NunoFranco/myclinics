@@ -53,7 +53,6 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
             = {
                   JoinOrder,
 				  JoinProcedureType,
-                  JoinDiagnosticService,
                   JoinVisit,
                   JoinPatient,
                   JoinPatientProfile
@@ -154,9 +153,9 @@ namespace ClearCanvas.Healthcare.Hibernate.Brokers
                       SelectMrn,
                       SelectPatientName,
                       SelectAccessionNumber,
-                      SelectPriority,
+                      //SelectPriority,
                       SelectPatientClass,
-                      SelectDiagnosticServiceName,
+                      //SelectDiagnosticServiceName,
 					  SelectProcedureTypeName,
 					  SelectProcedurePortable,
 					  SelectProcedureLaterality,

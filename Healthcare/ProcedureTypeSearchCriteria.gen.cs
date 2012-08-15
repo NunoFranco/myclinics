@@ -116,6 +116,18 @@ namespace ClearCanvas.Healthcare
 	  		}
 	  	}
 	  	
+	  	public ISearchCondition<string> MainIngredient
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("MainIngredient"))
+	  			{
+	  				this.SubCriteria["MainIngredient"] = new SearchCondition<string>("MainIngredient");
+	  			}
+	  			return (ISearchCondition<string>)this.SubCriteria["MainIngredient"];
+	  		}
+	  	}
+	  	
 	  	public ISearchCondition<Decimal> Tax
 	  	{
 	  		get
@@ -161,6 +173,186 @@ namespace ClearCanvas.Healthcare
 	  				this.SubCriteria["Category"] = new SearchCondition<ClearCanvas.Healthcare.ProcedureTypeCategoryEnum>("Category");
 	  			}
 	  			return (ISearchCondition<ClearCanvas.Healthcare.ProcedureTypeCategoryEnum>)this.SubCriteria["Category"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<string> UseDirection
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("UseDirection"))
+	  			{
+	  				this.SubCriteria["UseDirection"] = new SearchCondition<string>("UseDirection");
+	  			}
+	  			return (ISearchCondition<string>)this.SubCriteria["UseDirection"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<string> MedicineDose
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("MedicineDose"))
+	  			{
+	  				this.SubCriteria["MedicineDose"] = new SearchCondition<string>("MedicineDose");
+	  			}
+	  			return (ISearchCondition<string>)this.SubCriteria["MedicineDose"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<Decimal> InputPrice
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("InputPrice"))
+	  			{
+	  				this.SubCriteria["InputPrice"] = new SearchCondition<Decimal>("InputPrice");
+	  			}
+	  			return (ISearchCondition<Decimal>)this.SubCriteria["InputPrice"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<Decimal> ManualPrice
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("ManualPrice"))
+	  			{
+	  				this.SubCriteria["ManualPrice"] = new SearchCondition<Decimal>("ManualPrice");
+	  			}
+	  			return (ISearchCondition<Decimal>)this.SubCriteria["ManualPrice"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> IsAutomaticPrice
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("IsAutomaticPrice"))
+	  			{
+	  				this.SubCriteria["IsAutomaticPrice"] = new SearchCondition<bool>("IsAutomaticPrice");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["IsAutomaticPrice"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> Saleable
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("Saleable"))
+	  			{
+	  				this.SubCriteria["Saleable"] = new SearchCondition<bool>("Saleable");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["Saleable"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<Decimal> InsurancePrice
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("InsurancePrice"))
+	  			{
+	  				this.SubCriteria["InsurancePrice"] = new SearchCondition<Decimal>("InsurancePrice");
+	  			}
+	  			return (ISearchCondition<Decimal>)this.SubCriteria["InsurancePrice"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<Double> MininumAllow
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("MininumAllow"))
+	  			{
+	  				this.SubCriteria["MininumAllow"] = new SearchCondition<Double>("MininumAllow");
+	  			}
+	  			return (ISearchCondition<Double>)this.SubCriteria["MininumAllow"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<Double> CurrentQuantity
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("CurrentQuantity"))
+	  			{
+	  				this.SubCriteria["CurrentQuantity"] = new SearchCondition<Double>("CurrentQuantity");
+	  			}
+	  			return (ISearchCondition<Double>)this.SubCriteria["CurrentQuantity"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<string> Barcode
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("Barcode"))
+	  			{
+	  				this.SubCriteria["Barcode"] = new SearchCondition<string>("Barcode");
+	  			}
+	  			return (ISearchCondition<string>)this.SubCriteria["Barcode"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> IsPoisonA
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("IsPoisonA"))
+	  			{
+	  				this.SubCriteria["IsPoisonA"] = new SearchCondition<bool>("IsPoisonA");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["IsPoisonA"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> IsPoisonB
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("IsPoisonB"))
+	  			{
+	  				this.SubCriteria["IsPoisonB"] = new SearchCondition<bool>("IsPoisonB");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["IsPoisonB"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<bool> IsSaleWithOrder
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("IsSaleWithOrder"))
+	  			{
+	  				this.SubCriteria["IsSaleWithOrder"] = new SearchCondition<bool>("IsSaleWithOrder");
+	  			}
+	  			return (ISearchCondition<bool>)this.SubCriteria["IsSaleWithOrder"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<string> SideEffective
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("SideEffective"))
+	  			{
+	  				this.SubCriteria["SideEffective"] = new SearchCondition<string>("SideEffective");
+	  			}
+	  			return (ISearchCondition<string>)this.SubCriteria["SideEffective"];
+	  		}
+	  	}
+	  	
+	  	public ISearchCondition<string> PackingMethod
+	  	{
+	  		get
+	  		{
+	  			if(!this.SubCriteria.ContainsKey("PackingMethod"))
+	  			{
+	  				this.SubCriteria["PackingMethod"] = new SearchCondition<string>("PackingMethod");
+	  			}
+	  			return (ISearchCondition<string>)this.SubCriteria["PackingMethod"];
 	  		}
 	  	}
 	  	

@@ -34,42 +34,24 @@ using System.Collections;
 using System.Text;
 
 using ClearCanvas.Enterprise.Core;
-using System.Runtime.Serialization;
 
 namespace ClearCanvas.Healthcare {
 
     /// <summary>
-    /// HL7 Sex enumeration
+    /// HL7  enumeration
     /// </summary>
-    [EnumValueClass(typeof(ProcedureTypeCategoryEnum))]
-    [DataContract]
-    public enum ProcedureTypeCategory
+    [EnumValueClass(typeof(TransactionTypeEnum))]
+    public enum TransactionType
 	{
 
-        [EnumValue("ALL")]
-        [EnumMember]
-        ALL,
+        [EnumValue("Deposit")]
+        IN,
         /// <summary>
         /// Unknown
         /// </summary>
-        [EnumValue("Medicine")]
-        [EnumMember]
-        ME,
-
-        /// <summary>
-        /// Female
-        /// </summary>
-        [EnumValue("Procedures")]
-        [EnumMember]
-        PRO,
-
-        /// <summary>
-        /// Male
-        /// </summary>
-        [EnumValue("Equipment")]
-        [EnumMember]
-        EQ,
-       
+        [EnumValue("With Draw")]
+        OUT,
+      
 
 	}
 }

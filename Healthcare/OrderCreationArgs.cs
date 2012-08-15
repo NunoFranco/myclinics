@@ -66,7 +66,9 @@ namespace ClearCanvas.Healthcare
             string ordernumber,
             string BillingStatus_,
 			OrderPriority priority, Facility orderingFacility, DateTime? schedulingRequestTime,
-			ExternalPractitioner orderingPractitioner, IList<ResultRecipient> resultRecipients, IList<Procedure> procedures)
+			ExternalPractitioner orderingPractitioner, 
+            IList<ResultRecipient> resultRecipients, 
+            IList<Procedure> procedures, Staff d, IList<DoctorPrescriptionItems> _medicines, string result)
 		{
 			EnteredTime = enteredTime;
 			EnteredBy = enteredBy;
@@ -84,6 +86,9 @@ namespace ClearCanvas.Healthcare
 			OrderingPractitioner = orderingPractitioner;
 			ResultRecipients = resultRecipients;
 			Procedures = procedures;
+            Doctor = d;
+            Medicines = _medicines;
+            DianogsticResult = result;
 		}
 
 		/// <summary>
@@ -109,7 +114,7 @@ namespace ClearCanvas.Healthcare
             string BillingStatus_,
             OrderPriority priority,
 			Facility orderingFacility, Facility performingFacility, DateTime? schedulingRequestTime, ExternalPractitioner orderingPractitioner,
-			IList<ResultRecipient> resultRecipients)
+			IList<ResultRecipient> resultRecipients, Staff s,IList<DoctorPrescriptionItems> _medicines,string result)
 		{
 			EnteredTime = enteredTime;
 			EnteredBy = enteredBy;
@@ -127,6 +132,9 @@ namespace ClearCanvas.Healthcare
 			SchedulingRequestTime = schedulingRequestTime;
 			OrderingPractitioner = orderingPractitioner;
 			ResultRecipients = resultRecipients;
+            Doctor = s;
+            DianogsticResult = result;
+            Medicines = _medicines;
 		}
 
 		/// <summary>
@@ -164,6 +172,8 @@ namespace ClearCanvas.Healthcare
 		/// </summary>
 		public DiagnosticService DiagnosticService;
 
+
+        public Staff Doctor;
 		/// <summary>
 		/// Reason that the order is being placed. Required.
 		/// </summary>
@@ -207,5 +217,9 @@ namespace ClearCanvas.Healthcare
 		/// List of recipients to receive order results. Optional.
 		/// </summary>
 		public IList<ResultRecipient> ResultRecipients;
+
+        public IList<DoctorPrescriptionItems> Medicines;
+
+        public string DianogsticResult;
 	}
 }

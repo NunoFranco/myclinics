@@ -56,7 +56,7 @@ namespace ClearCanvas.Healthcare {
         /// <param name="id"></param>
         /// <param name="name"></param>
         public ProcedureType(string id, string name)
-            :this(id, name, null, null,0,0,false ,null,null,null )
+            :this(id, name, null, null,0,"",0,true ,null,null,"","",0,0,false ,false ,0,0,0,"",false ,false ,false,"","",null )
         {
         }
 

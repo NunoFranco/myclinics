@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ClearCanvas.Healthcare" namespace="ClearCanvas.Healthcare">
+  <class name="PackageProcedure" proxy="PackageProcedure" table="PackageProcedure_">
+    <cache usage="nonstrict-read-write"/>
+    <id name="OID" column="OID_" type="Guid">
+      <generator class="guid.comb"/>
+    </id>
+    <version name="Version" column="Version_"/>
+    <property name ="Id" column="id_" type="string" unique="true" not-null="true"></property>
+    <property name ="Name" column="Name_" type="string" ></property>
+    <property name ="Description" column="Description_" type="string" ></property>
+    <property name ="UnitPrice" column="UnitPrice_" type="Decimal" not-null="true"></property>
+    <property name ="InsurancePrice" column="InsurancePrice_" type="Decimal" not-null="true"></property>
+    <many-to-one name="Clinic" class="Facility" column="ClinicOID_"/>
+    <property name="Deactivated" column="Deactivated_" type="Boolean" not-null="true"/>
+  </class>
+</hibernate-mapping>

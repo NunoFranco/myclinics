@@ -76,7 +76,7 @@ namespace ClearCanvas.Healthcare
 			_patientName = patientProfile.Name;
 			_dateOfBirth = patientProfile.DateOfBirth;
 			_accessionNumber = order.AccessionNumber;
-			_diagnosticServiceName = order.DiagnosticService.Name;
+            //_diagnosticServiceName = order.DiagnosticService.Name;
 			_category = note.Category;
 			_urgent = note.Urgent;
 			_postTime = note.PostTime;
