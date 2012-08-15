@@ -374,7 +374,20 @@ namespace ClearCanvas.Enterprise.Desktop
 				ExceptionHandler.Report(e, this.Host.DesktopWindow);
 			}
 		}
-
+        public void AddedItems(TSummary summary)
+        {
+            _summaryTable.Items.Add(summary);
+            this.SummarySelection = new Selection(summary);
+            if (_setModifiedOnListChange)
+                this.Modified = true;
+        }
+        public void UpdatedItem(TSummary summary)
+        {
+            _summaryTable.Items.Replace(x => IsSameItem(summary, x), summary);
+            this.SummarySelection = new Selection(summary);
+            if (_setModifiedOnListChange)
+                this.Modified = true;
+        }
 		/// <summary>
 		/// Handles the "edit" action.
 		/// </summary>
@@ -740,5 +753,46 @@ namespace ClearCanvas.Enterprise.Desktop
 
 		protected abstract IList<TSummary> ListItems(TListRequest request);
 	}
+    //public abstract class SummaryComponentBase<TSummary, TTable, TListRequest, TEditor> : SummaryComponentBase<TSummary, TTable, TListRequest>
+    //    where TSummary : class
+    //    where TTable : Table<TSummary>, new()
+    //    where TListRequest : ListRequestBase, new()
+    //    where TEditor :EditorBase<TSummary> , new ()
+    //{
+    //    private Shelf _shelf;
 
+    //    TEditor editor = new TEditor();
+    //    void InitialEditor()
+    //    {
+    //        editor = new TEditor();
+    //        editor.ItemAdded += delegate { AddedItems(editor.summary); };
+    //        editor.ItemUpdated += delegate
+    //        {
+    //            UpdatedItem(editor.summary);
+    //            if (_shelf != null)
+    //            {
+    //                _shelf.Title = SR.TitleAddNewItem;
+    //            }
+    //        };
+
+    //        editor.IsCloseWhenSaved = false;
+    //    }
+
+    //    void ShowEditor(bool isNew, string editingName)
+    //    {
+    //        if (_shelf == null)
+    //        {
+    //            InitialEditor();
+    //            _shelf = ApplicationComponent.LaunchAsShelf(
+    //                this.Host.DesktopWindow, editor, "", ShelfDisplayHint.DockLeft);
+    //            _shelf.Closed += delegate { _shelf = null; };
+    //        }
+    //        //editor = (_shelf.Component as DoctorPrescriptionEditorComponent);
+
+    //        _shelf.Title = isNew ? SR.TitleAddNewItem  : string.Format(SR.TitleUpdateContact, editingName);
+    //        editor.IsNew = isNew;
+
+    //        _shelf.Activate();
+    //    }
+    //}
 }

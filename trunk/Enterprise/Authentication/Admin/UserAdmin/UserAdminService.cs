@@ -204,7 +204,7 @@ namespace ClearCanvas.Enterprise.Authentication.Admin.UserAdmin
 
         #endregion
 
-        private User FindUserByName(string name)
+        public User FindUserByName(string name)
         {
             try
             {

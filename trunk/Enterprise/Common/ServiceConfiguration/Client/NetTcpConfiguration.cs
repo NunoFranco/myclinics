@@ -31,6 +31,7 @@
 
 using System;
 using System.ServiceModel;
+using System.ServiceModel.Description;
 
 namespace ClearCanvas.Enterprise.Common.ServiceConfiguration.Client
 {
@@ -58,7 +59,7 @@ namespace ClearCanvas.Enterprise.Common.ServiceConfiguration.Client
 
 
             binding.MaxReceivedMessageSize = args.MaxReceivedMessageSize;
-
+            
             // allow individual string content to be same size as entire message
             binding.ReaderQuotas.MaxStringContentLength = args.MaxReceivedMessageSize;
             binding.ReaderQuotas.MaxArrayLength = args.MaxReceivedMessageSize;
@@ -67,6 +68,14 @@ namespace ClearCanvas.Enterprise.Common.ServiceConfiguration.Client
                 new EndpointAddress(args.ServiceUri));
             channelFactory.Credentials.ServiceCertificate.Authentication.CertificateValidationMode = args.CertificateValidationMode;
 			channelFactory.Credentials.ServiceCertificate.Authentication.RevocationMode = args.RevocationMode;
+            foreach (OperationDescription op in channelFactory.Endpoint.Contract.Operations)
+            {
+                DataContractSerializerOperationBehavior dataContractBehavior = op.Behaviors.Find<DataContractSerializerOperationBehavior>() as DataContractSerializerOperationBehavior;
+                if (dataContractBehavior != null)
+                {
+                    dataContractBehavior.MaxItemsInObjectGraph = int.MaxValue  ;
+                }
+            }
 
             return channelFactory;
         }

@@ -53,6 +53,7 @@ namespace ClearCanvas.Enterprise.Common
             this.AuthenticationRequired = authenticationRequired;
             this.MaxReceivedMessageSize = maxReceivedMessageSize;
             this.CertificateValidationMode = certificateValidationMode;
+           
             this.RevocationMode = revocationMode;
         }
 
